@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detectBRIEFDescriptors.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detectBRIEFDescriptors" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detectBRIEFDescriptors</refname>
+    <refpurpose>This function is used for computing BRIEF descriptors using Star keypoints.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ a ] = detectBRIEFDescriptors(srcImg)
+   [ a ] = detectVRIEFDescriptors(srcImg, maxSize, responseThreshold, lineThresholdProjected, lineThresholdBinarized, suppressNonmaxSize, bytes, use_orientation    )
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg :</term>
+      <listitem><para> Hyper of input image</para></listitem></varlistentry>
+   <varlistentry><term>maxSize :</term>
+      <listitem><para> Choose the number of filters to be applied, the parameter value set the maximum size.</para></listitem></varlistentry>
+   <varlistentry><term>responseThreshold :</term>
+      <listitem><para> To eliminate weak corners.</para></listitem></varlistentry>
+   <varlistentry><term>lineThresholdProjected :</term>
+      <listitem><para> Harris of responses.</para></listitem></varlistentry>
+   <varlistentry><term>lineThresholdBinarized :</term>
+      <listitem><para> Harris of sizes.</para></listitem></varlistentry>
+   <varlistentry><term>suppressNonmaxSize :</term>
+      <listitem><para> Window size (n-by-n) to apply the non-maximal suppression.</para></listitem></varlistentry>
+   <varlistentry><term>bytes :</term>
+      <listitem><para> legth of the descriptor in bytes, valid values are: 16, 32 (default) or 64.</para></listitem></varlistentry>
+   <varlistentry><term>use_orientation :</term>
+      <listitem><para> sample patterns using keypoints orientation, disabled by default.</para></listitem></varlistentry>
+   <varlistentry><term>a :</term>
+      <listitem><para> It is a struct consisting of 'Type'(Type of Feature) , 'Features'(descriptors) , 'NumBits', 'NumFeatures', 'KeyPoints', 'keypointsCount'.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+For extracting keypoints(StarDetector) and computing descriptors. BRIEF which gives the shortcut to find binary descriptors with less memory, faster matching, still higher recognition rate.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// with default values
+[ a ] = imread("b1.jpeg");
+[ b ] = imread("b2.jpeg");
+stacksize("max);
+[ c ] = detectBRIEFDescriptors(a);
+[ d ] = detectBRIEFDescriptors(b);
+[ e f ] = matchFeatures(c.Features, d.Features);
+out = drawMatch(a, b, c.KeyPoints, d.KeyPoints, e, f);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// user assigned values
+[ a ] = imread("b1.jpeg");
+[ b ] = imread("b2.jpeg");
+stacksize("max);
+[ c ] = detectBRIEFDescriptors(a, 45, 30, 10, 8, 5, 32, %f);
+[ d ] = detectBRIEFDEscriptors(b, 45, 30, 10, 8, 5, 32, %f);
+[ e f ] = matchFeatures(c.Features, d.Features);
+out = drawMatch(a, b, c.KeyPoints, d.KeyPoints, e, f);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from gabor.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="gabor" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>gabor</refname>
+    <refpurpose>This function creates a Gabor filter.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [outputImg] = gabor(wavelength,orientation)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>wavelength :</term>
+      <listitem><para> It is the wavelength of sinusoid, specified as a numeric scalar or vector, in pixels/cycle.</para></listitem></varlistentry>
+   <varlistentry><term>orientation :</term>
+      <listitem><para> It is the orientation of filter in degrees, specified as a numeric scalar in the range [0 180], where the orientation is defined as the normal direction to the sinusoidal plane wave.</para></listitem></varlistentry>
+   <varlistentry><term>outputImg :</term>
+      <listitem><para> The Gabor filter.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+It creates a Gabor filter with the specified wavelength (in pixels/cycle) and orientation (in degrees). If you specify wavelength or orientation as vectors, gabor returns an array of gabor objects, called a filter bank, that contain all the unique combinations of wavelength and orientation. For example, if wavelength is a vector of length 2 and orientation is a vector of length 3, then the output array is a vector of length 6.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create an array of Gabor filters.
+wavelength = 20;
+orientation = 45;
+a = gabor(wavelength, orientation);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Samiran Roy</member>
+   </simplelist>
+</refsection>
+</refentry>

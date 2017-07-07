@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from xyz2lab.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="xyz2lab" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>xyz2lab</refname>
+    <refpurpose>This function converts CIE 1931 XYZ to CIE 1976 L*a*b*.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [output] = xyz2lab(vartype)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>varType :</term>
+      <listitem><para> list of color values to convert.</para></listitem></varlistentry>
+   <varlistentry><term>output :</term>
+      <listitem><para> list of converted color values.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Convert CIE 1931 XYZ to CIE 1976 L*a*b*.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(0.25, 0.40, 0.10)
+xyz2lab(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(0.29, 0.23, 0.11)
+xyz2lab(a))
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(0.29, 34, 0.10)
+xyz2lab(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(0.25, 0.56, 0.18)
+xyz2lab(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// error - inpput ahould be M by 3 or M by N by 3
+a = uint16([100 32 67 56]);
+b = xyz2double(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(89.25, 89.40, 0.10)
+xyz2lab(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(78, 89, 11)
+xyz2lab(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(0.25, 0.40, 90.67)
+xyz2lab(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(0.76, 0.67, 9.10)
+xyz2lab(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert an XYZ color value to L*a*b*
+a = list(78.25, 34.40, 0.10)
+xyz2lab(a))
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   <member>Priyanka Hiranandani, NIT Surat</member>
+   </simplelist>
+</refsection>
+</refentry>

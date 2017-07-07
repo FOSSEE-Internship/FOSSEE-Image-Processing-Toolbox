@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from pcwrite.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="pcwrite" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>pcwrite</refname>
+    <refpurpose>This function is used to write 3-D point cloud to PLY or PCD file.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [] = pcwrite(pointCloud, filename)
+   [] = pcwrite(pointCloud, filename, fileFormat, fileType)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>pointCloud :</term>
+      <listitem><para> Object for storing point cloud, specified as a pointCloud object.</para></listitem></varlistentry>
+   <varlistentry><term>filename :</term>
+      <listitem><para> File name, specified as a character vector, specify the file name with an extension incase of two input argument.(default encoding is ASCII)</para></listitem></varlistentry>
+   <varlistentry><term>fileFormat :</term>
+      <listitem><para> The input file type must be a PLY or PCD format file.(choose between ".ply" or ".pcd")</para></listitem></varlistentry>
+   <varlistentry><term>fileType :</term>
+      <listitem><para> Choose from the following encoding, PLY - 'ascii', 'binary' and PCD - 'ascii', 'binary', or 'compressed'.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Writes the point cloud object, ptCloud, to the PLY or PCD file specified by the input.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Write 3-D Point Cloud to PLY File
+ptCloud = pcread('teapot.ply');
+pcshow(ptCloud);
+pcwrite(ptCloud,'teapotOut','ply','binary');
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Write 3-D Point Cloud to PCD File
+ptCloud = pcread('teapot.ply');
+pcshow(ptCloud);
+pcwrite(ptCloud,'teapotOut','pcd','binary');
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>

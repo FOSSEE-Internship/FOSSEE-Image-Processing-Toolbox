@@ -1,0 +1,93 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>pcwrite</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="ntsc2rgb.html">&lt;&lt; ntsc2rgb</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="rgb2lab.html">rgb2lab &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a> &gt; pcwrite</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">pcwrite</h1>
+    <p class="refpurpose">This function is used to write 3-D point cloud to PLY or PCD file.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[] = </span><span class="functionid">pcwrite</span><span class="default">(</span><span class="default">pointCloud</span><span class="default">, </span><span class="default">filename</span><span class="default">)</span>
+<span class="default">[] = </span><span class="functionid">pcwrite</span><span class="default">(</span><span class="default">pointCloud</span><span class="default">, </span><span class="default">filename</span><span class="default">, </span><span class="default">fileFormat</span><span class="default">, </span><span class="default">fileType</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">pointCloud :</span>
+      <dd><p class="para">Object for storing point cloud, specified as a pointCloud object.</p></dd></dt>
+   <dt><span class="term">filename :</span>
+      <dd><p class="para">File name, specified as a character vector, specify the file name with an extension incase of two input argument.(default encoding is ASCII)</p></dd></dt>
+   <dt><span class="term">fileFormat :</span>
+      <dd><p class="para">The input file type must be a PLY or PCD format file.(choose between &#0034;.ply&#0034; or &#0034;.pcd&#0034;)</p></dd></dt>
+   <dt><span class="term">fileType :</span>
+      <dd><p class="para">Choose from the following encoding, PLY - &#0039;ascii&#0039;, &#0039;binary&#0039; and PCD - &#0039;ascii&#0039;, &#0039;binary&#0039;, or &#0039;compressed&#0039;.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Writes the point cloud object, ptCloud, to the PLY or PCD file specified by the input.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Write 3-D Point Cloud to PLY File</span>
+<span class="scilabid">ptCloud</span> <span class="scilaboperator">=</span> <span class="scilabid">pcread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">teapot.ply</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">pcshow</span><span class="scilabopenclose">(</span><span class="scilabid">ptCloud</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">pcwrite</span><span class="scilabopenclose">(</span><span class="scilabid">ptCloud</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">teapotOut</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">ply</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">binary</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Write 3-D Point Cloud to PCD File</span>
+<span class="scilabid">ptCloud</span> <span class="scilaboperator">=</span> <span class="scilabid">pcread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">teapot.ply</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">pcshow</span><span class="scilabopenclose">(</span><span class="scilabid">ptCloud</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">pcwrite</span><span class="scilabopenclose">(</span><span class="scilabid">ptCloud</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">teapotOut</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">pcd</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">binary</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Ashish Manatosh Barik, NIT Rourkela</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="ntsc2rgb.html">&lt;&lt; ntsc2rgb</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="rgb2lab.html">rgb2lab &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

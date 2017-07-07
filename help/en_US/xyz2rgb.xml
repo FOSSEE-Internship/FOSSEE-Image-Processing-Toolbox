@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from xyz2rgb.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="xyz2rgb" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>xyz2rgb</refname>
+    <refpurpose>This function converts CIE 1931 XYZ to RGB.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [output] = xyz2rgb(data)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>data :</term>
+      <listitem><para> list of color values to convert.</para></listitem></varlistentry>
+   <varlistentry><term>output :</term>
+      <listitem><para> list of converted color values.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Converts CIE 1931 XYZ to RGB.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(0.25, 0.40, 0.10);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(3.25, 5.40, 12.10);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(2, 5, 4);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(0.65, 0.43, 0.19);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(89.25, 23, 0.6710);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(0.2534, 0.4340, 0.143);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(67.25, 34.40, 44.10);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(34.25, 56.40, 223.189);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(0.1, 0.1, 0.1);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in the XYZ color space to the sRGB color space.
+a = list(78.25, 34.40, 23.10);
+xyz2rgb(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess Zacharias</member>
+   <member>Ashish Manatosh Barik</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detectLATCHDescriptors.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detectLATCHDescriptors" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detectLATCHDescriptors</refname>
+    <refpurpose>This function is used for computing the LATCH descriptors using Star keypoints.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ a ] = detectLATCHDescriptors(srcImg)
+   [ a ] = detectLATCHDescriptors(srcImg, maxSize, responseThreshold, lineThresholdProjected, lineThresholdBinarized, suppressNonmaxSize, bytes, rotationInvariance, half_ssd_size)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg :</term>
+      <listitem><para> Hyper of input image</para></listitem></varlistentry>
+   <varlistentry><term>maxSize :</term>
+      <listitem><para> Choose the number of filters to be applied, the parameter value set the maximum size.</para></listitem></varlistentry>
+   <varlistentry><term>responseThreshold :</term>
+      <listitem><para> To eliminate weak corners.</para></listitem></varlistentry>
+   <varlistentry><term>lineThresholdProjected :</term>
+      <listitem><para> Harris of responses.</para></listitem></varlistentry>
+   <varlistentry><term>lineThresholdBinarized :</term>
+      <listitem><para> Harris of sizes.</para></listitem></varlistentry>
+   <varlistentry><term>suppressNonmaxSize :</term>
+      <listitem><para> Window size (n-by-n) to apply the non-maximal suppression.</para></listitem></varlistentry>
+   <varlistentry><term>bytes :</term>
+      <listitem><para> It is the size of the descriptor - can be 64, 32, 16, 8, 4, 2 or 1.</para></listitem></varlistentry>
+   <varlistentry><term>rotationInvariance :</term>
+      <listitem><para> whether or not the descriptor should compansate for orientation changes.</para></listitem></varlistentry>
+   <varlistentry><term>half_ssd_size) :</term>
+      <listitem><para> the size of half of the mini-patches size. For example, if we would like to compare triplets of patches of size 7x7x then the half_ssd_size should be (7-1)/2 = 3.</para></listitem></varlistentry>
+   <varlistentry><term>a :</term>
+      <listitem><para> It is a struct consisting of 'Type'(Type of Feature) , 'Features'(descriptors) , 'NumBits', 'NumFeatures', 'KeyPoints', 'keypointsCount'.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+For extracting keypoints(using StarDetectors) and computing descriptors(LATCH).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// with default values
+[ a ] = imread("b1.jpeg");
+[ b ] = imread("b2.jpeg");
+stacksize('max')
+[ c ] = detectLATCHdescriptors(a);
+[ d ] = detectLATCHDescriptors(b);
+[ e f ] = matchFeatures(c.Features, d.Features);
+out = drawMatch(a, b, c.KeyPoints, d.KeyPoints, e, f);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// user assigned values
+[ a ] = imread("b1.jpeg");
+[ b ] = imread("b2.jpeg");
+stacksize('max')
+[ c ] = detectLATCHdescriptors(a, 45, 30, 10, 8, 5, 32, %t, 3);
+[ d ] = detectLATCHDEscriptors(b, 45, 30, 10, 8, 5, 32, %t, 3);
+[ e f ] = matchFeatures(c.Features, d.Features);
+out = drawMatch(a, b, c.KeyPoints, d.KeyPoints, e, f);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   </simplelist>
+</refsection>
+</refentry>

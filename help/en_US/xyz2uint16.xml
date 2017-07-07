@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from xyz2uint16.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="xyz2uint16" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>xyz2uint16</refname>
+    <refpurpose>This function converts XYZ color values to uint16.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [output] = xyz2uint16(pstData)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>pstData :</term>
+      <listitem><para> list of uint16 or double array that must be real and nonsparse</para></listitem></varlistentry>
+   <varlistentry><term>output :</term>
+      <listitem><para> list of puint8.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Converts an M-by-3 or M-by-N-by-3 array of XYZ color values to uint16. output has the same size as pstData.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(0.1, 0.5, 1.0)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(0.14, 0.35, 1.20)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(45.1, 22.5, 45.0)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(200, 334, 2112)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(56.1, 0.5, 1.0)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(0.1, 8378.5, 1.0)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(878.1, 32.5, 1.0)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(0.12323, 0.53434, 1.878)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(44, 55, 1.0)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a double vector specifying a color in XYZ colorspace.
+a = list(0.134, 55.5, 1.121)
+xyz2uint16(a)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess Zacharias</member>
+   <member>Ashish Manatosh Barik</member>
+   </simplelist>
+</refsection>
+</refentry>

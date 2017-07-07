@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from align.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="align" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>align</refname>
+    <refpurpose>This function aligns the set of input images for HDR image creation.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [out1, out2, out3] = align(maxBits, excludeRange, cut, num, srcImg_1, srcImg_2, srcImg_3)
+   [out1, out2, out3, out4] = align(maxBits, excludeRange, cut, num, srcImg1, srcImg_2, srcImg_3, srcImg_4)
+   [out1, out2, out3, out4, out5] = align(maxBits, excludeRange, cut, num, srcImg_1, srcImg_2, srcImg_3, srcImg_4, srcImg_5)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>maxBits :</term>
+      <listitem><para> Logarithm to the base 2 of maximal shift in each dimension. Values of 5 and 6 are usually good enough (31 and 63 pixels shift respectively). Value should not exceed 6. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>excludeRange :</term>
+      <listitem><para> Range for exclusion bitmap that is constructed to suppress noise around the median value. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>cut :</term>
+      <listitem><para> If true, cuts images. Otherwise fills the new regions with zeros. It is of Boolean type.</para></listitem></varlistentry>
+   <varlistentry><term>num :</term>
+      <listitem><para> Number of images given as input source images(3 - 5). It is of double type.</para></listitem></varlistentry>
+   <varlistentry><term>srcImg_i :</term>
+      <listitem><para> Hypermat of image_i.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function uses AlignMTB algorithm which converts images to median threshold bitmaps (1 for pixels brighter than median luminance and 0 otherwise) and than aligns the resulting bitmaps using bit operations.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("m1.jpeg");
+b = imread("m2.jpeg");
+c = imread("m3.jpeg");
+num = 3;
+maxBits= 6;
+excludeRange = 4;
+cut = %t;
+[x, y, z] = align(maxBits, excludeRange, cut, num, a, b, c);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("t1.jpeg");
+b = imread("t2.jpeg");
+c = imread("t3.jpeg");
+d = imread("t4.jpeg");
+num = 4;
+maxBits= 6;
+excludeRange = 4;
+cut = %f;
+[x, y, z, p] = align(maxBits, excludeRange, cut, num, a, b, c, d);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// error cause maxBits value is greater than 6
+a = imread("m1.jpeg");
+b = imread("m2.jpeg");
+c = imread("m3.jpeg");
+d = imread("m4.jpeg");
+num = 4;
+maxBits= 7;
+excludeRange = 4;
+cut = %t;
+[x, y, z, p] = align(maxBits, excludeRange, cut, num, a, b, c, d);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("m1.jpeg");
+b = imread("m2.jpeg");
+c = imread("m3.jpeg");
+d = imread("m4.jpeg");
+e = imread("m5.jpeg");
+num = 5;
+maxBits= 6;
+excludeRange = 4;
+cut = %t;
+[x, y, z, p, q] = align(maxBits, excludeRange, cut, num, a, b, c, d, e);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// cut is set false here (if true cuts images, otherwise fills the new regions with zeros. )
+a = imread("t1.jpeg");
+b = imread("t2.jpeg");
+c = imread("t3.jpeg");
+num = 3;
+maxBits= 1;
+excludeRange = 4;
+cut = %t;
+[x, y, z] = align(maxBits, excludeRange, cut, num, a, b, c);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>
