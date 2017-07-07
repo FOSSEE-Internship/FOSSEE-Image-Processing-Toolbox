@@ -1,0 +1,108 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>illuminationChange</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="getStructuringElement.html">&lt;&lt; getStructuringElement</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="localMaximaFinder.html">localMaximaFinder &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a> &gt; illuminationChange</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">illuminationChange</h1>
+    <p class="refpurpose">This function is used to reduce specular reflections or highlight under-exposed foreground objects.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">src</span><span class="default"> = </span><span class="default">imread</span><span class="default">(</span>&#0034;<span class="default">image</span><span class="default">-</span><span class="default">location</span><span class="default">-</span><span class="default">for</span><span class="default">-</span><span class="default">src</span>&#0034;<span class="default">);</span>
+<span class="default">mask</span><span class="default"> = </span><span class="default">roiFreeHand</span><span class="default">(</span><span class="default">src</span><span class="default">); </span><span class="comment">//we can also use other function to create the mask</span>
+<span class="default">outputImage</span><span class="default"> = </span><span class="functionid">illuminationChange</span><span class="default">(</span><span class="default">src</span><span class="default">, </span><span class="default">mask</span><span class="default">, </span><span class="default">alpha</span><span class="default">, </span><span class="default">beta</span><span class="default"> )</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">outputImage:</span>
+      <dd><p class="para">resultant Output image</p></dd></dt>
+   <dt><span class="term">src:</span>
+      <dd><p class="para">Input source image</p></dd></dt>
+   <dt><span class="term">mask:</span>
+      <dd><p class="para">Input mask image with same size as that of source image.</p></dd></dt>
+   <dt><span class="term">alpha:</span>
+      <dd><p class="para">Value ranges between 0-2. (float) (default value= 0.2f)</p></dd></dt>
+   <dt><span class="term">beta:</span>
+      <dd><p class="para">Value ranges between 0-2. (float) (default value= 0.4f)</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Applying an appropriate non-linear transformation to the gradient field inside the selection and then integrating
+back with a Poisson solver, modifies locally the apparent illumination of an image.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">src</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">/images/color2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span><span class="scilabcomment">//reading an image</span>
+<span class="scilabid">mask</span> <span class="scilaboperator">=</span> <span class="scilabid">roiFreeHand</span><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabcomment">//creating a mask</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">mask</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span><span class="scilabcomment">//view mask</span>
+
+<span class="scilabid">outputImage1</span> <span class="scilaboperator">=</span> <span class="scilabid">illuminationChange</span><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabdefault">,</span> <span class="scilabid">mask</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//using default arguments</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">outputImage1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabcomment">// view outputImage1</span>
+
+<span class="scilabid">outputImage2</span> <span class="scilaboperator">=</span> <span class="scilabid">illuminationChange</span><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabdefault">,</span> <span class="scilabid">mask</span><span class="scilabdefault">,</span><span class="scilabnumber">1.9</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.3</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//providing all optional input arguments</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">outputImage2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabcomment">// view outputImage2</span>
+
+<span class="scilabid">outputImage3</span> <span class="scilaboperator">=</span> <span class="scilabid">illuminationChange</span><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabdefault">,</span> <span class="scilabid">mask</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.3</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//skipping first optional input argument</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">outputImage3</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabcomment">// view outputImage3</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">src</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">/images/color2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">row</span> <span class="scilabid">col</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://size">size</a><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabopenclose">)</span>
+<span class="scilabid">mask</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://zeros">zeros</a><span class="scilabopenclose">(</span><span class="scilabid">row</span><span class="scilabdefault">,</span><span class="scilabid">col</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//creating a mask</span>
+<span class="scilabid">mask</span><span class="scilabopenclose">(</span><span class="scilabnumber">100</span><span class="scilabspecial">:</span><span class="scilabnumber">140</span><span class="scilabdefault">,</span><span class="scilabnumber">100</span><span class="scilabspecial">:</span><span class="scilabnumber">150</span><span class="scilabopenclose">)</span> <span class="scilaboperator">=</span><span class="scilabnumber">255</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">mask</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">view</span> <span class="scilabid">the</span> <span class="scilabid">mask</span>
+<span class="scilabid">outputImage</span> <span class="scilaboperator">=</span> <span class="scilabid">illuminationChange</span><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabdefault">,</span> <span class="scilabid">mask</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//using default arguments</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">outputImage</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span><span class="scilabcomment">//view the output</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Rohan Gurve</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="getStructuringElement.html">&lt;&lt; getStructuringElement</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="localMaximaFinder.html">localMaximaFinder &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

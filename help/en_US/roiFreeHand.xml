@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from roiFreeHand.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="roiFreeHand" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>roiFreeHand</refname>
+    <refpurpose>This is a gui based function which is used to create a mask by selecting the region of interest</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread(image-location-for-src)
+   mask = roiFreeHand(src)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>mask:</term>
+      <listitem><para> Output 8 bit mask image with same size as input image</para></listitem></varlistentry>
+   <varlistentry><term>image:</term>
+      <listitem><para> Input image to be masked</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function allows the user to create a mask by selecting the region of interest in the image.
+Start selecting the region of interest by pressing the left mouse button and moving in the clockwise direction.
+Don't leave the left mouse button until you are done selecting the region. Once the region has been selected,
+wait until the process completes.
+More than one region of interest can be selected by repeating the same procedure.
+Once you are done selecting the ROI, press the small 's' key.This would stop the process.
+This function returns a 8 bit mask image  with (the ROI being white and the rest of the region being black).
+   </para>
+   <para>
+Note
+more than one ROI can be selected from the image. Press key 's' only after all ROI have been selected.
+Move the mouse only in the clockwise direction.
+This algorithm assumes that the selected points in the ROI are very close to each other. Thus for best result, move
+the mouse slowly while selecting the ROI
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg");
+mask = roiFreeHand(src); //creating a mask
+imshow(mask) //view the mask
+
+outputImage1 = colorChange(src, mask) //using this mask in the colorChange function
+imshow(outputImage1);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

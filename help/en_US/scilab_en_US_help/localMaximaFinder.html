@@ -1,0 +1,91 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>localMaximaFinder</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="illuminationChange.html">&lt;&lt; illuminationChange</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="minAreaRect.html">minAreaRect &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a> &gt; localMaximaFinder</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">localMaximaFinder</h1>
+    <p class="refpurpose">This function returns local maxima in input matrice.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">location</span><span class="default">=</span><span class="functionid">localMaximaFinder</span><span class="default">(</span><span class="default">inputMatrix</span><span class="default">,</span><span class="default">neighborhood</span><span class="default">,</span><span class="default">maxNoOfMaxima</span><span class="default">,</span><span class="default">threshold</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">inputMatrix:</span>
+      <dd><p class="para">2-D input matrix</p></dd></dt>
+   <dt><span class="term">neighborhood:</span>
+      <dd><p class="para">It specifies the neighborhood around maxima, function zeros out the values inside the block.</p></dd></dt>
+   <dt><span class="term">maxNoOfMaxima:</span>
+      <dd><p class="para">maximum number of local maxima you want to find.</p></dd></dt>
+   <dt><span class="term">threshold:</span>
+      <dd><p class="para">It specifies minimum value of the local maxima.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">localMaximaFinder returns [x y] coordinates of the local maxima in a M-by-2 matrix where M is
+the number of local maxima and each row represents one local maximum</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">mat</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">7</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabdefault">;</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">loc</span><span class="scilaboperator">=</span><span class="scilabid">localMaximaFinder</span><span class="scilabopenclose">(</span><span class="scilabid">mat</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">3</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">o</span><span class="scilaboperator">/</span><span class="scilabid">p</span><span class="scilabspecial">:</span> <span class="scilabid">loc</span>  <span class="scilaboperator">=</span>
+
+<span class="scilabnumber">3.</span>    <span class="scilabnumber">3.</span>
+<span class="scilabnumber">4.</span>    <span class="scilabnumber">2.</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">I</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">/images/color2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">grayImage</span><span class="scilaboperator">=</span><span class="scilabid">rgb2gray</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">location</span><span class="scilaboperator">=</span><span class="scilabid">localMaximaFinder</span><span class="scilabopenclose">(</span><span class="scilabid">grayImage</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="illuminationChange.html">&lt;&lt; illuminationChange</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="minAreaRect.html">minAreaRect &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

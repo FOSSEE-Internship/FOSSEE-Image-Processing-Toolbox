@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from stylization.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="stylization" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>stylization</refname>
+    <refpurpose>This function aims to produce non-photorealistic digital imagery with a wide variety of effects.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   outputImage = stylization(src,sigma_s,sigma_r)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImage:</term>
+      <listitem><para> resultant Output image</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input 8-bit 3-channel image.</para></listitem></varlistentry>
+   <varlistentry><term>sigma_s:</term>
+      <listitem><para> Range between 0 to 200 (float) (default value is 60)</para></listitem></varlistentry>
+   <varlistentry><term>sigma_r:</term>
+      <listitem><para> Range between 0 to 1. (float)  (default value is 0.45f)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Edge-aware filters are ideal for stylization, as they can abstract regions of low contrast while preserving,
+or enhancing, high-contrast features.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src = imread("/images/color2.jpeg");
+outputImage1 = stylization(src)  //using default values for optional parameters
+imshow(outputImage1);//view the output
+
+outputImage2 = stylization(src,121) //using default value for sigma_r
+imshow(outputImage2);//view the output
+
+outputImage3 = stylization(src,[],0.2) //using default value for sigma_s
+imshow(outputImage3);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

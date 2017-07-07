@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from textureFlattening.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="textureFlattening" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>textureFlattening</refname>
+    <refpurpose>This function washes out the texture of the selected region in the input image, giving its contents a flat aspect.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   mask = roiFreeHand(src); //we can also use other function to create the mask
+   outputImage = textureFlattening(src,mask,low_threshold,high_threshold, kernel_size);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImage:</term>
+      <listitem><para> resultant Output image</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para>    Input source image.</para></listitem></varlistentry>
+   <varlistentry><term>mask:</term>
+      <listitem><para> Input mask image with same size as that of source image ( 1 or 3-channel image)</para></listitem></varlistentry>
+   <varlistentry><term>low_threshold:</term>
+      <listitem><para>    Range from 0 to 100. (double) (default value is 30)</para></listitem></varlistentry>
+   <varlistentry><term>high_threshold:</term>
+      <listitem><para>    Value &gt; 100 &amp; &lt;=255. (double) (default value is 120)</para></listitem></varlistentry>
+   <varlistentry><term>kernel_size:</term>
+      <listitem><para>    The size of the Sobel kernel to be used: it can be 3 , 5 or 7</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+It retain the gradients at edge locations, before integrating with the Poisson solver. It uses Canny Edge Detector.
+The algorithm assumes that the color of the source image is close to that of the destination.
+This assumption means that when the colors don't match, the source image color gets tinted toward the color of the destination image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg");
+mask = roiFreeHand(src); //creating a mask
+imshow(mask);//view mask
+
+outputImage1 = textureFlattening(src,mask) // using default value for optional parameters
+imshow(outputImage1); // view outputImage1
+
+outputImage2 = textureFlattening(src,mask,50 , 180.5 ) //providing value for 1st and 2nd optional argument
+imshow(outputImage2); // view outputImage2
+
+outputImage2 = textureFlattening(src,mask,[],[], 7 ) //providing value for only 3rd optional argument
+imshow(outputImage3); // view outputImage3
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg");
+[row col] = size(src)
+mask = zeros(row,col) //creating a mask
+mask(100:140,100:150) =255
+imshow(mask); view the mask
+outputImage = textureFlattening(src,mask)
+imshow(outputImage);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

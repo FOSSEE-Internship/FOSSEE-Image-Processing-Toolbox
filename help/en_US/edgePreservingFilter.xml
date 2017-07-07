@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from edgePreservingFilter.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="edgePreservingFilter" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>edgePreservingFilter</refname>
+    <refpurpose>This function smoothens the given input image while preserving the edges.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   outputImage = edgePreservingFilter(src,flag,sigma_s,sigma_r)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImage:</term>
+      <listitem><para> resultant Output image</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input 8-bit 3-channel image.</para></listitem></varlistentry>
+   <varlistentry><term>flag:</term>
+      <listitem><para> (default value is 1) (denotes Edge preserving filters). It takes 2 values -&gt;  1) 1 (for RECURS_FILTER) ; 2) 2 (for NORMCONV_FILTER)</para></listitem></varlistentry>
+   <varlistentry><term>sigma_s:</term>
+      <listitem><para> Range between 0 to 200 (float) (default value is 60 )</para></listitem></varlistentry>
+   <varlistentry><term>sigma_r:</term>
+      <listitem><para> Range between 0 to 1. (float) (default value is 0.4f)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Filtering is the fundamental operation in image and video processing. Edge-preserving smoothing filters
+are used in many different applications
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg");
+outputImage1 = edgePreservingFilter(src) //using default values for all optional arguments
+imshow(outputImage1);//view the output
+
+outputImage2 = edgePreservingFilter(src,2) //using default values for sigma_s & sigma_r
+imshow(outputImage2);//view the output
+
+outputImage3 = edgePreservingFilter(src,[],[],0.6) //using default values for sigma_s & sigma_r
+imshow(outputImage3);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

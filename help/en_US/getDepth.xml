@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from getDepth.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="getDepth" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>getDepth</refname>
+    <refpurpose>This function returns the depth of the input matrix element.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   depth = getDepth(src)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input 8-bit 3-channel image.</para></listitem></varlistentry>
+   <varlistentry><term>depth:</term>
+      <listitem><para> a string which denoted the depth of the src.It identifies the following- 1) CV_8U - 8-bit unsigned integers ( 0..255 ) ; 2) CV_8S - 8-bit signed integers ( -128..127 ); 3) CV_16U - 16-bit unsigned integers ( 0..65535 ); 4) CV_16U - 16-bit unsigned integers ( 0..65535 ); 5) CV_16S - 16-bit signed integers ( -32768..32767 ) ; 6) CV_32S - 32-bit signed integers ( -2147483648..2147483647 ) ; 7) CV_64F - 64-bit floating-point numbers ( -DBL_MAX..DBL_MAX, INF, NAN )</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg"); //reading an image
+depth = getDepth(src) ; //get the depth
+disp(depth) ; //view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Note - Scilab does not support CV_32F - it would be considered as CV_64F
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

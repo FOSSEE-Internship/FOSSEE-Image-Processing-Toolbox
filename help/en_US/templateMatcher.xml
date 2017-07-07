@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from templateMatcher.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="templateMatcher" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>templateMatcher</refname>
+    <refpurpose>This function compares a template in overlapped image regions and returns the coordinates of the point of match.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [new_image x y] = templateMatcher(image, template_image)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image :</term>
+      <listitem><para> 8-bit int or 32-bit floating image</para></listitem></varlistentry>
+   <varlistentry><term>template_image :</term>
+      <listitem><para> Searched template. It must not be greater than the source image and have the same data type of input image.</para></listitem></varlistentry>
+   <varlistentry><term>newimage :</term>
+      <listitem><para> Map of comparison results. It must be single channel 32-bit floating-point. Its size is (W-w+1) * (H-h+1) if image</para></listitem></varlistentry>
+   <varlistentry><term>x:</term>
+      <listitem><para> the row no. of the location where the template matched occured in the input image</para></listitem></varlistentry>
+   <varlistentry><term>y:</term>
+      <listitem><para> x: the column no. of the location where the template matched in the input image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function compares the w * h sized images of the original image against the template image and stores the result in the new_image.
+The point of maxima in the image gives the position of the match.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src= imread("/images/color3.jpg"); //reading the source image
+gray_src = rgb2gray(src); //converting src to grayscale
+tem = imread("/images/smile.jpg"); //reading the template image
+tem = rgb2gray(tem);//converting template image to gray
+imshow(tem);//view the template image
+[j x y] =templateMatcher(gray_src,tem); //perform the template matching
+[rows cols] =size(tem)
+t = rectangle(src,x,y,x+cols,y+rows,0,0,255,2,8,0);  //mark the position of the point of template match in the src image
+imshow(j) //view the CV_64F output image of templateMatcher
+imshow(t) //view the src image with the template object marked
+
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Suraj Prakash</member>
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

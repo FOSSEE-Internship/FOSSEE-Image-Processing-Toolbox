@@ -1,0 +1,109 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>roiPoly</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="roiFreeHand.html">&lt;&lt; roiFreeHand</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="seamlessClone.html">seamlessClone &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a> &gt; roiPoly</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">roiPoly</h1>
+    <p class="refpurpose">This function creates mask by selecting the ROI as a poygon.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">I</span><span class="default"> = </span><span class="default">imimread</span><span class="default">(</span><span class="default">image</span><span class="default">-</span><span class="default">location</span><span class="default">)</span>
+<span class="default">c</span><span class="default"> = [</span><span class="default">c1</span> <span class="default">c2</span><span class="default"> ..............</span><span class="default">cn</span><span class="default">]</span>
+<span class="default">r</span><span class="default"> = [</span><span class="default">r1</span> <span class="default">r2</span><span class="default"> ..............</span><span class="default">rn</span><span class="default">]</span>
+<span class="default">BW</span><span class="default"> = </span><span class="default">roipoly</span><span class="default">(</span><span class="default">I</span><span class="default">, </span><span class="default">c</span><span class="default">, </span><span class="default">r</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">I :</span>
+      <dd><p class="para">Input image</p></dd></dt>
+   <dt><span class="term">c :</span>
+      <dd><p class="para">a 1xn vector specifying the column indices of the vertices of the n sided polygon</p></dd></dt>
+   <dt><span class="term">r :</span>
+      <dd><p class="para">a 1xn vector specifying the row indices of the vertices of the n sided polygon</p></dd></dt>
+   <dt><span class="term">BW:</span>
+      <dd><p class="para">Output mask image for input I</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Returns the ROI specified by the polygon described by vectors c and r, which specify the column
+and row indices of each vertex, respectively. c and r must be the same size.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">I</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">image_01.jpeg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">50</span> <span class="scilabnumber">50</span> <span class="scilabnumber">100</span> <span class="scilabnumber">100</span><span class="scilabopenclose">]</span>   <span class="scilabcomment">//defining the column indices of the vertices of the ROI</span>
+<span class="scilabid">r</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">100</span> <span class="scilabnumber">150</span> <span class="scilabnumber">150</span> <span class="scilabnumber">100</span> <span class="scilabopenclose">]</span>   <span class="scilabcomment">//defining the corresponding row indices of the vertices of the ROI</span>
+<span class="scilabid">BW</span> <span class="scilaboperator">=</span> <span class="scilabid">roipoly</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabdefault">,</span> <span class="scilabid">c</span><span class="scilabdefault">,</span> <span class="scilabid">r</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//creating a mask</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">BW</span><span class="scilabopenclose">)</span>   <span class="scilabcomment">//viewing the mask</span>
+<span class="scilabid">c</span><span class="scilaboperator">=</span><span class="scilabid">colorChange</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabdefault">,</span><span class="scilabid">mask</span><span class="scilabdefault">,</span><span class="scilabnumber">2.4</span> <span class="scilabdefault">,</span><span class="scilabnumber">2.0</span><span class="scilabdefault">,</span> <span class="scilabnumber">2.2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabcomment">//using this mask in colorChange function</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">c</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">I</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">.</span><span class="scilabstring">./images/color3.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">150</span> <span class="scilabnumber">200</span> <span class="scilabnumber">250</span> <span class="scilabnumber">300</span> <span class="scilabnumber">250</span> <span class="scilabnumber">200</span> <span class="scilabopenclose">]</span> <span class="scilabdefault">;</span>  <span class="scilabcomment">//defining the column indices of the vertices of the ROI</span>
+<span class="scilabid">r</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">135</span> <span class="scilabnumber">100</span> <span class="scilabnumber">100</span> <span class="scilabnumber">135</span> <span class="scilabnumber">170</span> <span class="scilabnumber">170</span> <span class="scilabopenclose">]</span> <span class="scilabdefault">;</span>  <span class="scilabcomment">//defining the corresponding row indices of the vertices of the ROI</span>
+<span class="scilabid">gray</span> <span class="scilaboperator">=</span> <span class="scilabid">rgb2gray</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabopenclose">)</span> <span class="scilabdefault">;</span>                           <span class="scilabcomment">//for a grayscale image</span>
+<span class="scilabid">BW</span> <span class="scilaboperator">=</span> <span class="scilabid">roiPoly</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabdefault">,</span> <span class="scilabid">c</span><span class="scilabdefault">,</span> <span class="scilabid">r</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabcomment">//creating a mask</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">BW</span><span class="scilabopenclose">)</span>   <span class="scilabcomment">//viewing the mask</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">I</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">/images/color3.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c1</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">200</span> <span class="scilabnumber">250</span> <span class="scilabnumber">300</span> <span class="scilabnumber">250</span>  <span class="scilabnumber">150</span> <span class="scilabnumber">200</span> <span class="scilabopenclose">]</span>
+<span class="scilabid">r1</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">170</span> <span class="scilabnumber">170</span> <span class="scilabnumber">135</span> <span class="scilabnumber">100</span> <span class="scilabnumber">135</span> <span class="scilabnumber">100</span><span class="scilabopenclose">]</span>  <span class="scilabcomment">//undesired output because changing the order of points</span>
+<span class="scilabid">BW</span> <span class="scilaboperator">=</span> <span class="scilabid">roiPoly</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabdefault">,</span><span class="scilabid">c1</span><span class="scilabdefault">,</span><span class="scilabid">r1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">BW</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Vinay Bhat</li>
+   <li class="member">Rohan Gurve</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="roiFreeHand.html">&lt;&lt; roiFreeHand</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="seamlessClone.html">seamlessClone &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>
