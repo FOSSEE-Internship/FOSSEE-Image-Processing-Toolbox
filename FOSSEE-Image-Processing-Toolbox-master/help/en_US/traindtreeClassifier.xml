@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from traindtreeClassifier.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="traindtreeClassifier" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>traindtreeClassifier</refname>
+    <refpurpose>This function is used to train an image classifier.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   imgSet = imageSet(directory,'recursive');
+   'or'
+   imgSet = imageSet(image);
+   bag = bagOfFeatures(imgSet);
+   classifier = traindtreeClassifier(imgSets, bag);
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass')
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass',save)
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass',save,,maximum depth)
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass',save,maximum depth,minimum sample count)
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass',save,maximum depth,minimum sample count,reg_acc)
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass',save,maximum depth,minimum sample count,reg_acc,use Surrogates)
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass',save,maximum depth,minimum sample count,reg_acc,use Surrogates,max_cat,cv_f)
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass',save,maximum depth,minimum sample count,reg_acc,use Surrogates,max_cat,cv_f,use1_se)
+   classifier = traindtreeClassifier(imgSets, bag,'nameclass',save,maximum depth,minimum sample count,reg_acc,use Surrogates,max_cat,cv_f,use1_se,is_pruned)
+   [classifier,BagofFeaturesLocation,Description] = traindtreeClassifier()
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image category classifier location</para></listitem></varlistentry>
+   <varlistentry><term>BagofFeaturesLocation :</term>
+      <listitem><para> location of the xml or yml file.</para></listitem></varlistentry>
+   <varlistentry><term>Description :</term>
+      <listitem><para> features obtained after training.</para></listitem></varlistentry>
+   <varlistentry><term>imgSets:</term>
+      <listitem><para> Input imageSet to train the classifier on</para></listitem></varlistentry>
+   <varlistentry><term>bag:</term>
+      <listitem><para> The bagOfFeatures of the imageSet provided</para></listitem></varlistentry>
+   <varlistentry><term>image:</term>
+      <listitem><para> The set of images used for creating the imageset used for training</para></listitem></varlistentry>
+   <varlistentry><term>nameclass:</term>
+      <listitem><para> Name of the classifier one wants for their bag of features .xml or .yml file</para></listitem></varlistentry>
+   <varlistentry><term>save:</term>
+      <listitem><para>Option for the users to save their training data.</para></listitem></varlistentry>
+   <varlistentry><term>maximum depth :</term>
+      <listitem><para> The maximum possible depth of the tree. That is the training algorithms attempts to split a node while its depth is less than maxDepth. The root node has zero depth. The</para></listitem></varlistentry>
+   <varlistentry><term>minimum sample count :</term>
+      <listitem><para> If the number of samples in a node is less than this parameter then the node will not be split. The Default value is 10.</para></listitem></varlistentry>
+   <varlistentry><term>reg_acc :</term>
+      <listitem><para> Termination criteria for regression trees. If all absolute differences between an estimated value in a node and values of train samples in this node are less than this parameter then</para></listitem></varlistentry>
+   <varlistentry><term>use Surrogates:</term>
+      <listitem><para> If true then surrogate splits will be built. These splits allow to work with missing data and compute variable importance correctly. Default value is false.</para></listitem></varlistentry>
+   <varlistentry><term>max_cat :</term>
+      <listitem><para> Cluster possible values of a categorical variable into K&lt;=maxCategories clusters to find a suboptimal split. If a discrete variable, on which the training procedure tries to make a split,</para></listitem></varlistentry>
+   <varlistentry><term>cv_f :</term>
+      <listitem><para> If CVFolds &gt; 1 then algorithms prunes the built decision tree using K-fold cross-validation procedure where K is equal to CVFolds. Default value is 10.</para></listitem></varlistentry>
+   <varlistentry><term>use1_se :</term>
+      <listitem><para> If true then a pruning will be harsher. This will make a tree more compact and more resistant to the training data noise but a bit less accurate. Default value is true</para></listitem></varlistentry>
+   <varlistentry><term>is_pruned :</term>
+      <listitem><para> If true then pruned branches are physically removed from the tree. Otherwise they are retained and it is possible to get results from the original unpruned (or pruned less aggressively)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function trains a dtree classifier which can be used to predict classes of images given to it as
+input using the predictdtree() function.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet = imageSet(directory,'recursive');
+bag = bagOfFeatures(trainingSet);
+categoryClassifier = traindtreeClassifier(trainingSet, bag);
+
+   ]]></programlisting>
+</refsection>
+</refentry>

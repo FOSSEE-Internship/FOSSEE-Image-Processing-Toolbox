@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from dctmtx.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="dctmtx" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>dctmtx</refname>
+    <refpurpose>This function is used to calculate Discrete cosine transform matrix.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   D = dctmtx(n)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>A:</term>
+      <listitem><para> The input scalar of double type.</para></listitem></varlistentry>
+   <varlistentry><term>D :</term>
+      <listitem><para> The n-by-n DCT (discrete cosine transform) matrix..</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+D = dctmtx(n) returns the n-by-n DCT (discrete cosine transform) matrix. D*A is the DCT of the columns of A and D'*A is the inverse DCT of the columns of A (when A is n-by-n).
+</para>
+</refsection>
+</refentry>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from threshold.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="threshold" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>threshold</refname>
+    <refpurpose>This function is used to apply an adaptive threshold to an array.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   B = threshold(A, threshold_value, max_value,thresholdType);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>A:</term>
+      <listitem><para> image matrix of the source image.</para></listitem></varlistentry>
+   <varlistentry><term>threshold_value:</term>
+      <listitem><para> The thresh value with respect to which the thresholding operation is made.</para></listitem></varlistentry>
+   <varlistentry><term>max_value:</term>
+      <listitem><para> The value used with the Binary thresholding operations (to set the chosen pixels).</para></listitem></varlistentry>
+   <varlistentry><term>thresholdType:</term>
+      <listitem><para> One of the 5 thresholding operations. eg,THRESH_BINARY,THRESH_BINARY_INV,THRESH_TRUNC,THRESH_TOZERO,THRESH_TOZERO_INV.</para></listitem></varlistentry>
+   <varlistentry><term>B :</term>
+      <listitem><para> output image by applying the threshold operation.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function transforms a grayscale image to a binary image using a formulae according to the given threshold type.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i = imread('lena.jpeg',0);
+[ii ii1] = threshold(i,50,255,"THRESH_BINARY");
+imshow(ii);
+   ]]></programlisting>
+</refsection>
+</refentry>

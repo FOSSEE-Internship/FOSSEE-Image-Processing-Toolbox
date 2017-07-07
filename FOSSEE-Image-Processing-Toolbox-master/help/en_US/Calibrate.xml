@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from Calibrate.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="Calibrate" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>Calibrate</refname>
+    <refpurpose>This function Performs calibration for the fisheye model.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   
+   calib=Calibrate(objectpoints,imagepoints);
+   calib=Calibrate(objectpoints,imagepoints,cameraMatrix,distCoeffs);
+   [cameraMatrix ,distCoeffs,rotationMatrix,TranslationVector] =Calibrate(objectpoints,imagepoints);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>calib:</term>
+      <listitem><para> a Struct containing all the camera Params</para></listitem></varlistentry>
+   <varlistentry><term>objectpoints:</term>
+      <listitem><para> a  2d set of actual object points.</para></listitem></varlistentry>
+   <varlistentry><term>imagepoints:</term>
+      <listitem><para> a list of imagepoints of a stereo image.</para></listitem></varlistentry>
+   <varlistentry><term>cameraMatrix:</term>
+      <listitem><para> camera matrix of a camera.</para></listitem></varlistentry>
+   <varlistentry><term>distCoeffs:</term>
+      <listitem><para> distortion coefficients of a camera.it should be 4*1 or 1*4.</para></listitem></varlistentry>
+   <varlistentry><term>TranslationVector:</term>
+      <listitem><para> Output vector of translation vectors estimated for each pattern view.</para></listitem></varlistentry>
+   <varlistentry><term>rotationMatrix:</term>
+      <listitem><para> Output vector of rotation vectors (see Rodrigues ) estimated for each pattern view. That is, each k-th rotation vector together with the corresponding k-th translation vector brings the calibration pattern from the model coordinate space (in which object points are specified) to the world coordinate space, that is, a real position of the calibration pattern in the k-th pattern view (k=0.. M -1).</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+This function Performs calibration for the fisheye camera model.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i1 = imread('left1.jpg',0);
+new1 = detectCheckerboardCorner(i1,[7,10]);
+new2 = list(new1);
+f =Calibrate(worldPoints,new2);
+f
+f.cameraMatrix1
+f1 = undistortImage(i1, f.cameraMatrix1);
+imshow(f1);
+f2 = undistortImage(i1, f.cameraMatrix1,"distCoeffs",f.distortionCoefficients1);
+imshow(f2);
+
+   ]]></programlisting>
+</refsection>
+</refentry>

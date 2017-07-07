@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detectAgastFeatures.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detectAgastFeatures" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detectAgastFeatures</refname>
+    <refpurpose>This function is used to detect the corner points using AGAST Alogrithm</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ Location Count Metric ] = detectAgastFeatures( Image, Name, Value... )
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Image:</term>
+      <listitem><para> Input Image, should be a 2-D grayscale. The Input Image should be real</para></listitem></varlistentry>
+   <varlistentry><term>MinQuality [Optional Input Argument]:</term>
+      <listitem><para> Minimum Accepted Quality of Corners, can be specified as a scalar value between [0,1]. Default: 0.1</para></listitem></varlistentry>
+   <varlistentry><term>MinContrast [Optional Input Argument]:</term>
+      <listitem><para> Minimum Intensity difference for Corners to be detected, can be specified as a scalar value between[0,1]. Default: 0.2</para></listitem></varlistentry>
+   <varlistentry><term>type [Optional Input Argument]:</term>
+      <listitem><para> specifies the type of agast algorithm u want use</para></listitem></varlistentry>
+   <varlistentry><term>ROI [Optional Input Argument]:</term>
+      <listitem><para> Specify a rectangular region of operation. Format [ x y width height ]. Default: [1 1 size(Image,2) size(Image,1)]</para></listitem></varlistentry>
+   <varlistentry><term>Location:</term>
+      <listitem><para> Set of x,y coordinates for the deteccted points</para></listitem></varlistentry>
+   <varlistentry><term>Count:</term>
+      <listitem><para> Number of corner points detected</para></listitem></varlistentry>
+   <varlistentry><term>Metric:</term>
+      <listitem><para> Value describing the strength of each detected Point</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The detectAgastFeatures function uses the Features from Accelerated Segment Test (AGAST) algorithm to find feature points.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread('sample.jpg');
+[location count metric] = detectAgastFeatures(image);
+
+With Optional Arguments:
+[location count metric] = detectAgastFeatures(image,"MinContrast",0.2);
+
+   ]]></programlisting>
+</refsection>
+</refentry>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from epipolarlines.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="epipolarlines" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>epipolarlines</refname>
+    <refpurpose>The function draws epipolar lines by feature matching using stereo images.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [iz,iz1] = epipolarlines(img1,img2,qid,tid,fund,k1,k2)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>F :</term>
+      <listitem><para> A 3 * 3 fundamental matrix computed from stereo images. It should be double or single</para></listitem></varlistentry>
+   <varlistentry><term>image1 :</term>
+      <listitem><para> The first input stereo image.</para></listitem></varlistentry>
+   <varlistentry><term>image2 :</term>
+      <listitem><para> The second input stereo image.</para></listitem></varlistentry>
+   <varlistentry><term>qid :</term>
+      <listitem><para> The queryid of the matched keypoints of the input images.</para></listitem></varlistentry>
+   <varlistentry><term>tid :</term>
+      <listitem><para> The tid of the matched keypoints points of the input images.</para></listitem></varlistentry>
+   <varlistentry><term>k1 :</term>
+      <listitem><para> The detected keypoints of the first image.</para></listitem></varlistentry>
+   <varlistentry><term>k2 :</term>
+      <listitem><para> The detected keypoints of the second image.</para></listitem></varlistentry>
+   <varlistentry><term>iz :</term>
+      <listitem><para> The output image containing the drawn epipolar lines.</para></listitem></varlistentry>
+   <varlistentry><term>iz1 :</term>
+      <listitem><para> The output image containing the drawn epipolar lines.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function determines the epipolar lines by matching the features of two stereo images using the detected keypoints.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i = imread('left11.jpg',0);
+ii = detectAkazeFeatures(i);
+i1 = imread('right11.jpg',0);
+ii1 = detectAkazeFeatures(i1);
+[matches, distance] = matchFeatures(ii.Features, ii1.Features);
+f1 = estimateFundamentalMat(ii.KeyPoints(1:644,:),ii1.KeyPoints);
+[iz,iz1] = epipolarlines(i,i1,matches(1),matches(2),f1,ii.KeyPoints,ii1.KeyPoints);
+
+   ]]></programlisting>
+</refsection>
+</refentry>
