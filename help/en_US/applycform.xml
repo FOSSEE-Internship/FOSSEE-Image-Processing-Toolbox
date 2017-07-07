@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from applycform.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="applycform" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>applycform</refname>
+    <refpurpose>Apply device-independent color space transformation.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [outImg]=applycform(srcImage,transform)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outImg:</term>
+      <listitem><para>Output transformed image same number of channels as Input,Depth 8U.</para></listitem></varlistentry>
+   <varlistentry><term>srcImage:</term>
+      <listitem><para>Input image</para></listitem></varlistentry>
+   <varlistentry><term>transform:</term>
+      <listitem><para>Transformation string given as inputColorspace2ouptutColorspace.Valid strings are-<itemizedlist><listitem><para>'xyz2lab'        :Convert from the XYZ to the L*a*b color space.</para></listitem><listitem><para>'lab2xyz'        :Convert from the L*a*b to the XYZ color space.</para></listitem><listitem><para>'srgb2xyz'    :Convert from the standard-RGB to the XYZ color space.</para></listitem><listitem><para>'xyz2srgb'    :Convert from the XYZ to the standard-RGB color space.</para></listitem><listitem><para>'srgb2lab'      :Convert from the standard-RGB to the L*a*b color space.</para></listitem><listitem><para>'lab2srgb'     :Convert from the L*a*b to the standard-RGB color space.</para></listitem><listitem><para>'xyz2uvl'     :Convert from the XYZ to the uvL color space.</para></listitem><listitem><para>'uvl2xyz'        :Convert from the uvL to the XYZ color space.</para></listitem></itemizedlist></para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+outImg = applycform(srcImage,transform) converts the color values in srcImage to the color space specified in the color transformation string transfrom.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im=imread("images/lena.jpeg",1);
+img=applycform(im,"srgb2xyz");
+imshow(img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im=imread("images/lena.jpeg",1);
+img=applycform(im,"srgb2xyz");
+img=applycform(img,"xyz2uvl");
+img=applycform(img,"uvl2xyz");
+img=applycform(img,"xyz2srgb");
+imshow(img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   <member>Tess  Zacharias</member>
+   </simplelist>
+</refsection>
+</refentry>

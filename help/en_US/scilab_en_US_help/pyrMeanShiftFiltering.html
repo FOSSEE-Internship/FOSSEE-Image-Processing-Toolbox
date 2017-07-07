@@ -1,0 +1,93 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>pyrMeanShiftFiltering</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="peopleDetector.html">&lt;&lt; peopleDetector</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="trainCascadeObjectDetect.html">trainCascadeObjectDetect &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a> &gt; pyrMeanShiftFiltering</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">pyrMeanShiftFiltering</h1>
+    <p class="refpurpose">Performs initial step of meanshift segmentation of an image</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">outputImg</span><span class="default">]=</span><span class="functionid">pyrMeanShiftFiltering</span><span class="default">(</span><span class="default">inputImage</span><span class="default">,</span><span class="default">sp</span><span class="default">,</span><span class="default">sr</span><span class="default">)</span>
+<span class="default">[</span><span class="default">outputImg</span><span class="default">]=</span><span class="functionid">pyrMeanShiftFiltering</span><span class="default">(</span><span class="default">inputImage</span><span class="default">,</span><span class="default">sp</span><span class="default">,</span><span class="default">sr</span><span class="default">,</span><span class="default">maxLevel</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">outputImg:</span>
+      <dd><p class="para">The destination image of the same format and the same size as the source inputImage.</p></dd></dt>
+   <dt><span class="term">inputImage:</span>
+      <dd><p class="para">The source image.</p></dd></dt>
+   <dt><span class="term">SP:</span>
+      <dd><p class="para">The spatial window radius.</p></dd></dt>
+   <dt><span class="term">SR:</span>
+      <dd><p class="para">The color window radius.</p></dd></dt>
+   <dt><span class="term">maxLevel:</span>
+      <dd><p class="para">Maximum level of the pyramid for the segmentation. default 1</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function implements the filtering stage of meanshift segmentation, that is, the output of the function is the filtered &#0034;posterized&#0034; image with color gradients and fine-grain texture flattened. At every pixel (X,Y) of the input image (or down-sized input image, see below) the function executes meanshift iterations, that is, the pixel (X,Y) neighborhood in the joint space-color hyperspace is considered.
+When MaxLevel &gt; 0, the gaussian pyramid of MaxLevel+1 levels is built, and the above procedure is run on the smallest layer first. After that, the results are propagated to the larger layer and the iterations are run again only on those pixels where the layer colors differ by more than SR from the lower-resolution layer of the pyramid. That makes boundaries of color regions sharper. Note that the results will be actually different from the ones obtained by running the meanshift procedure on the whole original image (i.e. when MaxLevel = 0).</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">im</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/lena.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img</span><span class="scilaboperator">=</span><span class="scilabid">pyrMeanShiftFiltering</span><span class="scilabopenclose">(</span><span class="scilabid">im</span><span class="scilabdefault">,</span><span class="scilabnumber">100</span><span class="scilabdefault">,</span><span class="scilabnumber">200</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<a class="scilabcommand" href="scilab://figure">figure</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">Figure_name</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">originalImage</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">im</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<a class="scilabcommand" href="scilab://figure">figure</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">Figure_name</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">ProcessedImage</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">img</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Priyanka Hiranandani</li>
+   <li class="member">Gursimar Singh</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="peopleDetector.html">&lt;&lt; peopleDetector</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="trainCascadeObjectDetect.html">trainCascadeObjectDetect &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

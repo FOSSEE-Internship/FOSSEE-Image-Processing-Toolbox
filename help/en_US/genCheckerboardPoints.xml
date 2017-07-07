@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from genCheckerboardPoints.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="genCheckerboardPoints" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>genCheckerboardPoints</refname>
+    <refpurpose>This function returns list of checkerboard corner points.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   worldPoints = genCheckerboardPoints(boardSize, squareSize);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>worldPoints:</term>
+      <listitem><para> A list of size N-by-2 matrix containing x and y co-ordinates of the checkerboard corner points. The origin is set to lower-right corner of the top-left square.</para></listitem></varlistentry>
+   <varlistentry><term>boardSize:</term>
+      <listitem><para> Size of the checkerboard.</para></listitem></varlistentry>
+   <varlistentry><term>squareSize:</term>
+      <listitem><para> Size of each of square in the checkerboard.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Return a list of size N-by-2, which contains the corner points of all squares of a checkerboard.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+boardSize = [10 10];
+squareSize = 8;
+worldPoints = genCheckerboardPoints(boardSize, squareSize);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="detectCheckerboardCorner">detectCheckerboardCorner</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tanmay Chaudhari</member>
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+</refentry>

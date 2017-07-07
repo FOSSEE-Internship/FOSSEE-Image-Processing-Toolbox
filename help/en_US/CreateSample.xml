@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from CreateSample.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="CreateSample" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>CreateSample</refname>
+    <refpurpose>It creates a .vec file from an image.The vec file contains the generated positive samples.The vec file is used for training a cascade classifier.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   CreateSample(imagePath,positiveFile,negativeImages)
+   CreateSample(imagePath,positiveFile,negativeImages,"num",nsamples)
+   CreateSample(imagePath,positiveFile,negativeImages,"w",width)
+   CreateSample(imagePath,positiveFile,negativeImages,"h",height);
+   CreateSample(imagePath,positiveFile,negativeImages,"num",nsamples,"w",width);
+   CreateSample(imagePath,positiveFile,negativeImages,"num",nsamples,"w",width);
+   CreateSample(imagePath,positiveFile,negativeImages,"h",height,"w",width);
+   CreateSample(imagePath,positiveFile,negativeImages,"num",nsamples,"h",height,"w",width);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>imgPath:</term>
+      <listitem><para> image path.Accepted file formats are .jpg,.jpeg,.png,.bmp,.pgm.</para></listitem></varlistentry>
+   <varlistentry><term>negativeImges:</term>
+      <listitem><para>path to negativeImages.Accepted file formats are .jpg,.jpeg,.png,.bmp,.pgm.</para></listitem></varlistentry>
+   <varlistentry><term>positiveFile :</term>
+      <listitem><para> name of the output vec file.</para></listitem></varlistentry>
+   <varlistentry><term>num:</term>
+      <listitem><para>number of samples to be created.</para></listitem></varlistentry>
+   <varlistentry><term>w:</term>
+      <listitem><para> Width of training samples (in pixels). Default-25</para></listitem></varlistentry>
+   <varlistentry><term>h:</term>
+      <listitem><para> Height of training samples (in pixels). Default-25</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+It produces dataset of positive  samples in a file with .vec extension and negative samples are enumerated in a special text file in
+which  each line contains an image filename of negative sample image. Negative images must not contain detected objects.
+   </para>
+   <para>
+By using these two files trainCascade will create cascade.xml file inside the outputFolder which is used to detect objects in an image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+CreateSample("images/positive.jpg","positive.vec","images/negative_samples","num",100);
+trainCascadeObjectDetect("positive_samples","images/negative_samples","positive.vec","numStages",6);
+im=imread("images/jellyfish.jpg");
+[image,bbox]=CascadeObjectDetector(im,"positive_samples/cascade.xml");
+imshow(image);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="trainCascadeObjectDetect">trainCascadeObjectDetect</link></member>
+   <member><link linkend="CascadeObjectDetector">CascadeObjectDetector</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+</refentry>

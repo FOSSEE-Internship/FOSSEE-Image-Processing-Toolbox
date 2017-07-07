@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from drawMatch.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="drawMatch" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>drawMatch</refname>
+    <refpurpose>The function draws the matched fetures between to images.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [image]=drawMatch(img1,img2,keypoints1,keypoints2,indexPairs,distance)
+   [image]=drawMatch(img1,img2,keypoints1,keypoints2,indexPairs,distance,"color",[r,g,b]);
+   [image]=drawMatch(img1,img2,keypoints1,keypoints2,indexPairs,distance,"color",[r,g,b],"flags",flag);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image:</term>
+      <listitem><para>Output image on which keypoints are drawn.</para></listitem></varlistentry>
+   <varlistentry><term>img1:</term>
+      <listitem><para>Input image1 for drawing matched features.</para></listitem></varlistentry>
+   <varlistentry><term>img2:</term>
+      <listitem><para>Input image2 for drawing matched features.</para></listitem></varlistentry>
+   <varlistentry><term>keypoints1:</term>
+      <listitem><para> Keypoints detected in image1 via detectSURFfeatures,detectFastfeatures etc.</para></listitem></varlistentry>
+   <varlistentry><term>keypoints2:</term>
+      <listitem><para> Keypoints detected in image2 via detectSURFfeatures,detectFastfeatures etc.</para></listitem></varlistentry>
+   <varlistentry><term>indexPairs:</term>
+      <listitem><para> indexPairs obtained from matchFeatures function.Indices of matched keypoints/features.</para></listitem></varlistentry>
+   <varlistentry><term>distance:</term>
+      <listitem><para> distance between descriptors.</para></listitem></varlistentry>
+   <varlistentry><term>"Name" - Value arguments:</term>
+      <listitem><para> </para></listitem></varlistentry>
+   <varlistentry><term>"color":</term>
+      <listitem><para>specified as a row vector of rgb color values between [0-255].</para></listitem></varlistentry>
+   <varlistentry><term>"flags":</term>
+      <listitem><para>flag for with different drawing options.Flag can be 0,1,2 or 4.<itemizedlist><listitem>0 - DEFAULT - Output image matrix will be created, i.e. existing memory of output image may be reused. Two source image,matches and single keypoints will be drawn. For each keypoint only the center point will be drawn (without the circle around keypoint with keypoint size and orientation).</listitem><listitem>1 - DRAW_OVER_OUTIMG - Output image matrix will not be created. Matches will be drawn on existing content of output image.</listitem><listitem>2 - NOT_DRAW_SINGLE_POINTS - Single keypoints will not be drawn.</listitem><listitem>4 - DRAW_RICH_KEYPOINTS - For each keypoint the circle around keypoint with keypoint size and orientation will be drawn.</listitem></itemizedlist></para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function draws the matched fetures between to images.Match is a line connecting two keypoints.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize("max");
+img_1 = imread("images/table1.jpg", 0);
+img_2 = imread("images/table2.jpg", 0);
+lis1 = detectFASTFeatures(img_1, "MinConstrast", 0.2);
+lis2 = detectFASTFeatures(img_2, "MinConstrast", 0.2);
+features_1 = extractFeatures(img_1, lis1.Location, "cornerPoints", "Metric", lis1.Metric);
+features_2 = extractFeatures(img_2, lis2.Location, "cornerPoints", "Metric", lis2.Metric)
+dimage = drawKeypoints(img_1, lis1.Location);
+[matches, distance] = matchFeatures(features_1.Features, features_2.Features);
+matchedImage = drawMatch(img_1, img_2, lis1.Location, lis2.Location, matches, distance);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="matchFeatures">matchFeatures</link></member>
+   <member><link linkend="extractFeatures">extractFeatures</link></member>
+   <member><link linkend="detectFastFeatures">detectFastFeatures</link></member>
+   </simplelist>
+</refsection>
+</refentry>

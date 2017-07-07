@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from pyrMeanShiftFiltering.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="pyrMeanShiftFiltering" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>pyrMeanShiftFiltering</refname>
+    <refpurpose>Performs initial step of meanshift segmentation of an image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [outputImg]=pyrMeanShiftFiltering(inputImage,sp,sr)
+   [outputImg]=pyrMeanShiftFiltering(inputImage,sp,sr,maxLevel)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImg:</term>
+      <listitem><para>The destination image of the same format and the same size as the source inputImage.</para></listitem></varlistentry>
+   <varlistentry><term>inputImage:</term>
+      <listitem><para>The source image.</para></listitem></varlistentry>
+   <varlistentry><term>SP:</term>
+      <listitem><para>The spatial window radius.</para></listitem></varlistentry>
+   <varlistentry><term>SR:</term>
+      <listitem><para>The color window radius.</para></listitem></varlistentry>
+   <varlistentry><term>maxLevel:</term>
+      <listitem><para>Maximum level of the pyramid for the segmentation. default 1</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function implements the filtering stage of meanshift segmentation, that is, the output of the function is the filtered "posterized" image with color gradients and fine-grain texture flattened. At every pixel (X,Y) of the input image (or down-sized input image, see below) the function executes meanshift iterations, that is, the pixel (X,Y) neighborhood in the joint space-color hyperspace is considered.
+When MaxLevel &gt; 0, the gaussian pyramid of MaxLevel+1 levels is built, and the above procedure is run on the smallest layer first. After that, the results are propagated to the larger layer and the iterations are run again only on those pixels where the layer colors differ by more than SR from the lower-resolution layer of the pyramid. That makes boundaries of color regions sharper. Note that the results will be actually different from the ones obtained by running the meanshift procedure on the whole original image (i.e. when MaxLevel = 0).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im=imread("images/lena.jpg");
+img=pyrMeanShiftFiltering(im,100,200);
+figure("Figure_name","originalImage");
+imshow(im);
+figure("Figure_name","ProcessedImage");
+imshow(img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Priyanka Hiranandani</member>
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+</refentry>

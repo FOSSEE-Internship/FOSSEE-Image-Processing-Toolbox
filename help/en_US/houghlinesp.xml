@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from houghlinesp.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="houghlinesp" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>houghlinesp</refname>
+    <refpurpose>Extract line segments based on  Probablistic Hough transform.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   lines = houghlinesp(image, rho, theta, threshold, minLineLength, maxLineGap)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image:</term>
+      <listitem><para>Input image must be gray scale.</para></listitem></varlistentry>
+   <varlistentry><term>lines:</term>
+      <listitem><para>Output vector of lines. A NX4 matrix ([x1,y1,x2,y2]) where (x1,y1) and (x2,y2) are the ending points of each detected line segment.</para></listitem></varlistentry>
+   <varlistentry><term>rho:</term>
+      <listitem><para>Distance resolution of the accumulator in pixels. default 1.</para></listitem></varlistentry>
+   <varlistentry><term>theta:</term>
+      <listitem><para>Angle resolution of the accumulator in radians. default pi/180.</para></listitem></varlistentry>
+   <varlistentry><term>threshold:</term>
+      <listitem><para>Accumulator threshold parameter. Only those lines are returned that get enough votes (&gt;Threshold).</para></listitem></varlistentry>
+   <varlistentry><term>MinLineLength:</term>
+      <listitem><para>Minimum line length. Line segments shorter than that are rejected.</para></listitem></varlistentry>
+   <varlistentry><term>MaxLineGap:</term>
+      <listitem><para>Maximum allowed gap between points on the same line to link them.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function implements the probabilistic Hough transform algorithm for line detection.It is a more efficient implementation of the Hough Line Transform. It gives as output the extremes of the detected lines.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im=imread("images/check.jpg");
+img=canny(im,50,100,3,1);
+l=houghlinesp(img,1,%pi/180,70,40,15);
+sz=size(l);
+sz=sz(1);
+figure("Figure_Name","Original Image")
+imshow(im);
+for i=1:sz
+im=line(im,l(i,1),l(i,2),l(i,3),l(i,4),0,0,255,2,8);
+end
+figure("Figure_Name","Detected lines")
+imshow(im);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="houghlinesp">houghlinesp</link></member>
+   <member><link linkend="line">line</link></member>
+   </simplelist>
+</refsection>
+</refentry>

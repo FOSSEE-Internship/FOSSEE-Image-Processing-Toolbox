@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from getrectsubpix.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="getrectsubpix" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>getrectsubpix</refname>
+    <refpurpose>This fucntion is used to retrieve a pixel rectangle from an image with sub-pixel accuracy.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   dst = getrectsubpix(I, alpha, beta, centerX, centerY, patchType)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>I :</term>
+      <listitem><para> image matrix of the source image.</para></listitem></varlistentry>
+   <varlistentry><term>alpha :</term>
+      <listitem><para> width of the extracted patch.</para></listitem></varlistentry>
+   <varlistentry><term>beta :</term>
+      <listitem><para> height of the extracted patch.</para></listitem></varlistentry>
+   <varlistentry><term>center_x :</term>
+      <listitem><para> Floating point x coordinate of the center of the extracted rectangle within the source image. The center must be inside the image.</para></listitem></varlistentry>
+   <varlistentry><term>center_y :</term>
+      <listitem><para> Floating point y coordinate of the center of the extracted rectangle within the source image. The center must be inside the image.</para></listitem></varlistentry>
+   <varlistentry><term>dst :</term>
+      <listitem><para> Extracted patch that has the alpha*beta and the same number of channels as source image.</para></listitem></varlistentry>
+   <varlistentry><term>patchType :</term>
+      <listitem><para>  It is the depth of the extracted pixels.By default, the patchType have the same depth as source image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function getRectSubPix extracts pixels from I : dst(x, y) = I(x + center.x- ( dst.cols -1)*0.5, y +  center.y - ( dst.rows -1)*0.5), where the values of the pixels at non-integer coordinates are retrieved using bilinear interpolation.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+I = imread('images/lena.jpeg',0);
+rr = getrectsubpix(I,5,5,6,7,1);
+imshow(rr);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubheksha Jalan</member>
+   </simplelist>
+</refsection>
+</refentry>

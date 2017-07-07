@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detectCheckerboardPoints.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detectCheckerboardPoints" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detectCheckerboardPoints</refname>
+    <refpurpose>This function detect internal corners in a checkerboard image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   corners=detectCheckerboardPoints(image,patternSize)
+   corners=detectCheckerboardPoints(image,patternSize,flag)
+   corners=detectCheckerboardPoints(image,patternSize,flag,winSize)
+   corners=detectCheckerboardPoints(image,patternSize,flag,termcriteria)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>corners:</term>
+      <listitem><para>detected corners in the checkerboard.</para></listitem></varlistentry>
+   <varlistentry><term>image:</term>
+      <listitem><para>checkerBoard image which corners are to be detected.Recommended grayscale</para></listitem></varlistentry>
+   <varlistentry><term>patternSize:</term>
+      <listitem><para>It is the board size:[nrows,ncols].</para></listitem></varlistentry>
+   <varlistentry><term>flag:</term>
+      <listitem><para>It is a 1XN matrix where N ranges from 1 to 4.Default-[ 1 4 8].<itemizedlist><listitem>1 - CV_CALIB_CB_ADAPTIVE_THRESH - Use adaptive thresholding to convert the image to black and white, rather than a fixed threshold level (computed from the average image brightness).</listitem><listitem>2 - CV_CALIB_CB_NORMALIZE_IMAGE - Normalize the image gamma with equalizeHist before applying fixed or adaptive thresholding.</listitem><listitem>4 - CV_CALIB_CB_FILTER_QUADS Use additional criteria (like contour area, perimeter, square-like shape) to filter out false quads extracted at the contour retrieval stage.</listitem><listitem>8 - CALIB_CB_FAST_CHECK - Run a fast check on the image that looks for chessboard corners, and shortcut the call if none is found. This can drastically speed up the call in the degenerate condition when no chessboard is observed.</listitem></itemizedlist></para></listitem></varlistentry>
+   <varlistentry><term>winSize:</term>
+      <listitem><para>window Size for movement across the image while correcting corners.Defalt:[11,11]</para></listitem></varlistentry>
+   <varlistentry><term>termcriteria:</term>
+      <listitem><para>It is a 1X2 matrix reprenting termination ctitreia for algoritm.[maxCount,Eps].Default:[30,0.1]</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function detect internal corners in a checkerboard image.Function is used in camera callibration.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//The examples calculates the image and worldpoints in an image and thus determine the camera matrix and other parameters for callibration camera.
+boardCols=7;
+boardRows=10;
+checkerSize=10;
+worldPoint=genCheckerboardPoints([boardCols boardRows],checkerSize);
+image=imread("images/checkerboard.jpg",0)
+corners=detectCheckerboardPoints(image,[boardRows,boardCols]);
+param=calibrateCamera(corners,worldPoint)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="genCheckerboardPoints">genCheckerboardPoints</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+</refentry>

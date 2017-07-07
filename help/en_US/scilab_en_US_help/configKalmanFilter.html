@@ -1,0 +1,87 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>configKalmanFilter</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="calibrateCamera.html">&lt;&lt; calibrateCamera</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="detectCheckerboardCorner.html">detectCheckerboardCorner &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a> &gt; configKalmanFilter</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">configKalmanFilter</h1>
+    <p class="refpurpose">Create Kalman filter for object tracking</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">kalmanFilter</span><span class="default">=</span><span class="functionid">configKalmanFilter</span><span class="default">(</span><span class="default">MotionModel</span><span class="default">,</span><span class="default">InitialLocation</span><span class="default">,</span><span class="default">InitialError</span><span class="default">,</span><span class="default">MotionNoise</span><span class="default">, </span><span class="default">MeasurementNoise</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">kalmanFilter:</span>
+      <dd><p class="para">A structure with fields:StateTransitionModel,MeasurementModel,ControlModel,State,StateCovariance, ProcessNoise,MeasurementNoise</p></dd></dt>
+   <dt><span class="term">MotionModel:</span>
+      <dd><p class="para">Motion model, specified as a string &#0039;ConstantVelocity&#0039; or &#0039;ConstantAcceleration&#0039;. The motion model you select applies to all dimensions. For example, for the 2-D Cartesian coordinate system. This mode applies to both X and Y directions.</p></dd></dt>
+   <dt><span class="term">InitialLocation:</span>
+      <dd><p class="para">Initial location of object, specified as a numeric vector. This argument also determines the number of dimensions for the coordinate system. For example, if you specify the initial location as a two-element vector, [x0, y0], then a 2-D coordinate system is assumed.</p></dd></dt>
+   <dt><span class="term">InitialError:</span>
+      <dd><p class="para">Initial estimate uncertainty variance, specified as a two- or three-element vector. The initial estimate error specifies the variance of the initial estimates of location, velocity, and acceleration of the tracked object. The function assumes a zero initial velocity and acceleration for the object, at the location you set with the InitialLocation property.</p></dd></dt>
+   <dt><span class="term">MotionNoise:</span>
+      <dd><p class="para">Deviation of selected and actual model, specified as a two- or three-element vector. The motion noise specifies the tolerance of the Kalman filter for the deviation from the chosen model. This tolerance compensates for the difference between the object&#0039;s actual motion and that of the model you choose. Increasing this value may cause the Kalman filter to change its state to fit the detections. Such an increase may prevent the Kalman filter from removing enough noise from the detections. The values of this property stay constant and therefore may affect the long-term performance of the Kalman filter.</p></dd></dt>
+   <dt><span class="term">MeasurementNoise:</span>
+      <dd><p class="para">Variance inaccuracy of detected location, specified as a scalar. It is directly related to the technique used to detect the physical objects. Increasing the MeasurementNoise value enables the Kalman filter to remove more noise from the detections.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function provides a simple approach for configuring the KalmanFilter structure for tracking a physical object in a Cartesian coordinate system. The tracked object may move with either constant velocity or constant acceleration.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">k</span><span class="scilaboperator">=</span><span class="scilabid">configKalmanFilter</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">ConstantVelocity</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">2</span> <span class="scilabnumber">3</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">0.1</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">0.1</span> <span class="scilabnumber">0.1</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabnumber">0.5</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Gursimar Singh</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="calibrateCamera.html">&lt;&lt; calibrateCamera</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="detectCheckerboardCorner.html">detectCheckerboardCorner &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

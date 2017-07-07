@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from trainRTreesClassifier.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="trainRTreesClassifier" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>trainRTreesClassifier</refname>
+    <refpurpose>This function is used to train an image classifier using Random Forest Trees.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   classifier = trainRtreesClassifier(imgSets, bag,classifierName);
+   classifier = trainRtreesClassifier(imgSets, bag,classifierName,ActiveVarCount);
+   classifier = trainRtreesClassifier(imgSets, bag,classifierName,ActiveVarCount,CalVarimp);
+   classifier = trainRtreesClassifier(imgSets,bag,classifierName,ActiveVarCount,CalVarImp,CVfolds);
+   classifier = trainRtreesClassifier(imgSets,bag,classifierName,ActiveVarCount,CalVarImp,CVfolds,MaxCategories);
+   classifier = trainRtreesClassifier(imgSets,bag,classifierName,ActiveVarCount,CalVarImp,CVfolds,MaxCategories,MaxDepth);
+   classifier = trainRtreesClassifier(imgSets,bag,classifierName,ActiveVarCount,CalVarImp,CVfolds,MaxCategories,MaxDepth,MinSampleCount,[priori]);
+   classifier = trainRtreesClassifier(imgSets,bag,classifierName,ActiveVarCount,CalVarImp,CVfolds,MaxCategories,MaxDepth,MinSampleCount,[priori],RegressionAccuracy);
+   classifier = trainRtreesClassifier(imgSets,bag,classifierName,ActiveVarCount,CalVarImp,CVfolds,MaxCategories,MaxDepth,MinSampleCount,[priori],RegressionAccuracy,TruncatedPruneTree);
+   classifier = trainRtreesClassifier(imgSets,bag,classifierName,ActiveVarCount,CalVarImp,CVfolds,MaxCategories,MaxDepth,MinSampleCount,[priori],RegressionAccuracy,TruncatedPruneTree,UseSurrogates);
+   classifier = trainRtreesClassifier(imgSets,bag,classifierName,ActiveVarCount,CalVarImp,CVfolds,MaxCategories,MaxDepth,MinSampleCount,[priori],RegressionAccuracy,TruncatedPruneTree,UseSurrogates,Use1SERule);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image category classifier</para></listitem></varlistentry>
+   <varlistentry><term>imgSets:</term>
+      <listitem><para> Input imageSet to train the classifier on</para></listitem></varlistentry>
+   <varlistentry><term>bag:</term>
+      <listitem><para> The bagOfFeatures of the imageSet provided</para></listitem></varlistentry>
+   <varlistentry><term>int ActiveVarCount:</term>
+      <listitem><para> user defined default is 0</para></listitem></varlistentry>
+   <varlistentry><term>bool CalVarimp:</term>
+      <listitem><para> decision to calculate VarImp</para></listitem></varlistentry>
+   <varlistentry><term>int  CVfolds :</term>
+      <listitem><para>  default is 10 user dependent</para></listitem></varlistentry>
+   <varlistentry><term>int MaxCategories:</term>
+      <listitem><para>default 10</para></listitem></varlistentry>
+   <varlistentry><term>int MaxDepth:</term>
+      <listitem><para>default value is INT_MAX</para></listitem></varlistentry>
+   <varlistentry><term>int MinSampleCount:</term>
+      <listitem><para>default value is 10</para></listitem></varlistentry>
+   <varlistentry><term>float priori:</term>
+      <listitem><para>default is empty – predefined probability of class or label set by user,must be row vector.</para></listitem></varlistentry>
+   <varlistentry><term>float RegressionAccuracy:</term>
+      <listitem><para>default value 0.01 – based on error calculation</para></listitem></varlistentry>
+   <varlistentry><term>bool TruncatedPruneTree:</term>
+      <listitem><para> default true</para></listitem></varlistentry>
+   <varlistentry><term>bool UseSurrogates:</term>
+      <listitem><para>default is false.if true surrogates splits will be built</para></listitem></varlistentry>
+   <varlistentry><term>bool Use1SERule:</term>
+      <listitem><para> if true makes pruning harsher</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function trains an image category classifier which can be used to predict categories of images given to it as input using the mlpredict() function.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet = imageSet(images/train_3,'recursive');
+[trainingSet testSet] = partition(imgSet,[0.8]);
+bag = bagOfFeatures(trainingSet);
+categoryClassifier = trainRTreesClassifier(trainingSet, bag);
+simage=imread("images/plane.jpg");
+label=mlPredict(categoryClassifier,simage,"RT");
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imageSet">imageSet</link></member>
+   <member><link linkend="bagOfFeatures">bagOfFeatures</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   <member>Rohit Suri</member>
+   <member>Umang Agrawal</member>
+   </simplelist>
+</refsection>
+</refentry>

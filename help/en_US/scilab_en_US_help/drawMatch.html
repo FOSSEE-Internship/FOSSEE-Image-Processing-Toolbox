@@ -1,0 +1,111 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>drawMatch</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="drawKeypoints.html">&lt;&lt; drawKeypoints</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="facePredict.html">facePredict &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a> &gt; drawMatch</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">drawMatch</h1>
+    <p class="refpurpose">The function draws the matched fetures between to images.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">image</span><span class="default">]=</span><span class="functionid">drawMatch</span><span class="default">(</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">keypoints1</span><span class="default">,</span><span class="default">keypoints2</span><span class="default">,</span><span class="default">indexPairs</span><span class="default">,</span><span class="default">distance</span><span class="default">)</span>
+<span class="default">[</span><span class="default">image</span><span class="default">]=</span><span class="functionid">drawMatch</span><span class="default">(</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">keypoints1</span><span class="default">,</span><span class="default">keypoints2</span><span class="default">,</span><span class="default">indexPairs</span><span class="default">,</span><span class="default">distance</span><span class="default">,</span>&#0034;<span class="default">color</span>&#0034;<span class="default">,[</span><span class="default">r</span><span class="default">,</span><span class="default">g</span><span class="default">,</span><span class="default">b</span><span class="default">]);</span>
+<span class="default">[</span><span class="default">image</span><span class="default">]=</span><span class="functionid">drawMatch</span><span class="default">(</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">keypoints1</span><span class="default">,</span><span class="default">keypoints2</span><span class="default">,</span><span class="default">indexPairs</span><span class="default">,</span><span class="default">distance</span><span class="default">,</span>&#0034;<span class="default">color</span>&#0034;<span class="default">,[</span><span class="default">r</span><span class="default">,</span><span class="default">g</span><span class="default">,</span><span class="default">b</span><span class="default">],</span>&#0034;<span class="default">flags</span>&#0034;<span class="default">,</span><span class="default">flag</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">image:</span>
+      <dd><p class="para">Output image on which keypoints are drawn.</p></dd></dt>
+   <dt><span class="term">img1:</span>
+      <dd><p class="para">Input image1 for drawing matched features.</p></dd></dt>
+   <dt><span class="term">img2:</span>
+      <dd><p class="para">Input image2 for drawing matched features.</p></dd></dt>
+   <dt><span class="term">keypoints1:</span>
+      <dd><p class="para">Keypoints detected in image1 via detectSURFfeatures,detectFastfeatures etc.</p></dd></dt>
+   <dt><span class="term">keypoints2:</span>
+      <dd><p class="para">Keypoints detected in image2 via detectSURFfeatures,detectFastfeatures etc.</p></dd></dt>
+   <dt><span class="term">indexPairs:</span>
+      <dd><p class="para">indexPairs obtained from matchFeatures function.Indices of matched keypoints/features.</p></dd></dt>
+   <dt><span class="term">distance:</span>
+      <dd><p class="para">distance between descriptors.</p></dd></dt>
+   <dt><span class="term">&#0034;Name&#0034; - Value arguments:</span>
+      <dd><p class="para"></p></dd></dt>
+   <dt><span class="term">&#0034;color&#0034;:</span>
+      <dd><p class="para">specified as a row vector of rgb color values between [0-255].</p></dd></dt>
+   <dt><span class="term">&#0034;flags&#0034;:</span>
+      <dd><p class="para">flag for with different drawing options.Flag can be 0,1,2 or 4.<ul class="itemizedlist"><li>0 - DEFAULT - Output image matrix will be created, i.e. existing memory of output image may be reused. Two source image,matches and single keypoints will be drawn. For each keypoint only the center point will be drawn (without the circle around keypoint with keypoint size and orientation).</li><li>1 - DRAW_OVER_OUTIMG - Output image matrix will not be created. Matches will be drawn on existing content of output image.</li><li>2 - NOT_DRAW_SINGLE_POINTS - Single keypoints will not be drawn.</li><li>4 - DRAW_RICH_KEYPOINTS - For each keypoint the circle around keypoint with keypoint size and orientation will be drawn.</li></ul></p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function draws the matched fetures between to images.Match is a line connecting two keypoints.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">max</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_1</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/table1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/table2.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis1</span> <span class="scilaboperator">=</span> <span class="scilabid">detectFASTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">MinConstrast</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis2</span> <span class="scilaboperator">=</span> <span class="scilabid">detectFASTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">MinConstrast</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">features_1</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">cornerPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">features_2</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">cornerPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabopenclose">)</span>
+<span class="scilabid">dimage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawKeypoints</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">matchFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">features_1</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span> <span class="scilabid">features_2</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">matchedImage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawMatch</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Gursimar Singh</li></ul></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="scilab://matchFeatures" class="link">matchFeatures</a></li>
+   <li class="member"><a href="scilab://extractFeatures" class="link">extractFeatures</a></li>
+   <li class="member"><a href="scilab://detectFastFeatures" class="link">detectFastFeatures</a></li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="drawKeypoints.html">&lt;&lt; drawKeypoints</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="facePredict.html">facePredict &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

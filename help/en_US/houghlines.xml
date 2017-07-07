@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from houghlines.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="houghlines" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>houghlines</refname>
+    <refpurpose>Extract line segments based on Standard Hough transform</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   out=houghlines(image,rho,theta, threshold, srn, stn)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image:</term>
+      <listitem><para>Input image.Must be in grayscale.</para></listitem></varlistentry>
+   <varlistentry><term>lines:</term>
+      <listitem><para> Output matrix of lines. A 2 coloumn matrix ([rho,theta]) rho is the distance from the coordinate origin (0,0) (top-left corner of the image). theta is the line rotation angle in radians (0 ~ vertical line, pi/2 ~ horizontal line).</para></listitem></varlistentry>
+   <varlistentry><term>rho:</term>
+      <listitem><para>Distance resolution of the accumulator in pixels. default 1.</para></listitem></varlistentry>
+   <varlistentry><term>theta:</term>
+      <listitem><para>Angle resolution of the accumulator in radians. default pi/180.</para></listitem></varlistentry>
+   <varlistentry><term>threshold:</term>
+      <listitem><para>Accumulator threshold parameter. Only those lines are returned that get enough votes (&gt;Threshold).</para></listitem></varlistentry>
+   <varlistentry><term>srn:</term>
+      <listitem><para>For the multi-scale Hough transform, it is a divisor for the distance resolution Rho. The coarse accumulator distance resolution is Rho and the accurate accumulator resolution is Rho/SRN. If both SRN=0 and STN=0, the classical Hough transform is used. Otherwise, both these parameters should be positive.</para></listitem></varlistentry>
+   <varlistentry><term>stn:</term>
+      <listitem><para>For the multi-scale Hough transform, it is a divisor for the distance resolution Theta.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function implements the standard or standard multi-scale Hough transform algorithm for line detection. See homepages.inf.ed.ac.uk/rbf/HIPR2/hough.htm for a good explanation of Hough transform.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im=imread("images/check.jpg");
+img=canny(im,50,100,3,1);
+lines=houghlines(img,1,%pi/180,120,0,0);
+sz=size(lines);
+sz=sz(1);
+for i=1:sz
+rho = lines(i,1);
+theta = lines(i,2);
+a = cos(theta);
+b = sin(theta);
+x0 = a*rho;
+y0 = b*rho;
+x1 = round(x0 + 1000*(-b));
+y1 = round(y0 + 1000*(a));
+x2 = round(x0 - 1000*(-b));
+y2 = round(y0 - 1000*(a));
+line(im,x1,y1,x2,y2,0,0,255,2,8,0);
+end
+imshow(im);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   <member>Shubheksha Jalan</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="houghlinesp">houghlinesp</link></member>
+   <member><link linkend="line">line</link></member>
+   </simplelist>
+</refsection>
+</refentry>

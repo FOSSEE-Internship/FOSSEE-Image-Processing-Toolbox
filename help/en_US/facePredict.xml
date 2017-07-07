@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from facePredict.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="facePredict" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>facePredict</refname>
+    <refpurpose>Predict face label in an image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [predictedLabel]=facePredict(classifier,image)
+   [predictedLabel,confidence]=facePredict(classifier,image)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>predictedLabel:</term>
+      <listitem><para>The predicted label of the input image.It is the name of the folder in which the input existed when classifier was trained.</para></listitem></varlistentry>
+   <varlistentry><term>confidence:</term>
+      <listitem><para>More value of the confidence more is the deviation of the input image with the original image.Confidence =0 means exact match.</para></listitem></varlistentry>
+   <varlistentry><term>classifier:</term>
+      <listitem><para>A face classifier structure obtained from trainFaceRecognizer with following fields<itemizedlist><listitem>ClassifierType - Algorithm with which the recognizer was trained.</listitem><listitem>ClassifierLocation - Location of the xml file generated after training.</listitem><listitem>DescriptionCount - Number of images used in training the recognizer.</listitem></itemizedlist></para></listitem></varlistentry>
+   <varlistentry><term>image:</term>
+      <listitem><para>Input image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function predicts the label of the input image from the image set by which the cascade classifier was trained.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet=imageSet("images/trainset_face","recursive");
+tr=trainFaceRecognizer(imgSet,"LBPH");
+image=imread("images/s1.pgm");
+[p(1),c(1)]=facePredict(tr,image);
+image=imread("images/s2.pgm");
+[p(2),c(2)]=facePredict(tr,image);
+image=imread("images/s3.pgm");
+[p(3),c(3)]=facePredict(tr,image);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imageSet">imageSet</link></member>
+   <member><link linkend="trainFaceRecognizer">trainFaceRecognizer</link></member>
+   </simplelist>
+</refsection>
+</refentry>

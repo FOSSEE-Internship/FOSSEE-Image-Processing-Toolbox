@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a76cc8a54bed28c34accf178a2435ac7f SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/CreateSample.xml">
+<!ENTITY a51c081ec5a84dc9e332dd5ca10c0555b SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/CreateSampleFromFile.xml">
+<!ENTITY a953ae36fe46b8b1102058244be9388c7 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/IDCT.xml">
+<!ENTITY ac142865fefd200858daf99d0dec25a03 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/IFFT.xml">
+<!ENTITY ad91198d62901ccf5d16cbe3aec9d3444 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/applycform.xml">
+<!ENTITY a6817e60ed374d02472989609792f160b SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/bbox2points.xml">
+<!ENTITY a0f010e25548c0b738c1cd3a23a127121 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/calibrateCamera.xml">
+<!ENTITY a140d7b3bc7f1789c87debc7feb432af2 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/configKalmanFilter.xml">
+<!ENTITY a2b5c67123db8debe62949860b24cd4db SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/detectCheckerboardCorner.xml">
+<!ENTITY ab4a804cff75cf61ed2e6227b7281499b SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/detectCheckerboardPoints.xml">
+<!ENTITY aa38283b70c6f7a4f853e0dbad5ee71bf SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/drawKeypoints.xml">
+<!ENTITY a0d69b351e46c6fdf66f5a53e86d313be SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/drawMatch.xml">
+<!ENTITY aca5733d44b26b7ad38b1f6593e588f6e SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/facePredict.xml">
+<!ENTITY a704068e814d5dca72b9ee597d8ce6664 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/fftshift.xml">
+<!ENTITY a7dc901e516074ad56ff4f35fa308faf3 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/genCheckerboardPoints.xml">
+<!ENTITY a9ccc8ee20d5fe98571ccbaa2be760993 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/getRotationMatrix2D.xml">
+<!ENTITY a0c8c7593e959ac842fd0fce42118a8cf SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/getrectsubpix.xml">
+<!ENTITY a4af3f795e8a890aa4d334fdbc0073558 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/houghcircles.xml">
+<!ENTITY a8d39bec552523187060ce0942cebe523 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/houghlines.xml">
+<!ENTITY aeed9f07ae92a446d9b3bf80be9b4809f SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/houghlinesp.xml">
+<!ENTITY a6c9021719e91b86a1fa1dd73825d1bde SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imextendedmin.xml">
+<!ENTITY a034a9a33e1be75193f819dc2c4f4095e SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imhmin.xml">
+<!ENTITY a74db5409b74c9c805269b1c94966014e SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imimposemin.xml">
+<!ENTITY a912c247e5c8c20e5034dc87f85a133ba SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imlincomb.xml">
+<!ENTITY a264b559e773fde593e49ea2941152b56 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/peopleDetector.xml">
+<!ENTITY aecfcb40a2cb7f151b62b6455b9c34946 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/pyrMeanShiftFiltering.xml">
+<!ENTITY ac3b5d871c9e28348617011b4a19780e0 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainCascadeObjectDetect.xml">
+<!ENTITY aa7cc5ff31d2b7e809067ef2581b14680 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainFaceRecognizer.xml">
+<!ENTITY adca31da01c8667df7ca80b0b4c67b903 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainNBClassifier.xml">
+<!ENTITY a28d0a0c9243d61e3ac6a13ea180251bc SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainRTreesClassifier.xml">
+<!ENTITY a09d12713659146b3ead22743d2dcd6e3 SYSTEM "/home/simar/Desktop/FOSSEE_Image_Processing_Toolbox-master/help/en_US/undistort.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='fossee_image_processing_toolbox_manual'>
+    <title>FOSSEE_Image_Processing_Toolbox</title>
+  </info>
+
+<part xml:id='section_b43266e51bd06d6e9286f94c195e3d3c'>
+<title>FOSSEE_Image_Processing_Toolbox</title>
+&a76cc8a54bed28c34accf178a2435ac7f;
+&a51c081ec5a84dc9e332dd5ca10c0555b;
+&a953ae36fe46b8b1102058244be9388c7;
+&ac142865fefd200858daf99d0dec25a03;
+&ad91198d62901ccf5d16cbe3aec9d3444;
+&a6817e60ed374d02472989609792f160b;
+&a0f010e25548c0b738c1cd3a23a127121;
+&a140d7b3bc7f1789c87debc7feb432af2;
+&a2b5c67123db8debe62949860b24cd4db;
+&ab4a804cff75cf61ed2e6227b7281499b;
+&aa38283b70c6f7a4f853e0dbad5ee71bf;
+&a0d69b351e46c6fdf66f5a53e86d313be;
+&aca5733d44b26b7ad38b1f6593e588f6e;
+&a704068e814d5dca72b9ee597d8ce6664;
+&a7dc901e516074ad56ff4f35fa308faf3;
+&a9ccc8ee20d5fe98571ccbaa2be760993;
+&a0c8c7593e959ac842fd0fce42118a8cf;
+&a4af3f795e8a890aa4d334fdbc0073558;
+&a8d39bec552523187060ce0942cebe523;
+&aeed9f07ae92a446d9b3bf80be9b4809f;
+&a6c9021719e91b86a1fa1dd73825d1bde;
+&a034a9a33e1be75193f819dc2c4f4095e;
+&a74db5409b74c9c805269b1c94966014e;
+&a912c247e5c8c20e5034dc87f85a133ba;
+&a264b559e773fde593e49ea2941152b56;
+&aecfcb40a2cb7f151b62b6455b9c34946;
+&ac3b5d871c9e28348617011b4a19780e0;
+&aa7cc5ff31d2b7e809067ef2581b14680;
+&adca31da01c8667df7ca80b0b4c67b903;
+&a28d0a0c9243d61e3ac6a13ea180251bc;
+&a09d12713659146b3ead22743d2dcd6e3;
+</part>
+</book>

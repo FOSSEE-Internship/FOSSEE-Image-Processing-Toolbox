@@ -1,0 +1,95 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>facePredict</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="drawMatch.html">&lt;&lt; drawMatch</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="fftshift.html">fftshift &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a> &gt; facePredict</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">facePredict</h1>
+    <p class="refpurpose">Predict face label in an image.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">predictedLabel</span><span class="default">]=</span><span class="functionid">facePredict</span><span class="default">(</span><span class="default">classifier</span><span class="default">,</span><span class="default">image</span><span class="default">)</span>
+<span class="default">[</span><span class="default">predictedLabel</span><span class="default">,</span><span class="default">confidence</span><span class="default">]=</span><span class="functionid">facePredict</span><span class="default">(</span><span class="default">classifier</span><span class="default">,</span><span class="default">image</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">predictedLabel:</span>
+      <dd><p class="para">The predicted label of the input image.It is the name of the folder in which the input existed when classifier was trained.</p></dd></dt>
+   <dt><span class="term">confidence:</span>
+      <dd><p class="para">More value of the confidence more is the deviation of the input image with the original image.Confidence =0 means exact match.</p></dd></dt>
+   <dt><span class="term">classifier:</span>
+      <dd><p class="para">A face classifier structure obtained from trainFaceRecognizer with following fields<ul class="itemizedlist"><li>ClassifierType - Algorithm with which the recognizer was trained.</li><li>ClassifierLocation - Location of the xml file generated after training.</li><li>DescriptionCount - Number of images used in training the recognizer.</li></ul></p></dd></dt>
+   <dt><span class="term">image:</span>
+      <dd><p class="para">Input image</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function predicts the label of the input image from the image set by which the cascade classifier was trained.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">imgSet</span><span class="scilaboperator">=</span><span class="scilabid">imageSet</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/trainset_face</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">recursive</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">tr</span><span class="scilaboperator">=</span><span class="scilabid">trainFaceRecognizer</span><span class="scilabopenclose">(</span><span class="scilabid">imgSet</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">LBPH</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/s1.pgm</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">p</span><span class="scilabopenclose">(</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabdefault">,</span><span class="scilabid">c</span><span class="scilabopenclose">(</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">facePredict</span><span class="scilabopenclose">(</span><span class="scilabid">tr</span><span class="scilabdefault">,</span><span class="scilabid">image</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/s2.pgm</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">p</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span><span class="scilabdefault">,</span><span class="scilabid">c</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">facePredict</span><span class="scilabopenclose">(</span><span class="scilabid">tr</span><span class="scilabdefault">,</span><span class="scilabid">image</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/s3.pgm</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">p</span><span class="scilabopenclose">(</span><span class="scilabnumber">3</span><span class="scilabopenclose">)</span><span class="scilabdefault">,</span><span class="scilabid">c</span><span class="scilabopenclose">(</span><span class="scilabnumber">3</span><span class="scilabopenclose">)</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">facePredict</span><span class="scilabopenclose">(</span><span class="scilabid">tr</span><span class="scilabdefault">,</span><span class="scilabid">image</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Gursimar Singh</li></ul></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="scilab://imageSet" class="link">imageSet</a></li>
+   <li class="member"><a href="trainFaceRecognizer.html" class="link">trainFaceRecognizer</a></li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="drawMatch.html">&lt;&lt; drawMatch</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="fftshift.html">fftshift &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>
