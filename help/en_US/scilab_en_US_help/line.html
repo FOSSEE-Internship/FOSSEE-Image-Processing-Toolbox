@@ -1,0 +1,95 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>line</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="lab2xyz.html">&lt;&lt; lab2xyz</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="mean1.html">mean1 &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; line</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">line</h1>
+    <p class="refpurpose">This function draws a line segment connecting two points.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">B</span><span class="default"> = </span><span class="functionid">line</span><span class="default">(</span><span class="default">A</span><span class="default">,</span><span class="default">x1</span><span class="default"> , </span><span class="default">y1</span><span class="default"> , </span><span class="default">x2</span><span class="default">,</span><span class="default">y2</span><span class="default">,</span><span class="default">r_value</span><span class="default">,</span><span class="default">g_value</span><span class="default">,</span><span class="default">b_value</span><span class="default">,</span><span class="default">thickness</span><span class="default">,</span><span class="default">linetype</span><span class="default">,</span><span class="default">shift</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">A:</span>
+      <dd><p class="para">image matrix of the source image.</p></dd></dt>
+   <dt><span class="term">x1:</span>
+      <dd><p class="para">x coordinate of the first point of the line segment.</p></dd></dt>
+   <dt><span class="term">y1:</span>
+      <dd><p class="para">y coordinate of the first point of the line segment.</p></dd></dt>
+   <dt><span class="term">x2:</span>
+      <dd><p class="para">x coordinate of the second point of the line segment.</p></dd></dt>
+   <dt><span class="term">y2:</span>
+      <dd><p class="para">y coordinate of the second point of the line segment.</p></dd></dt>
+   <dt><span class="term">r_value:</span>
+      <dd><p class="para">r value of the color of the line.</p></dd></dt>
+   <dt><span class="term">g_value:</span>
+      <dd><p class="para">g value of the color of the line.</p></dd></dt>
+   <dt><span class="term">b_value:</span>
+      <dd><p class="para">b value of the color of the line.</p></dd></dt>
+   <dt><span class="term">thickness:</span>
+      <dd><p class="para">Line thickness.</p></dd></dt>
+   <dt><span class="term">linetype :</span>
+      <dd><p class="para">8 (or omitted) - 8-connected line.4 - 4-connected line.CV_AA - antialiased line</p></dd></dt>
+   <dt><span class="term">B :</span>
+      <dd><p class="para">output image with it&#0039;s histogram matching similar to a given reference image.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function line draws the line segment between pt1 and pt2 points in the image. The line is clipped by the image boundaries. For non-antialiased lines with integer coordinates, the 8-connected or 4-connected Bresenham algorithm is used. Thick lines are drawn with rounding endings. Antialiased lines are drawn using Gaussian filtering. To specify the line color, you may use the macro CV_RGB(r, g, b).</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">i</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">i1</span> <span class="scilaboperator">=</span> <span class="scilabid">line</span><span class="scilabopenclose">(</span><span class="scilabid">i</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">34</span><span class="scilabdefault">,</span><span class="scilabnumber">45</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">255</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabnumber">8</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="lab2xyz.html">&lt;&lt; lab2xyz</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="mean1.html">mean1 &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

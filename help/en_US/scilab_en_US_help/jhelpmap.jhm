@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+<mapID target="index" url="index.html"/>
+<mapID target="section_8354a437b5c51b55a47d8c4ea68b3e72" url="section_8354a437b5c51b55a47d8c4ea68b3e72.html"/>
+<mapID target="Calibrate" url="Calibrate.html"/>
+<mapID target="dctmtx" url="dctmtx.html"/>
+<mapID target="detectAgastFeatures" url="detectAgastFeatures.html"/>
+<mapID target="detectAkazeFeatures" url="detectAkazeFeatures.html"/>
+<mapID target="ellipse" url="ellipse.html"/>
+<mapID target="ellipse2poly" url="ellipse2poly.html"/>
+<mapID target="epipolarlines" url="epipolarlines.html"/>
+<mapID target="extractHOGFeatures" url="extractHOGFeatures.html"/>
+<mapID target="extractLBPFeatures" url="extractLBPFeatures.html"/>
+<mapID target="imfuse" url="imfuse.html"/>
+<mapID target="imgaussfilt3" url="imgaussfilt3.html"/>
+<mapID target="imguidedfilter" url="imguidedfilter.html"/>
+<mapID target="imhistmatch" url="imhistmatch.html"/>
+<mapID target="imhmax" url="imhmax.html"/>
+<mapID target="impixel" url="impixel.html"/>
+<mapID target="imsharpen" url="imsharpen.html"/>
+<mapID target="isEpipoleInImage" url="isEpipoleInImage.html"/>
+<mapID target="lab2uint16" url="lab2uint16.html"/>
+<mapID target="lab2xyz" url="lab2xyz.html"/>
+<mapID target="line" url="line.html"/>
+<mapID target="mean1" url="mean1.html"/>
+<mapID target="multithresh" url="multithresh.html"/>
+<mapID target="puttext" url="puttext.html"/>
+<mapID target="rgb2ntsc" url="rgb2ntsc.html"/>
+<mapID target="sobel" url="sobel.html"/>
+<mapID target="threshold" url="threshold.html"/>
+<mapID target="trainANNMLPClassifier" url="trainANNMLPClassifier.html"/>
+<mapID target="trainBoostClassifier" url="trainBoostClassifier.html"/>
+<mapID target="traindtreeClassifier" url="traindtreeClassifier.html"/>
+<mapID target="undistortImage" url="undistortImage.html"/>
+</map>
