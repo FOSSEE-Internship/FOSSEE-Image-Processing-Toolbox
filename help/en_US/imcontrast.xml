@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imcontrast.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imcontrast" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imcontrast</refname>
+    <refpurpose>Adjusts image contrast.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   new_image = imcontrast(srcImg, aplha, beta)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImage:</term>
+      <listitem><para> Input image.</para></listitem></varlistentry>
+   <varlistentry><term>alpha:</term>
+      <listitem><para> Pixel multiplier controls the weight of each pixel.</para></listitem></varlistentry>
+   <varlistentry><term>beta:</term>
+      <listitem><para> Added to every pixel to change the range of pixel values.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to change the contrast of the image using
+using the values alpha and beta.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("images/lena.jpg");
+new_image = imcontrast(image, 1.2, 2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

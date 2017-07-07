@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from sepFilter2D.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="sepFilter2D" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>sepFilter2D</refname>
+    <refpurpose>Applies a separable linear filter to an image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   new_image = sepFilter2D(image, ddepth, kernel_x, kernel_y, anchor_x, anchor_y, delta, border);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image:</term>
+      <listitem><para> Input image.</para></listitem></varlistentry>
+   <varlistentry><term>ddepth:</term>
+      <listitem><para> Destination image depth, given below are the possible values<itemizedlist><listitem><para> CV_8U </para></listitem><listitem><para> CV_16U/CV_16S </para></listitem><listitem><para> CV_32F</para></listitem><listitem><para> CV_64F </para></listitem></itemizedlist></para></listitem></varlistentry>
+   <varlistentry><term>kernel_x:</term>
+      <listitem><para> Coefficients for filtering each row.</para></listitem></varlistentry>
+   <varlistentry><term>kernel_y:</term>
+      <listitem><para> Coefficients for filtering each column.</para></listitem></varlistentry>
+   <varlistentry><term>anchor_x:</term>
+      <listitem><para> X-coordinate of the anchor.</para></listitem></varlistentry>
+   <varlistentry><term>anchor_y:</term>
+      <listitem><para> Y-coordinate of the anchor.</para></listitem></varlistentry>
+   <varlistentry><term>delta:</term>
+      <listitem><para> Value added to the filtered results before storing them.</para></listitem></varlistentry>
+   <varlistentry><term>borderType:</term>
+      <listitem><para> Pixel extrapolation method, given below are the possible argument values<itemizedlist><listitem><para> BORDER_CONSTANT 0 </para></listitem><listitem><para> BORDER_REPLICATE 1 </para></listitem><listitem><para> BORDER_REFLECT 2 </para></listitem><listitem><para> BORDER_WRAP 3 </para></listitem><listitem><para> BORDER_REFLECT_101 4 </para></listitem><listitem><para> BORDER_TRANSPARENT 5 </para></listitem> </itemizedlist></para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function applies a separable linear filter to the image. That is, first, every row of src
+is filtered with the 1D kernel kernelX.
+Then, every column of the result is filtered with the 1D kernel kernelY.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("images/lena.jpg");
+new_image = sepFilter2D(image, CV_8U, [1, 2, 1], [2, 1, 2], -1, -1, 2, 1)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

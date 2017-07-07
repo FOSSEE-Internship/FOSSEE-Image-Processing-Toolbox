@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from matchFeatures.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="matchFeatures" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>matchFeatures</refname>
+    <refpurpose>This function is used to find the corresponding matches between two features sets</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ indexPairs ] = matchFeatures( features1, features2, Name, Value... )
+   [ indexPairs matchMetric ] = matchFeatures( features1, features2, Name, Value... )
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>features1:</term>
+      <listitem><para> Feature Set 1, a set of M1-by-N Matrix, M1 corresponding to number of features and N corresponds to length of each feature vector</para></listitem></varlistentry>
+   <varlistentry><term>features2:</term>
+      <listitem><para> Feature Set 2, a set of M2-by-N Matrix, M2 corresponding to number of features and N corresponds to length of each feature vector</para></listitem></varlistentry>
+   <varlistentry><term>Method [Optional Input Argument]:</term>
+      <listitem><para> Method of matching to be used. Values: ['Exhaustive' (default) | 'Approximate']</para></listitem></varlistentry>
+   <varlistentry><term>MatchThreshold [Optional Input Argument]:</term>
+      <listitem><para> Matching Threshold for selecting the percentage of strongest matches. Values in range [0 100], default - 10.0</para></listitem></varlistentry>
+   <varlistentry><term>Unique [Optional Input Argument]:</term>
+      <listitem><para> Boolean value for selecting only unique matches between features. Default-False(0)</para></listitem></varlistentry>
+   <varlistentry><term>Metric [Optional Input Argument]:</term>
+      <listitem><para> Metric to be used for matching features. Values: ['SSD'(default)|'SAD'|'Hamming'|'Hamming_2']</para></listitem></varlistentry>
+   <varlistentry><term>indexPairs:</term>
+      <listitem><para> P-by-2 matrix containing the indices of corresponding features matched between two input feature sets</para></listitem></varlistentry>
+   <varlistentry><term>matchMetric:</term>
+      <listitem><para> P-by-1 Vector containing the distance metric between matched Features</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+MatchFeatures function takes in the Feature Descriptors value of two images as its input and finds the best match between each feature vector of the first image to that of the second image and returns the corresponding indices of each feature matrix
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize("max");
+
+img_1 = imread("images/table.jpg", 0);
+img_2 = imread("images/table1.jpg", 0);
+
+lis1 = detectSURFFeatures(img_1);
+lis2 = detectSURFFeatures(img_2);
+
+dimage = drawKeypoints(img_2, lis2.KeyPoints);
+
+features_1 = extractFeatures(img_1, lis1.KeyPoints, "SURFPoints", "Metric", lis1.Metric, "Orientation", lis1.Orientation, "Scale", lis1.Scale, "SignOfLaplacian", lis1.SignOfLaplacian);
+features_2 = extractFeatures(img_2, lis2.KeyPoints, "SURFPoints", "Metric", lis2.Metric, "Orientation", lis2.Orientation, "Scale", lis2.Scale, "SignOfLaplacian", lis2.SignOfLaplacian);
+
+
+[matches, distance] = matchFeatures(features_1.Features, features_2.Features, "Method", "Approximate");
+matchedImage = drawMatch(img_1, img_2, lis1.KeyPoints, lis2.KeyPoints, matches, distance);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize('max');
+
+img_1 = imread("sample_image1.jpg", 0);
+img_2 = imread("sample_image2.jpg", 0);
+
+lis1 = detectBRISKFeatures(img_1);
+lis2 = detectBRISKFeatures(img_2);
+
+features_1 = extractFeatures(img_1, lis1.KeyPoints, "BRISKPoints", "Metric", lis1.Metric, "Orientation", lis1.Orientation, "Scale", lis1.Scale);
+features_2 = extractFeatures(img_2, lis2.KeyPoints, "BRISKPoints", "Metric", lis2.Metric, "Orientation", lis2.Orientation, "Scale", lis2.Scale);
+
+[matches, distance] = matchFeatures(features_1.Features, features_2.Features);
+matchedImage = drawMatch(img_1, img_2, lis1.KeyPoints, lis2.KeyPoints, matches, distance);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="extractFeatures">extractFeatures</link></member>
+   <member><link linkend="drawMatch">drawMatch</link></member>
+   <member><link linkend="matches">matches</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Umang Agrawal</member>
+   <member>Sridhar Reddy</member>
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

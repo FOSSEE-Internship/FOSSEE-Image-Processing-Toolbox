@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imwrite.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imwrite" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imwrite</refname>
+    <refpurpose>Writes to a specified location.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   new_image = imwrite(srcImg, location)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg:</term>
+      <listitem><para> input image.</para></listitem></varlistentry>
+   <varlistentry><term>location:</term>
+      <listitem><para> The relative path of where you want to write the image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used write the image to a specified path
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("images/lena.jpg");
+imwrite(image, "./imageName.jpg"); // imageName -> name of the image
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

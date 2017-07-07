@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from blobAnalysis.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="blobAnalysis" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>blobAnalysis</refname>
+    <refpurpose>Detects blob in the source image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [blob] = blobAnalysis(srcImg)
+   [blob] = blobAnalysis(srcImg, Name, Value)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg:</term>
+      <listitem><para> The input image Matrix.</para></listitem></varlistentry>
+   <varlistentry><term>ROI:</term>
+      <listitem><para> This defines a particular in the image in of which you want the features.</para></listitem></varlistentry>
+   <varlistentry><term>filterByThreshold:</term>
+      <listitem><para> This filter compares the intensity of a binary image at the center of a</para></listitem></varlistentry>
+   <varlistentry><term>filterByArea:</term>
+      <listitem><para> Extracted blobs have an area between minArea (inclusive) and maxArea (exclusive).</para></listitem></varlistentry>
+   <varlistentry><term>filterByCircularity:</term>
+      <listitem><para> Extracted blobs have circularity ( 4∗π∗Areaperimeter∗perimeter) between</para></listitem></varlistentry>
+   <varlistentry><term>filterByConvexity:</term>
+      <listitem><para> Extracted blobs have convexity (area / area of blob convex hull) between minConvexity</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function uses SimpleBlobDetector function to detect the blobs then it checks for different Name
+Value pair arguments and accordingly returns the parameters of the blob such as 2D coordinates of the
+blob, size of the blob.
+   </para>
+   <para>
+The Name-Value pair may be any of following types<itemizedlist><listitem><para>bool filterByArea, vector [minArea maxArea]</para></listitem><listitem><para>bool filterByCircularity, vector [minCircularity maxCircularity]</para></listitem><listitem><para>bool filterByConvexity, vector [minConvexity maxConvexity]</para></listitem><listitem><para>double ROI, vector </para></listitem><listitem><para>bool filterByThreshold, vector [minThreshold maxThreshold]</para></listitem></itemizedlist>
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img_2 = imread("/images/blob.jpg", 0);
+
+lis1 = blobAnalysis(img_2, "filterByThreshold", [200, 255]);
+lis2 = blobAnalysis(img_2, "filterByCircularity", [0.1, 0.9]);
+lis3 = blobAnalysis(img_2, "filterByArea", [1500, 1600]);
+
+dimage1 = drawKeypoints(img_2, lis1.Points, "color", [0, 255, 0]);
+dimage2 = drawKeypoints(img_2, lis2.Points, "color", [0, 255, 0]);
+dimage3 = drawKeypoints(img_2, lis3.Points, "color", [0, 255, 0]);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread,">drawKeypoints</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Deepshikha</member>
+   </simplelist>
+</refsection>
+</refentry>

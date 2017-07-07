@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from scharr.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="scharr" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>scharr</refname>
+    <refpurpose>Calculates the first x- or y- image derivative using Scharr operator.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   new_image = imcontrast(srcImg, aplha, beta)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg:</term>
+      <listitem><para> input image.</para></listitem></varlistentry>
+   <varlistentry><term>ddepth:</term>
+      <listitem><para> output image depth. The possible ddepth values are the following <itemizedlist><listitem> CV_8U </listitem><listitem> CV_16U/CV_16S </listitem><listitem> CV_32F</listitem><listitem> CV_64F </listitem></itemizedlist></para></listitem></varlistentry>
+   <varlistentry><term>dx:</term>
+      <listitem><para> order of the derivative x.</para></listitem></varlistentry>
+   <varlistentry><term>dy:</term>
+      <listitem><para> order of the derivative y.</para></listitem></varlistentry>
+   <varlistentry><term>scale:</term>
+      <listitem><para> Scale factor for the computed derivative values.</para></listitem></varlistentry>
+   <varlistentry><term>delta:</term>
+      <listitem><para> Delta value that is added to the results.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to find the derivative of the source image using the
+Scharr operator.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("lena.jpg");
+new_image = scharr(image, "CV_8U", 2, 3, 1.5, 2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

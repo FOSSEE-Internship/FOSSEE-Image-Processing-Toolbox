@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from mlPredict.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="mlPredict" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>mlPredict</refname>
+    <refpurpose>This function is used to predict the class of an image using an image classifier.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   label = mlpredict(classifier, image, modelName)
+   label = mlpredict(classifier, image, modelName, numberOfNeighnours) // only in case of KNN
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>label:</term>
+      <listitem><para> Evaluated label of the input image</para></listitem></varlistentry>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image classifier</para></listitem></varlistentry>
+   <varlistentry><term>image:</term>
+      <listitem><para> Input image</para></listitem></varlistentry>
+   <varlistentry><term>numberOfNeighbours:</term>
+      <listitem><para> Number of neighbours to consider during prediction.</para></listitem></varlistentry>
+   <varlistentry><term>Returns:</term>
+      <listitem><para> Label</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function predicts the class of an image based on the classifier provided.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+load("argset3.dat", "knnclassi3"); // Use the scilab load function to load a trained classifier.
+img = imread("bike.jpg");
+resp = mlPredict(knnclassi3, img, "knn", 5);
+img = imread("car.jpg");
+resp1 = mlPredict(knnclassi3, img, "knn", 5);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+load("emclassi4.dat", "emclassi4"); // Use the scilab load function to load a trained classifier.
+img = imread("images/bike.jpg");
+[prob, resp] = mlPredict(emclassi4, img, "em");
+img = imread("images/plane.jpg");
+[prob1, resp1] = mlPredict(emclassi4, img, "em");
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="load">load</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

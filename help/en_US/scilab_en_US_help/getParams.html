@@ -1,0 +1,96 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>getParams</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="ftrans2.html">&lt;&lt; ftrans2</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="graydiffweight.html">graydiffweight &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a> &gt; getParams</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">getParams</h1>
+    <p class="refpurpose">This function is used view the parameters of a trained classifier.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">param</span><span class="default"> = </span><span class="functionid">getParams</span><span class="default">(</span><span class="default">classifier</span><span class="default">, </span><span class="default">modelName</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">classifier:</span>
+      <dd><p class="para">Image category classifier</p></dd></dt>
+   <dt><span class="term">modelName:</span>
+      <dd><p class="para">Name of the model to which the classifier belongs to.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function can be used to view the parameters of a trained classifier and
+make changes accordingly in the training process to get accurate results.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://load">load</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">argset3.dat</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">knnclassi3</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabcomment">// Use the scilab load function to load a trained classifier.</span>
+<span class="scilabid">params</span> <span class="scilaboperator">=</span> <span class="scilabid">getParamsKNN</span><span class="scilabopenclose">(</span><span class="scilabid">knnclassi3</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">KNN</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://load">load</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">emclassi4.dat</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">emclassi4</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabcomment">// Use the scilab load function to load a trained classifier.</span>
+<span class="scilabid">params</span> <span class="scilaboperator">=</span> <span class="scilabid">getParams</span><span class="scilabopenclose">(</span><span class="scilabid">emclassi4</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">EM</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="trainEMClassifier.html" class="link">trainEMClassifier</a></li>
+   <li class="member"><a href="trainLRClassifier.html" class="link">trainLRClassifier</a></li>
+   <li class="member"><a href="trainKNNClassifier.html" class="link">trainKNNClassifier</a></li>
+   <li class="member"><a href="scilab://trainNBClassifier" class="link">trainNBClassifier</a></li>
+   <li class="member"><a href="scilab://trainSVMClassifier" class="link">trainSVMClassifier</a></li>
+   <li class="member"><a href="scilab://trainSVMSGDClassifier" class="link">trainSVMSGDClassifier</a></li>
+   <li class="member"><a href="scilab://trainANNClassifier" class="link">trainANNClassifier</a></li>
+   <li class="member"><a href="scilab://trainRTreesClassifier" class="link">trainRTreesClassifier</a></li>
+   <li class="member"><a href="scilab://trainDTreesClassifier" class="link">trainDTreesClassifier</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Siddhant Narang</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="ftrans2.html">&lt;&lt; ftrans2</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="graydiffweight.html">graydiffweight &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

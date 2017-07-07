@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from getParams.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="getParams" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>getParams</refname>
+    <refpurpose>This function is used view the parameters of a trained classifier.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   param = getParams(classifier, modelName);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image category classifier</para></listitem></varlistentry>
+   <varlistentry><term>modelName:</term>
+      <listitem><para> Name of the model to which the classifier belongs to.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function can be used to view the parameters of a trained classifier and
+make changes accordingly in the training process to get accurate results.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+load("argset3.dat", "knnclassi3"); // Use the scilab load function to load a trained classifier.
+params = getParamsKNN(knnclassi3, "KNN")
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+load("emclassi4.dat", "emclassi4"); // Use the scilab load function to load a trained classifier.
+params = getParams(emclassi4, "EM");
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="trainEMClassifier">trainEMClassifier</link></member>
+   <member><link linkend="trainLRClassifier">trainLRClassifier</link></member>
+   <member><link linkend="trainKNNClassifier">trainKNNClassifier</link></member>
+   <member><link linkend="trainNBClassifier">trainNBClassifier</link></member>
+   <member><link linkend="trainSVMClassifier">trainSVMClassifier</link></member>
+   <member><link linkend="trainSVMSGDClassifier">trainSVMSGDClassifier</link></member>
+   <member><link linkend="trainANNClassifier">trainANNClassifier</link></member>
+   <member><link linkend="trainRTreesClassifier">trainRTreesClassifier</link></member>
+   <member><link linkend="trainDTreesClassifier">trainDTreesClassifier</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

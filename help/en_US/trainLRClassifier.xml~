@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from trainLRClassifier.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="trainLRClassifier" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>trainLRClassifier</refname>
+    <refpurpose>This function is used to train an image classifier using the LR algorithm.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   classifier = trainLRClassifier(imgSets, bag, classifierName)
+   classifier = trainLRClassifier(imgSets, bag, classifierName, learningRate)
+   classifier = trainLRClassifier(imgSets, bag, classifierName, learningRate, iteration)
+   classifier = trainLRClassifier(imgSets, bag, classifierName, learningRate, iteration, regularization)
+   classifier = trainLRClassifier(imgSets, bag, classifierName, learningRate, iteration, regularization, trainMethod)
+   classifier = trainLRClassifier(imgSets, bag, classifierName, learningRate, iteration, regularization, trainMethod, minibatch)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image category classifier</para></listitem></varlistentry>
+   <varlistentry><term>imgSets:</term>
+      <listitem><para> Input imageSet to train the classifier on</para></listitem></varlistentry>
+   <varlistentry><term>bag:</term>
+      <listitem><para> The bagOfFeatures of the imageSet provided</para></listitem></varlistentry>
+   <varlistentry><term>learningRate:</term>
+      <listitem><para> Defines the rate at which the classifier will learn.</para></listitem></varlistentry>
+   <varlistentry><term>iteration:</term>
+      <listitem><para> Number of iterations the training function will perform.</para></listitem></varlistentry>
+   <varlistentry><term>regularization:</term>
+      <listitem><para> Controls the kind of regularization to be applied. The types are-</para></listitem></varlistentry>
+   <varlistentry><term>trainMethod:</term>
+      <listitem><para> Controls the kind of training method to be applied. The types are-</para></listitem></varlistentry>
+   <varlistentry><term>minibatch:</term>
+      <listitem><para> Specifies the number of training samples taken in each step of Mini-Batch Gradient Descent.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function trains a LR classifier which can be used to predict classes of images given to it as
+input using the predictLR() function.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet = imageSet(directory,'recursive');
+[trainingSet testSet] = partition(imgSet,[0.8]);
+bag = bagOfFeatures(trainingSet);
+lrclassi = trainLRClassifier(im, bag, "lrclassi", 1, 150, 0, 1, 5);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet = imageSet(directory,'recursive');
+[trainingSet testSet] = partition(imgSet,[0.8]);
+bag = bagOfFeatures(trainingSet);
+lrclassi = trainLRClassifier(im, bag, "lrclassi", 1, 150, 0);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imageSet,">imageSet</link></member>
+   <member><link linkend="imageSet,">partition</link></member>
+   <member><link linkend="imageSet,">bagOfFeatures</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

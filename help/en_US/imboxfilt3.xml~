@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imboxfilt3.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imboxfilt3" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imboxfilt3</refname>
+    <refpurpose>Blurs an image using the box filter.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImage:</term>
+      <listitem><para> Input image.</para></listitem></varlistentry>
+   <varlistentry><term>filterWidth:</term>
+      <listitem><para> The width of the filter to be applied.</para></listitem></varlistentry>
+   <varlistentry><term>filterHeight:</term>
+      <listitem><para> The height of the filter to be applied.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function smoothes an image using the kernel:
+   </para>
+   <para>
+<latex>
+K = $$\alpha $$\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 &amp; 1 \\
+$$\hdots                  \\
+1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 &amp; 1
+$$\end{bmatrix}
+</latex>
+<text>
+where
+</text>
+   </para>
+   <para>
+<latex>
+$$\alpha = \begin{cases} $$\frac{1}{ksize.width * ksize.height} &amp; \hspace{2mm} when\hspace{2mm}normalize = true \\ 1 &amp; {otherwise}
+\end{cases}$
+</latex>
+<para></para>
+   </para>
+   <para>
+Unnormalized box filter is useful for computing various integral characteristics over each pixel
+neighborhood, such as covariance matrices of image derivatives (used in dense optical flow algorithms,
+and so on). If you need to compute pixel sums over variable-size windows.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("lena.jpg");
+blurredImage = imboxfilt3(input_img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("blob.jpg");
+blurredImage = imboxfilt3(input_img, 5, 5);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Yash S. Bhalgat</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from graydiffweight.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="graydiffweight" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>graydiffweight</refname>
+    <refpurpose>Calculate weights for image pixels based on grayscale intensity difference.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   W = graydiffweight(srcImage, refGrayVal)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImage:</term>
+      <listitem><para> Input image.</para></listitem></varlistentry>
+   <varlistentry><term>refGrayVal:</term>
+      <listitem><para> Reference grayscale intensity value, specified as a scalar.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function computes the pixel weight for each pixel in the grayscale image I. The weight is the absolute
+value of the difference between the intensity of the pixel and the reference grayscale intensity
+specified by the scalar refGrayVal. Pick a reference grayscale intensity value that is representative
+of the object you want to segment. The weights are returned in the array W, which is the same size as
+input image I. The weight of a pixel is inversely related to the absolute value of the grayscale intensity
+difference at the pixel location. If the difference is small (intensity value close to refGrayVal), the
+weight value is large. If the difference is large (intensity value very different from refGrayVal), the
+weight value is small.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("images/lena.jpg");
+W = graydiffweight(image, 120);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Dhruti Shah</member>
+   </simplelist>
+</refsection>
+</refentry>

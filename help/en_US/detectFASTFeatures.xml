@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detectFASTFeatures.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detectFASTFeatures" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detectFASTFeatures</refname>
+    <refpurpose>This function is used to detect the corner points using FAST Alogrithm</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ Location Count Metric ] = detectFASTFeatures( Image, Name, Value... )
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Image:</term>
+      <listitem><para> Input Image, should be a 2-D grayscale. The Input Image should be real</para></listitem></varlistentry>
+   <varlistentry><term>MinQuality [Optional Input Argument]:</term>
+      <listitem><para> Minimum Accepted Quality of Corners, can be specified as a scalar value between [0,1]. Default: 0.1</para></listitem></varlistentry>
+   <varlistentry><term>MinContrast [Optional Input Argument]:</term>
+      <listitem><para> Minimum Intensity difference for Corners to be detected, can be specified as a scalar value between[0,1]. Default: 0.2</para></listitem></varlistentry>
+   <varlistentry><term>ROI [Optional Input Argument]:</term>
+      <listitem><para> Specify a rectangular region of operation. Format [ x y width height ]. Default: [1 1 size(Image,2) size(Image,1)]</para></listitem></varlistentry>
+   <varlistentry><term>Location:</term>
+      <listitem><para> Set of x,y coordinates for the deteccted points</para></listitem></varlistentry>
+   <varlistentry><term>Count:</term>
+      <listitem><para> Number of corner points detected</para></listitem></varlistentry>
+   <varlistentry><term>Metric:</term>
+      <listitem><para> Value describing the strength of each detected Point</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The detectFASTFeatures function uses the Features from Accelerated Segment Test (FAST) algorithm to find feature points.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize("max");
+img_1 = imread("images/table.jpg", 0);
+img_2 = imread("images/table1.jpg", 0);
+lis1 = detectFASTFeatures(img_1);
+lis2 = detectFASTFeatures(img_2);
+features_1 = extractFeatures(img_1, lis1.Location, "cornerPoints", "Metric", lis1.Metric);
+features_2 = extractFeatures(img_2, lis2.Location, "cornerPoints", "Metric", lis2.Metric)
+dimage = drawKeypoints(img_1, lis1.Location);
+[matches, distance] = matchFeatures(features_1.Features, features_2.Features);
+matchedImage = drawMatch(img_1, img_2, lis1.Location, lis2.Location, matches, distance);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize("max");
+img_1 = imread("sample_image1.jpg", 0);
+img_2 = imread("sample_image2.jpg", 0);
+lis1 = detectFASTFeatures(img_1, "MinConstrast", 0.2);
+lis2 = detectFASTFeatures(img_2, "MinConstrast", 0.2);
+features_1 = extractFeatures(img_1, lis1.Location, "cornerPoints", "Metric", lis1.Metric);
+features_2 = extractFeatures(img_2, lis2.Location, "cornerPoints", "Metric", lis2.Metric)
+dimage = drawKeypoints(img_1, lis1.Location);
+[matches, distance] = matchFeatures(features_1.Features, features_2.Features);
+matchedImage = drawMatch(img_1, img_2, lis1.Location, lis2.Location, matches, distance);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="drawMatch">drawMatch</link></member>
+   <member><link linkend="drawKeypoints">drawKeypoints</link></member>
+   <member><link linkend="matchFeatures">matchFeatures</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Umang Agrawal</member>
+   <member>Sridhar Reddy</member>
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

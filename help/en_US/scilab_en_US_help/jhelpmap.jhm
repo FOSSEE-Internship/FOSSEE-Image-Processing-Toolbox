@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+<mapID target="index" url="index.html"/>
+<mapID target="section_c28e37d78ba50cc67245894dd02440a0" url="section_c28e37d78ba50cc67245894dd02440a0.html"/>
+<mapID target="blobAnalysis" url="blobAnalysis.html"/>
+<mapID target="decorrstretch" url="decorrstretch.html"/>
+<mapID target="detectAndComputeORB" url="detectAndComputeORB.html"/>
+<mapID target="detectBRISKFeatures" url="detectBRISKFeatures.html"/>
+<mapID target="detectFASTFeatures" url="detectFASTFeatures.html"/>
+<mapID target="detectHarrisFeatures" url="detectHarrisFeatures.html"/>
+<mapID target="detectSURFFeatures" url="detectSURFFeatures.html"/>
+<mapID target="disparity" url="disparity.html"/>
+<mapID target="filter" url="filter.html"/>
+<mapID target="ftrans2" url="ftrans2.html"/>
+<mapID target="getParams" url="getParams.html"/>
+<mapID target="graydiffweight" url="graydiffweight.html"/>
+<mapID target="imabsdiff" url="imabsdiff.html"/>
+<mapID target="imboxfilt3" url="imboxfilt3.html"/>
+<mapID target="imcontrast" url="imcontrast.html"/>
+<mapID target="imcrop" url="imcrop.html"/>
+<mapID target="imextendedmax" url="imextendedmax.html"/>
+<mapID target="imfindcircles" url="imfindcircles.html"/>
+<mapID target="imwrite" url="imwrite.html"/>
+<mapID target="integralFilter" url="integralFilter.html"/>
+<mapID target="isFilter" url="isFilter.html"/>
+<mapID target="matchFeatures" url="matchFeatures.html"/>
+<mapID target="mlPredict" url="mlPredict.html"/>
+<mapID target="reconstructScene" url="reconstructScene.html"/>
+<mapID target="scharr" url="scharr.html"/>
+<mapID target="sepFilter2D" url="sepFilter2D.html"/>
+<mapID target="stereoCalibrateAndRect" url="stereoCalibrateAndRect.html"/>
+<mapID target="trainEMClassifier" url="trainEMClassifier.html"/>
+<mapID target="trainKNNClassifier" url="trainKNNClassifier.html"/>
+<mapID target="trainLRClassifier" url="trainLRClassifier.html"/>
+<mapID target="triangulatePoints" url="triangulatePoints.html"/>
+<mapID target="whitepoint" url="whitepoint.html"/>
+</map>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detectSURFFeatures.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detectSURFFeatures" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detectSURFFeatures</refname>
+    <refpurpose>This function is used to detect SURF(Speeded Up Robust Features) Features in a grayscale Image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   result = detectSURFFeatures(Image);
+   result = detectSURFFeatures(Image, Name, Value, ...)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>result:</term>
+      <listitem><para> SURFPoints struct which contains Location of KeyPoints, Orientation, Metric, SignOfLaplacian, Scale and Count of the features.</para></listitem></varlistentry>
+   <varlistentry><term>Image :</term>
+      <listitem><para>  Input image, specified as a A-by-N 2D grayscale.</para></listitem></varlistentry>
+   <varlistentry><term>MetricThreshold :</term>
+      <listitem><para> (Optional) With default value equal to 1000, it is to be specified as a scalar. Every interest point detected has a strength associated with it. In case, only the stronget ones are needed, this parameter has to be given a larger value. To get more no of interest points/blobs, it is to be reduced.</para></listitem></varlistentry>
+   <varlistentry><term>NumOctaves :</term>
+      <listitem><para> (Optional)With default value equal to 3, it is to be specified as a scalar. Larger the number of octaves, larger is the size of blobs detected. This is because higher octave use large sized filters. Value must be an integer scalar in between 1 and 4.</para></listitem></varlistentry>
+   <varlistentry><term>NumScaleLevels :</term>
+      <listitem><para> (Optional)With default value equal to 4, it is to be specified as a scalar. It denotes the number of scale level for each octave. The Value must be an integer scalar greater than or equal to 3.</para></listitem></varlistentry>
+   <varlistentry><term>ROI :</term>
+      <listitem><para> (Optional) Region Of Interest. This is taken as a vector [u v width height]. When specified, the function detects the key points within region of area width*height with u and v being the top left corner coordinates.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function return the SURF(Speeded Up Robust Features) Interest Points for a 2D Grayscale image. It is scale- and rotation- invariant point detector and descriptor and its application include Camera Calibration, 3D Reconstruction, Object Recognition to name a few.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize("max");
+img_1 = imread("images/table.jpg", 0);
+img_2 = imread("images/table1.jpg", 0);
+lis1 = detectSURFFeatures(img_1);
+lis2 = detectSURFFeatures(img_2);
+dimage = drawKeypoints(img_2, lis2.KeyPoints);
+features_1 = extractFeatures(img_1, lis1.KeyPoints, "SURFPoints", "Metric", lis1.Metric, "Orientation", lis1.Orientation, "Scale", lis1.Scale, "SignOfLaplacian", lis1.SignOfLaplacian);
+features_2 = extractFeatures(img_2, lis2.KeyPoints, "SURFPoints", "Metric", lis2.Metric, "Orientation", lis2.Orientation, "Scale", lis2.Scale, "SignOfLaplacian", lis2.SignOfLaplacian);
+[matches, distance] = matchFeatures(features_1.Features, features_2.Features, "Method", "Approximate");
+matchedImage = drawMatch(img_1, img_2, lis1.KeyPoints, lis2.KeyPoints, matches, distance);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="drawMatch">drawMatch</link></member>
+   <member><link linkend="drawKeypoints">drawKeypoints</link></member>
+   <member><link linkend="matchFeatures">matchFeatures</link></member>
+   <member><link linkend="extractFeatures">extractFeatures</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shashank Shekhar</member>
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

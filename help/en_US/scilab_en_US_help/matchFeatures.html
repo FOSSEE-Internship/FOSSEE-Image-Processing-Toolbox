@@ -1,0 +1,129 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>matchFeatures</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="isFilter.html">&lt;&lt; isFilter</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="mlPredict.html">mlPredict &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a> &gt; matchFeatures</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">matchFeatures</h1>
+    <p class="refpurpose">This function is used to find the corresponding matches between two features sets</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[ </span><span class="default">indexPairs</span><span class="default"> ] = </span><span class="functionid">matchFeatures</span><span class="default">( </span><span class="default">features1</span><span class="default">, </span><span class="default">features2</span><span class="default">, </span><span class="default">Name</span><span class="default">, </span><span class="default">Value</span><span class="default">... )</span>
+<span class="default">[ </span><span class="default">indexPairs</span> <span class="default">matchMetric</span><span class="default"> ] = </span><span class="functionid">matchFeatures</span><span class="default">( </span><span class="default">features1</span><span class="default">, </span><span class="default">features2</span><span class="default">, </span><span class="default">Name</span><span class="default">, </span><span class="default">Value</span><span class="default">... )</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">features1:</span>
+      <dd><p class="para">Feature Set 1, a set of M1-by-N Matrix, M1 corresponding to number of features and N corresponds to length of each feature vector</p></dd></dt>
+   <dt><span class="term">features2:</span>
+      <dd><p class="para">Feature Set 2, a set of M2-by-N Matrix, M2 corresponding to number of features and N corresponds to length of each feature vector</p></dd></dt>
+   <dt><span class="term">Method [Optional Input Argument]:</span>
+      <dd><p class="para">Method of matching to be used. Values: [&#0039;Exhaustive&#0039; (default) | &#0039;Approximate&#0039;]</p></dd></dt>
+   <dt><span class="term">MatchThreshold [Optional Input Argument]:</span>
+      <dd><p class="para">Matching Threshold for selecting the percentage of strongest matches. Values in range [0 100], default - 10.0</p></dd></dt>
+   <dt><span class="term">Unique [Optional Input Argument]:</span>
+      <dd><p class="para">Boolean value for selecting only unique matches between features. Default-False(0)</p></dd></dt>
+   <dt><span class="term">Metric [Optional Input Argument]:</span>
+      <dd><p class="para">Metric to be used for matching features. Values: [&#0039;SSD&#0039;(default)|&#0039;SAD&#0039;|&#0039;Hamming&#0039;|&#0039;Hamming_2&#0039;]</p></dd></dt>
+   <dt><span class="term">indexPairs:</span>
+      <dd><p class="para">P-by-2 matrix containing the indices of corresponding features matched between two input feature sets</p></dd></dt>
+   <dt><span class="term">matchMetric:</span>
+      <dd><p class="para">P-by-1 Vector containing the distance metric between matched Features</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">MatchFeatures function takes in the Feature Descriptors value of two images as its input and finds the best match between each feature vector of the first image to that of the second image and returns the corresponding indices of each feature matrix</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">max</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">img_1</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/table.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/table1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">lis1</span> <span class="scilaboperator">=</span> <span class="scilabid">detectSURFFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis2</span> <span class="scilaboperator">=</span> <span class="scilabid">detectSURFFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">dimage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawKeypoints</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">features_1</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">SURFPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Orientation</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Orientation</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Scale</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Scale</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">SignOfLaplacian</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">SignOfLaplacian</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">features_2</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">SURFPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Orientation</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Orientation</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Scale</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Scale</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">SignOfLaplacian</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">SignOfLaplacian</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabopenclose">[</span><span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">matchFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">features_1</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span> <span class="scilabid">features_2</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Method</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Approximate</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">matchedImage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawMatch</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">max</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">img_1</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">sample_image1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">sample_image2.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">lis1</span> <span class="scilaboperator">=</span> <span class="scilabid">detectBRISKFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis2</span> <span class="scilaboperator">=</span> <span class="scilabid">detectBRISKFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">features_1</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">BRISKPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Orientation</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Orientation</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Scale</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Scale</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">features_2</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">BRISKPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Orientation</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Orientation</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Scale</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Scale</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabopenclose">[</span><span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">matchFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">features_1</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span> <span class="scilabid">features_2</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">matchedImage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawMatch</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="scilab://imread" class="link">imread</a></li>
+   <li class="member"><a href="scilab://extractFeatures" class="link">extractFeatures</a></li>
+   <li class="member"><a href="scilab://drawMatch" class="link">drawMatch</a></li>
+   <li class="member"><a href="scilab://matches" class="link">matches</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Umang Agrawal</li>
+   <li class="member">Sridhar Reddy</li>
+   <li class="member">Siddhant Narang</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="isFilter.html">&lt;&lt; isFilter</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="mlPredict.html">mlPredict &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

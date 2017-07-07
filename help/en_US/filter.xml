@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from filter.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="filter" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>filter</refname>
+    <refpurpose>Convolves an image with the kernel.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   img = filter(input_image, depth, kernelMatrix, -1, -1, 1);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>input_image:</term>
+      <listitem><para> Input image.</para></listitem></varlistentry>
+   <varlistentry><term>depth:</term>
+      <listitem><para> Destination image depth, given below are the possible values-<itemizedlist><para><listitem> CV_8U </listitem></para><para><listitem> CV_16U/CV_16S </listitem></para><para><listitem> CV_32F </listitem></para><para><listitem> CV_64F </listitem></para></itemizedlist></para></listitem></varlistentry>
+   <varlistentry><term>kernelMatrix:</term>
+      <listitem><para> The matrix which defines the kernel of the filter to be applied on the input image.</para></listitem></varlistentry>
+   <varlistentry><term>anchor_x:</term>
+      <listitem><para> X-coordinate of the anchor.</para></listitem></varlistentry>
+   <varlistentry><term>anchor_y:</term>
+      <listitem><para> Y-coordinate of the anchor.</para></listitem></varlistentry>
+   <varlistentry><term>delta:</term>
+      <listitem><para> Value added to the filtered results before storing them.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function applies an arbitrary linear filter to an image. In-place operation is supported.
+When the aperture is partially outside the image, the function interpolates outlier pixel values
+according to the specified border mode.
+The function does actually compute correlation, not the convolution:
+<latex>
+dst(x, y) = $$\sum_{0 &lt; x' &lt; kernel.cols}_{0 &lt; y' &lt; kernel.rows} kernel(x', y') * src(x + x' - anchor.y + y'- anchor.y)
+</latex>
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img1 = imread("images/right1.jpg", 0);
+img2 = imread("images/left1.jpg", 0);
+image = imabsdiff(img1, img2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>
