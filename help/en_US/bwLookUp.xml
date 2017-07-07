@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from bwLookUp.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="bwLookUp" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>bwLookUp</refname>
+    <refpurpose>This function performs 2*2 and 3*3 nonlinear filtering using a lookup table.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [out] = bwLookUp(image,lut)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image :</term>
+      <listitem><para> The input is a grayscale image. If the image is not binary, it is converted to one.</para></listitem></varlistentry>
+   <varlistentry><term>lut :</term>
+      <listitem><para> The lut is a 1*16 double vector [2*2 filtering], or a [1*512] double vector [3*3 filtering].</para></listitem></varlistentry>
+   <varlistentry><term>out :</term>
+      <listitem><para> The output image is the same size as image, same data type as lut.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function performs a 2-by-2 or 3-by-3 nonlinear neighborhood filtering operation on a grayscale image and returns the results in the output image. The neighborhood processing determines an integer index value used to access values in a lookup table 'lut'. The fetched lut value becomes the pixel value in the output image at the targeted position.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// a simple example
+a = imread("lena.jpeg", 0);
+lut = [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ];
+b = bwLookUp(a,lut);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Samiran Roy</member>
+   </simplelist>
+</refsection>
+</refentry>

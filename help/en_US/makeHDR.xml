@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from makeHDR.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="makeHDR" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>makeHDR</refname>
+    <refpurpose>This function is used to create HDR image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [out1, out2] = makeHDR(typeOfMethod=1, num=3, srcMat_1, srcMat_2, srcMat_3, ex_1, ex_2, ex_3, max_iter, threshold) // Robertson merging
+   [out1, out2] = makeHDR(typeOfMethod=2, num=3, srcMat_1, srcMat_2, srcMat_3, ex_1, ex_2, ex_3, samples, lambda, random) // Debevec merging
+   [out1, out2] = makeHDR(typeOfMethod=3, num=3, srcMat_1, srcMat_2, srcMat_3, ex_1, ex_2, ex_3, contrast_weight, saturation_weight, exposure_weight) // Mertens merging
+   [out1, out2] = makeHDR(typeOfMethod=1, num=4, srcMat_1, srcMat_2, srcMat_3, srcMat_4, ex_1, ex_2, ex_3, ex_4, max_iter, threshold) // Robertson merging
+   [out1, out2] = makeHDR(typeOfMethod=2, num=4, srcMat_1, srcMat_2, srcMat_3, srcMat_4, ex_1, ex_2, ex_3, ex_4, samples, lambda, random) // Debevec merging
+   [out1, out2] = makeHDR(typeOfMethod=3, num=4, srcMat_1, srcMat_2, srcMat_3, srcMat_4, ex_1, ex_2, ex_3, ex_4, contrast_weight, saturation_weight, exposure_weight) // Mertens merging
+   [out1, out2] = makeHDR(typeOfMethod=1, num=5, srcMat_1, srcMat_2, srcMat_3, srcMat_4, srcMat_5, ex_1, ex_2, ex_3, ex_4, ex_5, max_iter, threshold) // Robertson merging
+   [out1, out2] = makeHDR(typeOfMethod=2, num=5, srcMat_1, srcMat_2, srcMat_3, srcMat_4, srcMat_5, ex_1, ex_2, ex_3, ex_4, ex_5, samples, lambda, random) // Debevec merging
+   [out1, out2] = makeHDR(typeOfMethod=3, num=5, srcMat_1, srcMat_2, srcMat_3, srcMat_4, srcMat_5, ex_1, ex_2, ex_3, ex_4, ex_5, contrast_weight, saturation_weight, exposure_weight) // Mertens merging
+   [out1, out2] = makeHDR(typeOfMethod=1, num=6, srcMat_1, srcMat_2, srcMat_3, srcMat_4, srcMat_5, srcMat_6, ex_1, ex_2, ex_3, ex_4, ex_5, ex_6, max_iter, threshold) // Robertson merging
+   [out1, out2] = makeHDR(typeOfMethod=2, num=6, srcMat_1, srcMat_2, srcMat_3, srcMat_4, srcMat_5, srcMat_6, ex_1, ex_2, ex_3, ex_4, ex_5, ex_6, samples, lambda, random) // Debevec merging
+   [out1, out2] = makeHDR(typeOfMethod=3, num=6, srcMat_1, srcMat_2, srcMat_3, srcMat_4, srcMat_5, srcMat_6, ex_1, ex_2, ex_3, ex_4, ex_5, ex_6, contrast_weight, saturation_weight, exposure_weight) // Mertens merging
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>typeOfMethod :</term>
+      <listitem><para> Use '1' for 'Robertson', '2' for 'Debevec', or '3' for 'Mertens'.</para></listitem></varlistentry>
+   <varlistentry><term>num :</term>
+      <listitem><para> It is the number of images being fed as input. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>srcMat_i :</term>
+      <listitem><para> It is the hypermat of input source image.</para></listitem></varlistentry>
+   <varlistentry><term>ex_i :</term>
+      <listitem><para> It is the exposure value of the corresponding image_i. It is of double type.</para></listitem></varlistentry>
+   <varlistentry><term>max_iter :</term>
+      <listitem><para> (Robertson) maximal number of Gauss-Seidel solver iterations. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>threshold :</term>
+      <listitem><para> (Robertson) target difference between results of two successive steps of the minimization. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>samples :</term>
+      <listitem><para> (Debevec) number of pixel locations to use. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>lambda :</term>
+      <listitem><para> (Debevec) smoothness term weight. Greater values produce smoother results, but can alter the response. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>random :</term>
+      <listitem><para> (Debevec) if true sample pixel locations are chosen at random, otherwise they form a rectangular grid. It is of Boolean type.</para></listitem></varlistentry>
+   <varlistentry><term>contrast_weight :</term>
+      <listitem><para> (Mertens) contrast measure weight. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>saturation_weight :</term>
+      <listitem><para> (Mertens) saturation measure weight. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>exposure_weight :</term>
+      <listitem><para> (Mertens) well-exposedness measure weight. It is of Double type.</para></listitem></varlistentry>
+   <varlistentry><term>out1 :</term>
+      <listitem><para> HDR image</para></listitem></varlistentry>
+   <varlistentry><term>out2 :</term>
+      <listitem><para> LDR image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function takes a set of images of the same scene in different exposures which have been aligned accordingly and outputs the HDR image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// input of 3 images(min), using Robertson merging technique
+a = imread("t1.jpeg");
+b = imread("t2.jpeg");
+c = imread("t3.jpeg");
+num = 3;
+typeOfMethod = 1;
+ex1 = 15;
+ex2 = 2.5;
+ex3 = 0.25;
+maxIter = 30;
+thres = 0.01;
+[hdr, ldr] = makeHDR(typeOfMethod, num, a, b, c, ex1, ex2, ex3, maxIter, thres);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Use of Debevec merging technique
+a = imread("m1.jpeg");
+b = imread("m2.jpeg");
+c = imread("m3.jpeg");
+d = imread("m4.jpeg");
+e = imread("m5.jpeg");
+f = imread("m6.jpeg");
+num = 6;
+typeOfMethod = 2;
+ex1 = 0.0167;
+ex2 = 0.034;
+ex3 = 0.067;
+ex4 = 0.125;
+ex5 = 0.25;
+ex6 = 0.5;
+samples = 70;
+lambda = 10.0;
+random = %f;
+[hdr, ldr] = makeHDR(typeOfMethod, num, a, b, c, d, e, f, ex1, ex2, ex3, ex4, ex5, ex6, samples, lambda, random);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// use of Robertson merging technique
+a = imread("m1.jpeg");
+b = imread("m2.jpeg");
+c = imread("m3.jpeg");
+d = imread("m4.jpeg");
+e = imread("m5.jpeg");
+f = imread("m6.jpeg");
+num = 6;
+typeOfMethod = 1;
+ex1 = 0.0167;
+ex2 = 0.034;
+ex3 = 0.067;
+ex4 = 0.125;
+ex5 = 0.25;
+ex6 = 0.5;
+maxIter = 30;
+thres = 0.01;
+[hdr, ldr] = makeHDR(typeOfMethod, num, a, b, c, d, e, f, ex1, ex2, ex3, ex4, ex5, ex6, maxIter, thres);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// alternative to creating an HDR image, resulting image is of average exposure. Faster compared to rendering a HDR image.
+a = imread("m1.jpeg");
+b = imread("m2.jpeg");
+c = imread("m3.jpeg");
+d = imread("m4.jpeg");
+e = imread("m5.jpeg");
+f = imread("m6.jpeg");
+num = 6;
+typeOfMethod = 3;
+ex1 = 0.0167;
+ex2 = 0.034;
+ex3 = 0.067;
+ex4 = 0.125;
+ex5 = 0.25;
+ex6 = 0.5;
+contrastWeight = 1.0;
+saturationWeight = 1.0;
+exposureWeight = 0.0;
+[hdr, ldr] = makeHDR(typeOfMethod, num, a, b, c, d, e, f, ex1, ex2, ex3, ex4, ex5, ex6, contrastWeight, saturationWeight, exposureWeight);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("i1.jpeg");
+b = imread("i2.jpeg");
+c = imread("i3.jpeg");
+d = imread("i4.jpeg");
+num = 4;
+typeOfMethod = 2;
+ex1 = 0.034;
+ex2 = 0.008;
+ex3 = 0.0034;
+ex4 = 0.00073;
+samples = 70;
+lambda = 10.0;
+random = %f;
+[hdr, ldr] = makeHDR(typeOfMethod, num, a, b, c, d, ex1, ex2, ex3, ex4, samples, lambda, random);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("i1.jpeg");
+b = imread("i2.jpeg");
+c = imread("i3.jpeg");
+d = imread("i4.jpeg");
+num = 4;
+typeOfMethod = 1;
+ex1 = 0.034;
+ex2 = 0.008;
+ex3 = 0.0034;
+ex4 = 0.00073;
+maxIter = 30;
+thres = 0.01;
+[hdr, ldr] = makeHDR(typeOfMethod, num, a, b, c, d, ex1, ex2, ex3, ex4, maxIter, thres);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("i1.jpeg");
+b = imread("i2.jpeg");
+c = imread("i3.jpeg");
+d = imread("i4.jpeg");
+num = 4;
+typeOfMethod = 3;
+ex1 = 0.034;
+ex2 = 0.008;
+ex3 = 0.0034;
+ex4 = 0.00073;
+maxIter = 30;
+contrastWeight = 1.0;
+saturationWeight = 1.0;
+exposureWeight = 0.0;
+[hdr, ldr] = makeHDR(typeOfMethod, num, a, b, c, d, ex1, ex2, ex3, ex4, contrastWeight, saturationWeight, exposureWeight);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>

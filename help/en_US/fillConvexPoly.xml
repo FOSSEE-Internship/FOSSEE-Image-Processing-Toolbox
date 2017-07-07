@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from fillConvexPoly.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="fillConvexPoly" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>fillConvexPoly</refname>
+    <refpurpose>This function fills a convex polygon.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [out] = fillConvexPoly(img, pstData, npts, r_value, g_value, b_value, linetype, shift)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>img :</term>
+      <listitem><para> The input source image.</para></listitem></varlistentry>
+   <varlistentry><term>pstData :</term>
+      <listitem><para> The vector of polygon vertices.</para></listitem></varlistentry>
+   <varlistentry><term>npts :</term>
+      <listitem><para> The number of polygon vertices.</para></listitem></varlistentry>
+   <varlistentry><term>r_value :</term>
+      <listitem><para> The red value of RGB color for the polygon.</para></listitem></varlistentry>
+   <varlistentry><term>g_value :</term>
+      <listitem><para> The green value of RGB color for the polygon.</para></listitem></varlistentry>
+   <varlistentry><term>b_value :</term>
+      <listitem><para> The blue value of RGB color for the polygon.</para></listitem></varlistentry>
+   <varlistentry><term>linetype :</term>
+      <listitem><para> This is the type of the polygon boundaries. It has only 3 valid types: 4, 8 and 16(CV_AA). Passing any other value as lineType is not legal.</para></listitem></varlistentry>
+   <varlistentry><term>shift :</term>
+      <listitem><para> This is the number of fractional bits in the vertex coordinates.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function fillConvexPoly draws a filled convex polygon. It can fill not only convex polygons but any monotonic polygon without self-intersections, that is, a polygon whose contour intersects every horizontal line (scan line) twice at the most (though, its top-most and/or the bottom edge could be horizontal).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// a simple example
+a = imread("lena.jpeg");
+b = [ 0 10; 10 0; -10 0 ];
+c = fillConvexPoly(a, b, 3, 1, 1, 1, 8, 0);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Abhilasha Sancheti</member>
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

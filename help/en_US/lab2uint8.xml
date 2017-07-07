@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from lab2uint8.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="lab2uint8" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>lab2uint8</refname>
+    <refpurpose>This function converts L*a*b* data to uint8.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [output] = lab2uint8(pstData)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>pstData :</term>
+      <listitem><para> It is a list of color values.</para></listitem></varlistentry>
+   <varlistentry><term>output :</term>
+      <listitem><para> The converted uint8 value. lab8 has the same size as lab.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Converts L*a*b* data to uint8.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(70, 5, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(71, 5, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(0, 5, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(89, 50, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(70, 5, 10.78);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(7, 5, 89);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(70.344, 5.34, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(0, 0, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(70.89, 5.11, 10.33);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// to convert L*a*b* color values from double to uint8.
+a = list(10, 5, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess Zacharias</member>
+   </simplelist>
+</refsection>
+</refentry>

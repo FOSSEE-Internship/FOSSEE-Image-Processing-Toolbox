@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+<mapID target="index" url="index.html"/>
+<mapID target="section_a2c9cca36f8f25d9e603fc42b80e6232" url="section_a2c9cca36f8f25d9e603fc42b80e6232.html"/>
+<mapID target="align" url="align.html"/>
+<mapID target="applyTransformer" url="applyTransformer.html"/>
+<mapID target="bwLookUp" url="bwLookUp.html"/>
+<mapID target="contourArea" url="contourArea.html"/>
+<mapID target="copyMakeBorder" url="copyMakeBorder.html"/>
+<mapID target="detectBRIEFDescriptors" url="detectBRIEFDescriptors.html"/>
+<mapID target="detectDAISYDescriptors" url="detectDAISYDescriptors.html"/>
+<mapID target="detectLATCHDescriptors" url="detectLATCHDescriptors.html"/>
+<mapID target="detectSIFTFeatures" url="detectSIFTFeatures.html"/>
+<mapID target="distanceExtractor" url="distanceExtractor.html"/>
+<mapID target="fillConvexPoly" url="fillConvexPoly.html"/>
+<mapID target="gabor" url="gabor.html"/>
+<mapID target="gaussianBlur" url="gaussianBlur.html"/>
+<mapID target="histogramCostExtractor" url="histogramCostExtractor.html"/>
+<mapID target="imGaborFilt" url="imGaborFilt.html"/>
+<mapID target="lab2rgb" url="lab2rgb.html"/>
+<mapID target="lab2uint8" url="lab2uint8.html"/>
+<mapID target="makeHDR" url="makeHDR.html"/>
+<mapID target="ntsc2rgb" url="ntsc2rgb.html"/>
+<mapID target="pcwrite" url="pcwrite.html"/>
+<mapID target="rgb2lab" url="rgb2lab.html"/>
+<mapID target="ssim" url="ssim.html"/>
+<mapID target="wiener2" url="wiener2.html"/>
+<mapID target="xyz2double" url="xyz2double.html"/>
+<mapID target="xyz2lab" url="xyz2lab.html"/>
+<mapID target="xyz2rgb" url="xyz2rgb.html"/>
+<mapID target="xyz2uint16" url="xyz2uint16.html"/>
+</map>

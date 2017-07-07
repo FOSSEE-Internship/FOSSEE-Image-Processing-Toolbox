@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from lab2rgb.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="lab2rgb" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>lab2rgb</refname>
+    <refpurpose>This function converts CIE 1976 L*a*b* to RGB.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [output] = lab2rgb(pstData)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>pstData :</term>
+      <listitem><para> The color values to convert, specified as a list of values.</para></listitem></varlistentry>
+   <varlistentry><term>output :</term>
+      <listitem><para> The converted color values, returned as an array of the same shape as the input.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Convert CIE 1976 L*a*b* to RGB.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(70, 5, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(71, 50, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(7.3, 5.53, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(70, 5, 10.6656);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(70, 5.45, 10.45);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(7.343, 5.34, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(70, 500, 1012);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(701.2, 5, 10);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(70, 5.545, 1.0);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert a color value in L*a*b* color space to the Adobe RGB (1998) color space.
+a = list(23, 51, 18);
+b = lab2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess Zacharias</member>
+   <member>Ashish Manatosh Barik</member>
+   </simplelist>
+</refsection>
+</refentry>

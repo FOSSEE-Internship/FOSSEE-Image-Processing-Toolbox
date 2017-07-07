@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from gaussianBlur.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="gaussianBlur" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>gaussianBlur</refname>
+    <refpurpose>This function blurs the input image using a Gaussian filter.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputImg = gaussianblur(inputImage,ksize_height,ksize_width,sigmaX,sigmaY)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> The input source image.</para></listitem></varlistentry>
+   <varlistentry><term>ksize_height :</term>
+      <listitem><para> It is the gaussian kernel height. It must be positive and odd.</para></listitem></varlistentry>
+   <varlistentry><term>ksize_width :</term>
+      <listitem><para> It is the gaussian kernel width. It must be positive and odd.</para></listitem></varlistentry>
+   <varlistentry><term>sigmaX :</term>
+      <listitem><para> It is the gaussian kernel standard deviation in X direction.</para></listitem></varlistentry>
+   <varlistentry><term>sigmaY :</term>
+      <listitem><para> It is the gaussian kernel standard deviation in Y direction.</para></listitem></varlistentry>
+   <varlistentry><term>outputImg :</term>
+      <listitem><para> The output filtered image is of the same size and type as the input image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function convolves the source image with the specified Gaussian kernel.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+inputImage = imread('lena.jpg');
+outputImg = gaussianBlur(inputImage,5,5,1,1);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from distanceExtractor.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="distanceExtractor" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>distanceExtractor</refname>
+    <refpurpose>This function computes the shape-distance between two images.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ dist ] = distanceExtractor(srcImg1, srcImg2, typeOfMethod); // Hausdorrf distance
+   [ dist ] = distanceExtractor(srcImg1, srcImg2, typeOfMethod, nAngularBins, innerRadius, nRadialBins, outerRadius, iterations); // Shape Context
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg1 :</term>
+      <listitem><para> It is the first input image.</para></listitem></varlistentry>
+   <varlistentry><term>srcImg2 :</term>
+      <listitem><para> It is the  second input image.</para></listitem></varlistentry>
+   <varlistentry><term>typeOfMethod :</term>
+      <listitem><para> It is used as a flag to pick a certain type of Shape Distance calculation technique. Use '1' for 'Shape Context' and '2' for 'Hausdorrf'.</para></listitem></varlistentry>
+   <varlistentry><term>nAngularBins :</term>
+      <listitem><para> Establish the number of angular bins for the Shape Context Descriptor used in the shape matching pipeline.</para></listitem></varlistentry>
+   <varlistentry><term>nRadialBins :</term>
+      <listitem><para> Establish the number of radial bins for the Shape Context Descriptor used in the shape matching pipeline.</para></listitem></varlistentry>
+   <varlistentry><term>innerRadius :</term>
+      <listitem><para> Set the inner radius of the shape context descriptor.</para></listitem></varlistentry>
+   <varlistentry><term>outerRadius :</term>
+      <listitem><para> Set the outer radius of the shape context descriptor.</para></listitem></varlistentry>
+   <varlistentry><term>dist :</term>
+      <listitem><para> It is the calculated distance. It is of double type.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to compute the shape distance between two shapes defined by its contours.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Hausdorff distance extractor
+a = imread("bnwhite.jpg");
+b = imread("bryan.jpeg");
+typeOfMethod=2;//2 is for hausdorff
+c=distanceExtractor(a,b,typeOfMethod);orff
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Shape Context Distance extractor
+a = imread("photo.jpg");
+b = imread("photo1.jpg");
+typeOfMethod=1; //1 for ShapeContext
+nAngularBins=12;
+nRadialBins=4;
+innerRadius=0.2;
+outerRadius=2;
+iterations=3;
+ndummies = 25;
+defaultCost = 0.2;
+rpTps =0 ;
+dist=distanceExtractor(a,b,typeOfMethod,nAngularBins,nRadialBins,innerRadius,outerRadius,iterations,ndummies,dC,rpTps);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+Incorrect usage
+a=4; (not hypermat)
+b=88; (not hypermat)
+typeOfMethod=1; //1 for ShapeContext
+nAngularBins=12;
+nRadialBins=4;
+innerRadius=2;
+outerRadius=0.2;
+iterations=300;
+ndummies = 25;
+defaultCost = 0.2;
+rpTps =0 ;
+dist=distanceExtractor(a,b,typeOfMethod,nAngularBins,nRadialBins,innerRadius,outerRadius,iterations,ndummies,dC,rpTps);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>

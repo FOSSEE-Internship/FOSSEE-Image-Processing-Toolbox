@@ -1,0 +1,84 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ssim</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="rgb2lab.html">&lt;&lt; rgb2lab</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="wiener2.html">wiener2 &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a> &gt; ssim</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">ssim</h1>
+    <p class="refpurpose">This function is used to compute the Structural Similarity Index (SSIM) for measuring image quality.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">ssim_val</span><span class="default">] = </span><span class="functionid">ssim</span><span class="default">(</span><span class="default">srcImg</span><span class="default">, </span><span class="default">reference</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">srcImg :</span>
+      <dd><p class="para">The input image whose quality is to be measured. Must be the same size and class as reference.</p></dd></dt>
+   <dt><span class="term">reference :</span>
+      <dd><p class="para">Reference image against which quality if measured.</p></dd></dt>
+   <dt><span class="term">ssim_val :</span>
+      <dd><p class="para">Structural Similarity (SSIM) Index.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Computes the Structural Similarity Index (SSIM) value.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// a simple example</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">m1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">m2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span> <span class="scilaboperator">=</span> <span class="scilabid">ssim</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Dhruti Shah</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="rgb2lab.html">&lt;&lt; rgb2lab</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="wiener2.html">wiener2 &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

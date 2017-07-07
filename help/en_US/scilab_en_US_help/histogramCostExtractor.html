@@ -1,0 +1,115 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>histogramCostExtractor</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="gaussianBlur.html">&lt;&lt; gaussianBlur</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imGaborFilt.html">imGaborFilt &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a> &gt; histogramCostExtractor</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">histogramCostExtractor</h1>
+    <p class="refpurpose">This function computes the cost matrix.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[ </span><span class="default">costMatrix</span><span class="default"> ] = </span><span class="functionid">histogramCostExtractor</span><span class="default">(</span><span class="default">srcImg1</span><span class="default">, </span><span class="default">srcImg2</span><span class="default">, </span><span class="default">typeOfMethod</span><span class="default">=3, </span><span class="default">hessianThreshold</span><span class="default">); </span><span class="comment">// Norm based cost</span>
+<span class="default">[ </span><span class="default">costMatrix</span><span class="default"> ] = </span><span class="default">histogramcostExtractor</span><span class="default">(</span><span class="default">srcImg1</span><span class="default">, </span><span class="default">srcImg2</span><span class="default">, </span><span class="default">typeOfMethod</span><span class="default">=1, </span><span class="default">hessianThreshold</span><span class="default">, </span><span class="default">nDummies</span><span class="default">, </span><span class="default">defaultCost</span><span class="default">); </span><span class="comment">// Chi as well as EMDL1 based cost extraction</span>
+<span class="default">[ </span><span class="default">costMatrix</span><span class="default"> ] = </span><span class="functionid">histogramCostExtractor</span><span class="default">(</span><span class="default">srcImg1</span><span class="default">, </span><span class="default">srcImg2</span><span class="default">, </span><span class="default">typeOfMethod</span><span class="default">=2, </span><span class="default">hessianThreshold</span><span class="default">, </span><span class="default">nDummies</span><span class="default">, </span><span class="default">defaultCost</span><span class="default">); </span><span class="comment">// EMDL1 based cost extraction</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">srcImg1 :</span>
+      <dd><p class="para">It is the first input image.</p></dd></dt>
+   <dt><span class="term">srcImg2 :</span>
+      <dd><p class="para">It is the second input image.</p></dd></dt>
+   <dt><span class="term">typeOfMethod :</span>
+      <dd><p class="para">It is used as a flag to pick a certain type of transformation. Use value &#0039;1&#0039; for &#0039;Chi based cost ectraction&#0039;, &#0039;2&#0039; for &#0039;EMDL1 based cost extraction&#0039; and &#0039;3&#0039; for &#0039;Norm based cost extraction&#0039;. It is of double type.</p></dd></dt>
+   <dt><span class="term">hessianThreshold :</span>
+      <dd><p class="para">It is the threshold value for Hessian keypoint detector in SURF(Speeded-Up Robust Features). It is of double type.</p></dd></dt>
+   <dt><span class="term">rpTPS :</span>
+      <dd><p class="para">It is used to set the regularization parameter for relaxing the exact interpolation requirements of the TPS algorithm. It is of double type.</p></dd></dt>
+   <dt><span class="term">costMatrix :</span>
+      <dd><p class="para">It is the cost matrix.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function is used to calculate the histogram based cost matrix of two images, the user gets to choose and apply the type of transformation she/he wishes to perform.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Chi based cost extraction</span>
+<span class="scilabid">a</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">n.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">n1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">typeOfMethod</span><span class="scilaboperator">=</span><span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">hessianThreshold</span><span class="scilaboperator">=</span><span class="scilabnumber">5000</span><span class="scilabdefault">;</span>
+<span class="scilabid">nDummies</span><span class="scilaboperator">=</span><span class="scilabnumber">25</span><span class="scilabdefault">;</span>
+<span class="scilabid">defaultCost</span><span class="scilaboperator">=</span><span class="scilabnumber">0.2</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span><span class="scilaboperator">=</span><span class="scilabid">histogramCostExtractor</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabdefault">,</span><span class="scilabid">typeOfMethod</span><span class="scilabdefault">,</span><span class="scilabid">hessianThreshold</span><span class="scilabdefault">,</span><span class="scilabid">nDummies</span><span class="scilabdefault">,</span><span class="scilabid">defaultCost</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// EMDL1</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">n.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">n1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">typeOfMethod</span><span class="scilaboperator">=</span><span class="scilabnumber">2</span><span class="scilabdefault">;</span>
+<span class="scilabid">hessianThreshold</span><span class="scilaboperator">=</span><span class="scilabnumber">5000</span><span class="scilabdefault">;</span>
+<span class="scilabid">nDummies</span><span class="scilaboperator">=</span><span class="scilabnumber">25</span><span class="scilabdefault">;</span>
+<span class="scilabid">defaultCost</span><span class="scilaboperator">=</span><span class="scilabnumber">0.2</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span><span class="scilaboperator">=</span><span class="scilabid">histogramCostExtractor</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabdefault">,</span><span class="scilabid">typeOfMethod</span><span class="scilabdefault">,</span><span class="scilabid">hessianThreshold</span><span class="scilabdefault">,</span><span class="scilabid">nDummies</span><span class="scilabdefault">,</span><span class="scilabid">defaultCost</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">Norm</span> <span class="scilabid">based</span> <span class="scilabid">cost</span> <span class="scilabid">extraction</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">n.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">n1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">typeOfMethod</span><span class="scilaboperator">=</span><span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabid">hessianThreshold</span><span class="scilaboperator">=</span><span class="scilabnumber">5000</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span><span class="scilaboperator">=</span><span class="scilabid">histogramCostExtractor</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabdefault">,</span><span class="scilabid">typeOfMethod</span><span class="scilabdefault">,</span><span class="scilabid">hessianThreshold</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Ashish Mantosh Barik, NIT Rouekela</li>
+   <li class="member">Shubham Lohakare, NITK Surathkal</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="gaussianBlur.html">&lt;&lt; gaussianBlur</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imGaborFilt.html">imGaborFilt &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>
