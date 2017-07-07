@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a9ec40b34c5f549027c0eea3e8f1265a9 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/colorChange.xml">
+<!ENTITY a299a344bcba191174e5f27907137a5a3 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/convert.xml">
+<!ENTITY a499106a84662ba4412a6205674f1fc87 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/detailEnhance.xml">
+<!ENTITY a43e4065178b6a3c4e0b5bb54442950ea SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/edgePreservingFilter.xml">
+<!ENTITY a78b9cadacbff316f7a1ce51f3df35f9d SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/getDepth.xml">
+<!ENTITY a0603f323705f457e4dd38568fdf2627b SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/getStructuringElement.xml">
+<!ENTITY a28faf1d6451ab38a3502e6f30bd02f7e SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/illuminationChange.xml">
+<!ENTITY ad269082a179d69d1bebb64224b0dd11f SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/localMaximaFinder.xml">
+<!ENTITY ac26c9c7f3d61cb2afb5c3e3e0efda3d8 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/minAreaRect.xml">
+<!ENTITY a03f4c40d3bc0c19671a86caf49064e1b SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/minEnclosingCircle.xml">
+<!ENTITY a42c1e9d77c0ad52ff79a65eeecbe9726 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/partition.xml">
+<!ENTITY a3fca328b22cb6929651e630f42a7b0f8 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/pencilSketch.xml">
+<!ENTITY a6b42f1c5b15ed223fd5e8325d0026495 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/pyramid.xml">
+<!ENTITY a7739060770044c23e8397bd2f20616a0 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/regionFill.xml">
+<!ENTITY a1b6ee78858c49bd79d043dea51d55f6e SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/rgb2gray.xml">
+<!ENTITY a2ced9e3a6f8f997e636ea3ae6c6afd62 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/roiFreeHand.xml">
+<!ENTITY a6054d5e8b605e9d1f7bdff2c1ef04a86 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/roiPoly.xml">
+<!ENTITY a89cbf7de07ce6b50dd9173e8e31c453e SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/seamlessClone.xml">
+<!ENTITY aceda8fbf845d059f2253e50367ed6fcd SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/stylization.xml">
+<!ENTITY ac010e344a8b8d75230d24be683d83ffa SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/templateMatcher.xml">
+<!ENTITY ab0828a610921e67065053cba8eed9099 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/textureFlattening.xml">
+<!ENTITY a042a487be4f8e9c1abd060477da56a53 SYSTEM "/home/rohan/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/watershed.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='fossee_image_processing_toolbox_manual'>
+    <title>FOSSEE Image Processing Toolbox</title>
+  </info>
+
+<part xml:id='section_ac9053c792dc9eb4ff7757c58fe12a32'>
+<title>FOSSEE Image Processing Toolbox</title>
+&a9ec40b34c5f549027c0eea3e8f1265a9;
+&a299a344bcba191174e5f27907137a5a3;
+&a499106a84662ba4412a6205674f1fc87;
+&a43e4065178b6a3c4e0b5bb54442950ea;
+&a78b9cadacbff316f7a1ce51f3df35f9d;
+&a0603f323705f457e4dd38568fdf2627b;
+&a28faf1d6451ab38a3502e6f30bd02f7e;
+&ad269082a179d69d1bebb64224b0dd11f;
+&ac26c9c7f3d61cb2afb5c3e3e0efda3d8;
+&a03f4c40d3bc0c19671a86caf49064e1b;
+&a42c1e9d77c0ad52ff79a65eeecbe9726;
+&a3fca328b22cb6929651e630f42a7b0f8;
+&a6b42f1c5b15ed223fd5e8325d0026495;
+&a7739060770044c23e8397bd2f20616a0;
+&a1b6ee78858c49bd79d043dea51d55f6e;
+&a2ced9e3a6f8f997e636ea3ae6c6afd62;
+&a6054d5e8b605e9d1f7bdff2c1ef04a86;
+&a89cbf7de07ce6b50dd9173e8e31c453e;
+&aceda8fbf845d059f2253e50367ed6fcd;
+&ac010e344a8b8d75230d24be683d83ffa;
+&ab0828a610921e67065053cba8eed9099;
+&a042a487be4f8e9c1abd060477da56a53;
+</part>
+</book>

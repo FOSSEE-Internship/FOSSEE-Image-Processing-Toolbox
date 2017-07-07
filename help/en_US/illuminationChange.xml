@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from illuminationChange.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="illuminationChange" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>illuminationChange</refname>
+    <refpurpose>This function is used to reduce specular reflections or highlight under-exposed foreground objects.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   mask = roiFreeHand(src); //we can also use other function to create the mask
+   outputImage = illuminationChange(src, mask, alpha, beta )
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImage:</term>
+      <listitem><para> resultant Output image</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input source image</para></listitem></varlistentry>
+   <varlistentry><term>mask:</term>
+      <listitem><para> Input mask image with same size as that of source image.</para></listitem></varlistentry>
+   <varlistentry><term>alpha:</term>
+      <listitem><para>    Value ranges between 0-2. (float) (default value= 0.2f)</para></listitem></varlistentry>
+   <varlistentry><term>beta:</term>
+      <listitem><para>    Value ranges between 0-2. (float) (default value= 0.4f)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Applying an appropriate non-linear transformation to the gradient field inside the selection and then integrating
+back with a Poisson solver, modifies locally the apparent illumination of an image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg");//reading an image
+mask = roiFreeHand(src); //creating a mask
+imshow(mask);//view mask
+
+outputImage1 = illuminationChange(src, mask) //using default arguments
+imshow(outputImage1); // view outputImage1
+
+outputImage2 = illuminationChange(src, mask,1.9, 0.3) //providing all optional input arguments
+imshow(outputImage2); // view outputImage2
+
+outputImage3 = illuminationChange(src, mask,[], 0.3) //skipping first optional input argument
+imshow(outputImage3); // view outputImage3
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg");
+[row col] = size(src)
+mask = zeros(row,col) //creating a mask
+mask(100:140,100:150) =255
+imshow(mask); view the mask
+outputImage = illuminationChange(src, mask) //using default arguments
+imshow(outputImage);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

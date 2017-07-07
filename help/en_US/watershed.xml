@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from watershed.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="watershed" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>watershed</refname>
+    <refpurpose>This function returns a marker based segmented image for the given input image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   
+   src = imread("image-location-for-src");
+   [dstImg] = watershed(srcImg) //uses distance transform to find the contours
+   
+   src = imread("image-location-for-src");
+   markerMat = roiFreeHand(src); //using roiFreeHand to roughly mark the contours manually by selecting the ROI
+   [dstImg] = watershed(srcImg,markerMat)
+   src = imread("image-location-for-src");
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>dstImg:</term>
+      <listitem><para> output segmented image</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input source image</para></listitem></varlistentry>
+   <varlistentry><term>markerMat:</term>
+      <listitem><para> a mask image with the the contours marked(region selected)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The second calling sequence gives better results.Here the user has to manually select the region of interest using roiFreeHand.
+Go through the documentation of roiFreeHand to see how it works.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src= imread("/images/watershed2.jpg");
+w2=watershed(src);// markers are created after performing distance transform by default
+imshow(w2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src= imread("../images/watershed2.jpg");
+mask=roiFreeHand(src); //creating markers - selecting each coin separately using the function roiFreeHand
+w2=watershed(src,mask); //retrieve the segmented image
+imshow(w2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess  Zacharias</member>
+   <member>Ashish Manatosh Barik</member>
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

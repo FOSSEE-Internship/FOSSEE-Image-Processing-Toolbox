@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detailEnhance.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detailEnhance" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detailEnhance</refname>
+    <refpurpose>This filter enhances the details of a the given image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   outputImage = detailEnhance(src,sigma_s,sigma_r)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImage:</term>
+      <listitem><para> resultant Output image</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input 8-bit 3-channel image.</para></listitem></varlistentry>
+   <varlistentry><term>sigma_s:</term>
+      <listitem><para> Range between 0 to 200 (float) (default value is 10)</para></listitem></varlistentry>
+   <varlistentry><term>sigma_r:</term>
+      <listitem><para> Range between 0 to 1. (float) (default value is 0.15f)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg");
+outputImage1 = detailEnhance(src) //using the default values for optional parameter
+imshow(outputImage1);//view the output
+
+outputImage2 = detailEnhance(src,[],0.4) //providing value for second optional parameter
+imshow(outputImage2);//view the output
+
+outputImage3 = detailEnhance(src,121,0.4) // providing value all optional parameters
+imshow(outputImage3);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

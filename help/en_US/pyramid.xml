@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from pyramid.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="pyramid" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>pyramid</refname>
+    <refpurpose>This function computes the pyramid reduction or expansion of input_image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   output_image=pyramid(inputimage,direction,level);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputimage :</term>
+      <listitem><para> image matrix on which pyramid reduction or expansion has to be applied</para></listitem></varlistentry>
+   <varlistentry><term>Direction  :</term>
+      <listitem><para> An input string 'expand' for expand or 'reduce' for reduce the image matrix</para></listitem></varlistentry>
+   <varlistentry><term>level      :</term>
+      <listitem><para> It is specify number of times want to expand or reduce the dimension of an image matrix.</para></listitem></varlistentry>
+   <varlistentry><term>output_image :</term>
+      <listitem><para> Expanded or reduced form of image after pyramid reduction or expansio</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function computes the pyramid reduction or expansion of input image.It uses  Gaussian pyramid to downsamples
+and upsamples the image pixels.In reduction it     reduces the size of image (if m*n matrix image) by m/pow(2,level)
+and n/pow(2,level).In expansion it expands the size of image (if m*n matrix image) by m*pow(2,level)
+and n*pow(2,level) where pow(x,y)=x^y.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+inputimage1 = imread('/images/color2.jpeg'); //read an image
+a=pyramid(inputimage1,'expand',2); //perform 'expand' operation
+imshow(a); //view the output
+b=pyramid(inputimage1,'reduce',4);
+imshow(b); //view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Diwakar Bhardwaj</member>
+   </simplelist>
+</refsection>
+</refentry>

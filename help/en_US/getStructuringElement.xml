@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from getStructuringElement.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="getStructuringElement" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>getStructuringElement</refname>
+    <refpurpose>This function returns a structuring element required for the morphological operations.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   se = raw_getStructuringElement(gettype, cols, rows, anchorX, anchorY)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>se:</term>
+      <listitem><para> output structuring element matrix</para></listitem></varlistentry>
+   <varlistentry><term>shape:</term>
+      <listitem><para> element shape that could be one of the following-</para></listitem></varlistentry>
+   <varlistentry><term>cols:</term>
+      <listitem><para> Width of the structuring element</para></listitem></varlistentry>
+   <varlistentry><term>rows:</term>
+      <listitem><para> Height of the structuring element</para></listitem></varlistentry>
+   <varlistentry><term>anchor:</term>
+      <listitem><para> Anchor position within the element. The value  (-1, -1) means that the anchor is at the center.</para></listitem></varlistentry>
+   <varlistentry><term>anchor_x:</term>
+      <listitem><para> x-coordinate of the anchor</para></listitem></varlistentry>
+   <varlistentry><term>anchor_y:</term>
+      <listitem><para> y-coordinate of the anchor</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function constructs and returns the structuring element that can be further passed to
+function that perform morphological operations like erode or dilate.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src = imread("/images/color2.jpeg");
+se1=getStructuringElement('MORPH_RECT',5,7,3,4); //make a rectangular structuring element
+out  = dilate(src,se1,3,4,1); //perform dilate morphological operation
+imshow(out); //view the output image
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src = imread("../images/color2.jpeg");
+se2=getStructuringElement('MORPH_ELLIPSE',10,15,2,2);  //make an elliptical structuring element
+out  = dilate(src,se2,2,2,2); //perform dilate morphological operation
+imshow(out); //view the output image
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

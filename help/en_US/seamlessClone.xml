@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from seamlessClone.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="seamlessClone" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>seamlessClone</refname>
+    <refpurpose>This function is used to seamlessly clone a source image onto a destination image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   mask = roiFreeHand(src); //we can also use other function to create the mask
+   outputImage = seamlessClone(src,dst,mask, pointMatirx, flag)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImage:</term>
+      <listitem><para> resultant Output image</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input  source image.</para></listitem></varlistentry>
+   <varlistentry><term>dst:</term>
+      <listitem><para> Input  destination image on which the source image will be cloned onto .</para></listitem></varlistentry>
+   <varlistentry><term>mask:</term>
+      <listitem><para> Input mask image with same size as that of source image.</para></listitem></varlistentry>
+   <varlistentry><term>pointMatirx:</term>
+      <listitem><para> a 1x2 vector denoting the x &amp; y coordinates of the point in dst where the src image will be cloned (x &amp; y are Double)</para></listitem></varlistentry>
+   <varlistentry><term>flag( Cloning method that could be one of the following):</term>
+      <listitem><para>1) 1 - NORMAL_CLONE ; 2) 2 - MIXED_CLONE ; 3) 3 - FEATURE_EXCHANGE</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Image editing tasks concern either global changes (color/intensity corrections, filters, deformations) or
+local changes concerned to a selection. Here we are interested in achieving local changes, ones
+that are restricted to a region manually selected (ROI), in a seamless and effortless manner.
+The extent of the changes ranges from slight distortions to complete replacement by novel content
+   </para>
+   <para>
+   </para>
+   <para>
+Note:  The size of the source image should be equal to or less than the destination image. The point 'p'
+should be chosen such that it fully fits inside the destination image.If not, then this function will throw the error=&gt;
+-(minxd &gt;= 0 &amp;&amp; minyd &gt;= 0 &amp;&amp; maxxd &lt;= dest.rows &amp;&amp; maxyd &lt;= dest.cols) in seamlessClone
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+dst = imread("/images/color3.jpg"); //read destination image
+src = imread("/images/cartoon.jpg"); //read source image
+mask = roiFreeHand(src); //create a mask for source image
+output = seamlessClone(src,dst,mask,[75 120], 1 ); //perform the seamelessClone
+imshow(output);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+dst = imread("/images/color3.jpg"); //read destination image
+src = imread("/images/cartoon.jpg"); //read source image
+[rows cols] = size(src)  //creating a mask for source image
+mask = zeros(rows,cols);
+mask(50:rows,1:cols) = 255;
+output = seamlessClone(src,dst,mask,[75 120], 1 ); //perform the seamelessClone
+imshow(output);
+
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

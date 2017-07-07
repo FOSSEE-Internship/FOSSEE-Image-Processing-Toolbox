@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from convert.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="convert" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>convert</refname>
+    <refpurpose>This function converts a matrix to another data type with optional scaling.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread('location-of-src');
+   dst = convert(src,rtype, alpha,beta);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>src :</term>
+      <listitem><para> the source matrix/image</para></listitem></varlistentry>
+   <varlistentry><term>alpha:</term>
+      <listitem><para> optional scale factor (default value is 1) (type- Double)</para></listitem></varlistentry>
+   <varlistentry><term>beta:</term>
+      <listitem><para> optional delta added to the scaled values (default value is 0) (type- Double)</para></listitem></varlistentry>
+   <varlistentry><term>rtype:</term>
+      <listitem><para> (type- string)desired output matrix type/depth.It supports the following types -&gt; 1) CV_8U, 2) CV_8S, 3) CV_16U ,4) CV_16S, 5) CV_32S, 6) CV_64F</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The method converts source pixel values to the target data type. saturate_cast&lt;&gt; is applied at the end to avoid possible overflows-
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src = imread('/images/color2.jpeg');
+dst = convert(src,'CV_8U') //convert to 8 bit unsigned int using default values of alpha and beta
+dst //viewing the content of dst
+
+dst2 = convert(src,'CV_64F') //convert to 64 bit floating point using default values of alpha and beta
+dst2 //viewing the content of dst2
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,95 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>edgePreservingFilter</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="detailEnhance.html">&lt;&lt; detailEnhance</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="getDepth.html">getDepth &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a> &gt; edgePreservingFilter</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">edgePreservingFilter</h1>
+    <p class="refpurpose">This function smoothens the given input image while preserving the edges.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">src</span><span class="default"> = </span><span class="default">imread</span><span class="default">(</span>&#0034;<span class="default">image</span><span class="default">-</span><span class="default">location</span><span class="default">-</span><span class="default">for</span><span class="default">-</span><span class="default">src</span>&#0034;<span class="default">);</span>
+<span class="default">outputImage</span><span class="default"> = </span><span class="functionid">edgePreservingFilter</span><span class="default">(</span><span class="default">src</span><span class="default">,</span><span class="default">flag</span><span class="default">,</span><span class="default">sigma_s</span><span class="default">,</span><span class="default">sigma_r</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">outputImage:</span>
+      <dd><p class="para">resultant Output image</p></dd></dt>
+   <dt><span class="term">src:</span>
+      <dd><p class="para">Input 8-bit 3-channel image.</p></dd></dt>
+   <dt><span class="term">flag:</span>
+      <dd><p class="para">(default value is 1) (denotes Edge preserving filters). It takes 2 values -&gt;  1) 1 (for RECURS_FILTER) ; 2) 2 (for NORMCONV_FILTER)</p></dd></dt>
+   <dt><span class="term">sigma_s:</span>
+      <dd><p class="para">Range between 0 to 200 (float) (default value is 60 )</p></dd></dt>
+   <dt><span class="term">sigma_r:</span>
+      <dd><p class="para">Range between 0 to 1. (float) (default value is 0.4f)</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Filtering is the fundamental operation in image and video processing. Edge-preserving smoothing filters
+are used in many different applications</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">src</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">/images/color2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">outputImage1</span> <span class="scilaboperator">=</span> <span class="scilabid">edgePreservingFilter</span><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//using default values for all optional arguments</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">outputImage1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span><span class="scilabcomment">//view the output</span>
+
+<span class="scilabid">outputImage2</span> <span class="scilaboperator">=</span> <span class="scilabid">edgePreservingFilter</span><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabdefault">,</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//using default values for sigma_s </span><span class="scilabcomment">&#0038;</span><span class="scilabcomment"> sigma_r</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">outputImage2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span><span class="scilabcomment">//view the output</span>
+
+<span class="scilabid">outputImage3</span> <span class="scilaboperator">=</span> <span class="scilabid">edgePreservingFilter</span><span class="scilabopenclose">(</span><span class="scilabid">src</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabnumber">0.6</span><span class="scilabopenclose">)</span> <span class="scilabcomment">//using default values for sigma_s </span><span class="scilabcomment">&#0038;</span><span class="scilabcomment"> sigma_r</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">outputImage3</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span><span class="scilabcomment">//view the output</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Rohan Gurve</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="detailEnhance.html">&lt;&lt; detailEnhance</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_ac9053c792dc9eb4ff7757c58fe12a32.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="getDepth.html">getDepth &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

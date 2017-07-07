@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from regionFill.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="regionFill" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>regionFill</refname>
+    <refpurpose>This function restores the selected region in an image using the region neighborhood.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread(location-for-image)
+   x = [x1 x2 ...........xn ] //x coordinates of polygon covering the region that you want to fill
+   y = [y1 y2 ...........yn ] //corresponding y coordinates of polygon covering the region that you want to fill
+   dstImg 1= regionFill(srcImg,inpaintRadius,x,y)
+   
+   mask = roiFreeHand(srx) //making a mask - you can also use other function to make the mask
+   dstImg2 = regionFill(srcImg,inpaintRadius,mask)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg:</term>
+      <listitem><para>    input source imge //it is converted to 8 bit internally</para></listitem></varlistentry>
+   <varlistentry><term>inpaintRadius:</term>
+      <listitem><para>    Radius of a circular neighborhood of each point inpainted that is considered by the algorithm(Double)</para></listitem></varlistentry>
+   <varlistentry><term>mask:</term>
+      <listitem><para>    Inpainting mask. Non-zero pixels indicate the area that needs to be inpainted.</para></listitem></varlistentry>
+   <varlistentry><term>x:</term>
+      <listitem><para> 1xn matrix denoting x coordinates of polygon covering the region that you want to fill</para></listitem></varlistentry>
+   <varlistentry><term>y:</term>
+      <listitem><para> 1xn matrix denoting y coordinates of polygon covering the region that you want to fill</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src= imread("/images/color2.jpeg");
+p=regionFill(src,1,[100 110 110 100],[150 150 200 200]);
+imshow(p);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src= imread("/images/color2.jpeg"); //reading an image
+mask=roiFreeHand(src); //making a mask
+p=regionFill(src,5,mask);
+imshow(p);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Vinay Bhat</member>
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

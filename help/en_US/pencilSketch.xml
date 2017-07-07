@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from pencilSketch.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="pencilSketch" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>pencilSketch</refname>
+    <refpurpose>This function is used to give a non-photorealistic pencil-like  line drawing effect to the given input image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   [outputImage_1 outputImage_2 ] = pencilSketch(src,sigma_s,sigma_r,shade_factor)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImage_1:</term>
+      <listitem><para> resultant Output image with single channel</para></listitem></varlistentry>
+   <varlistentry><term>outputImage_2:</term>
+      <listitem><para> resultant Output image with 3 channels</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input 8-bit 3-channel image.</para></listitem></varlistentry>
+   <varlistentry><term>sigma_s:</term>
+      <listitem><para> Range between 0 to 200 (float) (default value is 60)</para></listitem></varlistentry>
+   <varlistentry><term>sigma_r:</term>
+      <listitem><para> Range between 0 to 1. (float)  (default value is 0.07f)</para></listitem></varlistentry>
+   <varlistentry><term>shade_factor:</term>
+      <listitem><para> Range between 0 to 0.1 (default value is 0.02f)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+src = imread("/images/color2.jpeg");
+outputImage1 = pencilSketch(src) //using default values for all optional parameters
+imshow(outputImage1);//view the output
+
+outputImage2 = pencilSketch(src,100,[],0.07) //using default values for sigma_s
+imshow(outputImage2);//view the output
+
+outputImage3 = pencilSketch(src,100,0.4,0.07) //providing values for all optional parameters
+imshow(outputImage3);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from colorChange.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="colorChange" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>colorChange</refname>
+    <refpurpose>This function seamlessly mixes two differently colored versions of the input image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   src = imread("image-location-for-src");
+   mask = roiFreeHand(src); //we can also use other function to create the mask
+   outputImage = colorChange(src, mask, red_mul, green_mul, blue_mul )
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImage:</term>
+      <listitem><para> resultant Output image</para></listitem></varlistentry>
+   <varlistentry><term>src:</term>
+      <listitem><para> Input source image</para></listitem></varlistentry>
+   <varlistentry><term>mask:</term>
+      <listitem><para> Input mask image with same size as that of source image.</para></listitem></varlistentry>
+   <varlistentry><term>red_mul:</term>
+      <listitem><para>        R-channel multiply factor (float) (default value= 1.0f)</para></listitem></varlistentry>
+   <varlistentry><term>green_mul:</term>
+      <listitem><para>    G-channel multiply factor.(float) (default value= 1.0f)</para></listitem></varlistentry>
+   <varlistentry><term>blue_mul:</term>
+      <listitem><para>     B-channel multiply factor.(float) (default value= 1.0f)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Given an original color image, two differently colored versions of this image can be mixed seamlessly.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src = imread("/images/color2.jpeg");
+mask = roiFreeHand(src); //creating a mask
+
+outputImage1 = colorChange(src, mask) //using default value for all optional parameters
+imshow(outputImage1);//view the output
+
+outputImage2 = colorChange(src, mask,0.5 ) //specifying just the value of red_mul
+imshow(outputImage2);//view the output
+
+outputImage3 = colorChange(src, mask,0.5 , 1, 2.5 ) //specifying value of all optional parameter
+imshow(outputImage3);//view the output
+
+outputImage4 = colorChange(src, mask,0.5 , [] , 2.5 ) //skipping the second argument
+imshow(outputImage4);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+src = imread("../images/color2.jpeg");
+[row col] = size(src)
+mask = zeros(row,col) //creating a mask
+mask(100:140,100:150) =255
+imshow(mask); view the mask
+outputImage = colorChange(src, mask,0.5 , 1, 2.5 ) //specifying value of all optional parameter
+imshow(outputImage);//view the output
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Rohan Gurve</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+<mapID target="index" url="index.html"/>
+<mapID target="section_ac9053c792dc9eb4ff7757c58fe12a32" url="section_ac9053c792dc9eb4ff7757c58fe12a32.html"/>
+<mapID target="colorChange" url="colorChange.html"/>
+<mapID target="convert" url="convert.html"/>
+<mapID target="detailEnhance" url="detailEnhance.html"/>
+<mapID target="edgePreservingFilter" url="edgePreservingFilter.html"/>
+<mapID target="getDepth" url="getDepth.html"/>
+<mapID target="getStructuringElement" url="getStructuringElement.html"/>
+<mapID target="illuminationChange" url="illuminationChange.html"/>
+<mapID target="localMaximaFinder" url="localMaximaFinder.html"/>
+<mapID target="minAreaRect" url="minAreaRect.html"/>
+<mapID target="minEnclosingCircle" url="minEnclosingCircle.html"/>
+<mapID target="partition" url="partition.html"/>
+<mapID target="pencilSketch" url="pencilSketch.html"/>
+<mapID target="pyramid" url="pyramid.html"/>
+<mapID target="regionFill" url="regionFill.html"/>
+<mapID target="rgb2gray" url="rgb2gray.html"/>
+<mapID target="roiFreeHand" url="roiFreeHand.html"/>
+<mapID target="roiPoly" url="roiPoly.html"/>
+<mapID target="seamlessClone" url="seamlessClone.html"/>
+<mapID target="stylization" url="stylization.html"/>
+<mapID target="templateMatcher" url="templateMatcher.html"/>
+<mapID target="textureFlattening" url="textureFlattening.html"/>
+<mapID target="watershed" url="watershed.html"/>
+</map>
