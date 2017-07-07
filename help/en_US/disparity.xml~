@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from disparity.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="disparity" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>disparity</refname>
+    <refpurpose>This function returns the disparity map between two images which</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>method:</term>
+      <listitem><para>  Disparity estimation algorithm, specified as the comma-separated pair consisting of 'Method' and            //           character vector 'blockMatching' or 'semi-blockMatching'.</para></listitem></varlistentry>
+   <varlistentry><term>numDisparities:</term>
+      <listitem><para> Maximum disparity minus minimum disparity. This parameter must be divisible by 16.</para></listitem></varlistentry>
+   <varlistentry><term>SADWindowSize:</term>
+      <listitem><para> Matched block size. It must be an odd number &gt;=1</para></listitem></varlistentry>
+   <varlistentry><term>uniquenessRatio:</term>
+      <listitem><para> Margin in percentage by which the best (minimum) computed cost function value should “win”</para></listitem></varlistentry>
+   <varlistentry><term>textureThreshold:</term>
+      <listitem><para> This controls the detailing in the disparity map.</para></listitem></varlistentry>
+   <varlistentry><term>disp12MaxDiff:</term>
+      <listitem><para>  Maximum allowed difference (in integer pixel units) in the left-right disparity check.</para></listitem></varlistentry>
+   <varlistentry><term>Returns:</term>
+      <listitem><para> disparity map</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Validates disparity using the left-right check. The matrix "cost" should be computed by the
+stereo correspondence algorithm
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize("max");
+img_1 = imread("left1.jpg", 0);
+img_2 = imread("right1.jpg", 0);
+w1 = genCheckerboardPoints([10, 7], 8);
+ip1 = detectCheckerboardCorner(img_1, [7, 10]);
+ip2 = detectCheckerboardCorner(img_2, [7, 10]);
+ip1l = list(ip1);
+ip2l = list(ip2);
+op = stereoCalibrateAndRect(w1, ip1l, ip2l, size(img_1));
+[map map1] = disparity(img_1, img_2);
+img = reconstructScene(op.DepthMap, map1, 1);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="genCheckerboardPoints">genCheckerboardPoints</link></member>
+   <member><link linkend="detectCheckerboardCorne">detectCheckerboardCorne</link></member>
+   <member><link linkend="stereoCalibrateAndRect">stereoCalibrateAndRect</link></member>
+   <member><link linkend="reconstructScene">reconstructScene</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

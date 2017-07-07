@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from trainEMClassifier.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="trainEMClassifier" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>trainEMClassifier</refname>
+    <refpurpose>This function is used to train an image classifier using the EM algorithm.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   classifier = trainEMClassifier(imgSets, bag, classifierName)
+   classifier = trainEMClassifier(imgSets, bag, classifierName, numberOfClusters)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image category classifier</para></listitem></varlistentry>
+   <varlistentry><term>imgSets:</term>
+      <listitem><para> Input imageSet to train the classifier on</para></listitem></varlistentry>
+   <varlistentry><term>bag:</term>
+      <listitem><para> The bagOfFeatures of the imageSet provided</para></listitem></varlistentry>
+   <varlistentry><term>numberOfClusters:</term>
+      <listitem><para> Defines the number of clusters to classify the image set into.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The EM algorithm is a unsupervised learning algorithm.
+This function trains a EM classifier which can be used to predict classes of images given to it as
+input using the predictEM() function.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet = imageSet('images/trainset_2/', 'recursive');
+[trainingSet testSet] = partition(imgSet,[0.8]);
+bag = bagOfFeatures(trainingSet);
+EMClassifier = trainEMClassifier(trainingSet, bag, classifierName);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet = imageSet('images/trainset_3/', 'recursive');
+[trainingSet testSet] = partition(imgSet,[0.8]);
+bag = bagOfFeatures(trainingSet);
+numberOfClusters = 3;
+EMClassifier = trainEMClassifier(trainingSet, bag, classifierName, numberOfClusters);
+save("var.dat", "EMClassifier");
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imageSet">imageSet</link></member>
+   <member><link linkend="partition">partition</link></member>
+   <member><link linkend="bagOfFeatures">bagOfFeatures</link></member>
+   <member><link linkend="mlPredict">mlPredict</link></member>
+   <member><link linkend="save">save</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

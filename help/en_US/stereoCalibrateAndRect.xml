@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from stereoCalibrateAndRect.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="stereoCalibrateAndRect" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>stereoCalibrateAndRect</refname>
+    <refpurpose>This function returns a set of transformation matrices which helps to callibrate camera</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   params = stereoCalibrateAndRect(objectpoints, imagepoints1, imagepoints2, imageSize)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>objectpoints:</term>
+      <listitem><para> Vector of vectors of the calibration pattern points.</para></listitem></varlistentry>
+   <varlistentry><term>imagepoints1:</term>
+      <listitem><para> Vector of vectors of the projections of the calibration pattern points, observed</para></listitem></varlistentry>
+   <varlistentry><term>imagePoints2:</term>
+      <listitem><para> Vector of vectors of the projections of the calibration pattern points, observed</para></listitem></varlistentry>
+   <varlistentry><term>imageSize:</term>
+      <listitem><para> Size of the image used only to initialize intrinsic camera matrix.</para></listitem></varlistentry>
+   <varlistentry><term>Returns:</term>
+      <listitem><para> A struct with the following values<itemizedlist><listitem><para> cameraMatrix1 </para></listitem><listitem><para> distortionCoefficients1 </para></listitem><listitem><para> cameraMatrix2 </para></listitem><listitem><para> distortionCoefficients2 </para></listitem><listitem><para> rotationMatrix </para></listitem><listitem><para> TranslationVector </para></listitem><listitem><para> DepthMap </para></listitem><listitem><para> ProjectionMatrix1 </para></listitem><listitem><para> ProjectionMatrix2 </para></listitem></itemizedlist></para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function estimates transformation between two cameras making a stereo pair and also
+computes the rotation matrices for each camera that (virtually) make both camera image
+planes the same plane. Consequently, this makes all the epipolar lines parallel and thus
+simplifies the dense stereo correspondence problem
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize("max");
+img_1 = imread("images/left1.jpg", 0);
+img_2 = imread("images/right1.jpg", 0);
+w1 = genCheckerboardPoints([10, 7], 8);
+ip1 = detectCheckerboardCorner(img_1, [7, 10]);
+ip2 = detectCheckerboardCorner(img_2, [7, 10]);
+ip1l = list(ip1);
+ip2l = list(ip2);
+op = stereoCalibrateAndRect(w1, ip1l, ip2l, size(img_1));
+[map map1] = disparity(img_1, img_2);
+img = reconstructScene(op.DepthMap, map1, 1);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="genCheckerboardPoints">genCheckerboardPoints</link></member>
+   <member><link linkend="detectCheckerboardCorner">detectCheckerboardCorner</link></member>
+   <member><link linkend="disparity">disparity</link></member>
+   <member><link linkend="reconstructScene">reconstructScene</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

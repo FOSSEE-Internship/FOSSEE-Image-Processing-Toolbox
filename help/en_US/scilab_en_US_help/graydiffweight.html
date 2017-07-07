@@ -1,0 +1,90 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>graydiffweight</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="getParams.html">&lt;&lt; getParams</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imabsdiff.html">imabsdiff &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a> &gt; graydiffweight</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">graydiffweight</h1>
+    <p class="refpurpose">Calculate weights for image pixels based on grayscale intensity difference.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">W</span><span class="default"> = </span><span class="functionid">graydiffweight</span><span class="default">(</span><span class="default">srcImage</span><span class="default">, </span><span class="default">refGrayVal</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">srcImage:</span>
+      <dd><p class="para">Input image.</p></dd></dt>
+   <dt><span class="term">refGrayVal:</span>
+      <dd><p class="para">Reference grayscale intensity value, specified as a scalar.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function computes the pixel weight for each pixel in the grayscale image I. The weight is the absolute
+value of the difference between the intensity of the pixel and the reference grayscale intensity
+specified by the scalar refGrayVal. Pick a reference grayscale intensity value that is representative
+of the object you want to segment. The weights are returned in the array W, which is the same size as
+input image I. The weight of a pixel is inversely related to the absolute value of the grayscale intensity
+difference at the pixel location. If the difference is small (intensity value close to refGrayVal), the
+weight value is large. If the difference is large (intensity value very different from refGrayVal), the
+weight value is small.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">image</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/lena.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">W</span> <span class="scilaboperator">=</span> <span class="scilabid">graydiffweight</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabdefault">,</span> <span class="scilabnumber">120</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="scilab://imread" class="link">imread</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Dhruti Shah</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="getParams.html">&lt;&lt; getParams</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imabsdiff.html">imabsdiff &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imcrop.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imcrop" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imcrop</refname>
+    <refpurpose>Crops the image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   new_image = imcrop(srcImg, xcoor, ycoor, width, height)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImage:</term>
+      <listitem><para> Input image.</para></listitem></varlistentry>
+   <varlistentry><term>xcoor:</term>
+      <listitem><para> The x-coordinate of the starting point of the region of interest, ie region to be cropped.</para></listitem></varlistentry>
+   <varlistentry><term>ycoor:</term>
+      <listitem><para> The y-coordinate of the starting point of the region of interest.</para></listitem></varlistentry>
+   <varlistentry><term>width:</term>
+      <listitem><para> The total width of the region of interest wrt to the starting point.</para></listitem></varlistentry>
+   <varlistentry><term>height:</term>
+      <listitem><para> The total height of the region of interest wrt to the starting point.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function can be used to crop the image to a given region of interest.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("images/lena.jpg");
+new_image = imcrop(image, 10, 10, 100, 100);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,102 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>blobAnalysis</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">&lt;&lt; FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="decorrstretch.html">decorrstretch &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a> &gt; blobAnalysis</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">blobAnalysis</h1>
+    <p class="refpurpose">Detects blob in the source image</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">blob</span><span class="default">] = </span><span class="functionid">blobAnalysis</span><span class="default">(</span><span class="default">srcImg</span><span class="default">)</span>
+<span class="default">[</span><span class="default">blob</span><span class="default">] = </span><span class="functionid">blobAnalysis</span><span class="default">(</span><span class="default">srcImg</span><span class="default">, </span><span class="default">Name</span><span class="default">, </span><span class="default">Value</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">srcImg:</span>
+      <dd><p class="para">The input image Matrix.</p></dd></dt>
+   <dt><span class="term">ROI:</span>
+      <dd><p class="para">This defines a particular in the image in of which you want the features.</p></dd></dt>
+   <dt><span class="term">filterByThreshold:</span>
+      <dd><p class="para">This filter compares the intensity of a binary image at the center of a</p></dd></dt>
+   <dt><span class="term">filterByArea:</span>
+      <dd><p class="para">Extracted blobs have an area between minArea (inclusive) and maxArea (exclusive).</p></dd></dt>
+   <dt><span class="term">filterByCircularity:</span>
+      <dd><p class="para">Extracted blobs have circularity ( 4∗π∗Areaperimeter∗perimeter) between</p></dd></dt>
+   <dt><span class="term">filterByConvexity:</span>
+      <dd><p class="para">Extracted blobs have convexity (area / area of blob convex hull) between minConvexity</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function uses SimpleBlobDetector function to detect the blobs then it checks for different Name
+Value pair arguments and accordingly returns the parameters of the blob such as 2D coordinates of the
+blob, size of the blob.</p>
+   <p class="para">The Name-Value pair may be any of following types<ul class="itemizedlist"><li><p class="para">bool filterByArea, vector [minArea maxArea]</p></li><li><p class="para">bool filterByCircularity, vector [minCircularity maxCircularity]</p></li><li><p class="para">bool filterByConvexity, vector [minConvexity maxConvexity]</p></li><li><p class="para">double ROI, vector</p></li><li><p class="para">bool filterByThreshold, vector [minThreshold maxThreshold]</p></li></ul></p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">img_2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">/images/blob.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">lis1</span> <span class="scilaboperator">=</span> <span class="scilabid">blobAnalysis</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">filterByThreshold</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabopenclose">[</span><span class="scilabnumber">200</span><span class="scilabdefault">,</span> <span class="scilabnumber">255</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis2</span> <span class="scilaboperator">=</span> <span class="scilabid">blobAnalysis</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">filterByCircularity</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0.1</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.9</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis3</span> <span class="scilaboperator">=</span> <span class="scilabid">blobAnalysis</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">filterByArea</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabopenclose">[</span><span class="scilabnumber">1500</span><span class="scilabdefault">,</span> <span class="scilabnumber">1600</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabid">dimage1</span> <span class="scilaboperator">=</span> <span class="scilabid">drawKeypoints</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Points</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">color</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span> <span class="scilabnumber">255</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">dimage2</span> <span class="scilaboperator">=</span> <span class="scilabid">drawKeypoints</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Points</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">color</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span> <span class="scilabnumber">255</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">dimage3</span> <span class="scilaboperator">=</span> <span class="scilabid">drawKeypoints</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis3</span><span class="scilaboperator">.</span><span class="scilabfield">Points</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">color</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span> <span class="scilabnumber">255</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="scilab://imread," class="link">drawKeypoints</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Deepshikha</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">&lt;&lt; FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="decorrstretch.html">decorrstretch &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

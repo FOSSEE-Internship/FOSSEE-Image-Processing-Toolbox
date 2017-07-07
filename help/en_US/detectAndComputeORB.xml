@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detectAndComputeORB.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detectAndComputeORB" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detectAndComputeORB</refname>
+    <refpurpose>Oriented FAST and rotated BRIEF (ORB) is used to detect and compute the corners in an image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [orb] = detectAndComputeORB(srcImg)
+   [orb] = detectAndComputeORB(srcImg, Name(same as the ones given under description), Value, ...)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg:</term>
+      <listitem><para> The input image Matrix</para></listitem></varlistentry>
+   <varlistentry><term>ROI:</term>
+      <listitem><para> This defines a particular in the image in of which you want the features.</para></listitem></varlistentry>
+   <varlistentry><term>maxFeatures:</term>
+      <listitem><para> The maximum number of features to retain.</para></listitem></varlistentry>
+   <varlistentry><term>scaleFactor:</term>
+      <listitem><para> Pyramid decimation ratio, greater than 1. scaleFactor==2 means the classical pyramid,</para></listitem></varlistentry>
+   <varlistentry><term>nLevels:</term>
+      <listitem><para> The number of pyramid levels. The smallest level will have linear size equal to</para></listitem></varlistentry>
+   <varlistentry><term>edgeThreshold:</term>
+      <listitem><para> This is size of the border where the features are not detected. It should roughly match</para></listitem></varlistentry>
+   <varlistentry><term>firstLevel:</term>
+      <listitem><para> It should be 0 in the current implementation.</para></listitem></varlistentry>
+   <varlistentry><term>scoreType:</term>
+      <listitem><para> The default HARRIS_SCORE (flag value = 0) means that Harris algorithm is used to rank features</para></listitem></varlistentry>
+   <varlistentry><term>patchSize:</term>
+      <listitem><para> Size of the patch used by the oriented BRIEF descriptor. Of course, on smaller pyramid layers</para></listitem></varlistentry>
+   <varlistentry><term>fastThreshold:</term>
+      <listitem><para> The threshold value used for feature detection.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Oriented FAST and rotated BRIEF (ORB) is a fast robust local feature detector, first presented
+by Ethan Rublee in  2011,that can be used in computer vision tasks like object recognition
+or 3D reconstruction.
+It is based on the FAST keypoint detector and the visual descriptor BRIEF (Binary Robust
+Independent Elementary Features).
+Its aim is to provide a fast and efficient alternative to SIFT.
+   </para>
+   <para>
+The Name-Value pair may be any of following types<itemizedlist><listitem><para> edgeThreshold  </para></listitem><listitem><para> fastThreshold  </para></listitem><listitem><para> firstLevel     </para></listitem><listitem><para> maxFeatures    </para></listitem><listitem><para> nLevels        </para></listitem><listitem><para> patchSize      </para></listitem><listitem><para> scaleFactor    </para></listitem><listitem><para> scoreType      </para></listitem></itemizedlist>
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img_1 = imread("images/checkerBoard.jpg", 0);
+img_2 = imread("images/chess.jpg", 0);
+lis1 = detectAndComputeORB(img_1);
+lis2 = detectAndComputeORB(img_2);
+dimage = drawKeypoints(img_2, lis2.Points);
+[matches, distance] = matchFeatures(lis1.Features, lis1.Features, "Method", "Exhaustive", "Metric", "Hamming");
+matchedImage = drawMatch(img_1, img_2, lis1.Points, lis2.Points, matches, distance);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="drawMatch">drawMatch</link></member>
+   <member><link linkend="drawKeypoints">drawKeypoints</link></member>
+   <member><link linkend="matchFeatures">matchFeatures</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

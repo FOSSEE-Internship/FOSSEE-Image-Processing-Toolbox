@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from ftrans2.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="ftrans2" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>ftrans2</refname>
+    <refpurpose>2-D FIR filter using frequency transformation.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   h = ftrans2(b, t);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>b:</term>
+      <listitem><para> A bandpass filter</para></listitem></varlistentry>
+   <varlistentry><term>t:</term>
+      <listitem><para> Transformation matrix</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Produces the two-dimensional FIR filter h that corresponds to the one-dimensional FIR filter b
+using the transform t.
+(ftrans2 returns h as a computational molecule, which is the appropriate form to use with filter2.)
+b must be a one-dimensional, Type I (even symmetric, odd-length) filter such as can be returned by
+fir1, fir2, or firpm in the Signal Processing Toolbox software. The transform matrix t contains
+coefficients that define the frequency transformation to use. If t is m-by-n and b has length Q,
+then h is size ((m - 1) * (Q - 1) / 2 + 1)-by-((n - 1) * (Q - 1) / 2 + 1).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+b = [1, 1, 1]
+h = ftrans2(b);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Vinay</member>
+   </simplelist>
+</refsection>
+</refentry>

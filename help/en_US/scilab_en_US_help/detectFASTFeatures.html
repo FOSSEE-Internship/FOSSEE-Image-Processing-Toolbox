@@ -1,0 +1,118 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>detectFASTFeatures</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectBRISKFeatures.html">&lt;&lt; detectBRISKFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="detectHarrisFeatures.html">detectHarrisFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a> &gt; detectFASTFeatures</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">detectFASTFeatures</h1>
+    <p class="refpurpose">This function is used to detect the corner points using FAST Alogrithm</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[ </span><span class="default">Location</span> <span class="default">Count</span> <span class="default">Metric</span><span class="default"> ] = </span><span class="functionid">detectFASTFeatures</span><span class="default">( </span><span class="default">Image</span><span class="default">, </span><span class="default">Name</span><span class="default">, </span><span class="default">Value</span><span class="default">... )</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">Image:</span>
+      <dd><p class="para">Input Image, should be a 2-D grayscale. The Input Image should be real</p></dd></dt>
+   <dt><span class="term">MinQuality [Optional Input Argument]:</span>
+      <dd><p class="para">Minimum Accepted Quality of Corners, can be specified as a scalar value between [0,1]. Default: 0.1</p></dd></dt>
+   <dt><span class="term">MinContrast [Optional Input Argument]:</span>
+      <dd><p class="para">Minimum Intensity difference for Corners to be detected, can be specified as a scalar value between[0,1]. Default: 0.2</p></dd></dt>
+   <dt><span class="term">ROI [Optional Input Argument]:</span>
+      <dd><p class="para">Specify a rectangular region of operation. Format [ x y width height ]. Default: [1 1 size(Image,2) size(Image,1)]</p></dd></dt>
+   <dt><span class="term">Location:</span>
+      <dd><p class="para">Set of x,y coordinates for the deteccted points</p></dd></dt>
+   <dt><span class="term">Count:</span>
+      <dd><p class="para">Number of corner points detected</p></dd></dt>
+   <dt><span class="term">Metric:</span>
+      <dd><p class="para">Value describing the strength of each detected Point</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The detectFASTFeatures function uses the Features from Accelerated Segment Test (FAST) algorithm to find feature points.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">max</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_1</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/table.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/table1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis1</span> <span class="scilaboperator">=</span> <span class="scilabid">detectFASTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis2</span> <span class="scilaboperator">=</span> <span class="scilabid">detectFASTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">features_1</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">cornerPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">features_2</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">cornerPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabopenclose">)</span>
+<span class="scilabid">dimage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawKeypoints</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">matchFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">features_1</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span> <span class="scilabid">features_2</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">matchedImage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawMatch</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">max</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_1</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">sample_image1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">sample_image2.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis1</span> <span class="scilaboperator">=</span> <span class="scilabid">detectFASTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">MinConstrast</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">lis2</span> <span class="scilaboperator">=</span> <span class="scilabid">detectFASTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">MinConstrast</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">features_1</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">cornerPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">features_2</span> <span class="scilaboperator">=</span> <span class="scilabid">extractFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">cornerPoints</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">Metric</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Metric</span><span class="scilabopenclose">)</span>
+<span class="scilabid">dimage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawKeypoints</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">matchFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">features_1</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span> <span class="scilabid">features_2</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">matchedImage</span> <span class="scilaboperator">=</span> <span class="scilabid">drawMatch</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabid">lis1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabid">lis2</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span> <span class="scilabid">matches</span><span class="scilabdefault">,</span> <span class="scilabid">distance</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="scilab://imread" class="link">imread</a></li>
+   <li class="member"><a href="scilab://drawMatch" class="link">drawMatch</a></li>
+   <li class="member"><a href="scilab://drawKeypoints" class="link">drawKeypoints</a></li>
+   <li class="member"><a href="matchFeatures.html" class="link">matchFeatures</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Umang Agrawal</li>
+   <li class="member">Sridhar Reddy</li>
+   <li class="member">Siddhant Narang</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectBRISKFeatures.html">&lt;&lt; detectBRISKFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="detectHarrisFeatures.html">detectHarrisFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

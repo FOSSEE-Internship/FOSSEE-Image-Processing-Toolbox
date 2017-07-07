@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from reconstructScene.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="reconstructScene" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>reconstructScene</refname>
+    <refpurpose>This function converts a 2-D image to a 3-D image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   reconstructScene(Q, disp_mat, handleMissingValues)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Q(Depth Map):</term>
+      <listitem><para> It is a matrix whose values define the different characteristics of a camera image.</para></listitem></varlistentry>
+   <varlistentry><term>Disparity Map:</term>
+      <listitem><para> Refers to the apparent pixel difference or motion between a pair of stereo image.</para></listitem></varlistentry>
+   <varlistentry><term>handleMissingValues:</term>
+      <listitem><para> Flag whose default value is false, which controls the handling of missing values.</para></listitem></varlistentry>
+   <varlistentry><term>Returns:</term>
+      <listitem><para> 3D image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function transforms a single-channel disparity map to a 3-channel image representing a 3D surface.
+That is, for each pixel (x,y) and the corresponding disparity d = disparity(x,y).
+The matrix Q can be an arbitrary 4×4 matrix (for example, the one computed by stereoRectify). To reproject
+a sparse set of points {(x,y,d),...} to 3D space, use perspectiveTransform.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize("max")
+img_1 = imread("images/left1.jpg", 0);
+img_2 = imread("images/right1.jpg", 0);
+w1 = genCheckerboardPoints([10, 7], 8);
+ip1 = detectCheckerboardCorner(img_1, [7, 10]);
+ip2 = detectCheckerboardCorner(img_2, [7, 10]);
+ip1l = list(ip1);
+ip2l = list(ip2);
+op = stereoCalibrateAndRect(w1, ip1l, ip2l, size(img_1));
+[map map1] = disparity(img_1, img_2);
+img = reconstructScene(op.DepthMap, map1, 1);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="genCheckerboardPoints">genCheckerboardPoints</link></member>
+   <member><link linkend="detectCheckerboardCorne">detectCheckerboardCorne</link></member>
+   <member><link linkend="stereoCalibrateAndRect">stereoCalibrateAndRect</link></member>
+   <member><link linkend="disparity">disparity</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhant Narang</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from integralFilter.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="integralFilter" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>integralFilter</refname>
+    <refpurpose>Integral Image based Filter.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   filter = integralFilter(intimage,bbox,weights,filterSize);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>intimage:</term>
+      <listitem><para> Integral Image, which can be obtained from the function integralImage.</para></listitem></varlistentry>
+   <varlistentry><term>bbox:</term>
+      <listitem><para> Bounding box of the filter object, which can be obtained from integralKernel function.</para></listitem></varlistentry>
+   <varlistentry><term>weight:</term>
+      <listitem><para> Weights of the bounding box, which can be obtained from integralKernel function.</para></listitem></varlistentry>
+   <varlistentry><term>filterSize:</term>
+      <listitem><para> Size of the filter, which can be obtained from integralKernel function.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function filters image using box filters and integral images.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i = imread("images/lena.jpg");
+intImg = integralImage(i);
+kernel = integralKernel([2 2 11 11], 1/51);
+filter = integralFilter(intImg, kernel.bbox, kernel.weights, kernel.filterSize);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="integralImage">integralImage</link></member>
+   <member><link linkend="integralKernel">integralKernel</link></member>
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tanmay Chaudhari</member>
+   </simplelist>
+</refsection>
+</refentry>

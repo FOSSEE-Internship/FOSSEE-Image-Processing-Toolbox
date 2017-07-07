@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a6dbd35989820ebb5c796f995827da098 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/blobAnalysis.xml">
+<!ENTITY a7d219c26f9ace1d0a2f8552215507f6f SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/decorrstretch.xml">
+<!ENTITY a976c5310205b661ca99613ee7032b5b1 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/detectAndComputeORB.xml">
+<!ENTITY a4a1e4fb236ebb505264c877754b6ef90 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/detectBRISKFeatures.xml">
+<!ENTITY a9ac0094e789c5f226a4b308b0001abc2 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/detectFASTFeatures.xml">
+<!ENTITY a0931905e8f69405ab75f2c1d43d72fd8 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/detectHarrisFeatures.xml">
+<!ENTITY af8d15f24157d0714cbfc1af4193dd7b1 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/detectSURFFeatures.xml">
+<!ENTITY a39b7627b986b999ce794d5ba0114844e SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/disparity.xml">
+<!ENTITY a7ef3d9042644c8366d33f0d9c6ff06cd SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/filter.xml">
+<!ENTITY aa65b10f5debdda434b059e2eee47a80e SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/ftrans2.xml">
+<!ENTITY abaabec0228a36a19c11cf51d83737ce4 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/getParams.xml">
+<!ENTITY ad5bed013c69534648a6115bc0c3a09e1 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/graydiffweight.xml">
+<!ENTITY a52f3b2468a8da46db3ff4c91172f62e8 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imabsdiff.xml">
+<!ENTITY ad4dfa0c3b90a5832f31d5d53907deebf SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imboxfilt3.xml">
+<!ENTITY aa4cdc5e56e130a8f36dad69ce43dd281 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imcontrast.xml">
+<!ENTITY a5a603975657458a7416db0a246b88bfe SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imcrop.xml">
+<!ENTITY ace0e74e22dac1aedbe0146f4f683519f SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imextendedmax.xml">
+<!ENTITY a4ba9aa4c8e5f298f08a1e85aec575990 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imfindcircles.xml">
+<!ENTITY a8acc2c79cdff8fb96e4e835e89d808c2 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imwrite.xml">
+<!ENTITY a05e6388a1ea2eaeea60794e89f4f2d7f SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/integralFilter.xml">
+<!ENTITY a334a0fc9d9f2de45a70ac7d0d9986377 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/isFilter.xml">
+<!ENTITY acaf9e1c03376a50309258afbf9b2fb63 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/matchFeatures.xml">
+<!ENTITY a2ca670b3de8b850e90e0e0834a0253dc SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/mlPredict.xml">
+<!ENTITY a8811795017c692701cc4b0dd9b49c6e2 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/reconstructScene.xml">
+<!ENTITY a61a39a460fe8210fe93090d7a918c19d SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/scharr.xml">
+<!ENTITY a72ec37b7bf9fcfe6834dbae1a0ad8582 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/sepFilter2D.xml">
+<!ENTITY a2f826cc4060e581d71c8b85f91ddf723 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/stereoCalibrateAndRect.xml">
+<!ENTITY a121886eeb3f1d84e514690d7a751b1e1 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainEMClassifier.xml">
+<!ENTITY a329b4a9e5e2c67947ef555c181771f73 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainKNNClassifier.xml">
+<!ENTITY abb221d483f3441095d99be301b6f5ee3 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainLRClassifier.xml">
+<!ENTITY a34bdfc3eff9e80872c09a9f61d8ef274 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/triangulatePoints.xml">
+<!ENTITY a43492df2f75f820fb7d9eedcfb8b66a5 SYSTEM "/home/siddhant/Documents/FOSSEE_Image_Processing_Toolbox-master/help/en_US/whitepoint.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='fossee_image_processing_toolbox_manual'>
+    <title>FOSSEE Image Processing Toolbox</title>
+  </info>
+
+<part xml:id='section_c28e37d78ba50cc67245894dd02440a0'>
+<title>FOSSEE Image Processing Toolbox</title>
+&a6dbd35989820ebb5c796f995827da098;
+&a7d219c26f9ace1d0a2f8552215507f6f;
+&a976c5310205b661ca99613ee7032b5b1;
+&a4a1e4fb236ebb505264c877754b6ef90;
+&a9ac0094e789c5f226a4b308b0001abc2;
+&a0931905e8f69405ab75f2c1d43d72fd8;
+&af8d15f24157d0714cbfc1af4193dd7b1;
+&a39b7627b986b999ce794d5ba0114844e;
+&a7ef3d9042644c8366d33f0d9c6ff06cd;
+&aa65b10f5debdda434b059e2eee47a80e;
+&abaabec0228a36a19c11cf51d83737ce4;
+&ad5bed013c69534648a6115bc0c3a09e1;
+&a52f3b2468a8da46db3ff4c91172f62e8;
+&ad4dfa0c3b90a5832f31d5d53907deebf;
+&aa4cdc5e56e130a8f36dad69ce43dd281;
+&a5a603975657458a7416db0a246b88bfe;
+&ace0e74e22dac1aedbe0146f4f683519f;
+&a4ba9aa4c8e5f298f08a1e85aec575990;
+&a8acc2c79cdff8fb96e4e835e89d808c2;
+&a05e6388a1ea2eaeea60794e89f4f2d7f;
+&a334a0fc9d9f2de45a70ac7d0d9986377;
+&acaf9e1c03376a50309258afbf9b2fb63;
+&a2ca670b3de8b850e90e0e0834a0253dc;
+&a8811795017c692701cc4b0dd9b49c6e2;
+&a61a39a460fe8210fe93090d7a918c19d;
+&a72ec37b7bf9fcfe6834dbae1a0ad8582;
+&a2f826cc4060e581d71c8b85f91ddf723;
+&a121886eeb3f1d84e514690d7a751b1e1;
+&a329b4a9e5e2c67947ef555c181771f73;
+&abb221d483f3441095d99be301b6f5ee3;
+&a34bdfc3eff9e80872c09a9f61d8ef274;
+&a43492df2f75f820fb7d9eedcfb8b66a5;
+</part>
+</book>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imfindcircles.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imfindcircles" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imfindcircles</refname>
+    <refpurpose>Finds circles in an image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [points] = imcontrast(srcImg, Rmin, Rmax)
+   [points radii] = imcontrast(srcImg, Rmin, Rmax)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImage:</term>
+      <listitem><para> Input image.</para></listitem></varlistentry>
+   <varlistentry><term>Rmin:</term>
+      <listitem><para> The minimum value of the radius of the circles to find.</para></listitem></varlistentry>
+   <varlistentry><term>Rmax:</term>
+      <listitem><para> The maximum value of the radius of the circle to find.</para></listitem></varlistentry>
+   <varlistentry><term>points:</term>
+      <listitem><para> The returned coordinates of the center of all the circles found.</para></listitem></varlistentry>
+   <varlistentry><term>radii:</term>
+      <listitem><para> The returned values of the radiis of all the circles found.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function can be used to find the circles of a definite range of radii
+in an image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+image = imread("blob.jpg");
+[points radii] = imfindcircles(image, 4, 5);
+nimage = drawKeypoints(image, points);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imread">imread</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess Zacharias</member>
+   </simplelist>
+</refsection>
+</refentry>

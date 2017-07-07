@@ -1,0 +1,107 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>disparity</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectSURFFeatures.html">&lt;&lt; detectSURFFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="filter.html">filter &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a> &gt; disparity</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">disparity</h1>
+    <p class="refpurpose">This function returns the disparity map between two images which</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre>[map map1] = disparity(img_1, img_2);</pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">method:</span>
+      <dd><p class="para">Disparity estimation algorithm, specified as the comma-separated pair consisting of &#0039;Method&#0039; and            //           character vector &#0039;blockMatching&#0039; or &#0039;semi-blockMatching&#0039;.</p></dd></dt>
+   <dt><span class="term">numDisparities:</span>
+      <dd><p class="para">Maximum disparity minus minimum disparity. This parameter must be divisible by 16.</p></dd></dt>
+   <dt><span class="term">SADWindowSize:</span>
+      <dd><p class="para">Matched block size. It must be an odd number &gt;=1</p></dd></dt>
+   <dt><span class="term">uniquenessRatio:</span>
+      <dd><p class="para">Margin in percentage by which the best (minimum) computed cost function value should “win”</p></dd></dt>
+   <dt><span class="term">textureThreshold:</span>
+      <dd><p class="para">This controls the detailing in the disparity map.</p></dd></dt>
+   <dt><span class="term">disp12MaxDiff:</span>
+      <dd><p class="para">Maximum allowed difference (in integer pixel units) in the left-right disparity check.</p></dd></dt>
+   <dt><span class="term">Returns:</span>
+      <dd><p class="para">disparity map</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Validates disparity using the left-right check. The matrix &#0034;cost&#0034; should be computed by the
+stereo correspondence algorithm</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">max</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_1</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">left1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_2</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">right1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">w1</span> <span class="scilaboperator">=</span> <span class="scilabid">genCheckerboardPoints</span><span class="scilabopenclose">(</span><span class="scilabopenclose">[</span><span class="scilabnumber">10</span><span class="scilabdefault">,</span> <span class="scilabnumber">7</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span> <span class="scilabnumber">8</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">ip1</span> <span class="scilaboperator">=</span> <span class="scilabid">detectCheckerboardCorner</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabopenclose">[</span><span class="scilabnumber">7</span><span class="scilabdefault">,</span> <span class="scilabnumber">10</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">ip2</span> <span class="scilaboperator">=</span> <span class="scilabid">detectCheckerboardCorner</span><span class="scilabopenclose">(</span><span class="scilabid">img_2</span><span class="scilabdefault">,</span> <span class="scilabopenclose">[</span><span class="scilabnumber">7</span><span class="scilabdefault">,</span> <span class="scilabnumber">10</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">ip1l</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">ip1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">ip2l</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">ip2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">op</span> <span class="scilaboperator">=</span> <span class="scilabid">stereoCalibrateAndRect</span><span class="scilabopenclose">(</span><span class="scilabid">w1</span><span class="scilabdefault">,</span> <span class="scilabid">ip1l</span><span class="scilabdefault">,</span> <span class="scilabid">ip2l</span><span class="scilabdefault">,</span> <a class="scilabcommand" href="scilab://size">size</a><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabopenclose">)</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">map</span> <span class="scilabid">map1</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">disparity</span><span class="scilabopenclose">(</span><span class="scilabid">img_1</span><span class="scilabdefault">,</span> <span class="scilabid">img_2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img</span> <span class="scilaboperator">=</span> <span class="scilabid">reconstructScene</span><span class="scilabopenclose">(</span><span class="scilabid">op</span><span class="scilaboperator">.</span><span class="scilabfield">DepthMap</span><span class="scilabdefault">,</span> <span class="scilabid">map1</span><span class="scilabdefault">,</span> <span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="scilab://imread" class="link">imread</a></li>
+   <li class="member"><a href="scilab://genCheckerboardPoints" class="link">genCheckerboardPoints</a></li>
+   <li class="member"><a href="scilab://detectCheckerboardCorne" class="link">detectCheckerboardCorne</a></li>
+   <li class="member"><a href="stereoCalibrateAndRect.html" class="link">stereoCalibrateAndRect</a></li>
+   <li class="member"><a href="reconstructScene.html" class="link">reconstructScene</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Siddhant Narang</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectSURFFeatures.html">&lt;&lt; detectSURFFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_c28e37d78ba50cc67245894dd02440a0.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="filter.html">filter &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

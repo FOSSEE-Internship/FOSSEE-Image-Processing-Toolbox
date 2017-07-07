@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from whitepoint.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="whitepoint" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>whitepoint</refname>
+    <refpurpose>Returns a three element vector defining the illumination xyz values for different lighting conditions.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   xyz = whitepoint(string);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>string:</term>
+      <listitem><para> The following are the possible values for this argument and their descriptions<itemizedlist><listitem><para> d65- CIE standard illuminant D65, [0.9504, 1.0000, 1.0888]. Reperesents noon daylight with correlated color temperature of 6504 K.</para></listitem><listitem><para>d50- CIE standard illuminant D50, [0.9642, 1.0000, 0.8251]. Represents warm daylight at sunrise or sunset with correlated color temperature of 5003 K.</para></listitem><listitem><para>a- CIE standard illuminant A, [1.0985, 1.0000, 0.3558]. Reperesents typical, domestic, tungsten-filament lighting with correlated color temperature of 2856 K. </para></listitem><listitem><para>c- CIE standard illuminant C, [0.9807, 1.0000, 1.1822]. Simulates average or north sky daylight with correlated color temperature of 6774 K. </para></listitem><listitem><para>icc- Profile Connection Space (PCS) illuminant used in ICC profiles. Approximation of [0.962, 1.000, 0.8249] using fixed-point, signed, 32-bit numbers with 16 fractional bits.  Actual value: [31595,32768, 27030]/32768. </para></listitem><listitem><para>c- CIE standard illuminant C, [0.9807, 1.0000, 1.1822]. Represents average or north sky daylight with correlated color temperature of 6774 K.</para></listitem><listitem><para>d55- CIE standard illuminant D55, [0.9568, 1.0000, 0.9214]. Represents mid-morning or mid-afternoon daylight with correlated color temperature of 5500 K. </para></listitem></itemizedlist></para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to get a vector of xyz color space representation for different lighting
+conditions which can be used to get images with different lighting properties.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+xyz = whitepoint("a");
+img = imread("images/lena.jpeg");
+image = applycform(img, "srgb2xyz");
+temp1 = image(:, :, 1)
+temp3 = image(:, :, 3)
+image(:, :, 1) = temp3 * xyz(1);
+image(:, :, 2) = image(:, :, 2) * xyz(2);
+image(:, :, 3) = temp1 * xyz(3);
+imshow(image);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imshow">imshow</link></member>
+   <member><link linkend="imread">imread</link></member>
+   <member><link linkend="applycform">applycform</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess Zacharias</member>
+   </simplelist>
+</refsection>
+</refentry>
