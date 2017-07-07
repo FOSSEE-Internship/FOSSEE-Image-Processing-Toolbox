@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imextendedmin.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imextendedmin" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imextendedmin</refname>
+    <refpurpose>Extended-minima transform</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   dstMat=imextendedmin(srcImg, Hmin);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>dstMat:</term>
+      <listitem><para>Output binary image</para></listitem></varlistentry>
+   <varlistentry><term>srcImg:</term>
+      <listitem><para>Input image</para></listitem></varlistentry>
+   <varlistentry><term>Hmin:</term>
+      <listitem><para>h-maxima transform, specified as a positive scalar.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function computes the extended-minima transform, which is the regional minima of the H-minima transform.h is a nonnegative scalar.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im=imread('images/lena.jpeg');
+img=imextendedmin(im,50);
+imshow(img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Vinay Bhat</member>
+   </simplelist>
+</refsection>
+</refentry>

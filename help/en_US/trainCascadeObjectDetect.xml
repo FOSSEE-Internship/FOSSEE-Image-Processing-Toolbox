@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from trainCascadeObjectDetect.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="trainCascadeObjectDetect" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>trainCascadeObjectDetect</refname>
+    <refpurpose>It creates trained cascade XML file which can be use for object/face detection.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile)
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages);
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages,"featureType",featureType);
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages,"featureType",featureType,"numPos",numPos);
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages,"featureType",featureType,"numPos",numPos,"numNeg",numNeg);
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages,"featureType",featureType,"numPos",numPos,"numNeg",numNeg,"nsplits",nsplits);
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages,"featureType",featureType,"numPos",numPos,"numNeg",numNeg,"nsplits",nsplits,"minHitRate",minHitRate);
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages,"featureType",featureType,"numPos",numPos,"numNeg",numNeg,"nsplits",nsplits,"minHitRate",minHitRate,"maxFalseAlarmRate",maxFalseAlarmRate);
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages,"featureType",featureType,"numPos",numPos,"numNeg",numNeg,"nsplits",nsplits,"minHitRate",minHitRate,"maxFalseAlarmRate",maxFalseAlarmRate,"w",width);
+   trainCascadeObjectDetect(outputFolder,negativeImages,positiveFile,"numStages",numStages,"featureType",featureType,"numPos",numPos,"numNeg",numNeg,"nsplits",nsplits,"minHitRate",minHitRate,"maxFalseAlarmRate",maxFalseAlarmRate,"w",width,"h",height);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputFolder:</term>
+      <listitem><para> Folder name to store trained cascade (cascade.xml) and intermediate files</para></listitem></varlistentry>
+   <varlistentry><term>negativeImages:</term>
+      <listitem><para> path to a negative images folder.Accepted file formats are .jpg,.jpeg,.png,.bmp,.pgm.</para></listitem></varlistentry>
+   <varlistentry><term>positiveFile:</term>
+      <listitem><para> path to the vector file which contains sample data.</para></listitem></varlistentry>
+   <varlistentry><term>Name-Value Pair arguments:</term>
+      <listitem><para> </para></listitem></varlistentry>
+   <varlistentry><term>numPos:</term>
+      <listitem><para> number of positive samples. Default-30</para></listitem></varlistentry>
+   <varlistentry><term>numNeg:</term>
+      <listitem><para> number of negative samples. Default- 20</para></listitem></varlistentry>
+   <varlistentry><term>nsplits:</term>
+      <listitem><para> number of splits. Default- 2</para></listitem></varlistentry>
+   <varlistentry><term>numStages:</term>
+      <listitem><para> number of cascade stages to be trained. Default- 30</para></listitem></varlistentry>
+   <varlistentry><term>featureType:</term>
+      <listitem><para> Type of features to be used, possible types are HAAR, LBP, HOG. Default-HAAR</para></listitem></varlistentry>
+   <varlistentry><term>minHitRate:</term>
+      <listitem><para> Minimal desired hit rate for each stage of the classifier and value in the range 0 and 1 inclusive. Default- 0.995</para></listitem></varlistentry>
+   <varlistentry><term>maxFalseAlarmRate:</term>
+      <listitem><para> Maximal desired false alarm rate for each stage of the classifier and value in the range 0 and 1 inclusive. Default- 0.5</para></listitem></varlistentry>
+   <varlistentry><term>w:</term>
+      <listitem><para> Width of training samples (in pixels). Default-25</para></listitem></varlistentry>
+   <varlistentry><term>h:</term>
+      <listitem><para> Height of training samples (in pixels). Default-25</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+By using postiveFile.vec and negative.txt created using negativeImages folder, trainCascade will create cascade.xml file inside the outputFolder which is used to detect objects in an image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Training a obejct classifier using one positive image.
+CreateSample("images/positive.jpg","positive.vec","images/negative_samples","num",100);
+trainCascadeObjectDetect("positive_samples","images/negative_samples","positive.vec","numStages",6);
+im=imread("images/jellyfish.jpg");
+[image,bbox]=CascadeObjectDetector(im,"positive_samples/cascade.xml");
+imshow(image);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Training a obejct classifier using the image dataset which contains subfolders within the positiveImages directory.
+CreateSampleFromFile("images/trainset_face","positive_faces.vec",400,"recursive");
+trainCascadeObjectDetect("positive_samples_faces","images/negative_samples","positive_faces.vec","numPos",300,"numStages",5);//number of positive samples used in trainCascade Object Detect must not be more than 90% of total number of poitive images in vec file
+im=imread("images/faces.jpg");
+img=CascadeObjectDetect(im,"positive_samples_faces/cascade.xml",1.04,1,8,[50,50],[150,150]);
+imshow(img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="CreateSampleFromFile">CreateSampleFromFile</link></member>
+   <member><link linkend="CascadeObjectDetect">CascadeObjectDetect</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+</refentry>

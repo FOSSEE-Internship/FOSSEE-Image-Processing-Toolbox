@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imhmin.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imhmin" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imhmin</refname>
+    <refpurpose>This fucntion is used to get H-minima transform in the form of an image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   I2 = imhmin(I,h)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>I:</term>
+      <listitem><para> image matrix of the source image.</para></listitem></varlistentry>
+   <varlistentry><term>h:</term>
+      <listitem><para> h-maxima transform, specified as a nonnegative scalar.</para></listitem></varlistentry>
+   <varlistentry><term>I2:</term>
+      <listitem><para> Transformed image, returned as a nonsparse numeric array of any class, the same size as I.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+I2 = imhmin(I,h) suppresses all minima in the intensity image I whose depth is less than h, where h is a scalar. Regional minima are connected components of pixels with a constant intensity value, t, whose external boundary pixels all have a value greater than t
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i = imread('images/lena.jpeg');
+i2 = imhmin(i,200);
+imshow(i2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Vinay Bhat</member>
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imhmax">imhmax</link></member>
+   <member><link linkend="imhistmax">imhistmax</link></member>
+   </simplelist>
+</refsection>
+</refentry>

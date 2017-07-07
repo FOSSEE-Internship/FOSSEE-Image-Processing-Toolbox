@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from CreateSampleFromFile.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="CreateSampleFromFile" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>CreateSampleFromFile</refname>
+    <refpurpose>It creates a .vec file from a set of positive images.The vec file is used for training a cascade classifier.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   CreateSampleFromFile(positiveImages,positiveFile,num);
+   CreateSampleFromFile(positiveImages,positiveFile,num,"w",width);
+   CreateSampleFromFile(positiveImages,positiveFile,num,"h",height);
+   CreateSampleFromFile(positiveImages,positiveFile,num,"recursive");
+   CreateSampleFromFile(positiveImages,positiveFile,num,"w",width,"h",height);
+   CreateSampleFromFile(positiveImages,positiveFile,num,"w",width,"h",height,"recursive");
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>positiveImages:</term>
+      <listitem><para> positive images folder path.Accepted file formats are .jpg,.jpeg,.png,.bmp,.pgm.</para></listitem></varlistentry>
+   <varlistentry><term>positiveFile:</term>
+      <listitem><para> name of the output vec file.</para></listitem></varlistentry>
+   <varlistentry><term>num:</term>
+      <listitem><para> Number of samples to be generated.</para></listitem></varlistentry>
+   <varlistentry><term>w:</term>
+      <listitem><para> Width of training samples (in pixels). Default-25</para></listitem></varlistentry>
+   <varlistentry><term>h:</term>
+      <listitem><para> Height of training samples (in pixels). Default-25</para></listitem></varlistentry>
+   <varlistentry><term>"reccursive":</term>
+      <listitem><para> If there exists sublofolders in positive image folder.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+It produces dataset of positive  samples in a file with .vec extension.The vec file is used for training a cascade classifier.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//The example detects faces in an image by training a cascade classifier using user defined dataset of 400 images.
+CreateSampleFromFile("images/trainset_face","positive_faces.vec",400);
+trainCascadeObjectDetect("positive_samples_faces_demo","negative_samples","positive_faces.vec","numPos",300,"numStages",5);
+im=imread("images/faces.jpg");
+img=CascadeObjectDetector(im,"positive_samples_faces/cascade.xml",1.04,1,8);
+imshow(img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Using the image dataset which contains subfolders within the positiveImages directory.
+CreateSampleFromFile("images/trainset_face","positive_faces.vec",400,"recursive");
+trainCascadeObjectDetect("positive_samples_faces","images/negative_samples","positive_faces.vec","numPos",300,"numStages",5);
+//number of positive samples used in trainCascade Object Detect must not be more than 90% of total numver of poitive images in vec file
+im=imread("images/faces.jpg");
+img=CascadeObjectDetector(im,"positive_samples_faces/cascade.xml",1.04,1,8);
+imshow(img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="trainCascadeObjectDetect">trainCascadeObjectDetect</link></member>
+   <member><link linkend="CascadeObjectDetector">CascadeObjectDetector</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+</refentry>

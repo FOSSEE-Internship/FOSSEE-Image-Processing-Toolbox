@@ -1,0 +1,124 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>trainRTreesClassifier</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="trainNBClassifier.html">&lt;&lt; trainNBClassifier</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="undistort.html">undistort &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a> &gt; trainRTreesClassifier</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">trainRTreesClassifier</h1>
+    <p class="refpurpose">This function is used to train an image classifier using Random Forest Trees.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarimp</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">,</span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarImp</span><span class="default">,</span><span class="default">CVfolds</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">,</span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarImp</span><span class="default">,</span><span class="default">CVfolds</span><span class="default">,</span><span class="default">MaxCategories</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">,</span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarImp</span><span class="default">,</span><span class="default">CVfolds</span><span class="default">,</span><span class="default">MaxCategories</span><span class="default">,</span><span class="default">MaxDepth</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">,</span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarImp</span><span class="default">,</span><span class="default">CVfolds</span><span class="default">,</span><span class="default">MaxCategories</span><span class="default">,</span><span class="default">MaxDepth</span><span class="default">,</span><span class="default">MinSampleCount</span><span class="default">,[</span><span class="default">priori</span><span class="default">]);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">,</span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarImp</span><span class="default">,</span><span class="default">CVfolds</span><span class="default">,</span><span class="default">MaxCategories</span><span class="default">,</span><span class="default">MaxDepth</span><span class="default">,</span><span class="default">MinSampleCount</span><span class="default">,[</span><span class="default">priori</span><span class="default">],</span><span class="default">RegressionAccuracy</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">,</span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarImp</span><span class="default">,</span><span class="default">CVfolds</span><span class="default">,</span><span class="default">MaxCategories</span><span class="default">,</span><span class="default">MaxDepth</span><span class="default">,</span><span class="default">MinSampleCount</span><span class="default">,[</span><span class="default">priori</span><span class="default">],</span><span class="default">RegressionAccuracy</span><span class="default">,</span><span class="default">TruncatedPruneTree</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">,</span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarImp</span><span class="default">,</span><span class="default">CVfolds</span><span class="default">,</span><span class="default">MaxCategories</span><span class="default">,</span><span class="default">MaxDepth</span><span class="default">,</span><span class="default">MinSampleCount</span><span class="default">,[</span><span class="default">priori</span><span class="default">],</span><span class="default">RegressionAccuracy</span><span class="default">,</span><span class="default">TruncatedPruneTree</span><span class="default">,</span><span class="default">UseSurrogates</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="default">trainRtreesClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">,</span><span class="default">bag</span><span class="default">,</span><span class="default">classifierName</span><span class="default">,</span><span class="default">ActiveVarCount</span><span class="default">,</span><span class="default">CalVarImp</span><span class="default">,</span><span class="default">CVfolds</span><span class="default">,</span><span class="default">MaxCategories</span><span class="default">,</span><span class="default">MaxDepth</span><span class="default">,</span><span class="default">MinSampleCount</span><span class="default">,[</span><span class="default">priori</span><span class="default">],</span><span class="default">RegressionAccuracy</span><span class="default">,</span><span class="default">TruncatedPruneTree</span><span class="default">,</span><span class="default">UseSurrogates</span><span class="default">,</span><span class="default">Use1SERule</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">classifier:</span>
+      <dd><p class="para">Image category classifier</p></dd></dt>
+   <dt><span class="term">imgSets:</span>
+      <dd><p class="para">Input imageSet to train the classifier on</p></dd></dt>
+   <dt><span class="term">bag:</span>
+      <dd><p class="para">The bagOfFeatures of the imageSet provided</p></dd></dt>
+   <dt><span class="term">int ActiveVarCount:</span>
+      <dd><p class="para">user defined default is 0</p></dd></dt>
+   <dt><span class="term">bool CalVarimp:</span>
+      <dd><p class="para">decision to calculate VarImp</p></dd></dt>
+   <dt><span class="term">int  CVfolds :</span>
+      <dd><p class="para">default is 10 user dependent</p></dd></dt>
+   <dt><span class="term">int MaxCategories:</span>
+      <dd><p class="para">default 10</p></dd></dt>
+   <dt><span class="term">int MaxDepth:</span>
+      <dd><p class="para">default value is INT_MAX</p></dd></dt>
+   <dt><span class="term">int MinSampleCount:</span>
+      <dd><p class="para">default value is 10</p></dd></dt>
+   <dt><span class="term">float priori:</span>
+      <dd><p class="para">default is empty – predefined probability of class or label set by user,must be row vector.</p></dd></dt>
+   <dt><span class="term">float RegressionAccuracy:</span>
+      <dd><p class="para">default value 0.01 – based on error calculation</p></dd></dt>
+   <dt><span class="term">bool TruncatedPruneTree:</span>
+      <dd><p class="para">default true</p></dd></dt>
+   <dt><span class="term">bool UseSurrogates:</span>
+      <dd><p class="para">default is false.if true surrogates splits will be built</p></dd></dt>
+   <dt><span class="term">bool Use1SERule:</span>
+      <dd><p class="para">if true makes pruning harsher</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function trains an image category classifier which can be used to predict categories of images given to it as input using the mlpredict() function.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">imgSet</span> <span class="scilaboperator">=</span> <span class="scilabid">imageSet</span><span class="scilabopenclose">(</span><span class="scilabid">images</span><span class="scilaboperator">/</span><span class="scilabid">train_3</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">recursive</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">trainingSet</span> <span class="scilabid">testSet</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">partition</span><span class="scilabopenclose">(</span><span class="scilabid">imgSet</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">0.8</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">bag</span> <span class="scilaboperator">=</span> <span class="scilabid">bagOfFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">trainingSet</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">categoryClassifier</span> <span class="scilaboperator">=</span> <span class="scilabid">trainRTreesClassifier</span><span class="scilabopenclose">(</span><span class="scilabid">trainingSet</span><span class="scilabdefault">,</span> <span class="scilabid">bag</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">simage</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/plane.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">label</span><span class="scilaboperator">=</span><span class="scilabid">mlPredict</span><span class="scilabopenclose">(</span><span class="scilabid">categoryClassifier</span><span class="scilabdefault">,</span><span class="scilabid">simage</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">RT</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="scilab://imageSet" class="link">imageSet</a></li>
+   <li class="member"><a href="scilab://bagOfFeatures" class="link">bagOfFeatures</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Gursimar Singh</li>
+   <li class="member">Rohit Suri</li>
+   <li class="member">Umang Agrawal</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="trainNBClassifier.html">&lt;&lt; trainNBClassifier</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="undistort.html">undistort &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

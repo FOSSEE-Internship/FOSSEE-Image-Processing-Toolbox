@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from houghcircles.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="houghcircles" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>houghcircles</refname>
+    <refpurpose>Finds circles in a grayscale image using the Hough transform</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   circles= houghcircles(inputImage , dp , mindist , param1, param2 ,minradius, maxradius);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>circles:</term>
+      <listitem><para> Output matrix of found circles. A NX3 matrix of the form [x, y, radius],where N represents the number of circles found.</para></listitem></varlistentry>
+   <varlistentry><term>inputImage:</term>
+      <listitem><para>Grayscale input image.</para></listitem></varlistentry>
+   <varlistentry><term>dp:</term>
+      <listitem><para>Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1, the accumulator has the same resolution as the input image. If dp=2, the accumulator has half as big width and height.</para></listitem></varlistentry>
+   <varlistentry><term>mindist:</term>
+      <listitem><para> Minimum distance between the centers of the detected circles. If the parameter is too small, multiple neighbor circles may be falsely detected in addition to a true one. If it is too large, some circles may be missed.Generally size(image,1)/8.</para></listitem></varlistentry>
+   <varlistentry><term>param1:</term>
+      <listitem><para>First method-specific parameter.It is the higher threshold of the two passed to the cv.Canny edge detector (the lower one is twice smaller). default 100.</para></listitem></varlistentry>
+   <varlistentry><term>param2:</term>
+      <listitem><para>Second method-specific parameter.It is the accumulator threshold for the circle centers at the detection stage. The smaller it is, the more false circles may be detected. Circles, corresponding to the larger accumulator values, will be returned first. default 100.</para></listitem></varlistentry>
+   <varlistentry><term>minradius:</term>
+      <listitem><para>Minimum circle radius. default 0.</para></listitem></varlistentry>
+   <varlistentry><term>maxradius:</term>
+      <listitem><para>Maximum circle radius. default 0.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function finds circles in a grayscale image using a modification of the Hough transform. Usually the function detects the centers of circles well. However, it may fail to find correct radii. You can assist to the function by specifying the radius range (MinRadius and MaxRadius) if you know it. Or, you may ignore the returned radius, use only the center, and find the correct radius using an additional procedure.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im=imread("images/blob.jpg");
+img=cvtColor(im,CV_BGR2GRAY);
+mindist=size(im,1)/16;
+circles=houghcircles(img,1,mindist,100,50,0,30);
+for i=1:size(circles,1)
+im=circle(im,circle(i,1),circle(i,2),3,0,0,255,-1,8,0); ///mark centers
+im=circle(im,circle(i,1),circle(i,2),circle(i,3),0,0,255,2,8,0);//draw circles
+end
+imshow(im);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   <member>Abhilasha Sancheti</member>
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="Canny">Canny</link></member>
+   <member><link linkend="houghlinesp">houghlinesp</link></member>
+   <member><link linkend="houghlines">houghlines</link></member>
+   </simplelist>
+</refsection>
+</refentry>

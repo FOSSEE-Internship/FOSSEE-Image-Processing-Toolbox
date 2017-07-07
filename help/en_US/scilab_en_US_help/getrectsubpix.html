@@ -1,0 +1,91 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>getrectsubpix</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="getRotationMatrix2D.html">&lt;&lt; getRotationMatrix2D</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="houghcircles.html">houghcircles &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a> &gt; getrectsubpix</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">getrectsubpix</h1>
+    <p class="refpurpose">This fucntion is used to retrieve a pixel rectangle from an image with sub-pixel accuracy.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">dst</span><span class="default"> = </span><span class="functionid">getrectsubpix</span><span class="default">(</span><span class="default">I</span><span class="default">, </span><span class="default">alpha</span><span class="default">, </span><span class="default">beta</span><span class="default">, </span><span class="default">centerX</span><span class="default">, </span><span class="default">centerY</span><span class="default">, </span><span class="default">patchType</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">I :</span>
+      <dd><p class="para">image matrix of the source image.</p></dd></dt>
+   <dt><span class="term">alpha :</span>
+      <dd><p class="para">width of the extracted patch.</p></dd></dt>
+   <dt><span class="term">beta :</span>
+      <dd><p class="para">height of the extracted patch.</p></dd></dt>
+   <dt><span class="term">center_x :</span>
+      <dd><p class="para">Floating point x coordinate of the center of the extracted rectangle within the source image. The center must be inside the image.</p></dd></dt>
+   <dt><span class="term">center_y :</span>
+      <dd><p class="para">Floating point y coordinate of the center of the extracted rectangle within the source image. The center must be inside the image.</p></dd></dt>
+   <dt><span class="term">dst :</span>
+      <dd><p class="para">Extracted patch that has the alpha*beta and the same number of channels as source image.</p></dd></dt>
+   <dt><span class="term">patchType :</span>
+      <dd><p class="para">It is the depth of the extracted pixels.By default, the patchType have the same depth as source image.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function getRectSubPix extracts pixels from I : dst(x, y) = I(x + center.x- ( dst.cols -1)*0.5, y +  center.y - ( dst.rows -1)*0.5), where the values of the pixels at non-integer coordinates are retrieved using bilinear interpolation.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">I</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images/lena.jpeg</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">rr</span> <span class="scilaboperator">=</span> <span class="scilabid">getrectsubpix</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabdefault">,</span><span class="scilabnumber">5</span><span class="scilabdefault">,</span><span class="scilabnumber">5</span><span class="scilabdefault">,</span><span class="scilabnumber">6</span><span class="scilabdefault">,</span><span class="scilabnumber">7</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">rr</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Shubheksha Jalan</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="getRotationMatrix2D.html">&lt;&lt; getRotationMatrix2D</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="houghcircles.html">houghcircles &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

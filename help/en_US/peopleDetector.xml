@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from peopleDetector.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="peopleDetector" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>peopleDetector</refname>
+    <refpurpose>Detects people in an image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [bboxes] = peopleDetector(image)
+   [bboxes] = peopleDetector(image, ["Parameter1", value1, ["Parameter2", value2 ... ]])
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image :</term>
+      <listitem><para> input image</para></listitem></varlistentry>
+   <varlistentry><term>hitThreshold :</term>
+      <listitem><para> threshold for distance between features and SVM classifying plane. Default value is 0.</para></listitem></varlistentry>
+   <varlistentry><term>winStride :</term>
+      <listitem><para> Window stride. Multiple of block stride. Default value (8, 8)</para></listitem></varlistentry>
+   <varlistentry><term>padding :</term>
+      <listitem><para> Default value (16, 16).</para></listitem></varlistentry>
+   <varlistentry><term>scale :</term>
+      <listitem><para> Coefficient of the detection window increase. Default value 1.05</para></listitem></varlistentry>
+   <varlistentry><term>finalThreshold :</term>
+      <listitem><para> Coefficient to regulate the similarity threshold. Some people may cover more boxex. To regulate that it is used. Default value 2.</para></listitem></varlistentry>
+   <varlistentry><term>useMeanshiftGrouping :</term>
+      <listitem><para> Default value false.</para></listitem></varlistentry>
+   <varlistentry><term>bboxes :</term>
+      <listitem><para> M * 4 matrix denoting M bounding boxes for detected people</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The peopleDetector function detects standing people in the image using the Histogram of Oriented Gradient (HOG) features and a trained Support Vector Machine
+(SVM) classifier. It detects standing peole in the image. It returns M * 4 matrix having M detected people in the image. Each row of matrix contains
+[x, y, width, height] field. x, y represent the upper left corner point of the bounding box. width and height represent the width and height of the bounding box
+respectively.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+I = imread('images/peopletest.jpg');
+[bboxes] = peopleDetector(I);
+sz=size(x);
+for i=1:sz(1)
+im=rectangle(im,x(i,1),x(i,2),x(i)+x(i,3),x(i,2)+x(i,4),0,255,0,1,4,0);
+end
+imshow(im);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+I = imread('images/peopletest2.jpeg');
+[bboxes] = peopleDetector(I, "scale", 1.02);
+sz=size(x);
+for i=1:sz(1)
+im=rectangle(im,x(i,1),x(i,2),x(i)+x(i,3),x(i,2)+x(i,4),0,255,0,1,4,0);
+end
+imshow(im);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Suraj Prakash</member>
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="rectangle">rectangle</link></member>
+   <member><link linkend="facePredict">facePredict</link></member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from undistort.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="undistort" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>undistort</refname>
+    <refpurpose>The function undistorts an input image.The distortions in the image are due to the properties of the camera.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [outputImg]=undistort(inputImage,cameraMatrix,distCoeffActual)
+   [outputImg]=undistort(inputImage,cameraMatrix,distCoeffActual,NewCameraMatrix);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outputImg:</term>
+      <listitem><para>It is the unsdistorted ouput image with same size as inputImage.</para></listitem></varlistentry>
+   <varlistentry><term>inputImage:</term>
+      <listitem><para>The distorted image.</para></listitem></varlistentry>
+   <varlistentry><term>cameraMatrix:</term>
+      <listitem><para> Input camera matrix</para></listitem></varlistentry>
+   <varlistentry><term>NewCameraMatrix:</term>
+      <listitem><para>Camera matrix of the distorted image. By default, it is the same as cameraMatrix but you may additionally scale and shift the result by using a different matrix.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Transforms an image to compensate for lens distortion.Those pixels in the destination image, for which there is no correspondent pixels in the source image, are filled with zeros (black color).The function transforms an image to compensate radial and tangential lens distortion.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+boardCols=7;
+boardRows=10;
+checkerSize=10;
+worldPoint=genCheckerboardPoints([boardCols boardRows],checkerSize);
+imagePoints=detectCheckerboardCorner(im,[boardRows,boardCols]);
+imagePoints=list(imagePoints)
+im=imread("images/checkerboard.jpg",0);
+sz=size(im);
+f=calibrateCamera(worldPoints,imagePoints,[sz(2),sz(1)]);
+image=undistort(im,f.cameraMatrix,f.distortionCoefficients);
+imshow(image)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   <member>Sukul Bagai</member>
+   <member>Shubheksha Jalan</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="genCheckerboardPoints">genCheckerboardPoints</link></member>
+   <member><link linkend="detectCheckerboardCorner">detectCheckerboardCorner</link></member>
+   <member><link linkend="calibrateCamera">calibrateCamera</link></member>
+   </simplelist>
+</refsection>
+</refentry>

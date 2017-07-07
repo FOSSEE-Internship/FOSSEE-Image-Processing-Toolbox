@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from calibrateCamera.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="calibrateCamera" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>calibrateCamera</refname>
+    <refpurpose>This function Performs camera calibration.Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern.It returns a struct of all the parameters like translation,rotation vector,camera matrix etc.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   params=calibrateCamera(objectpoints,imagepoints,imageSize)
+   params=calibrateCamera(objectpoints,imagepoints,imageSize,cameraMatrix)
+   params=calibrateCamera(objectpoints,imagepoints,imageSize,cameraMatrix,distortionCoeffs)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>params:</term>
+      <listitem><para>Structure of all the parameters like translation,rotation vector,camera matrix and distortionCoefficients.</para></listitem></varlistentry>
+   <varlistentry><term>objectpoints:</term>
+      <listitem><para>These are the worldpoints of teh checkboard.It can be obtained from genCheckerboardCorner.</para></listitem></varlistentry>
+   <varlistentry><term>imagepoints:</term>
+      <listitem><para>These are the detected checker board corners.Can be obtained from detectCheckerboardPoints.</para></listitem></varlistentry>
+   <varlistentry><term>imageSize:</term>
+      <listitem><para>Specified as width and height.</para></listitem></varlistentry>
+   <varlistentry><term>cameraMatrix:</term>
+      <listitem><para>Input/Output 3x3 floating-point camera matrix.</para></listitem></varlistentry>
+   <varlistentry><term>distortionCoeffs:</term>
+      <listitem><para>Output vector of distortion coefficients of 4, 5, 8, 12 or 14 elements.It can also be specified as input.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function Performs camera calibration.Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern.The coordinates of 3D object points and their corresponding 2D projections in each view must be specified.The depth co-ordinate of the object is assumed to be zero.That may be achieved by using an object with a known geometry and easily detectable feature points. Such an object is called a calibration pattern, and Scilab has built-in support for a chessboard as a calibration rig.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+boardCols=7;
+boardRows=10;
+checkerSize=10;
+worldPoint=genCheckerboardPoints([boardCols boardRows],checkerSize);
+imagePoints=detectCheckerboardCorner(im,[boardRows,boardCols]);
+imagePoints=list(imagePoints)
+im=imread("images/checkboard.jpg",0);
+sz=size(im);
+f=calibrateCamera(worldPoints,imagePoints,[sz(2),sz(1)]);
+image=undistort(im,f.cameraMatrix,f.distortionCoefficients);
+imshow(image)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   <member>Nihar Rao</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="genCheckerboardPoints">genCheckerboardPoints</link></member>
+   <member><link linkend="detectCheckerboardCorner">detectCheckerboardCorner</link></member>
+   <member><link linkend="undistort">undistort</link></member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imimposemin.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imimposemin" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imimposemin</refname>
+    <refpurpose>This fucntion is used to impose minima.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   dstMat = imimposemin(maskImg,markerImg)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>maskImg:</term>
+      <listitem><para> The source image must be in grayscale.</para></listitem></varlistentry>
+   <varlistentry><term>markerImg:</term>
+      <listitem><para>  BW is a binary image the same size as I.</para></listitem></varlistentry>
+   <varlistentry><term>dstMat:</term>
+      <listitem><para> Transformed image, returned as a nonsparse numeric array of any class, the same size as I.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+dstMat = imimposemin(maskImg,markerImg) modifies the intensity image maskImg using morphological reconstruction so it only has regional minima wherever markerImg is nonzero. markerImg is a binary image the same size as maskImg.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im=imread("images/lena.jpeg",0);
+marker = zeros(im);
+marker(2:100,2:100) = 255;
+im2=imimposemin(im,marker);
+imshow(im2)
+
+Author
+Vinay Bhat
+
+   ]]></programlisting>
+</refsection>
+</refentry>

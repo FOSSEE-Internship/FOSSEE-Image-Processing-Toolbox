@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from trainFaceRecognizer.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="trainFaceRecognizer" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>trainFaceRecognizer</refname>
+    <refpurpose>The function saves an xml file for the trained model for an imageset of faces.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   faceClassifier=trainFaceRecognizer(imgSet,algoName)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>faceClassifier:</term>
+      <listitem><para> A classifier structure with following fields:</para></listitem></varlistentry>
+   <varlistentry><term>imgSet:</term>
+      <listitem><para> It is a structure,output of the function imageSet.</para></listitem></varlistentry>
+   <varlistentry><term>algoName:</term>
+      <listitem><para> Name of the algo to be used for training.Valid strings are:"LBPH","EIGEN","FISHER".</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function saves an xml file of the trained model for an imageset of faces.The trained model than can be used with facePredict function to predict the label of the test image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//Face Recognition with LBPH algorithm.ImageFolder contains subfolders with images of different subjects that are to be recognized in different images.The subfolder name is considered to be the label for those set of images.
+imgSet=imageSet("images/trainset_face","recursive");
+tr=trainFaceRecognizer(imgSet,"LBPH");
+image=imread("images/s1.pgm");
+[p(1),c(1)]=facePredict(tr,image);
+image=imread("images/s2.pgm");
+[p(2),c(2)]=facePredict(tr,image);
+image=imread("images/s3.pgm");
+[p(3),c(3)]=facePredict(tr,image);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imageSet">imageSet</link></member>
+   <member><link linkend="facePredict">facePredict</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+</refentry>

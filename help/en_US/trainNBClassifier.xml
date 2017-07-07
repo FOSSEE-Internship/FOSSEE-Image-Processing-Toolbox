@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from trainNBClassifier.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="trainNBClassifier" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>trainNBClassifier</refname>
+    <refpurpose>This function is used to train an image classifier using Naive Bayes Algorithm.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   classifier = trainNBClassifier(imgSets,bag,classifiername)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image category classifier</para></listitem></varlistentry>
+   <varlistentry><term>imgSets:</term>
+      <listitem><para> Input imageSet to train the classifier on</para></listitem></varlistentry>
+   <varlistentry><term>bag:</term>
+      <listitem><para> The bagOfFeatures of the imageSet provided</para></listitem></varlistentry>
+   <varlistentry><term>classifiername:</term>
+      <listitem><para> Name of the ouput yml classifier file.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function trains an image category classifier which can be used to predict categories of images given to it as input using the predict() function.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet = imageSet(images/train_2,'recursive');
+[trainingSet testSet] = partition(imgSet,[0.8]);
+bag = bagOfFeatures(trainingSet);
+categoryClassifier = trainNBClassifier(trainingSet, bag);
+simage=imread("images/bike.jpg");
+[label,prob]=mlpredict(categoryClassifier,simage,"NB");
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="bagOfFeatures">bagOfFeatures</link></member>
+   <member><link linkend="imageSet">imageSet</link></member>
+   <member><link linkend="mlpredict">mlpredict</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   <member>Rohit Suri</member>
+   <member>Umang Agarwal</member>
+   </simplelist>
+</refsection>
+</refentry>

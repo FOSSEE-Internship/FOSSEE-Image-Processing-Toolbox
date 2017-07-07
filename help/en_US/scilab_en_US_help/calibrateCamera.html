@@ -1,0 +1,105 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>calibrateCamera</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="bbox2points.html">&lt;&lt; bbox2points</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="configKalmanFilter.html">configKalmanFilter &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a> &gt; calibrateCamera</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">calibrateCamera</h1>
+    <p class="refpurpose">This function Performs camera calibration.Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern.It returns a struct of all the parameters like translation,rotation vector,camera matrix etc.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">params</span><span class="default">=</span><span class="functionid">calibrateCamera</span><span class="default">(</span><span class="default">objectpoints</span><span class="default">,</span><span class="default">imagepoints</span><span class="default">,</span><span class="default">imageSize</span><span class="default">)</span>
+<span class="default">params</span><span class="default">=</span><span class="functionid">calibrateCamera</span><span class="default">(</span><span class="default">objectpoints</span><span class="default">,</span><span class="default">imagepoints</span><span class="default">,</span><span class="default">imageSize</span><span class="default">,</span><span class="default">cameraMatrix</span><span class="default">)</span>
+<span class="default">params</span><span class="default">=</span><span class="functionid">calibrateCamera</span><span class="default">(</span><span class="default">objectpoints</span><span class="default">,</span><span class="default">imagepoints</span><span class="default">,</span><span class="default">imageSize</span><span class="default">,</span><span class="default">cameraMatrix</span><span class="default">,</span><span class="default">distortionCoeffs</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">params:</span>
+      <dd><p class="para">Structure of all the parameters like translation,rotation vector,camera matrix and distortionCoefficients.</p></dd></dt>
+   <dt><span class="term">objectpoints:</span>
+      <dd><p class="para">These are the worldpoints of teh checkboard.It can be obtained from genCheckerboardCorner.</p></dd></dt>
+   <dt><span class="term">imagepoints:</span>
+      <dd><p class="para">These are the detected checker board corners.Can be obtained from detectCheckerboardPoints.</p></dd></dt>
+   <dt><span class="term">imageSize:</span>
+      <dd><p class="para">Specified as width and height.</p></dd></dt>
+   <dt><span class="term">cameraMatrix:</span>
+      <dd><p class="para">Input/Output 3x3 floating-point camera matrix.</p></dd></dt>
+   <dt><span class="term">distortionCoeffs:</span>
+      <dd><p class="para">Output vector of distortion coefficients of 4, 5, 8, 12 or 14 elements.It can also be specified as input.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function Performs camera calibration.Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern.The coordinates of 3D object points and their corresponding 2D projections in each view must be specified.The depth co-ordinate of the object is assumed to be zero.That may be achieved by using an object with a known geometry and easily detectable feature points. Such an object is called a calibration pattern, and Scilab has built-in support for a chessboard as a calibration rig.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">boardCols</span><span class="scilaboperator">=</span><span class="scilabnumber">7</span><span class="scilabdefault">;</span>
+<span class="scilabid">boardRows</span><span class="scilaboperator">=</span><span class="scilabnumber">10</span><span class="scilabdefault">;</span>
+<span class="scilabid">checkerSize</span><span class="scilaboperator">=</span><span class="scilabnumber">10</span><span class="scilabdefault">;</span>
+<span class="scilabid">worldPoint</span><span class="scilaboperator">=</span><span class="scilabid">genCheckerboardPoints</span><span class="scilabopenclose">(</span><span class="scilabopenclose">[</span><span class="scilabid">boardCols</span> <span class="scilabid">boardRows</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabid">checkerSize</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imagePoints</span><span class="scilaboperator">=</span><span class="scilabid">detectCheckerboardCorner</span><span class="scilabopenclose">(</span><span class="scilabid">im</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabid">boardRows</span><span class="scilabdefault">,</span><span class="scilabid">boardCols</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imagePoints</span><span class="scilaboperator">=</span><a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">imagePoints</span><span class="scilabopenclose">)</span>
+<span class="scilabid">im</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images/checkboard.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">sz</span><span class="scilaboperator">=</span><a class="scilabcommand" href="scilab://size">size</a><span class="scilabopenclose">(</span><span class="scilabid">im</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">f</span><span class="scilaboperator">=</span><span class="scilabid">calibrateCamera</span><span class="scilabopenclose">(</span><span class="scilabid">worldPoints</span><span class="scilabdefault">,</span><span class="scilabid">imagePoints</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabid">sz</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span><span class="scilabdefault">,</span><span class="scilabid">sz</span><span class="scilabopenclose">(</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">undistort</span><span class="scilabopenclose">(</span><span class="scilabid">im</span><span class="scilabdefault">,</span><span class="scilabid">f</span><span class="scilaboperator">.</span><span class="scilabfield">cameraMatrix</span><span class="scilabdefault">,</span><span class="scilabid">f</span><span class="scilaboperator">.</span><span class="scilabfield">distortionCoefficients</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Gursimar Singh</li>
+   <li class="member">Nihar Rao</li></ul></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="genCheckerboardPoints.html" class="link">genCheckerboardPoints</a></li>
+   <li class="member"><a href="detectCheckerboardCorner.html" class="link">detectCheckerboardCorner</a></li>
+   <li class="member"><a href="undistort.html" class="link">undistort</a></li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="bbox2points.html">&lt;&lt; bbox2points</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_b43266e51bd06d6e9286f94c195e3d3c.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="configKalmanFilter.html">configKalmanFilter &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

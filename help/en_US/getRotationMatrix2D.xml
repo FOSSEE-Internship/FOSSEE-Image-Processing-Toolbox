@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from getRotationMatrix2D.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="getRotationMatrix2D" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>getRotationMatrix2D</refname>
+    <refpurpose>Calculate matrix of 2D rotation</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [out]=getrotationmatrix2d(centerX,centerY, doubleAngle, doubleScale)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>out:</term>
+      <listitem><para>2D Rotataion Matrix</para></listitem></varlistentry>
+   <varlistentry><term>centerX:</term>
+      <listitem><para> x-co-ordinate of center in the image</para></listitem></varlistentry>
+   <varlistentry><term>centerY:</term>
+      <listitem><para> y-co-ordinate of center in the image</para></listitem></varlistentry>
+   <varlistentry><term>doubleAngle:</term>
+      <listitem><para>Rotation angle in degrees.Positive value means counter-clockwise.</para></listitem></varlistentry>
+   <varlistentry><term>doubleScale:</term>
+      <listitem><para>Isotropic scale factor.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Calculates matrix of 2D rotation
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+rot=getRotationMatrix2D(30,40,30,2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubheksha Jalan</member>
+   </simplelist>
+</refsection>
+</refentry>

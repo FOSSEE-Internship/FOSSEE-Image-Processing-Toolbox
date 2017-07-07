@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imlincomb.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imlincomb" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imlincomb</refname>
+    <refpurpose>Blend two or more images</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outImg= imlincomb(x1,A1);
+   outImg= imlincomb(x1,A1,A2,A2,x3,A3,x4,A4........,xN,AN);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>outImg:</term>
+      <listitem><para>Output combined image.</para></listitem></varlistentry>
+   <varlistentry><term>xN:</term>
+      <listitem><para>Input multiplication factor.The multiplication factor and the sum of all the mutiplication factors should be less than 1.</para></listitem></varlistentry>
+   <varlistentry><term>AN:</term>
+      <listitem><para>Input image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function returns a linear combination of the input images.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+im1=imread('images/balls.jpg');
+im2=imread('images/lena.jpeg');
+img=imlincomb(0.5,im1,05,im2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="imimposemin">imimposemin</link></member>
+   <member><link linkend="imadd">imadd</link></member>
+   </simplelist>
+</refsection>
+</refentry>

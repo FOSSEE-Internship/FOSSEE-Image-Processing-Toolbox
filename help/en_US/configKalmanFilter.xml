@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from configKalmanFilter.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="configKalmanFilter" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>configKalmanFilter</refname>
+    <refpurpose>Create Kalman filter for object tracking</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   kalmanFilter=configKalmanFilter(MotionModel,InitialLocation,InitialError,MotionNoise, MeasurementNoise)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>kalmanFilter:</term>
+      <listitem><para>A structure with fields:StateTransitionModel,MeasurementModel,ControlModel,State,StateCovariance, ProcessNoise,MeasurementNoise</para></listitem></varlistentry>
+   <varlistentry><term>MotionModel:</term>
+      <listitem><para>Motion model, specified as a string 'ConstantVelocity' or 'ConstantAcceleration'. The motion model you select applies to all dimensions. For example, for the 2-D Cartesian coordinate system. This mode applies to both X and Y directions.</para></listitem></varlistentry>
+   <varlistentry><term>InitialLocation:</term>
+      <listitem><para>Initial location of object, specified as a numeric vector. This argument also determines the number of dimensions for the coordinate system. For example, if you specify the initial location as a two-element vector, [x0, y0], then a 2-D coordinate system is assumed.</para></listitem></varlistentry>
+   <varlistentry><term>InitialError:</term>
+      <listitem><para>Initial estimate uncertainty variance, specified as a two- or three-element vector. The initial estimate error specifies the variance of the initial estimates of location, velocity, and acceleration of the tracked object. The function assumes a zero initial velocity and acceleration for the object, at the location you set with the InitialLocation property.</para></listitem></varlistentry>
+   <varlistentry><term>MotionNoise:</term>
+      <listitem><para>Deviation of selected and actual model, specified as a two- or three-element vector. The motion noise specifies the tolerance of the Kalman filter for the deviation from the chosen model. This tolerance compensates for the difference between the object's actual motion and that of the model you choose. Increasing this value may cause the Kalman filter to change its state to fit the detections. Such an increase may prevent the Kalman filter from removing enough noise from the detections. The values of this property stay constant and therefore may affect the long-term performance of the Kalman filter.</para></listitem></varlistentry>
+   <varlistentry><term>MeasurementNoise:</term>
+      <listitem><para>Variance inaccuracy of detected location, specified as a scalar. It is directly related to the technique used to detect the physical objects. Increasing the MeasurementNoise value enables the Kalman filter to remove more noise from the detections.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function provides a simple approach for configuring the KalmanFilter structure for tracking a physical object in a Cartesian coordinate system. The tracked object may move with either constant velocity or constant acceleration.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+k=configKalmanFilter("ConstantVelocity",[2 3],[0.1 1],[0.1 0.1],0.5);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Gursimar Singh</member>
+   </simplelist>
+</refsection>
+</refentry>
