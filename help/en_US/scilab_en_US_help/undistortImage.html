@@ -1,0 +1,84 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>undistortImage</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="traindtreeClassifier.html">&lt;&lt; traindtreeClassifier</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; undistortImage</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">undistortImage</h1>
+    <p class="refpurpose">Transforms an image to compensate for lens distortion.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">newimage</span><span class="default"> = </span><span class="functionid">undistortImage</span><span class="default">(</span><span class="default">image</span><span class="default">, </span><span class="default">cameramatrix</span><span class="default">)</span>
+<span class="default">newimage</span><span class="default"> = </span><span class="functionid">undistortImage</span><span class="default">(</span><span class="default">image</span><span class="default">, </span><span class="default">cameramatrix</span><span class="default">, [</span>&#0034;<span class="default">Parameter1</span>&#0034;<span class="default">, </span><span class="default">value1</span><span class="default">,[</span>&#0034;<span class="default">Parameter2</span>&#0034;<span class="default">, </span><span class="default">value2</span><span class="default">]])</span>
+<span class="default">newimage</span><span class="default"> = </span><span class="functionid">undistortImage</span><span class="default">(</span><span class="default">image</span><span class="default">, </span><span class="default">cameramatrix</span><span class="default">, </span>&#0034;<span class="default">distCoeffs</span>&#0034;<span class="default">,</span><span class="default">distcoeffs</span><span class="default">)</span>
+<span class="default">newimage</span><span class="default"> = </span><span class="functionid">undistortImage</span><span class="default">(</span><span class="default">image</span><span class="default">, </span><span class="default">cameramatrix</span><span class="default">, </span>&#0034;<span class="default">distCoeffs</span>&#0034;<span class="default">,</span><span class="default">distcoeffs</span><span class="default">,</span>&#0034;<span class="default">newCameraMatrix</span>&#0034;<span class="default">,</span><span class="default">newCameraMatrix</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">image :</span>
+      <dd><p class="para">Distorted input image</p></dd></dt>
+   <dt><span class="term">cameramatrix :</span>
+      <dd><p class="para">Input 3 * 3 cameramatrix</p></dd></dt>
+   <dt><span class="term">distcoeffs :</span>
+      <dd><p class="para">Input vector of distortion coefficients of 4, 5, or 8 elements. If the vector is empty, the zero distortion coefficients are assumed.</p></dd></dt>
+   <dt><span class="term">newCameraMatrix :</span>
+      <dd><p class="para">Camera matrix of the distorted image. By default, it is same as cameramatrix.</p></dd></dt>
+   <dt><span class="term">newimage :</span>
+      <dd><p class="para">Corrected image that has same size and type as original image</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function returns a newimage containing the input image with lens distortion removed.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">J</span> <span class="scilaboperator">=</span> <span class="scilabid">undistortImage</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabdefault">,</span> <span class="scilabid">cameramatrix</span><span class="scilabopenclose">)</span>
+<span class="scilabid">J</span> <span class="scilaboperator">=</span> <span class="scilabid">undistortImage</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabdefault">,</span> <span class="scilabid">cameramatrix</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">distcoeffs</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabid">distcoeffs</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="traindtreeClassifier.html">&lt;&lt; traindtreeClassifier</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

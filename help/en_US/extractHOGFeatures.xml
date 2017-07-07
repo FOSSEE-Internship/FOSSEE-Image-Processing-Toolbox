@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from extractHOGFeatures.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="extractHOGFeatures" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>extractHOGFeatures</refname>
+    <refpurpose>This function is used to extract features from an image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   im = imread(image);
+   feat = extractHOGFeatures(im)
+   feat = extractHOGFeatures(im,name,value)
+   feat = extractHOGFeatures(im,"cellsize",cellsize)
+   feat = extractHOGFeatures(im,"cellsize",cellsize,"BlockSize",Blocksize,)
+   feat = extractHOGFeatures(im,"cellsize",cellsize,"BlockSize",Blocksize,"BlockOverlap",BlockOverlap)
+   feat = extractHOGFeatures(im,"cellsize",cellsize,"BlockSize",Blocksize,"BlockOverlap",BlockOverlap,"NumBins",Numbins)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>feat :</term>
+      <listitem><para> Feature matrix returned by obtaining features from a particular image.</para></listitem></varlistentry>
+   <varlistentry><term>cellsize :</term>
+      <listitem><para> The size of the cell specified by the user for extractng features.</para></listitem></varlistentry>
+   <varlistentry><term>Blocksize :</term>
+      <listitem><para> The dimensions of the block containing multiplte cells for feature extraction. An image comprises of multiple blocks</para></listitem></varlistentry>
+   <varlistentry><term>BlockOverlap :</term>
+      <listitem><para>  This matrix specifies the dimension of the block which moves or traverses across an image for feature extraction.</para></listitem></varlistentry>
+   <varlistentry><term>Numbins :</term>
+      <listitem><para>  Number of bins.The histogram contains 9 bins corresponding to angles 0, 20, 40 … 160.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+feat = extractHOGFeatures(I) returns extracted HOG features from a truecolor or grayscale input image, I. The features are returned in a 1-by-N vector,where N is the HOG feature length.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i = imread('download.jpg')
+tr = extractHOGFeatures(i);
+tr1 = extractHOGFeatures(i,"CellSize",[8,8]);
+tr2 = extractHOGFeatures(i,"CellSize",[8,8],"BlockSize",[16,16]);
+tr3 = extractHOGFeatures(i,"CellSize",[8,8],"BlockSize",[16,16],"BlockOverlap",[8,8]);
+tr4 = extractHOGFeatures(i,"CellSize",[8,8],"BlockSize",[16,16],"BlockOverlap",[8,8],"NumBins",9);
+   ]]></programlisting>
+</refsection>
+</refentry>

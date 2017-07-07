@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from lab2uint16.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="lab2uint16" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>lab2uint16</refname>
+    <refpurpose>This function is used to Convert L*a*b* data to uint16.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   B = lab2uint16(pstData)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>psdata:</term>
+      <listitem><para> List containing the double matrices for the lab values of the source image.</para></listitem></varlistentry>
+   <varlistentry><term>B :</term>
+      <listitem><para> Output List containing the double matrices for the converted values of the source image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+lab16 = lab2uint16(lab) converts an M-by-3 or M-by-N-by-3 array of L*a*b* color values to uint16. lab16 has the same size as lab. L*a*b* arrays that are uint8 or uint16 follow the convention in the ICC profile specification (ICC.1:2001-4, www.color.org) for representing L*a*b* values as unsigned 8-bit or 16-bit integers. The ICC encoding convention is illustrated by these tables.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+vw = [100,0,0];
+w1 = list(w);
+w1(1) = [100 0 0];
+w1(2) = [0 100 0];
+w1(3) = [0 0 100];
+tr = lab2uint16(w1);
+tr
+
+   ]]></programlisting>
+</refsection>
+</refentry>

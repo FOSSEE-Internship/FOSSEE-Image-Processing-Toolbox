@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from isEpipoleInImage.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="isEpipoleInImage" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>isEpipoleInImage</refname>
+    <refpurpose>Find whether image contains epipole.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   isepi = isEpipoleInImage(F, imagesize)
+   [isepi, epipole] = isEpipoleInImage(F, imagesize)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>F :</term>
+      <listitem><para> A 3 * 3 fundamental matrix computed from stereo images. It should be double or single</para></listitem></varlistentry>
+   <varlistentry><term>imagesize :</term>
+      <listitem><para> The size of the image</para></listitem></varlistentry>
+   <varlistentry><term>isepi :</term>
+      <listitem><para> Logical value true / false denoting whether the image contains epipole</para></listitem></varlistentry>
+   <varlistentry><term>epipole :</term>
+      <listitem><para> Location of the epipole. It is 1 * 2 vector.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function determines whether the image with fundamental matrix F contains the epipole or not. It also gives the position of the epipole.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i = imread('left11.jpg',0);
+i1 = imread('right11.jpg',0);
+new1 = detectCheckerboardCorner(i1,[7,10]);
+new1 = detectCheckerboardCorner(i,[7,10]);
+new2 = detectCheckerboardCorner(i1,[7,10]);
+f1 = estimateFundamentalMat(new1,new2);
+[isep isep2] = isEpipoleInImage(f1,[360 640]);
+
+   ]]></programlisting>
+</refsection>
+</refentry>
