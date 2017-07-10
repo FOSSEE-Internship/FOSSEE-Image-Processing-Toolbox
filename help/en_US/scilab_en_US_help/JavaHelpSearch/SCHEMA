@@ -1,2 +1,6 @@
 JavaSearch 1.0
+<<<<<<< HEAD
 TMAP bs=2048 rt=1 fl=-1 id1=484 id2=1
+=======
+TMAP bs=2048 rt=0 fl=-1 id1=10 id2=1
+>>>>>>> 404a7f2a4f72456d4df64dde1e76243bd43b9e42
