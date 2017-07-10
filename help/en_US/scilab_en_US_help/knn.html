@@ -1,0 +1,100 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>knn</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="imwarp.html">&lt;&lt; imwarp</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="laplacian.html">laplacian &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a> &gt; knn</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">knn</h1>
+    <p class="refpurpose">Finds the k nearest neighbours of the query point q, in the dataset f</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">out</span><span class="default"> = </span><span class="functionid">knn</span><span class="default">(</span><span class="default">q</span><span class="default">,</span><span class="default">f</span><span class="default">,</span><span class="default">k</span><span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">knn</span><span class="default">(</span><span class="default">q</span><span class="default">,</span><span class="default">f</span><span class="default">,</span><span class="default">k</span><span class="default">,</span><span class="default">algo_type</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">q :</span>
+      <dd><p class="para">a row vector containing the query point</p></dd></dt>
+   <dt><span class="term">f :</span>
+      <dd><p class="para">f is the set of data points and the number of columns in f should be same as that of q to match point dimensionality</p></dd></dt>
+   <dt><span class="term">k :</span>
+      <dd><p class="para">a positive integer specifying the number of nearest neighbours in f for the query point p.</p></dd></dt>
+   <dt><span class="term">algo_type :</span>
+      <dd><p class="para">a integer between 1 and 4 (both inclusive) specifying the algorithm to be used for the knn search.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">out = knn(q,f,k) returns a 2xk matrix .
+The first row of out contains the indices of the k nearest points in the dataset(f) from the query point.
+The second row contains the corresponding distances(squared euclidean distance).
+algo_type 1 corresponds to linear search algorithm.
+algo_type 2 corresponds to search using a set of randomized kd-trees.
+algo_type 3 corresponds to search using hierarchical k-means tree.
+algo_type 4 corresponds to combined search using both kd-trees and k-means algorithm.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">q</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">f</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span><span class="scilabdefault">;</span><span class="scilabnumber">2</span><span class="scilabdefault">;</span><span class="scilabnumber">10</span><span class="scilabdefault">;</span><span class="scilaboperator">-</span><span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">k</span><span class="scilaboperator">=</span><span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabid">out</span><span class="scilaboperator">=</span><span class="scilabid">knn</span><span class="scilabopenclose">(</span><span class="scilabid">q</span><span class="scilabdefault">,</span><span class="scilabid">f</span><span class="scilabdefault">,</span><span class="scilabid">k</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">q</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">f</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">;</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">;</span><span class="scilabnumber">10</span><span class="scilabdefault">,</span><span class="scilabnumber">10</span><span class="scilabdefault">;</span><span class="scilaboperator">-</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">k</span><span class="scilaboperator">=</span><span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabid">algo_type</span><span class="scilaboperator">=</span><span class="scilabnumber">2</span><span class="scilabdefault">;</span>
+<span class="scilabid">out</span><span class="scilaboperator">=</span><span class="scilabid">knn</span><span class="scilabopenclose">(</span><span class="scilabid">q</span><span class="scilabdefault">,</span><span class="scilabid">f</span><span class="scilabdefault">,</span><span class="scilabid">k</span><span class="scilabdefault">,</span><span class="scilabid">algo_type</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">M Avinash Reddy</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="imwarp.html">&lt;&lt; imwarp</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="laplacian.html">laplacian &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from warp.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="warp" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>warp</refname>
+    <refpurpose>This function maps an image onto a unit sphere located at the origin (center of the image).</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   stacksize('max')
+   img1=imread('path of the image file')
+   img2=imread('path of the image file')
+   [out1,out2] = warp(img1,img2)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>img1 :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   <varlistentry><term>img2 :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function takes two input images which are part of a panoromic image and outputs the respective masks to be applied on the input images to get a spherical oriented image.
+This is useful in creating a 360 panaroma image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+stacksize('max');
+img1=imread('images/campus_017.jpg');
+img2=imread('images/campus_016.jpg');
+[out1,out2]=warp(img1,img2);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>M Avinash Reddy</member>
+   </simplelist>
+</refsection>
+</refentry>

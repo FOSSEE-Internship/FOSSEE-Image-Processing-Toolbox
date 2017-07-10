@@ -1,0 +1,103 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>seamfind</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="pclknn.html">&lt;&lt; pclknn</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="warp.html">warp &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a> &gt; seamfind</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">seamfind</h1>
+    <p class="refpurpose">Estimates the seams in input images (which are going to be stitched to form a panaroma)</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">stacksize</span><span class="default">(</span>&#0039;<span class="default">max</span>&#0039;<span class="default">)</span>
+<span class="default">img1</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">img2</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">seamfind</span><span class="default">(</span><span class="default">i</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">)</span>
+<span class="default">img3</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">seamfind</span><span class="default">(</span><span class="default">i</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">)</span>
+<span class="default">img4</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">seamfind</span><span class="default">(</span><span class="default">i</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">)</span>
+<span class="default">img5</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">seamfind</span><span class="default">(</span><span class="default">i</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">,</span><span class="default">img5</span><span class="default">)</span>
+<span class="default">img6</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">seamfind</span><span class="default">(</span><span class="default">i</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">,</span><span class="default">img5</span><span class="default">,</span><span class="default">img6</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">index :</span>
+      <dd><p class="para">index of the estimated image required by the user. It should be between 1 and number of input images.</p></dd></dt>
+   <dt><span class="term">img1 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img2 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img3 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img4 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img5 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img6 :</span>
+      <dd><p class="para">an image</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function estimates the seams in images which are going to be blended to form a panaroma image. The output of the function is the binary and of the updated mask and the &#0039;index&#0039;th image.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">max</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img1</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images/campus_017.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img2</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images/campus_016.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">out</span><span class="scilaboperator">=</span><span class="scilabid">seamfind</span><span class="scilabopenclose">(</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabid">img1</span><span class="scilabdefault">,</span><span class="scilabid">img2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">M Avinash Reddy</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="pclknn.html">&lt;&lt; pclknn</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="warp.html">warp &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

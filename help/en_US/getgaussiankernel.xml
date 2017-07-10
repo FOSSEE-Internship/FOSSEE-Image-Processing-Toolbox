@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from getgaussiankernel.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="getgaussiankernel" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>getgaussiankernel</refname>
+    <refpurpose>Returns Gaussian filter coefficients</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   output = getgaussiankernel(ksize, sigma, ktype)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>ksize :</term>
+      <listitem><para> Aperture size. It should be odd and positive.</para></listitem></varlistentry>
+   <varlistentry><term>sigma :</term>
+      <listitem><para> Gaussian standard deviation.</para></listitem></varlistentry>
+   <varlistentry><term>ktype :</term>
+      <listitem><para> Type of filter coefficients. It can be CV_32f or CV_64F.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function computes and returns the ksize x 1 matrix of Gaussian filter coefficients.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+output = getgaussiankernel(3,1,'CV_32F');
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubheshka Jalan</member>
+   </simplelist>
+</refsection>
+</refentry>

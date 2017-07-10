@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a7f78b2eb485a5a8c71248f2430715dad SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/bilateralFilter.xml">
+<!ENTITY ada1ec654a828ed4894a81c995ee8e27e SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/blend.xml">
+<!ENTITY a7f948ba2428b32007e70f3aff88c5022 SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/dilate.xml">
+<!ENTITY a26c348a0f3bc159bf900e6878e610baa SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/gaussianblur.xml">
+<!ENTITY ae2a9e826f5d3b6d79c8ddbf422e6b8b9 SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/getTextSize.xml">
+<!ENTITY a5a76cf00cc0c2f8624a645bcbcb017f6 SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/getgaussiankernel.xml">
+<!ENTITY a7e600fa4f1ae065186acaa9d0f81a828 SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imwarp.xml">
+<!ENTITY a14848588163ca28d6eefa1e05da08340 SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/knn.xml">
+<!ENTITY a8049d3224ff7938fa8e2cf820c533555 SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/laplacian.xml">
+<!ENTITY a681aa954a349ba4a40016efb61501d2d SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/medianblur.xml">
+<!ENTITY a950d8997181c678cf4593b668031da1f SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/montage.xml">
+<!ENTITY aaf55bbe801cf213d4848369d317fc5ff SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/pana.xml">
+<!ENTITY a1a961eacab9bac7985e0b78ea52ad95a SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/pclknn.xml">
+<!ENTITY aacd7631bce1466c14971db8312787324 SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/seamfind.xml">
+<!ENTITY a9dca3d3fc8f6dbfb0b9dc8177c20a507 SYSTEM "/home/avinashr175/Desktop/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/warp.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='fossee_image_processing_toolbox_manual'>
+    <title>FOSSEE Image Processing Toolbox</title>
+  </info>
+
+<part xml:id='section_363e00d7df9144542914e8298d527a54'>
+<title>FOSSEE Image Processing Toolbox</title>
+&a7f78b2eb485a5a8c71248f2430715dad;
+&ada1ec654a828ed4894a81c995ee8e27e;
+&a7f948ba2428b32007e70f3aff88c5022;
+&a26c348a0f3bc159bf900e6878e610baa;
+&ae2a9e826f5d3b6d79c8ddbf422e6b8b9;
+&a5a76cf00cc0c2f8624a645bcbcb017f6;
+&a7e600fa4f1ae065186acaa9d0f81a828;
+&a14848588163ca28d6eefa1e05da08340;
+&a8049d3224ff7938fa8e2cf820c533555;
+&a681aa954a349ba4a40016efb61501d2d;
+&a950d8997181c678cf4593b668031da1f;
+&aaf55bbe801cf213d4848369d317fc5ff;
+&a1a961eacab9bac7985e0b78ea52ad95a;
+&aacd7631bce1466c14971db8312787324;
+&a9dca3d3fc8f6dbfb0b9dc8177c20a507;
+</part>
+</book>

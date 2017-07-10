@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from pclknn.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="pclknn" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>pclknn</refname>
+    <refpurpose>Finds the k nearest neighbours of the query point q, in the point cloud.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   pcloud=pcread('path of point cloud file')
+   out = pclknn(pcloud,q,k)
+   
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>pcloud :</term>
+      <listitem><para> a point cloud structure read using pcread function</para></listitem></varlistentry>
+   <varlistentry><term>q :</term>
+      <listitem><para> a three dimensional query point</para></listitem></varlistentry>
+   <varlistentry><term>k :</term>
+      <listitem><para> a positive integer specifying the number of nearest neighbours in pcloud for the query point p.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+out = knn(q,f,k) returns a 2xk matrix .
+The first row of out contains the indices of the k nearest points in the dataset(f) from the query point.
+The second row contains the corresponding distances(squared euclidean distance).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+q=[0 0 0];
+data=pcread('data/cube.ply')
+k=3;
+out=pclknn(data,q,k);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>M Avinash Reddy</member>
+   </simplelist>
+</refsection>
+</refentry>

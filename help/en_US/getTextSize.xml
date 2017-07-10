@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from getTextSize.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="getTextSize" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>getTextSize</refname>
+    <refpurpose>Calculates the width and height of a text string</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [textSize,baseLine]= getTextSize(inputtext,fontface,fontscale,thickness)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputtext :</term>
+      <listitem><para> Input text string</para></listitem></varlistentry>
+   <varlistentry><term>fontface :</term>
+      <listitem><para> Font type</para></listitem></varlistentry>
+   <varlistentry><term>fontscale :</term>
+      <listitem><para> Font scale factor that is multiplied by the font-specific base size</para></listitem></varlistentry>
+   <varlistentry><term>thickness :</term>
+      <listitem><para> Thickness of the lines used to draw a text</para></listitem></varlistentry>
+   <varlistentry><term>textSize :</term>
+      <listitem><para> Output parameter- The size of a box that contains the specified text</para></listitem></varlistentry>
+   <varlistentry><term>baseLine :</term>
+      <listitem><para> Output parameter- y-coordinate of the baseline relative to the bottom-most text point</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function getTextSize calculates and returns the size of a box that contains the specified text
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+[textSize,baseLine]= getTextSize('helloall','FONT_HERSHEY_PLAIN',1,1);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai , Abhilasha Sancheti</member>
+   </simplelist>
+</refsection>
+</refentry>

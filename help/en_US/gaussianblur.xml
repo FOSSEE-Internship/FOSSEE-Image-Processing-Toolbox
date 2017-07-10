@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from gaussianblur.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="gaussianblur" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>gaussianblur</refname>
+    <refpurpose>Blurs an image using a Gaussian filter</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   inputImage = imread('path of the image')
+   outputImg = gaussianblur(inputImage,ksize_height,ksize_width,sigmaX,sigmaY)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> source image</para></listitem></varlistentry>
+   <varlistentry><term>ksize_height :</term>
+      <listitem><para> Gaussian kernel height. It must be positive and odd.</para></listitem></varlistentry>
+   <varlistentry><term>ksize_width :</term>
+      <listitem><para> Gaussian kernel width. It must be positive and odd.</para></listitem></varlistentry>
+   <varlistentry><term>sigmaX :</term>
+      <listitem><para> Gaussian kernel standard deviation in X direction.</para></listitem></varlistentry>
+   <varlistentry><term>sigmaY :</term>
+      <listitem><para> Gaussian kernel standard deviation in Y direction.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function convolves the source image with the specified Gaussian kernel.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+inputImage = imread('images/lena.jpg');
+outputImg = gaussianblur(inputaImage,5,5,1,1);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

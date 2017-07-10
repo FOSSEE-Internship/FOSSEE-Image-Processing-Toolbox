@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from knn.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="knn" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>knn</refname>
+    <refpurpose>Finds the k nearest neighbours of the query point q, in the dataset f</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   out = knn(q,f,k)
+   out = knn(q,f,k,algo_type)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>q :</term>
+      <listitem><para> a row vector containing the query point</para></listitem></varlistentry>
+   <varlistentry><term>f :</term>
+      <listitem><para> f is the set of data points and the number of columns in f should be same as that of q to match point dimensionality</para></listitem></varlistentry>
+   <varlistentry><term>k :</term>
+      <listitem><para> a positive integer specifying the number of nearest neighbours in f for the query point p.</para></listitem></varlistentry>
+   <varlistentry><term>algo_type :</term>
+      <listitem><para> a integer between 1 and 4 (both inclusive) specifying the algorithm to be used for the knn search.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+out = knn(q,f,k) returns a 2xk matrix .
+The first row of out contains the indices of the k nearest points in the dataset(f) from the query point.
+The second row contains the corresponding distances(squared euclidean distance).
+algo_type 1 corresponds to linear search algorithm.
+algo_type 2 corresponds to search using a set of randomized kd-trees.
+algo_type 3 corresponds to search using hierarchical k-means tree.
+algo_type 4 corresponds to combined search using both kd-trees and k-means algorithm.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+q=[1];
+f=[1;2;10;-1];
+k=3;
+out=knn(q,f,k);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+q=[1,1];
+f=[1,3;2,0;10,10;-1,1];
+k=3;
+algo_type=2;
+out=knn(q,f,k,algo_type);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>M Avinash Reddy</member>
+   </simplelist>
+</refsection>
+</refentry>

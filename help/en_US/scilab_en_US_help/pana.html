@@ -1,0 +1,117 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>pana</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="montage.html">&lt;&lt; montage</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="pclknn.html">pclknn &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a> &gt; pana</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">pana</h1>
+    <p class="refpurpose">Creates the output panorama image using two or more images</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">stacksize</span><span class="default">(</span>&#0039;<span class="default">max</span>&#0039;<span class="default">)</span>
+<span class="default">img1</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">img2</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">pana</span><span class="default">(</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">)</span>
+<span class="default">img3</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">pana</span><span class="default">(</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">)</span>
+<span class="default">img4</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">pana</span><span class="default">(</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">)</span>
+<span class="default">img5</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">pana</span><span class="default">(</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">,</span><span class="default">img5</span><span class="default">)</span>
+<span class="default">img6</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">pana</span><span class="default">(</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">,</span><span class="default">img5</span><span class="default">,</span><span class="default">img6</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">img1 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img2 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img3 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img4 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img5 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img6 :</span>
+      <dd><p class="para">an image</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The images pass through a stiching pipeline before the final panorama is formed.
+Features are extracted from each image and matching is done on two consecutive images to ensure the continuity in images.
+After this camera parameters are estimated which is required to do particular type of warping.
+After warping is done exposure is compensated in all images so as to get a uniform exposure throughout the panaroma.
+Seam estimation is done next to get the exact portions of images to be blended.
+Finally, the images are blended to form the panorama.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">max</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img1</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">campus_017.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img2</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">campus_016.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img3</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">campus_015.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img4</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">campus_014.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img5</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">campus_013.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img6</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">campus_012.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">out</span><span class="scilaboperator">=</span><span class="scilabid">pana</span><span class="scilabopenclose">(</span><span class="scilabid">img1</span><span class="scilabdefault">,</span><span class="scilabid">img2</span><span class="scilabdefault">,</span><span class="scilabid">img3</span><span class="scilabdefault">,</span><span class="scilabid">img4</span><span class="scilabdefault">,</span><span class="scilabid">img5</span><span class="scilabdefault">,</span><span class="scilabid">img6</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">max</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">a</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">s1.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">s2.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">s3.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">y</span><span class="scilaboperator">=</span><span class="scilabid">pana</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabdefault">,</span><span class="scilabid">c</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">M Avinash Reddy , Manoj Sree Harsha , Ebey Abraham</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="montage.html">&lt;&lt; montage</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_363e00d7df9144542914e8298d527a54.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="pclknn.html">pclknn &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

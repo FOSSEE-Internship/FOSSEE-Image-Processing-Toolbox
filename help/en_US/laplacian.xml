@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from laplacian.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="laplacian" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>laplacian</refname>
+    <refpurpose>The function calculates laplacian of an image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   inputImage = imread('path of the source image')
+   outputImg = laplacian(inputImage , depth , ksize , scale, delta)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> source image</para></listitem></varlistentry>
+   <varlistentry><term>depth :</term>
+      <listitem><para> Depth of the output image</para></listitem></varlistentry>
+   <varlistentry><term>ksize :</term>
+      <listitem><para> Aperture size</para></listitem></varlistentry>
+   <varlistentry><term>scale :</term>
+      <listitem><para> Optional scale factor for the computed Laplacian values</para></listitem></varlistentry>
+   <varlistentry><term>delta :</term>
+      <listitem><para> This value is added to each pixel in the output image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Laplacian Operator is also a derivative operator which is used to find edges in an image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img=imread('images/lena.jpg');
+out=laplacian(img,'CV_8U',3,1,0);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

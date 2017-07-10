@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from bilateralFilter.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="bilateralFilter" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>bilateralFilter</refname>
+    <refpurpose>Applies the bilateral filter to an image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   image = imread('path of image')
+   out = bilateralFilter(image, d, sigmaColor, sigmaSpace)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image :</term>
+      <listitem><para> source image</para></listitem></varlistentry>
+   <varlistentry><term>d :</term>
+      <listitem><para> Diameter of each pixel neighborhood that is used during filtering</para></listitem></varlistentry>
+   <varlistentry><term>sigmaColor :</term>
+      <listitem><para> Filter sigma in the color space</para></listitem></varlistentry>
+   <varlistentry><term>sigmaSpace :</term>
+      <listitem><para> Filter sigma in the coordinate space</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+bilateralFilter can reduce unwanted noise very well while keeping edges fairly sharp.
+A larger value of the sigmaColor parameter means that farther colors within the pixel neighborhood will be mixed together.
+A larger value of the sigmaSpace parameter means that farther pixels will influence each other as long as their colors are close enough.
+It is recommended to use d=5 for real-time applications.
+For simplicity, you can set the 2 sigma values to be the same.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img=imread('images/lena.jpeg');
+d=5;
+sigmaColor=150;
+sigmaSpace=150;
+out=bilateralFilter(image, d, sigmaColor, sigmaSpace);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Priyanka Hiranandani</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from dilate.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="dilate" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>dilate</refname>
+    <refpurpose>Dilates an image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   input_image=imread('path of the image')
+   out = dilate(input_image,actualkernel,anchor_x,anchor_y,iteration)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>input_image :</term>
+      <listitem><para> source image</para></listitem></varlistentry>
+   <varlistentry><term>actualkernel :</term>
+      <listitem><para> structuring element used for dilation</para></listitem></varlistentry>
+   <varlistentry><term>anchor_x :</term>
+      <listitem><para> x-coordinate of the anchor within the kernel (default is -1)</para></listitem></varlistentry>
+   <varlistentry><term>anchor_y :</term>
+      <listitem><para> y-coordinate of the anchor within the kernel (default is -1)</para></listitem></varlistentry>
+   <varlistentry><term>iteration :</term>
+      <listitem><para> number of times dilation is applied</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function dilates the source image using the specified structuring element(actualkernel) that determines the shape of a pixel neighborhood
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img = imread('images/lena.jpg');
+actualkernel=[1 1 1;1 1 1;1 1 1];
+out = dilate(img,actualkernel,-1,-1,1);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

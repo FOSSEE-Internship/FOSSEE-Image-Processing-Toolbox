@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from montage.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="montage" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>montage</refname>
+    <refpurpose>Creates a montage of same sized input images</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   out = montage(1,1,img1)
+   out = montage(1,2,img1,img2)
+   out = montage(3,1,img1,img2,img3)
+   out = montage(2,2,img1,img2.img3,img4)
+   out = montage(1,5,img1,img2,img3,img4,img5)
+   out = montage(3,2,img1,img2,img3,img4,img5,img6)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>rows :</term>
+      <listitem><para> number of rows in montage</para></listitem></varlistentry>
+   <varlistentry><term>cols :</term>
+      <listitem><para> number of columns in montage</para></listitem></varlistentry>
+   <varlistentry><term>varargin :</term>
+      <listitem><para> variable number of input images</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function creates a montage with the list of images. Montage is created row-wise with images taken in order from the list. Note that the following condition should hold true:- no_of_rows*no_of_cols &gt;= no_of_images &gt; (no_of_rows-1)*(no_of_cols)
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img1=imread('images/lena.jpg');
+img2=imread('images/monkey.jpeg');
+out=montage(1,2,img1,img2);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Sukul Bagai , M Avinash Reddy</member>
+   </simplelist>
+</refsection>
+</refentry>

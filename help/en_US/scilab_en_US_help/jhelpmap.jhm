@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+<mapID target="index" url="index.html"/>
+<mapID target="section_363e00d7df9144542914e8298d527a54" url="section_363e00d7df9144542914e8298d527a54.html"/>
+<mapID target="bilateralFilter" url="bilateralFilter.html"/>
+<mapID target="blend" url="blend.html"/>
+<mapID target="dilate" url="dilate.html"/>
+<mapID target="gaussianblur" url="gaussianblur.html"/>
+<mapID target="getTextSize" url="getTextSize.html"/>
+<mapID target="getgaussiankernel" url="getgaussiankernel.html"/>
+<mapID target="imwarp" url="imwarp.html"/>
+<mapID target="knn" url="knn.html"/>
+<mapID target="laplacian" url="laplacian.html"/>
+<mapID target="medianblur" url="medianblur.html"/>
+<mapID target="montage" url="montage.html"/>
+<mapID target="pana" url="pana.html"/>
+<mapID target="pclknn" url="pclknn.html"/>
+<mapID target="seamfind" url="seamfind.html"/>
+<mapID target="warp" url="warp.html"/>
+</map>
