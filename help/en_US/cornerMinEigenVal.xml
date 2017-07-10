@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from cornerMinEigenVal.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="cornerMinEigenVal" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>cornerMinEigenVal</refname>
+    <refpurpose>Calculates the minimal eigenvalue of gradient matrices for corner detection.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   inputImage=imread('path of the image file')
+   outputImg = cornerMinEigenVal(inputImage, blockSize, kSize, borderType)
+   imshow(outputImg)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> an image.</para></listitem></varlistentry>
+   <varlistentry><term>blockSize :</term>
+      <listitem><para> Neighborhood size</para></listitem></varlistentry>
+   <varlistentry><term>kSize :</term>
+      <listitem><para> Aperture parameter for the Sobel() operator.</para></listitem></varlistentry>
+   <varlistentry><term>borderType :</term>
+      <listitem><para> Pixel extrapolation method</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+outputImg = cornerMinEigenVal(inputImage, blockSize, kSize, borderType)
+The function is similar to cornerEigenValsAndVecs() but it calculates only the minimal eigenvalue of the covariance matrix of derivatives.
+After that, it stores them in the destination image(outputImg).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+inputImage=imread('images/lena.jpeg');
+blockSize = 7;
+kSize=3;
+k=0.04;
+borderType="BORDER_DEFAULT"
+outputImg=cornerMinEigenVal(inputImage, blockSize, kSize, borderType);
+imshow(outputImg)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubheksha Jalan</member>
+   </simplelist>
+</refsection>
+</refentry>

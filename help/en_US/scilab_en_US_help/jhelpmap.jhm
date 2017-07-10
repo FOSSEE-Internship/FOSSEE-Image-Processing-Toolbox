@@ -2,4 +2,29 @@
 <!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
 <map version="1.0">
 <mapID target="index" url="index.html"/>
+<<<<<<< HEAD
+<mapID target="section_df69b7946d692d1fc3c4781d13d82733" url="section_df69b7946d692d1fc3c4781d13d82733.html"/>
+<mapID target="DCT" url="DCT.html"/>
+<mapID target="FFT" url="FFT.html"/>
+<mapID target="affine2d" url="affine2d.html"/>
+<mapID target="bboxOverlapRatio" url="bboxOverlapRatio.html"/>
+<mapID target="calfocal" url="calfocal.html"/>
+<mapID target="cameraMatrix" url="cameraMatrix.html"/>
+<mapID target="convolver" url="convolver.html"/>
+<mapID target="cornerEigenValsAndVecs" url="cornerEigenValsAndVecs.html"/>
+<mapID target="cornerHarris" url="cornerHarris.html"/>
+<mapID target="cornerMinEigenVal" url="cornerMinEigenVal.html"/>
+<mapID target="exposure" url="exposure.html"/>
+<mapID target="imattributes" url="imattributes.html"/>
+<mapID target="knn" url="knn.html"/>
+<mapID target="match" url="match.html"/>
+<mapID target="opticalflow" url="opticalflow.html"/>
+<mapID target="pana" url="pana.html"/>
+<mapID target="pclradius" url="pclradius.html"/>
+<mapID target="radius" url="radius.html"/>
+<mapID target="rotationVectorToMatrix" url="rotationVectorToMatrix.html"/>
+<mapID target="rotestimate" url="rotestimate.html"/>
+<mapID target="sfind" url="sfind.html"/>
+=======
+>>>>>>> 404a7f2a4f72456d4df64dde1e76243bd43b9e42
 </map>

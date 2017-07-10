@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from convolver.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="convolver" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>convolver</refname>
+    <refpurpose>Convolves an image with the kernel.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   out_image = convolver(in_image,ksize,kvalues,scalar)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>in_image :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   <varlistentry><term>out_image :</term>
+      <listitem><para> the output image</para></listitem></varlistentry>
+   <varlistentry><term>ksize :</term>
+      <listitem><para> kernel size (belongs to {3,4,5})</para></listitem></varlistentry>
+   <varlistentry><term>kvalues :</term>
+      <listitem><para> kernel matrix values</para></listitem></varlistentry>
+   <varlistentry><term>scalar :</term>
+      <listitem><para>  any floating value</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+out_image = convolver(in_image,ksize,kvalues,scalar)
+Returns the convoluted image of the input image. It uses filter2d function to perform convolution.
+The convolution is with the given kernel.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread('images/lena.jpeg')
+b=[1 1 1;1 1 1;1 1 1]
+y=convolver(a,3,b,9)
+imshow(y)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Kevin George , Manoj Sree Harsha</member>
+   </simplelist>
+</refsection>
+</refentry>

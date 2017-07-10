@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imattributes.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imattributes" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imattributes</refname>
+    <refpurpose>Provides information about image attributes.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   inputImage=imread('path of the image file')
+   imattributes(inputImage)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> an image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+imattributes gives image attribute information in the form of a 4-by-2 or 6-by-2 cell array, depending on the image type.
+The first column of the cell array contains the name of the attribute.
+The second column contains the value of the attribute. Both attribute names and values are character vectors
+'Minimum intensity': Regarding intensity images, this value represents the lowest intensity value of any pixel. In case ofindexed images, this value represents the lowest index value into a color map.
+'Maximum intensity':Regarding intensity images, this value represents the highest intensity value of any pixel. In case of indexed images, this value represents the highest index value into a color map.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+inputImage=imread('images/lena.jpeg');
+imattributes(inputImage)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Dhruti Shah , Manoj Sree Harsha</member>
+   </simplelist>
+</refsection>
+</refentry>

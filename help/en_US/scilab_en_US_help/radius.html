@@ -1,0 +1,89 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>radius</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="pclradius.html">&lt;&lt; pclradius</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="rotationVectorToMatrix.html">rotationVectorToMatrix &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a> &gt; radius</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">radius</h1>
+    <p class="refpurpose">Finds all the points within the circle of radius r with centre as query point q, in the dataset f</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">y</span><span class="default"> = </span><span class="functionid">radius</span><span class="default">(</span><span class="default">q</span><span class="default">,</span><span class="default">f</span><span class="default">,</span><span class="default">r</span><span class="default">)</span>
+<span class="default">y</span><span class="default"> = </span><span class="functionid">radius</span><span class="default">(</span><span class="default">q</span><span class="default">,</span><span class="default">f</span><span class="default">,</span><span class="default">r</span><span class="default">,</span><span class="default">algo_type</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">q :</span>
+      <dd><p class="para">a row vector containing the query point</p></dd></dt>
+   <dt><span class="term">f :</span>
+      <dd><p class="para">f is the set of data points and the number of columns in f should be same as that of q to match point dimensionality</p></dd></dt>
+   <dt><span class="term">r :</span>
+      <dd><p class="para">a positive integer specifying the radius.</p></dd></dt>
+   <dt><span class="term">algo_type :</span>
+      <dd><p class="para">a integer between 1 and 4 (both inclusive) specifying the algorithm to be used for the radius search.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">y = radius(q,f,r) return a 2x(Number of points) matrix .
+The first row of y contains the indices of all the points in the dataset(f) within the circle of radius r.
+The second row contains the corresponding distances(squared euclidean distance).</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">q</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">2</span> <span class="scilabnumber">3</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">f</span><span class="scilaboperator">=</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">2</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span><span class="scilabnumber">4</span> <span class="scilabnumber">5</span> <span class="scilabnumber">6</span><span class="scilabdefault">;</span><span class="scilabnumber">7</span> <span class="scilabnumber">8</span> <span class="scilabnumber">9</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">r</span><span class="scilaboperator">=</span><span class="scilabnumber">30</span><span class="scilabdefault">;</span>
+<span class="scilabid">y</span><span class="scilaboperator">=</span><span class="scilabid">radius</span><span class="scilabopenclose">(</span><span class="scilabid">q</span><span class="scilabdefault">,</span><span class="scilabid">f</span><span class="scilabdefault">,</span><span class="scilabid">r</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Manoj Sree Harsha</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="pclradius.html">&lt;&lt; pclradius</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="rotationVectorToMatrix.html">rotationVectorToMatrix &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

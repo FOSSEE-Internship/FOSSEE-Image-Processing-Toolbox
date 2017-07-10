@@ -1,0 +1,86 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>cameraMatrix</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="calfocal.html">&lt;&lt; calfocal</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="convolver.html">convolver &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a> &gt; cameraMatrix</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">cameraMatrix</h1>
+    <p class="refpurpose">Returns camera projection matrix.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">camMatrix</span><span class="default"> = </span><span class="functionid">cameraMatrix</span><span class="default">(</span><span class="default">instrinsicMatrix</span><span class="default">,</span><span class="default">rotationMatrix</span><span class="default">,</span><span class="default">translationVector</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">camMatrix:</span>
+      <dd><p class="para">A 4x3 camera projection matrix, which can be used to project 3-D world points in homogenous co-ordinates into an image.</p></dd></dt>
+   <dt><span class="term">instrinsicMatrix:</span>
+      <dd><p class="para">Projection matrix of size 3x3.</p></dd></dt>
+   <dt><span class="term">rotationMatrix:</span>
+      <dd><p class="para">A 3x3 matrix which specifies the rotation of a camera.</p></dd></dt>
+   <dt><span class="term">translationVector:</span>
+      <dd><p class="para">A 1x3 vector which specifies the translation of a camera.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Return a matrix of size 4-by-3, which can be used to project 3-D world points in homogenous co-ordinates into an image.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">instrinsicMatrix</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span> <span class="scilabnumber">1</span> <span class="scilabnumber">2</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span> <span class="scilabnumber">3</span> <span class="scilabnumber">4</span> <span class="scilabnumber">0</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">rotationMatrix</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span>   <span class="scilabnumber">0.1417</span>   <span class="scilaboperator">-</span><span class="scilabnumber">0.7409</span>    <span class="scilabnumber">0.6565</span><span class="scilabdefault">;</span> <span class="scilabnumber">0.9661</span>   <span class="scilaboperator">-</span><span class="scilabnumber">0.0410</span>   <span class="scilaboperator">-</span><span class="scilabnumber">0.2548</span><span class="scilabdefault">;</span>    <span class="scilabnumber">0.2157</span>    <span class="scilabnumber">0.6703</span>    <span class="scilabnumber">0.7100</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">translationVector</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilaboperator">-</span><span class="scilabnumber">29.2584</span>   <span class="scilabnumber">35.7824</span>  <span class="scilabnumber">725.5824</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">camMatrix</span> <span class="scilaboperator">=</span> <span class="scilabid">cameraMatrix</span><span class="scilabopenclose">(</span><span class="scilabid">instrinsicMatrix</span><span class="scilabdefault">,</span><span class="scilabid">rotationMatrix</span><span class="scilabdefault">,</span><span class="scilabid">translationVector</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Tanmay Chaudhari</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="calfocal.html">&lt;&lt; calfocal</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="convolver.html">convolver &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

@@ -8,7 +8,11 @@
 // you should have received as part of this distribution.  The terms
 // are also available at
 // https://opensource.org/licenses/BSD-3-Clause
+<<<<<<< HEAD
+
+=======
 TOOLBOX_TITLE="FOSSEE_Image_Processing_Toolbox"
+>>>>>>> 404a7f2a4f72456d4df64dde1e76243bd43b9e42
 help_lang_dir = get_absolute_file_path('build_help.sce');
 
 tbx_build_help(TOOLBOX_TITLE, help_lang_dir);

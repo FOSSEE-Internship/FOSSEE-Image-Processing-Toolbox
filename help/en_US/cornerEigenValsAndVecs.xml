@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from cornerEigenValsAndVecs.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="cornerEigenValsAndVecs" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>cornerEigenValsAndVecs</refname>
+    <refpurpose>Calculates eigenvalues and eigenvectors of image blocks for corner detection.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   inputImage=imread('path of the image file')
+   outputImg = cornerEigenValsAndVecs(inputImage, blockSize, kSize, borderType)
+   imshow(outputImg)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> an image.</para></listitem></varlistentry>
+   <varlistentry><term>blockSize :</term>
+      <listitem><para> Neighborhood size</para></listitem></varlistentry>
+   <varlistentry><term>kSize :</term>
+      <listitem><para> Aperture parameter for the Sobel() operator.</para></listitem></varlistentry>
+   <varlistentry><term>borderType :</term>
+      <listitem><para> Pixel extrapolation method</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+outputImg = cornerEigenValsAndVecs(inputImage, blockSize, kSize, borderType)
+For every pixel p , the function cornerEigenValsAndVecs considers a blockSize x blockSize    neighborhood  S(p) . It calculates the covariation matrix of derivatives over the neighbourhood
+After that, it finds eigenvectors and eigenvalues and stores them in the destination image(outputImg).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+inputImage=imread('images/lena.jpeg');
+blockSize = 7;
+kSize=3;
+borderType="BORDER_DEFAULT"
+outputImg=cornerEigenValsAndVecs(inputImage, blockSize, kSize, borderType);
+imshow(outputImg)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubheksha Jalan</member>
+   </simplelist>
+</refsection>
+</refentry>
