@@ -1,0 +1,110 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>exposure</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="cornerMinEigenVal.html">&lt;&lt; cornerMinEigenVal</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imattributes.html">imattributes &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a> &gt; exposure</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">exposure</h1>
+    <p class="refpurpose">Compensate exposure in the specified image.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">stacksize</span><span class="default">(</span>&#0039;<span class="default">max</span>&#0039;<span class="default">)</span>
+<span class="default">image1</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">image2</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">y</span><span class="default"> = </span><span class="functionid">exposure</span><span class="default">(</span><span class="default">algo_type</span><span class="default">,</span><span class="default">img_index</span><span class="default">,</span><span class="default">image1</span><span class="default">,</span><span class="default">image2</span><span class="default">)</span>
+<span class="default">image3</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">y</span><span class="default"> = </span><span class="functionid">exposure</span><span class="default">(</span><span class="default">algo_type</span><span class="default">,</span><span class="default">img_index</span><span class="default">,</span><span class="default">image1</span><span class="default">,</span><span class="default">image2</span><span class="default">,</span><span class="default">image3</span><span class="default">)</span>
+<span class="default">image4</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">y</span><span class="default"> = </span><span class="functionid">exposure</span><span class="default">(</span><span class="default">algo_type</span><span class="default">,</span><span class="default">img_index</span><span class="default">,</span><span class="default">image1</span><span class="default">,</span><span class="default">image2</span><span class="default">,</span><span class="default">image3</span><span class="default">,</span><span class="default">image4</span><span class="default">)</span>
+<span class="default">image5</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">y</span><span class="default"> = </span><span class="functionid">exposure</span><span class="default">(</span><span class="default">algo_type</span><span class="default">,</span><span class="default">img_index</span><span class="default">,</span><span class="default">image1</span><span class="default">,</span><span class="default">image2</span><span class="default">,</span><span class="default">image3</span><span class="default">,</span><span class="default">image4</span><span class="default">,</span><span class="default">image5</span><span class="default">)</span>
+<span class="default">image6</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">y</span><span class="default"> = </span><span class="functionid">exposure</span><span class="default">(</span><span class="default">algo_type</span><span class="default">,</span><span class="default">img_index</span><span class="default">,</span><span class="default">image1</span><span class="default">,</span><span class="default">image2</span><span class="default">,</span><span class="default">image3</span><span class="default">,</span><span class="default">image4</span><span class="default">,</span><span class="default">image6</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">algo_type :</span>
+      <dd><p class="para">an integer between 1 and 3 (both inclusive) specifying the algorithm to be used for exposure compensation.</p></dd></dt>
+   <dt><span class="term">img_index :</span>
+      <dd><p class="para">index of the image on which exposure compensator will be applied</p></dd></dt>
+   <dt><span class="term">image1 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">image2 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">image3 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">image4 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">image5 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">image6 :</span>
+      <dd><p class="para">an image</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">y = exposure(algo_type,img_index,image1,image2) returns an image whose exposure is compensated.
+Features are extracted from each image and matching is done on two consecutive images to ensure the continuity in images.
+After this camera parameters are estimated which is required to do particular type of warping.
+After warping is done exposure is compensated in an image whose index is mentioned.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">a</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images/lenahi.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images/lenalow.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">algo_type</span><span class="scilaboperator">=</span><span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">img_index</span><span class="scilaboperator">=</span><span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">y</span><span class="scilaboperator">=</span><span class="scilabid">exposure</span><span class="scilabopenclose">(</span><span class="scilabid">algo_type</span><span class="scilabdefault">,</span><span class="scilabid">img_index</span><span class="scilabdefault">,</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">y</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Manoj Sree Harsha</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="cornerMinEigenVal.html">&lt;&lt; cornerMinEigenVal</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imattributes.html">imattributes &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

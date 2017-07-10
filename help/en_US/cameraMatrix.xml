@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from cameraMatrix.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="cameraMatrix" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>cameraMatrix</refname>
+    <refpurpose>Returns camera projection matrix.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   camMatrix = cameraMatrix(instrinsicMatrix,rotationMatrix,translationVector);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>camMatrix:</term>
+      <listitem><para> A 4x3 camera projection matrix, which can be used to project 3-D world points in homogenous co-ordinates into an image.</para></listitem></varlistentry>
+   <varlistentry><term>instrinsicMatrix:</term>
+      <listitem><para> Projection matrix of size 3x3.</para></listitem></varlistentry>
+   <varlistentry><term>rotationMatrix:</term>
+      <listitem><para> A 3x3 matrix which specifies the rotation of a camera.</para></listitem></varlistentry>
+   <varlistentry><term>translationVector:</term>
+      <listitem><para> A 1x3 vector which specifies the translation of a camera.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Return a matrix of size 4-by-3, which can be used to project 3-D world points in homogenous co-ordinates into an image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+instrinsicMatrix = [1 0 0; 1 2 0; 3 4 0];
+rotationMatrix = [   0.1417   -0.7409    0.6565; 0.9661   -0.0410   -0.2548;    0.2157    0.6703    0.7100];
+translationVector = [ -29.2584   35.7824  725.5824];
+camMatrix = cameraMatrix(instrinsicMatrix,rotationMatrix,translationVector)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tanmay Chaudhari</member>
+   </simplelist>
+</refsection>
+</refentry>

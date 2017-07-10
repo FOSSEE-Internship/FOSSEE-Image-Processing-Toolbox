@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from radius.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="radius" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>radius</refname>
+    <refpurpose>Finds all the points within the circle of radius r with centre as query point q, in the dataset f</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   y = radius(q,f,r)
+   y = radius(q,f,r,algo_type)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>q :</term>
+      <listitem><para> a row vector containing the query point</para></listitem></varlistentry>
+   <varlistentry><term>f :</term>
+      <listitem><para> f is the set of data points and the number of columns in f should be same as that of q to match point dimensionality</para></listitem></varlistentry>
+   <varlistentry><term>r :</term>
+      <listitem><para> a positive integer specifying the radius.</para></listitem></varlistentry>
+   <varlistentry><term>algo_type :</term>
+      <listitem><para> a integer between 1 and 4 (both inclusive) specifying the algorithm to be used for the radius search.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+y = radius(q,f,r) return a 2x(Number of points) matrix .
+The first row of y contains the indices of all the points in the dataset(f) within the circle of radius r.
+The second row contains the corresponding distances(squared euclidean distance).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+q=[1 2 3];
+f=[1 2 3;4 5 6;7 8 9];
+r=30;
+y=radius(q,f,r);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Manoj Sree Harsha</member>
+   </simplelist>
+</refsection>
+</refentry>

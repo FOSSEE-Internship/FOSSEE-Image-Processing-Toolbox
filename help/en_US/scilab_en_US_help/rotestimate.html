@@ -1,0 +1,104 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>rotestimate</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="rotationVectorToMatrix.html">&lt;&lt; rotationVectorToMatrix</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="sfind.html">sfind &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a> &gt; rotestimate</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">rotestimate</h1>
+    <p class="refpurpose">Estimates camera intrinsic parameters matrix(K).</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">img1</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">img2</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">res</span><span class="default"> = </span><span class="functionid">rotestimate</span><span class="default">(</span><span class="default">cam_index</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">)</span>
+<span class="default">img3</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">res</span><span class="default"> = </span><span class="functionid">rotestimate</span><span class="default">(</span><span class="default">cam_index</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">)</span>
+<span class="default">img4</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">res</span><span class="default"> = </span><span class="functionid">rotestimate</span><span class="default">(</span><span class="default">cam_index</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">)</span>
+<span class="default">img5</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">res</span><span class="default"> = </span><span class="functionid">rotestimate</span><span class="default">(</span><span class="default">cam_index</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">,</span><span class="default">img5</span><span class="default">)</span>
+<span class="default">img6</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0039;<span class="default">path</span> <span class="default">of</span> <span class="default">the</span> <span class="default">image</span> <span class="default">file</span>&#0039;<span class="default">)</span>
+<span class="default">res</span><span class="default"> = </span><span class="functionid">rotestimate</span><span class="default">(</span><span class="default">cam_index</span><span class="default">,</span><span class="default">img1</span><span class="default">,</span><span class="default">img2</span><span class="default">,</span><span class="default">img3</span><span class="default">,</span><span class="default">img4</span><span class="default">,</span><span class="default">img5</span><span class="default">,</span><span class="default">img6</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">cam_index :</span>
+      <dd><p class="para">cam_index of the camera for which K is returned.</p></dd></dt>
+   <dt><span class="term">img1 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img2 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img3 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img4 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img5 :</span>
+      <dd><p class="para">an image</p></dd></dt>
+   <dt><span class="term">img6 :</span>
+      <dd><p class="para">an image</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The images pass through a stiching pipeline.
+Features are extracted from each image and matching is done on two consecutive images to ensure the continuity in images.
+After this camera parameters are estimated.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">img1</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images/campus_000.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img2</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images/campus_001.jpg</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">cam_index</span><span class="scilaboperator">=</span><span class="scilabnumber">1</span>
+<span class="scilabid">res</span><span class="scilaboperator">=</span><span class="scilabid">rotestimate</span><span class="scilabopenclose">(</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabid">img1</span><span class="scilabdefault">,</span><span class="scilabid">img2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Manoj Sree Harsha</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="rotationVectorToMatrix.html">&lt;&lt; rotationVectorToMatrix</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_df69b7946d692d1fc3c4781d13d82733.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="sfind.html">sfind &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

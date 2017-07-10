@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a0947c6fdcd3ac80c68b60bb825b24df3 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/DCT.xml">
+<!ENTITY a97448ac59936374eddef9aaa6b054069 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/FFT.xml">
+<!ENTITY a4445e6518ccd1eaa17c159bfc15209ef SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/affine2d.xml">
+<!ENTITY aed502e4deb0441dcfda611b5bcc189a4 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/bboxOverlapRatio.xml">
+<!ENTITY a8e2d340c907945febd6287f84e74e3dc SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/calfocal.xml">
+<!ENTITY a33e3e560601a44c71bad6dd06a32a67a SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/cameraMatrix.xml">
+<!ENTITY a0622eeab20e68acada9d0ae32602795a SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/convolver.xml">
+<!ENTITY abec0bf130259f0225682a92bee3f193e SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/cornerEigenValsAndVecs.xml">
+<!ENTITY aec33deec2d28e52e4dea5b207196dfc2 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/cornerHarris.xml">
+<!ENTITY a473758ade2f451fc5233cf5a679ed58f SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/cornerMinEigenVal.xml">
+<!ENTITY a33011cb4d6f37aca9a3f03a4e1cb157f SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/exposure.xml">
+<!ENTITY a2b4ed9a6cfe047014437e027de5abe95 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imattributes.xml">
+<!ENTITY ab5a7ab7d8002e6aedb65417dec49adca SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/knn.xml">
+<!ENTITY a1a07c83d1b39a112a769f5659bde85e1 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/match.xml">
+<!ENTITY a5621fcfdd17408d6ffdb156d686310a2 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/opticalflow.xml">
+<!ENTITY a5b16ed670df1c9a3f9083659d49dd472 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/pana.xml">
+<!ENTITY a33bc1b33f6cff195bad72f23c72ffe5f SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/pclradius.xml">
+<!ENTITY a4fed73f4cbf1b528cc27f8a17bf419d6 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/radius.xml">
+<!ENTITY a245be6c1b7b04b8ea5669473bafc5c12 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/rotationVectorToMatrix.xml">
+<!ENTITY ae455b0ac2febc8d41815f4978f48c093 SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/rotestimate.xml">
+<!ENTITY a4d7edb338492c7e2227eb4ee0ce5734c SYSTEM "/home/harsha/Desktop/Internship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/sfind.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='fossee_image_processing_toolbox_manual'>
+    <title>FOSSEE Image Processing Toolbox</title>
+  </info>
+
+<part xml:id='section_df69b7946d692d1fc3c4781d13d82733'>
+<title>FOSSEE Image Processing Toolbox</title>
+&a0947c6fdcd3ac80c68b60bb825b24df3;
+&a97448ac59936374eddef9aaa6b054069;
+&a4445e6518ccd1eaa17c159bfc15209ef;
+&aed502e4deb0441dcfda611b5bcc189a4;
+&a8e2d340c907945febd6287f84e74e3dc;
+&a33e3e560601a44c71bad6dd06a32a67a;
+&a0622eeab20e68acada9d0ae32602795a;
+&abec0bf130259f0225682a92bee3f193e;
+&aec33deec2d28e52e4dea5b207196dfc2;
+&a473758ade2f451fc5233cf5a679ed58f;
+&a33011cb4d6f37aca9a3f03a4e1cb157f;
+&a2b4ed9a6cfe047014437e027de5abe95;
+&ab5a7ab7d8002e6aedb65417dec49adca;
+&a1a07c83d1b39a112a769f5659bde85e1;
+&a5621fcfdd17408d6ffdb156d686310a2;
+&a5b16ed670df1c9a3f9083659d49dd472;
+&a33bc1b33f6cff195bad72f23c72ffe5f;
+&a4fed73f4cbf1b528cc27f8a17bf419d6;
+&a245be6c1b7b04b8ea5669473bafc5c12;
+&ae455b0ac2febc8d41815f4978f48c093;
+&a4d7edb338492c7e2227eb4ee0ce5734c;
+</part>
+</book>

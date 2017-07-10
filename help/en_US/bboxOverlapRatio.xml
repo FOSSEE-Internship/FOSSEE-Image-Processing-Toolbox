@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from bboxOverlapRatio.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="bboxOverlapRatio" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>bboxOverlapRatio</refname>
+    <refpurpose>Compute the overlap ratio between the bounding boxes A and B.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ overlapRatio ] = bboxOverlapRatio(bboxA, bboxB);
+   [ overlapRatio ] = bboxOverlapRatio(bboxA, bboxB, ratioType);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>bboxA:</term>
+      <listitem><para> Bounding box A of the form [x, y, width, height];</para></listitem></varlistentry>
+   <varlistentry><term>bboxB:</term>
+      <listitem><para> Boundng box B of the form [x, y, width, height];</para></listitem></varlistentry>
+   <varlistentry><term>ratioType (Optional Argument):</term>
+      <listitem><para> Method to be used to compute the ratio. Set this to either 'Union' or 'Min'. Default computation method is set to 'Union'.</para></listitem></varlistentry>
+   <varlistentry><term>overlapRatio:</term>
+      <listitem><para> Overlap ratio between the bounding boxes A and B.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Compute the overlap ratio between the bounding boxes A and B.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+bboxA = [1 2 3 4];
+bboxB = bboxA + 100;
+overlapRatioMin = bboxOverlapRatio(bboxA, bboxB, 'Min');
+overlapRatioUnion = bboxOverlapRatio(bboxA, bboxB);
+
+bboxA = [0 0 50 50];
+bboxB = [0 0 200 200];
+overlapRatioMin = bboxOverlapRatio(bboxA, bboxB, 'Min');
+overlapRatioUnion = bboxOverlapRatio(bboxA, bboxB);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tanmay Chaudhari</member>
+   </simplelist>
+</refsection>
+</refentry>

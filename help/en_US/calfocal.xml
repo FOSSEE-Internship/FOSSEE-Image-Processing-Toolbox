@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from calfocal.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="calfocal" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>calfocal</refname>
+    <refpurpose>Estimates focal lengths for each given camera.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   res = calfocal(image1,image2)
+   res = calfocal(image1,image2,image3)
+   res = calfocal(image1,image2,image3,image4)
+   res = calfocal(image1,image2,image3,image4,image5)
+   res = calfocal(image1,image2,image3,image4,image5,image6)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image1 :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   <varlistentry><term>image2 :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   <varlistentry><term>image3 :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   <varlistentry><term>image4 :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   <varlistentry><term>image5 :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   <varlistentry><term>image6 :</term>
+      <listitem><para> an image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+res = calfocal(image1,image2) return a 1x2 matrix.
+Features are extracted from each image and matching is done on two consecutive images to ensure the continuity in images.
+After this camera parameters are estimated along with their focal lengths are estimated.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a=imread('images/campus_000.jpg');
+b=imread('images/campus_001.jpg');
+res=calfocal(a,b);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Manoj Sree Harsha</member>
+   </simplelist>
+</refsection>
+</refentry>
