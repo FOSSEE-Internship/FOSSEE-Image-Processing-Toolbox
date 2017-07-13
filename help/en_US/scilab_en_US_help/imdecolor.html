@@ -1,0 +1,94 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>imdecolor</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="imcontour.html">&lt;&lt; imcontour</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imfill.html">imfill &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a> &gt; imdecolor</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">imdecolor</h1>
+    <p class="refpurpose">Decolors and color boosts an image giving 2 outputs for the same respectively.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">outImg1</span><span class="default">, </span><span class="default">outImg2</span><span class="default">] = </span><span class="functionid">imdecolor</span><span class="default">(</span><span class="default">srcImg1</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">srcImg1 :</span>
+      <dd><p class="para">It is a 3-channel input image.</p></dd></dt>
+   <dt><span class="term">outImg1 :</span>
+      <dd><p class="para">It is a grayscale image of the image passed as input.</p></dd></dt>
+   <dt><span class="term">outImg2 :</span>
+      <dd><p class="para">It is a color boosted image of the image passed as input.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function is used to decolor an image and also add a boost to it&#0039;s color
+The output are 2 images, one is a grayscale and the other is a color boosted image</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">var</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">ImageName</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">decoloredImage</span><span class="scilabdefault">,</span><span class="scilabid">colorBoostedImage</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">imdecolor</span><span class="scilabopenclose">(</span><span class="scilabid">var</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">PRESS</span> <span class="scilabid">ENTER</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">decoloredImage</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">shows</span> <span class="scilabid">the</span> <span class="scilabid">decolored</span> <span class="scilabid">Image</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">colorBoostedImage</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">shows</span> <span class="scilabid">the</span> <a class="scilabmacro" href="scilab://color">color</a> <span class="scilabstring">boosted</span> <span class="scilabstring">image</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">images.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">b</span><span class="scilabdefault">,</span> <span class="scilabid">c</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">imdecolor</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">PRESS</span> <span class="scilabid">ENTER</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">shows</span> <span class="scilabid">the</span> <span class="scilabid">decolored</span> <span class="scilabid">Image</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">c</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">shows</span> <span class="scilabid">the</span> <a class="scilabmacro" href="scilab://color">color</a> <span class="scilabstring">boosted</span> <span class="scilabstring">image</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Shubham Lohakare, NITK Surathkal</li>
+   <li class="member">Ashish Mantosh, NIT Rourkela</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="imcontour.html">&lt;&lt; imcontour</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imfill.html">imfill &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

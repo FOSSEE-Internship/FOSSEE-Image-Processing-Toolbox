@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from multiDenoise.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="multiDenoise" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>multiDenoise</refname>
+    <refpurpose>Removes gaussian white noise from an image taking reference images of the same captured in small intervals</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   out = multiDenoise(imgToDenoiseIndex, temporalWindowSize, filterStrength, templateWindowSize, searchWindowSize, n, choice, srcImg1, srcImg2, srcImg3)
+   out = multiDenoise(imgToDenoiseIndex, temporalWindowSize, filterStrength, templateWindowSize, searchWindowSize, n, choice, srcImg1, srcImg2, srcImg3, srcImg4)
+   out = multiDenoise(imgToDenoiseIndex, temporalWindowSize, filterStrength, templateWindowSize, searchWindowSize, n, choice, srcImg1, srcImg2, srcImg3, srcImg4, srcImg5)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>imgToDenoiseIndex :</term>
+      <listitem><para> Target image to denoise index in srcImgs sequence</para></listitem></varlistentry>
+   <varlistentry><term>temporalWindowSize :</term>
+      <listitem><para> Number of surrounding images to use for target image denoising. Should be odd.</para></listitem></varlistentry>
+   <varlistentry><term>filterStrength :</term>
+      <listitem><para> Parameter regulating filter strength. Bigger h value perfectly removes noise but also removes image details, smaller h value preserves details but also preserves some noise.</para></listitem></varlistentry>
+   <varlistentry><term>templateWindowSize :</term>
+      <listitem><para> Size in pixels of the template patch that is used to compute weights. Should be odd.</para></listitem></varlistentry>
+   <varlistentry><term>searchWindowSize :</term>
+      <listitem><para> Size in pixels of the window that is used to compute weighted average for given pixel. Should be odd.</para></listitem></varlistentry>
+   <varlistentry><term>n :</term>
+      <listitem><para> number of images passed.</para></listitem></varlistentry>
+   <varlistentry><term>choice :</term>
+      <listitem><para> chooses which type of method to use</para></listitem></varlistentry>
+   <varlistentry><term>srcImgs :</term>
+      <listitem><para> The input images which are passed. They are variable arguments.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Modification of fastNlMeansDenoising function for images sequence where consequtive images have been captured in small period of time. It removes gaussian white noise.The output is a denoised image
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a= imread("img1.jpg");
+b= imread("img2.jpg");
+c= imread("img3.jpg");
+imgToDenoiseIndex=1;
+temporalWindowSize =1;
+templateWindowSize =7;
+searchWindowSize =21;
+filterStrength = 10;
+n = 3;
+choice = 1;
+k=multiDenoise(imgToDenoiseIndex,temporalWindowSize,filterStrength,templateWindowSize,searchWindowSize,n,choice,a,b,c);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a= imread("img1.jpg");
+b= imread("img2.jpg");
+c= imread("img3.jpg");
+d= imread("img4.jpg");
+imgToDenoiseIndex=1;
+temporalWindowSize =1;
+templateWindowSize =7;
+searchWindowSize =21;
+filterStrength = 100;
+n = 4;
+choice = 1;
+k=multiDenoise(imgToDenoiseIndex,temporalWindowSize,filterStrength,templateWindowSize,searchWindowSize,n,choice,a,b,c,d);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a= imread("pic.jpeg");
+b= imread("pic1.jpeg");
+c= imread("pic2.jpeg");
+d= imread("pic3.jpeg");
+e= imread("pic4.jpeg");
+imgToDenoiseIndex=3;
+temporalWindowSize =3;
+templateWindowSize =7;
+searchWindowSize =21;
+filterStrength = 75;
+n = 5;
+choice = 2;
+k=multiDenoise(imgToDenoiseIndex,temporalWindowSize,filterStrength,templateWindowSize,searchWindowSize,n,choice,a,b,c,d,e);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   <member>Ashish Mantosh, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from denoiseColor.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="denoiseColor" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>denoiseColor</refname>
+    <refpurpose>Removes colored noise from the image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputImage = denoiseColor(src, strengthFilter,strengthFilterColor, tempWindowSize, searchWindowSize)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>src :</term>
+      <listitem><para> The input image with colored noise.</para></listitem></varlistentry>
+   <varlistentry><term>strengthFilter :</term>
+      <listitem><para> The noise filter for white gaussian noise.</para></listitem></varlistentry>
+   <varlistentry><term>strengthFilterColor :</term>
+      <listitem><para> The noise filter for colored noise.</para></listitem></varlistentry>
+   <varlistentry><term>tempWindowSize :</term>
+      <listitem><para> Size in pixels of the template patch that is used to compute weights. Should be odd.</para></listitem></varlistentry>
+   <varlistentry><term>searchWindowSize :</term>
+      <listitem><para> Size in pixels of the window that is used to compute weighted average for given pixel. Should be odd.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function is used to remove colored noise from an image. It is the modification of fasNlmeansDenoising function
+The output is a denoised image
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("taj.jpg");
+strengthFilter = 200;
+strengthFilterColor = 40;
+tempWindowSize = 7;
+searchWindowSize =21;
+p = denoiseColor(a,strengthFilter,strengthFilterColor,tempWindowSize,searchWindowSize);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("cnoise1.jpg");
+strengthFilter = 20;
+strengthFilterColor = 100;
+tempWindowSize = 7;
+searchWindowSize =21;
+p = denoiseColor(a,strengthFilter,strengthFilterColor,tempWindowSize,searchWindowSize);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   <member>Ashish Mantosh Barik, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>

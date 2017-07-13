@@ -1,0 +1,133 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>multiDenoise</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="integralImage.html">&lt;&lt; integralImage</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="multiDenoiseColor.html">multiDenoiseColor &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a> &gt; multiDenoise</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">multiDenoise</h1>
+    <p class="refpurpose">Removes gaussian white noise from an image taking reference images of the same captured in small intervals</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">out</span><span class="default"> = </span><span class="functionid">multiDenoise</span><span class="default">(</span><span class="default">imgToDenoiseIndex</span><span class="default">, </span><span class="default">temporalWindowSize</span><span class="default">, </span><span class="default">filterStrength</span><span class="default">, </span><span class="default">templateWindowSize</span><span class="default">, </span><span class="default">searchWindowSize</span><span class="default">, </span><span class="default">n</span><span class="default">, </span><span class="default">choice</span><span class="default">, </span><span class="default">srcImg1</span><span class="default">, </span><span class="default">srcImg2</span><span class="default">, </span><span class="default">srcImg3</span><span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">multiDenoise</span><span class="default">(</span><span class="default">imgToDenoiseIndex</span><span class="default">, </span><span class="default">temporalWindowSize</span><span class="default">, </span><span class="default">filterStrength</span><span class="default">, </span><span class="default">templateWindowSize</span><span class="default">, </span><span class="default">searchWindowSize</span><span class="default">, </span><span class="default">n</span><span class="default">, </span><span class="default">choice</span><span class="default">, </span><span class="default">srcImg1</span><span class="default">, </span><span class="default">srcImg2</span><span class="default">, </span><span class="default">srcImg3</span><span class="default">, </span><span class="default">srcImg4</span><span class="default">)</span>
+<span class="default">out</span><span class="default"> = </span><span class="functionid">multiDenoise</span><span class="default">(</span><span class="default">imgToDenoiseIndex</span><span class="default">, </span><span class="default">temporalWindowSize</span><span class="default">, </span><span class="default">filterStrength</span><span class="default">, </span><span class="default">templateWindowSize</span><span class="default">, </span><span class="default">searchWindowSize</span><span class="default">, </span><span class="default">n</span><span class="default">, </span><span class="default">choice</span><span class="default">, </span><span class="default">srcImg1</span><span class="default">, </span><span class="default">srcImg2</span><span class="default">, </span><span class="default">srcImg3</span><span class="default">, </span><span class="default">srcImg4</span><span class="default">, </span><span class="default">srcImg5</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">imgToDenoiseIndex :</span>
+      <dd><p class="para">Target image to denoise index in srcImgs sequence</p></dd></dt>
+   <dt><span class="term">temporalWindowSize :</span>
+      <dd><p class="para">Number of surrounding images to use for target image denoising. Should be odd.</p></dd></dt>
+   <dt><span class="term">filterStrength :</span>
+      <dd><p class="para">Parameter regulating filter strength. Bigger h value perfectly removes noise but also removes image details, smaller h value preserves details but also preserves some noise.</p></dd></dt>
+   <dt><span class="term">templateWindowSize :</span>
+      <dd><p class="para">Size in pixels of the template patch that is used to compute weights. Should be odd.</p></dd></dt>
+   <dt><span class="term">searchWindowSize :</span>
+      <dd><p class="para">Size in pixels of the window that is used to compute weighted average for given pixel. Should be odd.</p></dd></dt>
+   <dt><span class="term">n :</span>
+      <dd><p class="para">number of images passed.</p></dd></dt>
+   <dt><span class="term">choice :</span>
+      <dd><p class="para">chooses which type of method to use</p></dd></dt>
+   <dt><span class="term">srcImgs :</span>
+      <dd><p class="para">The input images which are passed. They are variable arguments.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Modification of fastNlMeansDenoising function for images sequence where consequtive images have been captured in small period of time. It removes gaussian white noise.The output is a denoised image</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">a</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">img1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">img2.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">img3.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imgToDenoiseIndex</span><span class="scilaboperator">=</span><span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">temporalWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">templateWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">7</span><span class="scilabdefault">;</span>
+<span class="scilabid">searchWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">21</span><span class="scilabdefault">;</span>
+<span class="scilabid">filterStrength</span> <span class="scilaboperator">=</span> <span class="scilabnumber">10</span><span class="scilabdefault">;</span>
+<span class="scilabid">n</span> <span class="scilaboperator">=</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabid">choice</span> <span class="scilaboperator">=</span> <span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">k</span><span class="scilaboperator">=</span><span class="scilabid">multiDenoise</span><span class="scilabopenclose">(</span><span class="scilabid">imgToDenoiseIndex</span><span class="scilabdefault">,</span><span class="scilabid">temporalWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">filterStrength</span><span class="scilabdefault">,</span><span class="scilabid">templateWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">searchWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">n</span><span class="scilabdefault">,</span><span class="scilabid">choice</span><span class="scilabdefault">,</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabdefault">,</span><span class="scilabid">c</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">a</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">img1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">img2.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">img3.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">d</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">img4.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imgToDenoiseIndex</span><span class="scilaboperator">=</span><span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">temporalWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">templateWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">7</span><span class="scilabdefault">;</span>
+<span class="scilabid">searchWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">21</span><span class="scilabdefault">;</span>
+<span class="scilabid">filterStrength</span> <span class="scilaboperator">=</span> <span class="scilabnumber">100</span><span class="scilabdefault">;</span>
+<span class="scilabid">n</span> <span class="scilaboperator">=</span> <span class="scilabnumber">4</span><span class="scilabdefault">;</span>
+<span class="scilabid">choice</span> <span class="scilaboperator">=</span> <span class="scilabnumber">1</span><span class="scilabdefault">;</span>
+<span class="scilabid">k</span><span class="scilaboperator">=</span><span class="scilabid">multiDenoise</span><span class="scilabopenclose">(</span><span class="scilabid">imgToDenoiseIndex</span><span class="scilabdefault">,</span><span class="scilabid">temporalWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">filterStrength</span><span class="scilabdefault">,</span><span class="scilabid">templateWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">searchWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">n</span><span class="scilabdefault">,</span><span class="scilabid">choice</span><span class="scilabdefault">,</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabdefault">,</span><span class="scilabid">c</span><span class="scilabdefault">,</span><span class="scilabid">d</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">a</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">pic.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">pic1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">pic2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">d</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">pic3.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">e</span><span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">pic4.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imgToDenoiseIndex</span><span class="scilaboperator">=</span><span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabid">temporalWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">3</span><span class="scilabdefault">;</span>
+<span class="scilabid">templateWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">7</span><span class="scilabdefault">;</span>
+<span class="scilabid">searchWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">21</span><span class="scilabdefault">;</span>
+<span class="scilabid">filterStrength</span> <span class="scilaboperator">=</span> <span class="scilabnumber">75</span><span class="scilabdefault">;</span>
+<span class="scilabid">n</span> <span class="scilaboperator">=</span> <span class="scilabnumber">5</span><span class="scilabdefault">;</span>
+<span class="scilabid">choice</span> <span class="scilaboperator">=</span> <span class="scilabnumber">2</span><span class="scilabdefault">;</span>
+<span class="scilabid">k</span><span class="scilaboperator">=</span><span class="scilabid">multiDenoise</span><span class="scilabopenclose">(</span><span class="scilabid">imgToDenoiseIndex</span><span class="scilabdefault">,</span><span class="scilabid">temporalWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">filterStrength</span><span class="scilabdefault">,</span><span class="scilabid">templateWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">searchWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">n</span><span class="scilabdefault">,</span><span class="scilabid">choice</span><span class="scilabdefault">,</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">b</span><span class="scilabdefault">,</span><span class="scilabid">c</span><span class="scilabdefault">,</span><span class="scilabid">d</span><span class="scilabdefault">,</span><span class="scilabid">e</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Shubham Lohakare, NITK Surathkal</li>
+   <li class="member">Ashish Mantosh, NIT Rourkela</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="integralImage.html">&lt;&lt; integralImage</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="multiDenoiseColor.html">multiDenoiseColor &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

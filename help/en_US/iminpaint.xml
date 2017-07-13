@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from iminpaint.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="iminpaint" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>iminpaint</refname>
+    <refpurpose>Inpaints the unwanted area in an image using the neighboring pixel points</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   pImg = iminpaint(srcImg1,maskedRectangle,radius,methodNum)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg :</term>
+      <listitem><para> It is the input image</para></listitem></varlistentry>
+   <varlistentry><term>maskedRectangle:</term>
+      <listitem><para> It is a vector of double used which contains the co-ordinates of the masking rectangle</para></listitem></varlistentry>
+   <varlistentry><term>radius :</term>
+      <listitem><para> Radius of a circular neighborhood of each point inpainted that is considered by the algorithm.</para></listitem></varlistentry>
+   <varlistentry><term>methodNum :</term>
+      <listitem><para> Inpainting method that could be one of the following,INPAINT_NS Navier-Stokes based method or INPAINT_TELEA Method by Alexandru Telea</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function reconstructs the selected image area from the pixel near the area boundary. The function may be used to remove dust and scratches from a scanned photo, or to remove undesirable objects from still images.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("p1.jpeg");
+b = [210,40,100,200];
+typeOfMethod = 2;
+radius = 50;
+c = iminpaint(a,b,radius,typeOfMethod);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("orig.jpg");
+b = [100,157,120,150];
+typeOfMethod = 1;
+radius = 5;
+c = iminpaint(a,b,radius,typeOfMethod);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   <member>Ashish Mantosh, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>

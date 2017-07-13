@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imrotate.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imrotate" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imrotate</refname>
+    <refpurpose>Rotates an image by the specified angle</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputImage = imrotate(srcImg, angle)
+   outputImage = imrotate(srcImg, angle, BoundingBoxType)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg :</term>
+      <listitem><para> The input image which is to be rotated</para></listitem></varlistentry>
+   <varlistentry><term>angle :</term>
+      <listitem><para> The angle by which the image is to be rotated</para></listitem></varlistentry>
+   <varlistentry><term>BoundingBoxType :</term>
+      <listitem><para> The type of the bounding box for the image displayed, whether a cropped one or one displaying full image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function rotates the input image in the anticlockwise direction by the angle specified around the centre point of the image. The bounding box determines whether the complete image or a cropped image will be displayed based on the BoundingBoxType i.e. 'loose' will display the complete image and 'crop' will display the cropped image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+k = imread("lena.jpeg');
+p = imrotate(k, 45);
+imshow(p)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+k = imread("lena.jpeg');
+p = imrotate(k, 30, 'loose');
+imshow(p)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+k = imread("photo.jpg");
+p = imrotate(k, 60, 'crop');
+imshow(p)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   <member>Priyanka Hiranandani, NIT Surat</member>
+   </simplelist>
+</refsection>
+</refentry>
