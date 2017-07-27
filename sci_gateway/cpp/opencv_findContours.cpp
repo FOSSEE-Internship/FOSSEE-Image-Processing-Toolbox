@@ -45,8 +45,6 @@ extern "C"
     		Mat src;
     		retrieveImage(src,1);//Retrieving the input image
     		src.convertTo(src,CV_8U);//Converting the input image to 8-bit image
-    		cvtColor(src,src,CV_BGR2GRAY);//Converting to grayscale
-    		//threshold(src,src,0,255,THRESH_BINARY);
 		sciErr = getVarAddressFromPosition(pvApiCtx,2,&piAddr2);
     		if (sciErr.iErr)
     		{
@@ -142,8 +140,8 @@ extern "C"
 
         		for(j=0;j<contours[i].size();j++)
         		{
-            			*(arr + j*2 + 0) = contours[i][j].x;
-            			*(arr + j*2 + 1) = contours[i][j].y;
+            			*(arr + j + 0) = contours[i][j].x;
+            			*(arr + j + contours[i].size()) = contours[i][j].y;
         		}
 
         	sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+1 , piAddrNew, i+1, contours[i].size(), 2, arr);
