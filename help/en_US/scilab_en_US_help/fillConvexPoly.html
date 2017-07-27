@@ -1,0 +1,95 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>fillConvexPoly</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="distanceExtractor.html">&lt;&lt; distanceExtractor</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="gabor.html">gabor &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a> &gt; fillConvexPoly</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">fillConvexPoly</h1>
+    <p class="refpurpose">This function fills a convex polygon.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">out</span><span class="default">] = </span><span class="functionid">fillConvexPoly</span><span class="default">(</span><span class="default">img</span><span class="default">, </span><span class="default">pstData</span><span class="default">, </span><span class="default">npts</span><span class="default">, </span><span class="default">r_value</span><span class="default">, </span><span class="default">g_value</span><span class="default">, </span><span class="default">b_value</span><span class="default">, </span><span class="default">linetype</span><span class="default">, </span><span class="default">shift</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">img :</span>
+      <dd><p class="para">The input source image.</p></dd></dt>
+   <dt><span class="term">pstData :</span>
+      <dd><p class="para">The vector of polygon vertices.</p></dd></dt>
+   <dt><span class="term">npts :</span>
+      <dd><p class="para">The number of polygon vertices.</p></dd></dt>
+   <dt><span class="term">r_value :</span>
+      <dd><p class="para">The red value of RGB color for the polygon.</p></dd></dt>
+   <dt><span class="term">g_value :</span>
+      <dd><p class="para">The green value of RGB color for the polygon.</p></dd></dt>
+   <dt><span class="term">b_value :</span>
+      <dd><p class="para">The blue value of RGB color for the polygon.</p></dd></dt>
+   <dt><span class="term">linetype :</span>
+      <dd><p class="para">This is the type of the polygon boundaries. It has only 3 valid types: 4, 8 and 16(CV_AA). Passing any other value as lineType is not legal.</p></dd></dt>
+   <dt><span class="term">shift :</span>
+      <dd><p class="para">This is the number of fractional bits in the vertex coordinates.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function fillConvexPoly draws a filled convex polygon. It can fill not only convex polygons but any monotonic polygon without self-intersections, that is, a polygon whose contour intersects every horizontal line (scan line) twice at the most (though, its top-most and/or the bottom edge could be horizontal).</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// a simple example</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span> <span class="scilabnumber">0</span> <span class="scilabnumber">10</span><span class="scilabdefault">;</span> <span class="scilabnumber">10</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span> <span class="scilaboperator">-</span><span class="scilabnumber">10</span> <span class="scilabnumber">0</span> <span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span> <span class="scilaboperator">=</span> <span class="scilabid">fillConvexPoly</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span> <span class="scilabid">b</span><span class="scilabdefault">,</span> <span class="scilabnumber">3</span><span class="scilabdefault">,</span> <span class="scilabnumber">1</span><span class="scilabdefault">,</span> <span class="scilabnumber">1</span><span class="scilabdefault">,</span> <span class="scilabnumber">1</span><span class="scilabdefault">,</span> <span class="scilabnumber">8</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Abhilasha Sancheti</li>
+   <li class="member">Sukul Bagai</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="distanceExtractor.html">&lt;&lt; distanceExtractor</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="gabor.html">gabor &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

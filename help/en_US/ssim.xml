@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from ssim.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="ssim" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>ssim</refname>
+    <refpurpose>This function is used to compute the Structural Similarity Index (SSIM) for measuring image quality.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ssim_val] = ssim(srcImg, reference)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg :</term>
+      <listitem><para> The input image whose quality is to be measured. Must be the same size and class as reference.</para></listitem></varlistentry>
+   <varlistentry><term>reference :</term>
+      <listitem><para> Reference image against which quality if measured.</para></listitem></varlistentry>
+   <varlistentry><term>ssim_val :</term>
+      <listitem><para> Structural Similarity (SSIM) Index.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Computes the Structural Similarity Index (SSIM) value.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// a simple example
+a = imread("m1.jpeg");
+b = imread("m2.jpeg");
+c = ssim(a,b);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Dhruti Shah</member>
+   </simplelist>
+</refsection>
+</refentry>

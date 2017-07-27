@@ -1,0 +1,107 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>detectSIFTFeatures</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectLATCHDescriptors.html">&lt;&lt; detectLATCHDescriptors</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="distanceExtractor.html">distanceExtractor &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a> &gt; detectSIFTFeatures</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">detectSIFTFeatures</h1>
+    <p class="refpurpose">This function is used to find scale-invariant features.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[ </span><span class="default">a</span><span class="default"> ] = </span><span class="functionid">detectSIFTFeatures</span><span class="default">(</span><span class="default">srcImg</span><span class="default">)</span>
+<span class="default">[ </span><span class="default">a</span><span class="default"> ] = </span><span class="functionid">detectSIFTFeatures</span><span class="default">(</span><span class="default">srcImg</span><span class="default">, </span><span class="default">features</span><span class="default">, </span><span class="default">nOctaveLayers</span><span class="default">, </span><span class="default">contrastThreshold</span><span class="default">, </span><span class="default">edgeThreshold</span><span class="default">, </span><span class="default">sigma</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">srcImg :</span>
+      <dd><p class="para">Hyper of input image.</p></dd></dt>
+   <dt><span class="term">nfeatures :</span>
+      <dd><p class="para">The number of best features to retain. The features are ranked by their scores (measured in SIFT algorithm as the local contrast). If valued as 0, uses all detected keypoints.</p></dd></dt>
+   <dt><span class="term">nOctaveLayers :</span>
+      <dd><p class="para">The number of layers in each octave. 3 is the value used in D. Lowe paper. The number of octaves is computed automatically from the image resolution.</p></dd></dt>
+   <dt><span class="term">contrastThreshold :</span>
+      <dd><p class="para">The contrast threshold used to filter out weak features in semi-uniform (low-contrast) regions. The larger the threshold, the less features are produced by the detector.</p></dd></dt>
+   <dt><span class="term">edgeThreshold :</span>
+      <dd><p class="para">The threshold used to filter out edge-like features. Note that the its meaning is different from the contrastThreshold, i.e. the larger the edgeThreshold, the less features are filtered out (more features are retained).</p></dd></dt>
+   <dt><span class="term">sigma :</span>
+      <dd><p class="para">The sigma of the Gaussian applied to the input image at the octave #0. If your image is captured with a weak camera with soft lenses, you might want to reduce the number.</p></dd></dt>
+   <dt><span class="term">a :</span>
+      <dd><p class="para">It is a struct consisting of &#0039;Type&#0039;(Type of Feature) , &#0039;Features&#0039;(descriptors) , &#0039;NumBits&#0039;, &#0039;NumFeatures&#0039;, &#0039;KeyPoints&#0039;, &#0039;keypointsCount&#0039;.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">For extracting keypoints and computing descriptors using the Scale Invariant Feature Transform. RGB images are converted to Grayscale images before processing.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// with default values</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">photo1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">photo2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">max</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span> <span class="scilaboperator">=</span> <span class="scilabid">detectSIFTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">d</span> <span class="scilaboperator">=</span> <span class="scilabid">detectSIFTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span> <span class="scilabid">e</span> <span class="scilabid">f</span> <span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">matchFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">c</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span> <span class="scilabid">d</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">out</span> <span class="scilaboperator">=</span> <span class="scilabid">drawMatch</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span> <span class="scilabid">b</span><span class="scilabdefault">,</span> <span class="scilabid">c</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabid">d</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabid">e</span><span class="scilabdefault">,</span> <span class="scilabid">f</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// user assigned values</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">photo1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">photo2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">max</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">c</span> <span class="scilaboperator">=</span> <span class="scilabid">detectSIFTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabdefault">,</span> <span class="scilabnumber">3</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.05</span><span class="scilabdefault">,</span> <span class="scilabnumber">11</span><span class="scilabdefault">,</span> <span class="scilabnumber">1.6</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">d</span> <span class="scilaboperator">=</span> <span class="scilabid">detectSIFTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">b</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabdefault">,</span> <span class="scilabnumber">3</span><span class="scilabdefault">,</span> <span class="scilabnumber">0.05</span><span class="scilabdefault">,</span> <span class="scilabnumber">11</span><span class="scilabdefault">,</span> <span class="scilabnumber">1.6</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span> <span class="scilabid">e</span> <span class="scilabid">f</span> <span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">matchFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">c</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span> <span class="scilabid">d</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">out</span> <span class="scilaboperator">=</span> <span class="scilabid">drawMatch</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span> <span class="scilabid">b</span><span class="scilabdefault">,</span> <span class="scilabid">c</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabid">d</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span> <span class="scilabid">e</span><span class="scilabdefault">,</span> <span class="scilabid">f</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Ashish Manatosh Barik, NIT Rourkela</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectLATCHDescriptors.html">&lt;&lt; detectLATCHDescriptors</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="distanceExtractor.html">distanceExtractor &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

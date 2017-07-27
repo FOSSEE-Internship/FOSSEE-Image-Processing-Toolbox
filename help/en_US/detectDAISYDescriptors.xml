@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from detectDAISYDescriptors.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="detectDAISYDescriptors" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>detectDAISYDescriptors</refname>
+    <refpurpose>This function is used for computing DAISY descriptors using Star keypoints.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ a ] = detectDAISYDescriptors(srcImg)
+   [ a ] = detectDAISYDescriptors(srcImg, maxSize, responseThreshold, lineThresholdProjected, lineThresholdBinarized, suppressNonmaxSize, radius, q_radius, q_theta, q_hist, norm, interpolation, use_orientation)
+   [ a ] = detectDAISYDescriptors(srcImg, maxSize, responseThreshold, lineThresholdProjected, lineThresholdBinarized, suppressNonmaxSize, radius, q_radius, q_theta, q_hist, norm, homography, interpolation, use_orientation)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg :</term>
+      <listitem><para> Hyper of input image</para></listitem></varlistentry>
+   <varlistentry><term>maxSize :</term>
+      <listitem><para> Choose the number of filters to be applied, the parameter value set the maximum size.</para></listitem></varlistentry>
+   <varlistentry><term>responseThreshold :</term>
+      <listitem><para> To eliminate weak corners.</para></listitem></varlistentry>
+   <varlistentry><term>lineThresholdProjected :</term>
+      <listitem><para> Harris of responses.</para></listitem></varlistentry>
+   <varlistentry><term>lineThresholdBinarized :</term>
+      <listitem><para> Harris of sizes.</para></listitem></varlistentry>
+   <varlistentry><term>suppressNonmaxSize :</term>
+      <listitem><para> Window size (n-by-n) to apply the non-maximal suppression.</para></listitem></varlistentry>
+   <varlistentry><term>radius :</term>
+      <listitem><para> radius of the descriptor at the initial scale.</para></listitem></varlistentry>
+   <varlistentry><term>q_radius :</term>
+      <listitem><para> amount of radial range division quantity.</para></listitem></varlistentry>
+   <varlistentry><term>q_theta :</term>
+      <listitem><para> amount of angular range division quantity.</para></listitem></varlistentry>
+   <varlistentry><term>q_hist :</term>
+      <listitem><para> amount of gradient orientations range division quantity.</para></listitem></varlistentry>
+   <varlistentry><term>norm    :</term>
+      <listitem><para> choose descriptors normalization type, where DAISY::NRM_NONE will not do any normalization (default), DAISY::NRM_PARTIAL mean that histograms are normalized independently for L2 norm equal to 1.0, DAISY::NRM_FULL mean that descriptors are normalized for L2 norm equal to 1.0, DAISY::NRM_SIFT mean that descriptors are normalized for L2 norm equal to 1.0 but no individual one is bigger than 0.154 as in SIFT</para></listitem></varlistentry>
+   <varlistentry><term>homography :</term>
+      <listitem><para>    optional 3x3 homography matrix used to warp the grid of daisy but sampling keypoints remains unwarped on image.</para></listitem></varlistentry>
+   <varlistentry><term>interpolation :</term>
+      <listitem><para> switch to disable interpolation for speed improvement at minor quality loss.</para></listitem></varlistentry>
+   <varlistentry><term>use_orientation :</term>
+      <listitem><para> sample patterns using keypoints orientation, disabled by default.</para></listitem></varlistentry>
+   <varlistentry><term>a :</term>
+      <listitem><para> It is a struct consisting of 'Type'(Type of Feature) , 'Features'(descriptors) , 'NumBits', 'NumFeatures', 'KeyPoints', 'keypointsCount'.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+For extracting keypoints(using StarDetector) and computing descriptors(DAISY).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// with default values
+[ a ] = imread("b1.jpeg");
+[ b ] = imread("b2.jpeg");
+stacksize('max')
+[ c ] = detectDAISYDescriptors(a);
+[ d ] = detectDAISYDescriptors(b);
+[ e f ] = matchFeatures(c.Features, d.Features);
+out = drawMatch(a, b, c.KeyPoints, d.KeyPoints, e, f);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// user assigned values
+[ a ] = imread("b1.jpeg");
+[ b ] = imread("b2.jpeg");
+stacksize('max')
+[ c ] = detectDAISYDescriptors(a, 45, 30, 10, 8, 5, 15, 3, 8, 8, 100, %t, %f);
+[ d ] = detectDAISYDEscriptors(b, 45, 30, 10, 8, 5, 15, 3, 8, 8, 100, %t, %f);
+[ e f ] = matchFeatures(c.Features, d.Features);
+out = drawMatch(a, b, c.KeyPoints, d.KeyPoints, e, f);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik NIT Rourkela</member>
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   </simplelist>
+</refsection>
+</refentry>

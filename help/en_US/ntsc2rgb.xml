@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from ntsc2rgb.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="ntsc2rgb" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>ntsc2rgb</refname>
+    <refpurpose>This function converts NTSC values to RGB color space.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [output] = ntsc2rgb(pstData)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>pstData :</term>
+      <listitem><para> It is a list of the NTSC luminance (Y) and chrominance (I and Q) color components.</para></listitem></varlistentry>
+   <varlistentry><term>output :</term>
+      <listitem><para>  It is a list that contains the red, green, and blue values equivalent to those colors.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Converts NTSC values to RGB color space.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert the grayscale image back to RGB color space.
+a = imread("b1.jpeg",0)
+b = ntsc2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert the grayscale image back to RGB color space.
+a = imread("b2.jpeg",0)
+b = ntsc2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert the grayscale image back to RGB color space.
+a = imread("graf1.jpeg",0)
+b = ntsc2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert the grayscale image back to RGB color space.
+a = imread("graf2.jpeg",0)
+b = ntsc2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// input RGB image
+a = imread("b2.jpeg")
+b = ntsc2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// input RGB image
+a = imread("graf1.jpeg")
+b = ntsc2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// input RGB image
+a = imread("garf2.jpeg")
+b = ntsc2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Convert the grayscale image back to RGB color space.
+a = imread("lena.jpeg",0)
+b = ntsc2rgb(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess Zacharias</member>
+   </simplelist>
+</refsection>
+</refentry>

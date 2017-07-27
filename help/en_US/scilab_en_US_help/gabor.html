@@ -1,0 +1,84 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>gabor</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="fillConvexPoly.html">&lt;&lt; fillConvexPoly</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="gaussianBlur.html">gaussianBlur &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a> &gt; gabor</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">gabor</h1>
+    <p class="refpurpose">This function creates a Gabor filter.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">outputImg</span><span class="default">] = </span><span class="functionid">gabor</span><span class="default">(</span><span class="default">wavelength</span><span class="default">,</span><span class="default">orientation</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">wavelength :</span>
+      <dd><p class="para">It is the wavelength of sinusoid, specified as a numeric scalar or vector, in pixels/cycle.</p></dd></dt>
+   <dt><span class="term">orientation :</span>
+      <dd><p class="para">It is the orientation of filter in degrees, specified as a numeric scalar in the range [0 180], where the orientation is defined as the normal direction to the sinusoidal plane wave.</p></dd></dt>
+   <dt><span class="term">outputImg :</span>
+      <dd><p class="para">The Gabor filter.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">It creates a Gabor filter with the specified wavelength (in pixels/cycle) and orientation (in degrees). If you specify wavelength or orientation as vectors, gabor returns an array of gabor objects, called a filter bank, that contain all the unique combinations of wavelength and orientation. For example, if wavelength is a vector of length 2 and orientation is a vector of length 3, then the output array is a vector of length 6.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Create an array of Gabor filters.</span>
+<span class="scilabid">wavelength</span> <span class="scilaboperator">=</span> <span class="scilabnumber">20</span><span class="scilabdefault">;</span>
+<span class="scilabid">orientation</span> <span class="scilaboperator">=</span> <span class="scilabnumber">45</span><span class="scilabdefault">;</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">gabor</span><span class="scilabopenclose">(</span><span class="scilabid">wavelength</span><span class="scilabdefault">,</span> <span class="scilabid">orientation</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Samiran Roy</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="fillConvexPoly.html">&lt;&lt; fillConvexPoly</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="gaussianBlur.html">gaussianBlur &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

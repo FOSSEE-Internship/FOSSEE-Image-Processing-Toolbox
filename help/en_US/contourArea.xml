@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from contourArea.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="contourArea" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>contourArea</refname>
+    <refpurpose>This function calculates the contour area.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [out] = contourArea(inputArrayContour, booloriented)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputArrayContour :</term>
+      <listitem><para> The input vector of 2D points.</para></listitem></varlistentry>
+   <varlistentry><term>booloriented :</term>
+      <listitem><para> The oriented area flag. If it is true, the function returns a signed area value, depending on the contour orientation (clockwise or counter-clockwise). Using this feature you can determine the orientation of a contour by taking the sign of an area.</para></listitem></varlistentry>
+   <varlistentry><term>out :</term>
+      <listitem><para> The output is the calculated area.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+It computes the contour area. Also, the function will most certainly give a wrong results for contours with self-intersections.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// a simple example
+inputArrayContour = [0 0; 10 0; 10 10; 5 4S];
+booloriented = %t;
+b = contourArea(inputArrayContour, booloriented);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Priyanka Hiranandani, NIT Surat</member>
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>
