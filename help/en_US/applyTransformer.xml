@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from applyTransformer.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="applyTransformer" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>applyTransformer</refname>
+    <refpurpose>This function is used to apply affine or TPS transformation to image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ tImg] =  applyTransformer(srcImg1, srcImg2, typeOfMethod, hessianThreshold, rpTPS, sfAffine)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg1 :</term>
+      <listitem><para> It is the first input image.</para></listitem></varlistentry>
+   <varlistentry><term>srcImg2 :</term>
+      <listitem><para> It is the  second input image, which is also the target image.</para></listitem></varlistentry>
+   <varlistentry><term>typeOfMethod :</term>
+      <listitem><para> It is used as a flag to pick a certain type of transformation. Use value '1' for 'Affine Transformation' and '2' for 'Thin Plate Spline Shape Transformation'. It is of double type.</para></listitem></varlistentry>
+   <varlistentry><term>hessianThreshold :</term>
+      <listitem><para> It is the threshold value for Hessian keypoint detector in SURF(Speeded-Up Robust Features). It is of double type.</para></listitem></varlistentry>
+   <varlistentry><term>rpTPS :</term>
+      <listitem><para> It is used to set the regularization parameter for relaxing the exact interpolation requirements of the TPS algorithm. It is of double type.</para></listitem></varlistentry>
+   <varlistentry><term>sfAffine :</term>
+      <listitem><para> It is used to set the full-affine condition for Affine Transformation. If true, the function finds as optimal transformation with no additional restrictions(6 degrees of freedom). Otherwise, the class of transformations to choose from is limited to combination of translation, rotation &amp; uniform scaling(5 degrees of freedom).</para></listitem></varlistentry>
+   <varlistentry><term>tImg :</term>
+      <listitem><para> The transformed image of the target(srcImg2). It is of hypermat type.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to perform shape transformation, the user gets to choose and apply the type of transformation she/he wishes to perform.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+affine transformation
+a = imread("bryan.jpeg");
+b = imread("p1.jpg");
+typeOfMethod=1
+hessianThreshold=5000;
+rpTPS=25000;
+sfAffine=%f;
+img=applyTransformer(a,b,typeOfMethod,hessianThreshold, rpTPS,
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a= imread("lena.jpeg");
+b= imread("bryan.jpeg");
+typeOfMethod=1
+hessianThreshold=5000;
+rpTPS=2000;
+sfAffine=%t;
+img=applyTransformer(a,b,typeOfMethod,hessianThreshold, rpTPS,sfAffine);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+TPS shape transformation
+a = imread("photo.jpg");
+b= imread("photo1.jpg");
+typeOfMethod=2
+hessianThreshold=5000;
+rpTPS=800;
+sfAffine=%t;
+img=applyTransformer(a,b,typeOfMethod,hessianThreshold, rpTPS,sfAffine);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>

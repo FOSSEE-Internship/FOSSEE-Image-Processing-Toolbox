@@ -1,0 +1,123 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>rgb2lab</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="pcwrite.html">&lt;&lt; pcwrite</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="ssim.html">ssim &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a> &gt; rgb2lab</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">rgb2lab</h1>
+    <p class="refpurpose">This function converts RGB to CIE 1976 L*a*b*.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">output</span><span class="default">] = </span><span class="functionid">rgb2lab</span><span class="default">(</span><span class="default">inputImage</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">inputImage :</span>
+      <dd><p class="para">It is a list of color values to convert.</p></dd></dt>
+   <dt><span class="term">output :</span>
+      <dd><p class="para">The converted color values, returned as a list.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Converts RGB to CIE 1976 L*a*b*.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// to convert the RGB white value to L*a*b.</span>
+<span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">1</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// to convert the RGB white value to L*a*b.</span>
+<span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabopenclose">[</span><span class="scilabnumber">.2</span> <span class="scilabnumber">.3</span> <span class="scilabnumber">.4</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Read RGB image to convert</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">b1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Read RGB image to convert</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">b2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// to convert the RGB white value to L*a*b.</span>
+<span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabopenclose">[</span><span class="scilabnumber">23</span> <span class="scilabnumber">23</span> <span class="scilabnumber">22</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Read RGB image to convert</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// to convert the RGB white value to L*a*b.</span>
+<span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabopenclose">[</span><span class="scilabnumber">34.2</span> <span class="scilabnumber">43.3</span> <span class="scilabnumber">343.4</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Read RGB image to convert</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">graf1.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Read RGB image to convert</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">graf2.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Read RGB image to convert which doesnt exit</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">b.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">rgb2lab</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Sridhar Reddy</li>
+   <li class="member">Ashish Manatosh Barik</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="pcwrite.html">&lt;&lt; pcwrite</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="ssim.html">ssim &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

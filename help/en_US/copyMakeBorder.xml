@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from copyMakeBorder.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="copyMakeBorder" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>copyMakeBorder</refname>
+    <refpurpose>This function forms a border around the input image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [new_image] = copyMakeBorder(image, top, bottom, left, right, borderType, value)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image :</term>
+      <listitem><para> The source image.</para></listitem></varlistentry>
+   <varlistentry><term>top :</term>
+      <listitem><para> No. of pixels in this direction from the source image rectangle to extrapolate.</para></listitem></varlistentry>
+   <varlistentry><term>bottom :</term>
+      <listitem><para> No. of pixels in this direction from the source image rectangle to extrapolate.</para></listitem></varlistentry>
+   <varlistentry><term>left :</term>
+      <listitem><para> No. of pixels in this direction from the source image rectangle to extrapolate.</para></listitem></varlistentry>
+   <varlistentry><term>right :</term>
+      <listitem><para> No. of pixels in this direction from the source image rectangle to extrapolate.</para></listitem></varlistentry>
+   <varlistentry><term>borderType :</term>
+      <listitem><para> Stating the border type.</para></listitem></varlistentry>
+   <varlistentry><term>value :</term>
+      <listitem><para> Border value if borderType==BORDER_CONSTANT.</para></listitem></varlistentry>
+   <varlistentry><term>new_image :</term>
+      <listitem><para> The output image with specified borders.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function forms a border around the input image. The areas to the left, to the right, above and below the copied source image are filled with the extrapolated pixels.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// a simple example
+a = imread("lena.jpeg");
+top=1;
+bottom=1;
+left=1;
+right=1;
+b = copyMakeBorder(a, top, bottom, left, right, "BORDER_CONSTANT", 1);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Manatosh Barik</member>
+   <member>Shubheksha Jalan</member>
+   </simplelist>
+</refsection>
+</refentry>

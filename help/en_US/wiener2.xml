@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from wiener2.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="wiener2" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>wiener2</refname>
+    <refpurpose>This function is used for 2-D adaptive noise-removal filtering.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [outputImg] = wiener2(inputImage,filtsize,sigma)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> The input image, grayscale only.</para></listitem></varlistentry>
+   <varlistentry><term>filtsize :</term>
+      <listitem><para> The filter size.</para></listitem></varlistentry>
+   <varlistentry><term>sigma :</term>
+      <listitem><para> The additive noise (Gaussian white noise) power is assumed to be noise. if sigma = 0 then the variance is estimated from data</para></listitem></varlistentry>
+   <varlistentry><term>outputImg :</term>
+      <listitem><para> The output image, is of the same size and class as the input image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+It lowpass-filters a grayscale image that has been degraded by constant power additive noise.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// a simple example
+a = imread("m1.jpeg");
+filtsize = 5;
+sigma = 0;
+c = ssim(a,b);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Riddhish Bhalodia</member>
+   </simplelist>
+</refsection>
+</refentry>

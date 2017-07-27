@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from histogramCostExtractor.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="histogramCostExtractor" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>histogramCostExtractor</refname>
+    <refpurpose>This function computes the cost matrix.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [ costMatrix ] = histogramCostExtractor(srcImg1, srcImg2, typeOfMethod=3, hessianThreshold); // Norm based cost
+   [ costMatrix ] = histogramcostExtractor(srcImg1, srcImg2, typeOfMethod=1, hessianThreshold, nDummies, defaultCost); // Chi as well as EMDL1 based cost extraction
+   [ costMatrix ] = histogramCostExtractor(srcImg1, srcImg2, typeOfMethod=2, hessianThreshold, nDummies, defaultCost); // EMDL1 based cost extraction
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg1 :</term>
+      <listitem><para> It is the first input image.</para></listitem></varlistentry>
+   <varlistentry><term>srcImg2 :</term>
+      <listitem><para> It is the second input image.</para></listitem></varlistentry>
+   <varlistentry><term>typeOfMethod :</term>
+      <listitem><para> It is used as a flag to pick a certain type of transformation. Use value '1' for 'Chi based cost ectraction', '2' for 'EMDL1 based cost extraction' and '3' for 'Norm based cost extraction'. It is of double type.</para></listitem></varlistentry>
+   <varlistentry><term>hessianThreshold :</term>
+      <listitem><para> It is the threshold value for Hessian keypoint detector in SURF(Speeded-Up Robust Features). It is of double type.</para></listitem></varlistentry>
+   <varlistentry><term>rpTPS :</term>
+      <listitem><para> It is used to set the regularization parameter for relaxing the exact interpolation requirements of the TPS algorithm. It is of double type.</para></listitem></varlistentry>
+   <varlistentry><term>costMatrix :</term>
+      <listitem><para> It is the cost matrix.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to calculate the histogram based cost matrix of two images, the user gets to choose and apply the type of transformation she/he wishes to perform.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Chi based cost extraction
+a= imread("n.jpeg");
+b= imread("n1.jpeg");
+typeOfMethod=1;
+hessianThreshold=5000;
+nDummies=25;
+defaultCost=0.2;
+c=histogramCostExtractor(a,b,typeOfMethod,hessianThreshold,nDummies,defaultCost);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// EMDL1
+a = imread("n.jpeg");
+b = imread("n1.jpeg");
+typeOfMethod=2;
+hessianThreshold=5000;
+nDummies=25;
+defaultCost=0.2;
+c=histogramCostExtractor(a,b,typeOfMethod,hessianThreshold,nDummies,defaultCost);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+Norm based cost extraction
+a = imread("n.jpeg");
+b= imread("n1.jpeg");
+typeOfMethod=3;
+hessianThreshold=5000;
+c=histogramCostExtractor(a,b,typeOfMethod,hessianThreshold);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashish Mantosh Barik, NIT Rouekela</member>
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   </simplelist>
+</refsection>
+</refentry>

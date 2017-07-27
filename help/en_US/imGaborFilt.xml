@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imGaborFilt.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imGaborFilt" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imGaborFilt</refname>
+    <refpurpose>The function applies Gabor filter or set of filters to 2-D image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [new_image] = imGaborFilt(image, wavelength, orientation)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image :</term>
+      <listitem><para> The input grayscale image.</para></listitem></varlistentry>
+   <varlistentry><term>wavelength :</term>
+      <listitem><para> It is the wavelength of the sinusoidal carrier, specified as a numeric scalar in the range [2,Inf), in pixels/cycle.</para></listitem></varlistentry>
+   <varlistentry><term>orientation :</term>
+      <listitem><para> Orientation value of filter in degrees, specified as a numeric scalar in the range [0 360], where the orientation is defined as the normal direction to the sinusoidal plane wave.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+It computes the magnitude and phase response of a Gabor filter for the input grayscale image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// apply Single Gabor Filter to Input Image
+a = imread("lena.jpeg", 0);
+wavelength = 4;
+orientation = 90;
+b = imGaborFilt(a, wavelength, orientation)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Samiran Roy</member>
+   </simplelist>
+</refsection>
+</refentry>

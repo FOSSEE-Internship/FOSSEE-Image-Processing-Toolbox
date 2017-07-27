@@ -1,0 +1,85 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>imGaborFilt</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="histogramCostExtractor.html">&lt;&lt; histogramCostExtractor</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="lab2rgb.html">lab2rgb &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a> &gt; imGaborFilt</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">imGaborFilt</h1>
+    <p class="refpurpose">The function applies Gabor filter or set of filters to 2-D image.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">new_image</span><span class="default">] = </span><span class="functionid">imGaborFilt</span><span class="default">(</span><span class="default">image</span><span class="default">, </span><span class="default">wavelength</span><span class="default">, </span><span class="default">orientation</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">image :</span>
+      <dd><p class="para">The input grayscale image.</p></dd></dt>
+   <dt><span class="term">wavelength :</span>
+      <dd><p class="para">It is the wavelength of the sinusoidal carrier, specified as a numeric scalar in the range [2,Inf), in pixels/cycle.</p></dd></dt>
+   <dt><span class="term">orientation :</span>
+      <dd><p class="para">Orientation value of filter in degrees, specified as a numeric scalar in the range [0 360], where the orientation is defined as the normal direction to the sinusoidal plane wave.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">It computes the magnitude and phase response of a Gabor filter for the input grayscale image.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// apply Single Gabor Filter to Input Image</span>
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span> <span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">wavelength</span> <span class="scilaboperator">=</span> <span class="scilabnumber">4</span><span class="scilabdefault">;</span>
+<span class="scilabid">orientation</span> <span class="scilaboperator">=</span> <span class="scilabnumber">90</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span> <span class="scilaboperator">=</span> <span class="scilabid">imGaborFilt</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span> <span class="scilabid">wavelength</span><span class="scilabdefault">,</span> <span class="scilabid">orientation</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Samiran Roy</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="histogramCostExtractor.html">&lt;&lt; histogramCostExtractor</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_a2c9cca36f8f25d9e603fc42b80e6232.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="lab2rgb.html">lab2rgb &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>
