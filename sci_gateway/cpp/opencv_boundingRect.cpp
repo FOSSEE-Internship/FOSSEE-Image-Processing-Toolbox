@@ -1,7 +1,7 @@
 /********************************************************
-    Author: Sukul Bagai
+    Authors: Sukul Bagai, Ebey Abraham
 *********************************************************
-   rectangle_dimensions_arry(height, width, x, y) = boundingRect ( vector<point> )
+   rectangle_dimensions_arry(width,height, x, y) = boundingRect ( vector<point> )
 ********************************************************/
 
 #include <numeric>
@@ -13,80 +13,77 @@ using namespace cv;
 using namespace std;
 extern "C"
 {
-  #include "api_scilab.h"
-  #include "Scierror.h"
-  #include "BOOL.h"
-  #include <localization.h>
-  #include <sciprint.h>
-  #include "../common.h"
-  
-  int opencv_boundingRect(char *fname, unsigned long fname_len)
-  {
-    SciErr sciErr;
-    int intErr=0;
-    int iRows=0,iCols=0;
-    int *piAddr1 = NULL;
-    int *piAddrNew = NULL;
-    int i,j,k ;
-    double *points;
+	#include "api_scilab.h"
+	#include "Scierror.h"
+	#include "BOOL.h"
+	#include <localization.h>
+	#include <sciprint.h>
+	#include "../common.h"
 
-    //checking input argument
-    CheckInputArgument(pvApiCtx, 1, 1);
-    CheckOutputArgument(pvApiCtx, 1, 1);
-    
-//retreive the points 
-    sciErr = getVarAddressFromPosition(pvApiCtx,1,&piAddr1);
-    if (sciErr.iErr)
-    {
-        printError(&sciErr, 0);
-        return 0;
-    }
-    sciErr = getMatrixOfDouble(pvApiCtx, piAddr1, &iRows, &iCols,&points);
-    if(sciErr.iErr)
-    {
-        printError(&sciErr, 0);
-        return 0;
-    }  
-    
-    vector<Point> actualPoints;
-    for(int i=0;i<iRows;i++)
-    {
-      actualPoints.push_back(Point(*(points + i),*(points + iRows + i)));
-    }
-    
-    Rect returnRect;
-    try
-    {
-    returnRect = boundingRect(actualPoints);
-    }
-    catch(cv::Exception& e)
-    {
-      Scierror(999,e.what());
-        return 0;
+	int opencv_boundingRect(char *fname, unsigned long fname_len)
+	{
+		SciErr sciErr;
+		int intErr=0;
+		int iRows=0,iCols=0;
+		int *piAddr1 = NULL;
+		int *piAddrNew = NULL;
+		int i,j,k ;
+		double *points;
 
+		//checking input argument
+		CheckInputArgument(pvApiCtx, 1, 1);
+		CheckOutputArgument(pvApiCtx, 1, 1);
 
+		try
+		{
+			//retreive the points
+			sciErr = getVarAddressFromPosition(pvApiCtx,1,&piAddr1);
+			if (sciErr.iErr)
+			{
+				printError(&sciErr, 0);
+				return 0;
+			}
+			sciErr = getMatrixOfDouble(pvApiCtx, piAddr1, &iRows, &iCols,&points);
+			if(sciErr.iErr)
+			{
+				printError(&sciErr, 0);
+				return 0;
+			}
 
-    }
-    double arr[4];
-    arr[0]=returnRect.height;
-    arr[1]=returnRect.width;
-    arr[2]=returnRect.x;
-    arr[3]=returnRect.y;
-    
-  sciErr = createMatrixOfDouble(pvApiCtx, nbInputArgument(pvApiCtx) + 1, 1, 4, arr);
-  if(sciErr.iErr)
-  {
-      printError(&sciErr, 0);
-      return 0;
-  }
-  
-    //Assigning the list as the Output Variable
-    AssignOutputVariable(pvApiCtx, 1) = nbInputArgument(pvApiCtx) + 1;
-    //Returning the Output Variables as arguments to the Scilab environment
-    ReturnArguments(pvApiCtx); 
-    return 0;
+			vector<Point> actualPoints;
+			for(int i=0;i<iRows;i++)
+			{
+				actualPoints.push_back(Point(*(points + i),*(points + iRows + i)));
+			}
 
+			//find bounding reactangle
+			Rect returnRect;
+			returnRect = boundingRect(actualPoints);
 
- }
+			//creating output matrix
+			double arr[4];
+			arr[0]=returnRect.width;
+			arr[1]=returnRect.height;
+			arr[2]=returnRect.x;
+			arr[3]=returnRect.y;
 
+			sciErr = createMatrixOfDouble(pvApiCtx, nbInputArgument(pvApiCtx) + 1, 1, 4, arr);
+			if(sciErr.iErr)
+			{
+				printError(&sciErr, 0);
+				return 0;
+			}	
+
+			//Assigning the list as the Output Variable
+			AssignOutputVariable(pvApiCtx, 1) = nbInputArgument(pvApiCtx) + 1;
+			//Returning the Output Variables as arguments to the Scilab environment
+			ReturnArguments(pvApiCtx);
+		}
+		catch(cv::Exception& e)
+		{
+			const char* err=e.what();
+			Scierror(999,"%s",err);
+		}
+		return 0;
+	}
 }
