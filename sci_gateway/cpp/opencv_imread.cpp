@@ -20,7 +20,7 @@ extern "C"
     #include "../common.h"
     #include "../common.cpp"
 
-inline bool file_exists_check(const char *name)
+inline bool file_exists_check(char *name)
     {
         struct stat buffer;   
         return (stat (name, &buffer) == 0); 
@@ -110,7 +110,7 @@ int opencv_imread(char *fname, unsigned long fname_len)
      }
        int d=(int)val;
 
-     if(!file_exists_check(pstData[0]))
+     if(file_exists_check(pstData[0]))
         {
      
             Scierror(999, "Error: the input  image not found!.Please enter correct path!\n");
