@@ -36,7 +36,7 @@ function points4D = triangulatePoints(projMat1, projMat2, points1, points2)
 // Deepshikha
 
 	
-	points4D = raw_triangulatePoints(projMat1, projMat2, points1, points2)
+	points4D = opencv_triangulatePoints(projMat1, projMat2, points1, points2)
 	
 endfunction
 
