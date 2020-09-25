@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from findContours.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="findContours" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>findContours</refname>
+    <refpurpose>Finds contours in an image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputMat = findContours(inputImage, Mode, method, point_x, point_y)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> The input image</para></listitem></varlistentry>
+   <varlistentry><term>Mode :</term>
+      <listitem><para> Contour retrieval mode (Enter 1 for CV_RETR_EXTERNAL, 2 for CV_RETR_LIST, 3 for CV_RETR_CCOMP, 4 for CV_RETR_TREE)</para></listitem></varlistentry>
+   <varlistentry><term>method :</term>
+      <listitem><para> Contour approximation method (Enter 1 for CV_CHAIN_APPROX_NONE, 2 for CV_CHAIN_APPROX_SIMPLE, 3 for CV_CHAIN_APPROX_TC89_L1, 4 for CV_CHAIN_APPROX_TC89_KCOS)</para></listitem></varlistentry>
+   <varlistentry><term>point_x :</term>
+      <listitem><para> x-coordinate for point offset</para></listitem></varlistentry>
+   <varlistentry><term>point_y :</term>
+      <listitem><para> y-coordinate for point offset</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function retrieves contours from the images using the algorithm [Suzuki85]. The contours are a useful tool for shape analysis and object detection and recognition.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("lena.jpeg");
+k = finContours(a,3,2,10,10);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("photo.jpeg");
+k = findContours(a,1,1,40,60);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("photo1.jpg");
+k = findContours(a,2,3,50,50);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Abhilasha Sancheti</member>
+   <member>Shubham Lohakare</member>
+   <member>Sukul Bagai</member>
+   </simplelist>
+</refsection>
+</refentry>

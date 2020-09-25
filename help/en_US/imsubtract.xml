@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imsubtract.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imsubtract" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imsubtract</refname>
+    <refpurpose>Subtract the contents of 2 matrices or images and store it inn another</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputMat = imsubtract(input1, input2)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>input1 :</term>
+      <listitem><para> First input matrix or an image</para></listitem></varlistentry>
+   <varlistentry><term>input2 :</term>
+      <listitem><para> Second input matrix or image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+p=imsubtract(a,b) subtracts each of the element in the first argument's array with the corrresponding element in the second argument's array and the answer is stored in p.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("lena.jpeg");
+k = imsubtract(a,50);
+imshow(k)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("lena.jpeg");
+b = imread("lena1.jpeg"):
+k = imsubtract(a,b);
+imshow(k)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = [19 20 21;23 54 11];
+b = [9 10 11;3 34 -9];
+c = imsubtract(a,b);
+disp(c)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Tess Zacharias</member>
+   <member>Shubham Lohakare</member>
+   </simplelist>
+</refsection>
+</refentry>

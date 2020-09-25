@@ -1,0 +1,100 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>denoiseColor</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="boxfilter.html">&lt;&lt; boxfilter</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="fastNlMeansDenoising.html">fastNlMeansDenoising &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE Image Processing Toolbox</a> &gt;&gt; <a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a> &gt; denoiseColor</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">denoiseColor</h1>
+    <p class="refpurpose">Removes colored noise from the image</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">outputImage</span><span class="default"> = </span><span class="functionid">denoiseColor</span><span class="default">(</span><span class="default">src</span><span class="default">, </span><span class="default">strengthFilter</span><span class="default">,</span><span class="default">strengthFilterColor</span><span class="default">, </span><span class="default">tempWindowSize</span><span class="default">, </span><span class="default">searchWindowSize</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">src :</span>
+      <dd><p class="para">The input image with colored noise.</p></dd></dt>
+   <dt><span class="term">strengthFilter :</span>
+      <dd><p class="para">The noise filter for white gaussian noise.</p></dd></dt>
+   <dt><span class="term">strengthFilterColor :</span>
+      <dd><p class="para">The noise filter for colored noise.</p></dd></dt>
+   <dt><span class="term">tempWindowSize :</span>
+      <dd><p class="para">Size in pixels of the template patch that is used to compute weights. Should be odd.</p></dd></dt>
+   <dt><span class="term">searchWindowSize :</span>
+      <dd><p class="para">Size in pixels of the window that is used to compute weighted average for given pixel. Should be odd.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">The function is used to remove colored noise from an image. It is the modification of fasNlmeansDenoising function
+The output is a denoised image</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">taj.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">strengthFilter</span> <span class="scilaboperator">=</span> <span class="scilabnumber">200</span><span class="scilabdefault">;</span>
+<span class="scilabid">strengthFilterColor</span> <span class="scilaboperator">=</span> <span class="scilabnumber">40</span><span class="scilabdefault">;</span>
+<span class="scilabid">tempWindowSize</span> <span class="scilaboperator">=</span> <span class="scilabnumber">7</span><span class="scilabdefault">;</span>
+<span class="scilabid">searchWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">21</span><span class="scilabdefault">;</span>
+<span class="scilabid">p</span> <span class="scilaboperator">=</span> <span class="scilabid">denoiseColor</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">strengthFilter</span><span class="scilabdefault">,</span><span class="scilabid">strengthFilterColor</span><span class="scilabdefault">,</span><span class="scilabid">tempWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">searchWindowSize</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">cnoise1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">strengthFilter</span> <span class="scilaboperator">=</span> <span class="scilabnumber">20</span><span class="scilabdefault">;</span>
+<span class="scilabid">strengthFilterColor</span> <span class="scilaboperator">=</span> <span class="scilabnumber">100</span><span class="scilabdefault">;</span>
+<span class="scilabid">tempWindowSize</span> <span class="scilaboperator">=</span> <span class="scilabnumber">7</span><span class="scilabdefault">;</span>
+<span class="scilabid">searchWindowSize</span> <span class="scilaboperator">=</span><span class="scilabnumber">21</span><span class="scilabdefault">;</span>
+<span class="scilabid">p</span> <span class="scilaboperator">=</span> <span class="scilabid">denoiseColor</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabid">strengthFilter</span><span class="scilabdefault">,</span><span class="scilabid">strengthFilterColor</span><span class="scilabdefault">,</span><span class="scilabid">tempWindowSize</span><span class="scilabdefault">,</span><span class="scilabid">searchWindowSize</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Shubham Lohakare, NITK Surathkal</li>
+   <li class="member">Ashish Mantosh Barik, NIT Rourkela</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="boxfilter.html">&lt;&lt; boxfilter</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_5a8f2da3098700efd5bbd5c82012a857.html">FOSSEE Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="fastNlMeansDenoising.html">fastNlMeansDenoising &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

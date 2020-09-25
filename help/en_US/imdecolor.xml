@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imdecolor.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imdecolor" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imdecolor</refname>
+    <refpurpose>Decolors and color boosts an image giving 2 outputs for the same respectively.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [outImg1, outImg2] = imdecolor(srcImg1)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg1 :</term>
+      <listitem><para> It is a 3-channel input image.</para></listitem></varlistentry>
+   <varlistentry><term>outImg1 :</term>
+      <listitem><para> It is a grayscale image of the image passed as input.</para></listitem></varlistentry>
+   <varlistentry><term>outImg2 :</term>
+      <listitem><para> It is a color boosted image of the image passed as input.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to decolor an image and also add a boost to it's color
+The output are 2 images, one is a grayscale and the other is a color boosted image
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+var=imread("ImageName");
+[decoloredImage,colorBoostedImage] = imdecolor(var);
+PRESS ENTER
+imshow(decoloredImage); shows the decolored Image
+imshow(colorBoostedImage); shows the color boosted image
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("images.jpeg");
+[b, c] = imdecolor(a);
+PRESS ENTER
+imshow(b); shows the decolored Image
+imshow(c); shows the color boosted image
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   <member>Ashish Mantosh, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>

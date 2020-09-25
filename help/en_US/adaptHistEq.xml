@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from adaptHistEq.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="adaptHistEq" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>adaptHistEq</refname>
+    <refpurpose>Performs Contrast Limited Adaptive Histogram Equalisation</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputImage = adaptHistEq(inputImage)
+   outputImage = adaptHistEq(inputImage, clip_limit)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>inputImage :</term>
+      <listitem><para> The input image on which histogram equalisation is to be implemented</para></listitem></varlistentry>
+   <varlistentry><term>clip_limit :</term>
+      <listitem><para> The target hgram bins.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+As an alternative to using histeq, you can perform contrast-limited adaptive histogram equalization (CLAHE) using the adapthisteq function. While histeq works on the entire image, adapthisteq operates on small regions in the image, called tiles. Each tile's contrast is enhanced, so that the histogram of the output region approximately matches a specified histogram. After performing the equalization, adapthisteq combines neighboring tiles using bilinear interpolation to eliminate artificially induced boundaries.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a=imread("lena.jpeg");
+k=adaptHistEq(a);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a=imread("photo.jpg");
+k=adaptHistEq(a,64);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   <member>Yash Balghat</member>
+   </simplelist>
+</refsection>
+</refentry>

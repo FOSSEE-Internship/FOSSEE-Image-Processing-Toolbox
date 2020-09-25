@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from integralImage.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="integralImage" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>integralImage</refname>
+    <refpurpose>The function calculates the integral of the source image passed.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [outputImage,squaredImage,rotatedImage] = integralImage(srcImg)
+   [outputImage,squaredImage,rotatedImage] = integralImage(srcImg,method)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcImg :</term>
+      <listitem><para> The input image</para></listitem></varlistentry>
+   <varlistentry><term>method :</term>
+      <listitem><para> The type of output frame in which the image is to be returned. 'upright' gives the original output whereas 'rotated' gives the output rotated by 45 degrees.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function can be used to calculate integral images for the provided input image. These integrals can be used to calculate the sum or mean or even standard deviation. It makes it feasible to apply fast blurring or fast block co-relation.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("lena.jpeg");
+[p, q, r] = integralImage(a);
+imshow(p);
+imshow(q);
+imshow(r);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("lena1.jpeg");
+[p, q, r] = integralImage(a);
+imshow(p);
+imshow(q);
+imshow(r);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Samiran Roy</member>
+   <member>Shubham Lohakare</member>
+   </simplelist>
+</refsection>
+</refentry>

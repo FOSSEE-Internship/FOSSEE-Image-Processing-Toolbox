@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from boxfilter.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="boxfilter" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>boxfilter</refname>
+    <refpurpose>Blurs an image using the box filter.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputImage = boxfilter(InputArraysrc, intddepth,size1x,size1y,pointx,pointy, bool_normalize)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>InputArraysrc :</term>
+      <listitem><para> Input image to be blurred</para></listitem></varlistentry>
+   <varlistentry><term>intddepth :</term>
+      <listitem><para> The output image depth (-1 to use src.depth())</para></listitem></varlistentry>
+   <varlistentry><term>size1x :</term>
+      <listitem><para> Width for the blurring kernel size</para></listitem></varlistentry>
+   <varlistentry><term>size1y :</term>
+      <listitem><para> Height for the blurring kernel size</para></listitem></varlistentry>
+   <varlistentry><term>pointx :</term>
+      <listitem><para> x-coordinate for anchor point (Default value -1)</para></listitem></varlistentry>
+   <varlistentry><term>pointy :</term>
+      <listitem><para> y-coordinate for anchor point (Default value -1)</para></listitem></varlistentry>
+   <varlistentry><term>bool_normalize :</term>
+      <listitem><para> flag, specifying whether the kernel is normalized by its area or not</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Unnormalized box filter is useful for computing various integral characteristics over each pixel neighborhood, such as covariance matrices of image derivatives (used in dense optical flow algorithms, and so on).
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("lena.jpeg");
+k=boxfilter(a,-1,40,80,-1,-1,"False");
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("photo.jpg");
+k=boxfilter(a,-1,8,8,-1,-1,"True");
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   <member>Priyanka Hiranandani, NIT Surat</member>
+   </simplelist>
+</refsection>
+</refentry>

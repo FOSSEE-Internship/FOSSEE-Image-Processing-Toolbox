@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from fastNlMeansDenoising.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="fastNlMeansDenoising" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>fastNlMeansDenoising</refname>
+    <refpurpose>Removes gaussian white noise from images</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   outputImage=fastNlMeansDenoising(src, strengthFilter, tempWindowSize, searchWindowSize, choice)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>src :</term>
+      <listitem><para> Input 8-bit 1-channel, 2-channel, 3-channel or 4-channel image.</para></listitem></varlistentry>
+   <varlistentry><term>strengthFilter :</term>
+      <listitem><para> Parameter regulating filter strength.</para></listitem></varlistentry>
+   <varlistentry><term>templateWindowSize :</term>
+      <listitem><para> Size in pixels of the template patch that is used to compute weights. Should be odd.</para></listitem></varlistentry>
+   <varlistentry><term>searchWindowSize :</term>
+      <listitem><para> Size in pixels of the window that is used to compute weighted average for given pixel. Should be odd.</para></listitem></varlistentry>
+   <varlistentry><term>choice :</term>
+      <listitem><para> Chooses the method</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Perform image denoising using Non-local Means Denoising algorithm with several computational optimizations. Noise expected to be a gaussian white noise.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("man.jpg");
+strengthFilter = 30;
+tempWindowSize = 7;
+searchWindowSize = 40;
+choice=2;
+k = fastNlMeansDenoising(a, strengthFilter, tempWindowSize, searchWindowSize,choice);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+a = imread("noise.jpg");
+strengthFilter = 100;
+tempWindowSize = 7;
+searchWindowSize = 50;
+choice = 3;
+k = fastNlMeansDenoising(a, strengthFilter, tempWindowSize, searchWindowSize,choice);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Shubham Lohakare, NITK Surathkal</member>
+   <member>Ashish Mantosh, NIT Rourkela</member>
+   </simplelist>
+</refsection>
+</refentry>
